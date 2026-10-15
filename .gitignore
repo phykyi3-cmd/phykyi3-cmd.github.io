@@ -1,0 +1,19 @@
+# Ignore all by default
+*
+
+# Whitelist Font Studio essentials
+!index.html
+!manifest.json
+!sw.js
+!favicon.ico
+!icons/
+!icons/**
+!fonts/
+!fonts/**
+!Art_House_W01_to_W70_Fonts.zip
+!zeemotion_logo.png
+!build_hub.py
+!README.md
+!.github/
+!.github/**
+!.gitignore

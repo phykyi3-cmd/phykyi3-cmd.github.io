@@ -1,0 +1,30 @@
+{
+  "name": "Zee Motion Font Studio",
+  "short_name": "Zee Motion",
+  "description": "မြန်မာဖောင့် ၁၇၀+ စုစည်းမှုနှင့် မူရင်းစတိုင် တိုက်ရိုက်စမ်းသပ်ဒေါင်းလုဒ်ဆွဲနိုင်သော Official Font App",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#070a13",
+  "theme_color": "#0b0f19",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["utilities", "design", "productivity"]
+}
