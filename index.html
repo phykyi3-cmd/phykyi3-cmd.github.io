@@ -130,6 +130,86 @@
 
         /* ================= AUTHENTIC FONT-FACE DEFINITIONS FOR ALL 172 FONTS ================= */
         @font-face {
+    font-family: 'font-free-art-sm01-watokelay';
+    src: local('SM01_WaTokeLay'), url('./fonts/SM01_WaTokeLay-Regular.ttf') format('truetype');
+    font-display: swap;
+}
+.font-preview-free-art-sm01-watokelay {
+    font-family: 'font-free-art-sm01-watokelay', 'SM01_WaTokeLay', 'Noto Sans Myanmar', sans-serif !important;
+}
+@font-face {
+    font-family: 'font-free-art-sm02-kanbaung';
+    src: local('SM02_KanBaung'), url('./fonts/SM02_KanBaung-Regular.ttf') format('truetype');
+    font-display: swap;
+}
+.font-preview-free-art-sm02-kanbaung {
+    font-family: 'font-free-art-sm02-kanbaung', 'SM02_KanBaung', 'Noto Sans Myanmar', sans-serif !important;
+}
+@font-face {
+    font-family: 'font-free-art-sm04-moon-bold';
+    src: local('SM04_Moon-Bold'), local('SM04_Moon Bold'), local('SM04_Moon'), url('./fonts/SM04_Moon-Bold.ttf') format('truetype');
+    font-display: swap;
+}
+.font-preview-free-art-sm04-moon-bold {
+    font-family: 'font-free-art-sm04-moon-bold', 'SM04_Moon', 'Noto Sans Myanmar', sans-serif !important;
+}
+@font-face {
+    font-family: 'font-free-art-sm04-moon-italic';
+    src: local('SM04Moon-Italic'), local('SM04_Moon Italic'), local('SM04_Moon'), url('./fonts/SM04Moon-Italic.ttf') format('truetype');
+    font-display: swap;
+}
+.font-preview-free-art-sm04-moon-italic {
+    font-family: 'font-free-art-sm04-moon-italic', 'SM04_Moon', 'Noto Sans Myanmar', sans-serif !important;
+}
+@font-face {
+    font-family: 'font-free-art-sm06-laikpyar';
+    src: local('SM06LaikPyar-Bold'), local('SM06_LaikPyar Bold'), local('SM06_LaikPyar'), url('./fonts/SM06_LaikPyar-Bold.ttf') format('truetype');
+    font-display: swap;
+}
+.font-preview-free-art-sm06-laikpyar {
+    font-family: 'font-free-art-sm06-laikpyar', 'SM06_LaikPyar', 'Noto Sans Myanmar', sans-serif !important;
+}
+@font-face {
+    font-family: 'font-free-art-sm09-beezee';
+    src: local('SM09_BeeZee'), url('./fonts/SM09_BeeZee-Regular.otf') format('truetype');
+    font-display: swap;
+}
+.font-preview-free-art-sm09-beezee {
+    font-family: 'font-free-art-sm09-beezee', 'SM09_BeeZee', 'Noto Sans Myanmar', sans-serif !important;
+}
+@font-face {
+    font-family: 'font-free-art-burma-025-bold';
+    src: local('Burma025-Bold'), local('Burma- 025 Bold'), url('./fonts/Burma025-Bold.ttf') format('truetype');
+    font-display: swap;
+}
+.font-preview-free-art-burma-025-bold {
+    font-family: 'font-free-art-burma-025-bold', 'Burma- 025 Bold', 'Noto Sans Myanmar', sans-serif !important;
+}
+@font-face {
+    font-family: 'font-free-art-burma-art-006';
+    src: local('BurmaArt006Uni'), local('BurmaArt 006 Uni'), url('./fonts/BurmaArt006Uni.ttf') format('truetype');
+    font-display: swap;
+}
+.font-preview-free-art-burma-art-006 {
+    font-family: 'font-free-art-burma-art-006', 'BurmaArt 006 Uni', 'Noto Sans Myanmar', sans-serif !important;
+}
+@font-face {
+    font-family: 'font-free-art-aj-kunheing-20';
+    src: local('AJkunheing20'), local('A Jkunheing20'), url('./fonts/AJkunheing20-Regular.ttf') format('truetype');
+    font-display: swap;
+}
+.font-preview-free-art-aj-kunheing-20 {
+    font-family: 'font-free-art-aj-kunheing-20', 'A Jkunheing20', 'Noto Sans Myanmar', sans-serif !important;
+}
+@font-face {
+    font-family: 'font-free-art-burmese-handwriting-classic';
+    src: local('BurmeseHandwriting01Sty01R-Rg'), local('Burmese Handwriting 01_Sty 01_R'), url('./fonts/Burmese Handwriting.ttf') format('truetype');
+    font-display: swap;
+}
+.font-preview-free-art-burmese-handwriting-classic {
+    font-family: 'font-free-art-burmese-handwriting-classic', 'Burmese Handwriting 01_Sty 01_R', 'Noto Sans Myanmar', sans-serif !important;
+}
+@font-face {
     font-family: 'font-arthouse-w01';
     src: local('W01ArtHouseWin'), local('W01Art House   Win'), local('W01Art House'), url('./fonts/W01Art House.TTF') format('truetype');
     font-display: swap;
@@ -1554,6 +1634,9 @@
                 <a href="#studioSection" class="px-4 py-1.5 rounded-full hover:text-slate-950 hover:bg-white transition shadow-sm whitespace-nowrap">
                     🏠 ဖောင့်စတူဒီယို
                 </a>
+                <button onclick="setCategory('free-art')" class="px-4 py-1.5 rounded-full bg-purple-100/80 text-purple-700 hover:bg-purple-200/80 transition whitespace-nowrap flex items-center gap-1">
+                    <span>✨</span> Free Art စာလုံးအလှ
+                </button>
                 <button onclick="setCategory('arthouse')" class="px-4 py-1.5 rounded-full hover:text-slate-950 hover:bg-white transition whitespace-nowrap">
                     🎨 Art House W01–W70
                 </button>
@@ -1946,7 +2029,10 @@
                 <!-- Category Tabs (Horizontally Scrollable) -->
                 <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar pt-2 border-t border-slate-100">
                     <button onclick="setCategory('all')" data-cat="all" class="cat-tab active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition bg-slate-900 text-white shadow-md">
-                        အားလုံး (<span id="catCount-all">172</span>)
+                        အားလုံး (<span id="catCount-all">182</span>)
+                    </button>
+                    <button onclick="setCategory('free-art')" data-cat="free-art" class="cat-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold whitespace-nowrap transition bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 text-white shadow-md shadow-purple-500/20 flex items-center gap-1.5 border border-purple-300">
+                        <span>✨</span> Free Art စာလုံးအလှ (<span id="catCount-free-art">0</span>)
                     </button>
                     <button onclick="setCategory('arthouse')" data-cat="arthouse" class="cat-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-50">
                         🎨 Art House Series W01–W70 (<span id="catCount-arthouse">0</span>)
@@ -2354,6 +2440,299 @@
     <!-- Global Application Logic & Font Catalog -->
     <script>
         const MYANMAR_FONTS = [
+  {
+    "id": "free-art-sm01-watokelay",
+    "name": "SM01 WaTokeLay",
+    "mmName": "ဝတုတ်လေး ကာတွန်းဖောင့်",
+    "category": "free-art",
+    "categoryLabel": "✨ Free Art Series",
+    "designer": "SM Type / NetPanChi",
+    "version": "1.0",
+    "license": "Free Creative Use",
+    "popular": 99,
+    "isWin": false,
+    "file": "SM01_WaTokeLay-Regular.ttf",
+    "description": "ချစ်စရာကောင်းသော ဝတုတ်လေး ကာတွန်းစာလုံးအလှဖောင့်။ YouTube Thumbnail၊ ကာတွန်းနှင့် ခေါင်းစဉ်များအတွက် အထူးသင့်လျော်သည်။",
+    "sampleWin": "",
+    "tags": [
+      "sm01",
+      "watoke",
+      "watokelay",
+      "cartoon",
+      "art",
+      "freeart",
+      "cute"
+    ],
+    "fileName": "SM01_WaTokeLay-Regular.ttf",
+    "size": "103 KB",
+    "ps": "SM01_WaTokeLay",
+    "full": "SM01_WaTokeLay",
+    "family": "SM01_WaTokeLay",
+    "directUrl": "./fonts/SM01_WaTokeLay-Regular.ttf",
+    "defaultSample": "သီဟိုဠ်မှ ဉာဏ်ကြီးရှင်သည် အာယုဝဍ္ဎနဆေးညွှန်းစာကို ဇလွန်ဈေးဘေး ဗာဒံပင်ထက် အဓိဋ္ဌာန်လျက် ဂဃနဏဖတ်ခဲ့သည်။"
+  },
+  {
+    "id": "free-art-sm02-kanbaung",
+    "name": "SM02 KanBaung",
+    "mmName": "ကန်ပေါင် စာလုံးအလှဖောင့်",
+    "category": "free-art",
+    "categoryLabel": "✨ Free Art Series",
+    "designer": "SM Type / NetPanChi",
+    "version": "1.0",
+    "license": "Free Creative Use",
+    "popular": 98,
+    "isWin": false,
+    "file": "SM02_KanBaung-Regular.ttf",
+    "description": "ကန်ပေါင်စတိုင် ထူးခြားဆန်းသစ်သော ခေတ်ပေါ် မြန်မာစာလုံးအလှဖောင့်။ Poster နှင့် Banner ဒီဇိုင်းများတွင် လူကြိုက်များသည်။",
+    "sampleWin": "",
+    "tags": [
+      "sm02",
+      "kanbaung",
+      "art",
+      "freeart",
+      "poster"
+    ],
+    "fileName": "SM02_KanBaung-Regular.ttf",
+    "size": "47 KB",
+    "ps": "SM02_KanBaung",
+    "full": "SM02_KanBaung",
+    "family": "SM02_KanBaung",
+    "directUrl": "./fonts/SM02_KanBaung-Regular.ttf",
+    "defaultSample": "သီဟိုဠ်မှ ဉာဏ်ကြီးရှင်သည် အာယုဝဍ္ဎနဆေးညွှန်းစာကို ဇလွန်ဈေးဘေး ဗာဒံပင်ထက် အဓိဋ္ဌာန်လျက် ဂဃနဏဖတ်ခဲ့သည်။"
+  },
+  {
+    "id": "free-art-sm04-moon-bold",
+    "name": "SM04 Moon Bold",
+    "mmName": "မွန်းဖောင့် (Bold စာလုံးထူ)",
+    "category": "free-art",
+    "categoryLabel": "✨ Free Art Series",
+    "designer": "SM Type / NetPanChi",
+    "version": "1.0",
+    "license": "Free Creative Use",
+    "popular": 97,
+    "isWin": false,
+    "file": "SM04_Moon-Bold.ttf",
+    "description": "ခေတ်မီဆန်းသစ်သော လမင်းစတိုင် Moon Bold စာလုံးအလှဖောင့်။ Title နှင့် စာတန်းထိုးများအတွက် အထူးကောင်းမွန်သည်။",
+    "sampleWin": "",
+    "tags": [
+      "sm04",
+      "moon",
+      "bold",
+      "art",
+      "freeart",
+      "title"
+    ],
+    "fileName": "SM04_Moon-Bold.ttf",
+    "size": "91 KB",
+    "ps": "SM04_Moon-Bold",
+    "full": "SM04_Moon Bold",
+    "family": "SM04_Moon",
+    "directUrl": "./fonts/SM04_Moon-Bold.ttf",
+    "defaultSample": "သီဟိုဠ်မှ ဉာဏ်ကြီးရှင်သည် အာယုဝဍ္ဎနဆေးညွှန်းစာကို ဇလွန်ဈေးဘေး ဗာဒံပင်ထက် အဓိဋ္ဌာန်လျက် ဂဃနဏဖတ်ခဲ့သည်။"
+  },
+  {
+    "id": "free-art-sm04-moon-italic",
+    "name": "SM04 Moon Italic",
+    "mmName": "မွန်းဖောင့် (Italic စာလုံးစောင်း)",
+    "category": "free-art",
+    "categoryLabel": "✨ Free Art Series",
+    "designer": "SM Type / NetPanChi",
+    "version": "1.0",
+    "license": "Free Creative Use",
+    "popular": 95,
+    "isWin": false,
+    "file": "SM04Moon-Italic.ttf",
+    "description": "သွက်လက်ပေါ့ပါးသော Moon စာလုံးစောင်းအလှဖောင့်။ Motion Graphics နှင့် Video Title များတွင် အသုံးများသည်။",
+    "sampleWin": "",
+    "tags": [
+      "sm04",
+      "moon",
+      "italic",
+      "art",
+      "freeart"
+    ],
+    "fileName": "SM04Moon-Italic.ttf",
+    "size": "183 KB",
+    "ps": "SM04Moon-Italic",
+    "full": "SM04_Moon Italic",
+    "family": "SM04_Moon",
+    "directUrl": "./fonts/SM04Moon-Italic.ttf",
+    "defaultSample": "သီဟိုဠ်မှ ဉာဏ်ကြီးရှင်သည် အာယုဝဍ္ဎနဆေးညွှန်းစာကို ဇလွန်ဈေးဘေး ဗာဒံပင်ထက် အဓိဋ္ဌာန်လျက် ဂဃနဏဖတ်ခဲ့သည်။"
+  },
+  {
+    "id": "free-art-sm06-laikpyar",
+    "name": "SM06 LaikPyar Bold",
+    "mmName": "လိပ်ပြာဖောင့် (Bold စာလုံးအလှ)",
+    "category": "free-art",
+    "categoryLabel": "✨ Free Art Series",
+    "designer": "SM Type / NetPanChi",
+    "version": "1.0",
+    "license": "Free Creative Use",
+    "popular": 96,
+    "isWin": false,
+    "file": "SM06_LaikPyar-Bold.ttf",
+    "description": "လိပ်ပြာအတောင်ပံကဲ့သို့ အနုပညာဆန်ဆန် ဖန်တီးထားသော အလှဖောင့်။ စာအုပ်မျက်နှာဖုံးနှင့် ပိုစတာများအတွက် အလွန်လှပသည်။",
+    "sampleWin": "",
+    "tags": [
+      "sm06",
+      "laikpyar",
+      "butterfly",
+      "art",
+      "freeart"
+    ],
+    "fileName": "SM06_LaikPyar-Bold.ttf",
+    "size": "105 KB",
+    "ps": "SM06LaikPyar-Bold",
+    "full": "SM06_LaikPyar Bold",
+    "family": "SM06_LaikPyar",
+    "directUrl": "./fonts/SM06_LaikPyar-Bold.ttf",
+    "defaultSample": "သီဟိုဠ်မှ ဉာဏ်ကြီးရှင်သည် အာယုဝဍ္ဎနဆေးညွှန်းစာကို ဇလွန်ဈေးဘေး ဗာဒံပင်ထက် အဓိဋ္ဌာန်လျက် ဂဃနဏဖတ်ခဲ့သည်။"
+  },
+  {
+    "id": "free-art-sm09-beezee",
+    "name": "SM09 BeeZee Regular",
+    "mmName": "ဘီးဇီး ဖောင့် (Creative Art)",
+    "category": "free-art",
+    "categoryLabel": "✨ Free Art Series",
+    "designer": "SM Type / NetPanChi",
+    "version": "1.0",
+    "license": "Free Creative Use",
+    "popular": 94,
+    "isWin": false,
+    "file": "SM09_BeeZee-Regular.otf",
+    "description": "တမူထူးခြားသော ဘီးဇီး စတိုင်လ်လက်ရာ။ Brand Logo နှင့် အနုပညာစာတန်းများ ဖန်တီးရန် သင့်လျော်သည်။",
+    "sampleWin": "",
+    "tags": [
+      "sm09",
+      "beezee",
+      "art",
+      "freeart"
+    ],
+    "fileName": "SM09_BeeZee-Regular.otf",
+    "size": "144 KB",
+    "ps": "SM09_BeeZee",
+    "full": "SM09_BeeZee",
+    "family": "SM09_BeeZee",
+    "directUrl": "./fonts/SM09_BeeZee-Regular.otf",
+    "defaultSample": "သီဟိုဠ်မှ ဉာဏ်ကြီးရှင်သည် အာယုဝဍ္ဎနဆေးညွှန်းစာကို ဇလွန်ဈေးဘေး ဗာဒံပင်ထက် အဓိဋ္ဌာန်လျက် ဂဃနဏဖတ်ခဲ့သည်။"
+  },
+  {
+    "id": "free-art-burma-025-bold",
+    "name": "Burma 025 Bold",
+    "mmName": "ဘားမား ၀၂၅ (Heavy Bold Display)",
+    "category": "free-art",
+    "categoryLabel": "✨ Free Art Series",
+    "designer": "Burma Font Studio",
+    "version": "1.0",
+    "license": "Free Design Use",
+    "popular": 99,
+    "isWin": false,
+    "file": "Burma025-Bold.ttf",
+    "description": "အလွန်ခိုင်မာထင်ရှားသော Heavy Bold Title ဖောင့်။ ပိုစတာခေါင်းစဉ်နှင့် YouTube Thumbnail များတွင် နံပါတ် ၁ လူသုံးအများဆုံး။",
+    "sampleWin": "",
+    "tags": [
+      "burma025",
+      "burma",
+      "bold",
+      "heavy",
+      "art",
+      "freeart",
+      "title"
+    ],
+    "fileName": "Burma025-Bold.ttf",
+    "size": "53 KB",
+    "ps": "Burma025-Bold",
+    "full": "Burma- 025 Bold",
+    "family": "Burma- 025 Bold",
+    "directUrl": "./fonts/Burma025-Bold.ttf",
+    "defaultSample": "သီဟိုဠ်မှ ဉာဏ်ကြီးရှင်သည် အာယုဝဍ္ဎနဆေးညွှန်းစာကို ဇလွန်ဈေးဘေး ဗာဒံပင်ထက် အဓိဋ္ဌာန်လျက် ဂဃနဏဖတ်ခဲ့သည်။"
+  },
+  {
+    "id": "free-art-burma-art-006",
+    "name": "BurmaArt 006 Uni",
+    "mmName": "ဘားမားအာ့ထ် ၀၀၆ ယူနီကုဒ်",
+    "category": "free-art",
+    "categoryLabel": "✨ Free Art Series",
+    "designer": "BurmaArt Design Studio",
+    "version": "1.0",
+    "license": "Free Official Release",
+    "popular": 98,
+    "isWin": false,
+    "file": "BurmaArt006Uni.ttf",
+    "description": "BurmaArt Design Studio မှ တရားဝင် Free ပေးထားသော ခေတ်မီ Creative Art Display ဖောင့်။",
+    "sampleWin": "",
+    "tags": [
+      "burmaart006",
+      "burmaart",
+      "art",
+      "freeart",
+      "creative"
+    ],
+    "fileName": "BurmaArt006Uni.ttf",
+    "size": "61 KB",
+    "ps": "BurmaArt006Uni",
+    "full": "BurmaArt 006 Uni",
+    "family": "BurmaArt 006 Uni",
+    "directUrl": "./fonts/BurmaArt006Uni.ttf",
+    "defaultSample": "သီဟိုဠ်မှ ဉာဏ်ကြီးရှင်သည် အာယုဝဍ္ဎနဆေးညွှန်းစာကို ဇလွန်ဈေးဘေး ဗာဒံပင်ထက် အဓိဋ္ဌာန်လျက် ဂဃနဏဖတ်ခဲ့သည်။"
+  },
+  {
+    "id": "free-art-aj-kunheing-20",
+    "name": "AJ Kunheing 20",
+    "mmName": "အေဂျေ ကွန်ဟိန်း ၂၀ အလှဖောင့်",
+    "category": "free-art",
+    "categoryLabel": "✨ Free Art Series",
+    "designer": "Jao Kunheing (Nawone Sai)",
+    "version": "1.0",
+    "license": "Freeware",
+    "popular": 93,
+    "isWin": false,
+    "file": "AJkunheing20-Regular.ttf",
+    "description": "ရှမ်းနှင့် မြန်မာစာလုံးအလှ ရောယှက်ဖန်တီးထားသော ကွန်ဟိန်း အနုပညာဖောင့်။",
+    "sampleWin": "",
+    "tags": [
+      "kunheing",
+      "shan",
+      "art",
+      "freeart"
+    ],
+    "fileName": "AJkunheing20-Regular.ttf",
+    "size": "77 KB",
+    "ps": "AJkunheing20",
+    "full": "A Jkunheing20",
+    "family": "A Jkunheing20",
+    "directUrl": "./fonts/AJkunheing20-Regular.ttf",
+    "defaultSample": "သီဟိုဠ်မှ ဉာဏ်ကြီးရှင်သည် အာယုဝဍ္ဎနဆေးညွှန်းစာကို ဇလွန်ဈေးဘေး ဗာဒံပင်ထက် အဓိဋ္ဌာန်လျက် ဂဃနဏဖတ်ခဲ့သည်။"
+  },
+  {
+    "id": "free-art-burmese-handwriting-classic",
+    "name": "Burmese Handwriting Classic",
+    "mmName": "မြန်မာ အလှလက်ရေးဖောင့် (Classic)",
+    "category": "free-art",
+    "categoryLabel": "✨ Free Art Series",
+    "designer": "NetPanChi / OneType",
+    "version": "1.0",
+    "license": "Freeware",
+    "popular": 96,
+    "isWin": false,
+    "file": "Burmese Handwriting.ttf",
+    "description": "သဘာဝကျကျ ရေးဆွဲထားသော ဂန္တဝင် မြန်မာလက်ရေးလှဖောင့်။ ကဗျာ၊ ဝတ္ထုနှင့် စာတိုများတွင် အထူးသင့်လျော်သည်။",
+    "sampleWin": "",
+    "tags": [
+      "handwriting",
+      "burmese",
+      "art",
+      "freeart",
+      "letter"
+    ],
+    "fileName": "Burmese Handwriting.ttf",
+    "size": "283 KB",
+    "ps": "BurmeseHandwriting01Sty01R-Rg",
+    "full": "Burmese Handwriting 01_Sty 01_R",
+    "family": "Burmese Handwriting 01_Sty 01_R",
+    "directUrl": "./fonts/Burmese Handwriting.ttf",
+    "defaultSample": "သီဟိုဠ်မှ ဉာဏ်ကြီးရှင်သည် အာယုဝဍ္ဎနဆေးညွှန်းစာကို ဇလွန်ဈေးဘေး ဗာဒံပင်ထက် အဓိဋ္ဌာန်လျက် ဂဃနဏဖတ်ခဲ့သည်။"
+  },
   {
     "id": "arthouse-w01",
     "name": "W01 Art House",
@@ -4584,6 +4963,7 @@
     "githubRel": "lecramyajiv/fonts-myanmar-extra/master/TTF/MasterpieceYayChanZin.ttf",
     "description": "မြန်မာ့ရေချမ်းစင် ရိုးရာအငွေ့အသက်နှင့် မာစတာပိစ်ဒီဇိုင်း ပေါင်းစပ်ဖန်တီးထားသော ဖောင့်။",
     "tags": [
+      "freeart",
       "masterpiece",
       "yaychanzin",
       "traditional"
@@ -7515,11 +7895,14 @@
             if (catAllEl) catAllEl.textContent = totalCount;
 
             const counts = {
-                'arthouse': 0, 'masterpiece': 0, 'handwriting': 0,
+                'free-art': 0, 'arthouse': 0, 'masterpiece': 0, 'handwriting': 0,
                 'uni-myanmar': 0, 'unicode': 0, 'win': 0, 'zawgyi': 0
             };
             MYANMAR_FONTS.forEach(f => {
                 if (counts[f.category] !== undefined) counts[f.category]++;
+                if (f.category !== 'free-art' && f.tags && f.tags.includes('freeart')) {
+                    counts['free-art']++;
+                }
             });
             for (const cat in counts) {
                 const el = document.getElementById('catCount-' + cat);
@@ -7564,10 +7947,19 @@
             }
             activeCategory = cat;
             document.querySelectorAll('.cat-tab').forEach(tab => {
-                if (tab.dataset.cat === cat) {
-                    tab.className = 'cat-tab active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition bg-slate-900 text-white shadow-md';
+                const isThis = tab.dataset.cat === cat;
+                if (tab.dataset.cat === 'free-art') {
+                    if (isThis) {
+                        tab.className = 'cat-tab active px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold whitespace-nowrap transition bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 text-white shadow-lg shadow-purple-500/30 flex items-center gap-1.5 border border-purple-300 ring-2 ring-purple-300';
+                    } else {
+                        tab.className = 'cat-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition bg-purple-50 text-purple-700 hover:bg-purple-100 flex items-center gap-1.5 border border-purple-200';
+                    }
                 } else {
-                    tab.className = 'cat-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-50';
+                    if (isThis) {
+                        tab.className = 'cat-tab active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition bg-slate-900 text-white shadow-md';
+                    } else {
+                        tab.className = 'cat-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-50';
+                    }
                 }
             });
             renderFonts();
@@ -7721,6 +8113,7 @@
 
         function getCategoryBadgeStyle(cat) {
             switch (cat) {
+                case 'free-art': return 'bg-gradient-to-r from-purple-100 to-pink-100 text-purple-800 border-purple-300 font-extrabold';
                 case 'arthouse': return 'bg-purple-50 text-purple-700 border-purple-200/80';
                 case 'masterpiece': return 'bg-indigo-50 text-indigo-700 border-indigo-200/80';
                 case 'handwriting': return 'bg-rose-50 text-rose-700 border-rose-200/80';
@@ -7739,7 +8132,9 @@
             const sortBy = document.getElementById('sortSelect').value;
 
             let filtered = MYANMAR_FONTS.filter(f => {
-                const matchesCat = activeCategory === 'all' || f.category === activeCategory;
+                const matchesCat = activeCategory === 'all' || 
+                    f.category === activeCategory || 
+                    (activeCategory === 'free-art' && (f.category === 'free-art' || (f.tags && f.tags.includes('freeart'))));
                 const matchesFav = !favoritesOnly || savedFavorites.includes(f.id);
                 const matchesQuery = !query || 
                     (f.name && f.name.toLowerCase().includes(query)) ||
@@ -7774,6 +8169,101 @@
                 const badgeClass = getCategoryBadgeStyle(font.category);
                 const isWin = font.isWin;
                 const winMode = winModeState[font.id] || 'auto';
+                const isSpecialArt = font.category === 'free-art' || (font.tags && font.tags.includes('freeart'));
+
+                if (isSpecialArt) {
+                    return `
+                    <article class="relative overflow-hidden rounded-3xl p-5 sm:p-6 transition-all duration-300 transform hover:-translate-y-1.5 border-2 border-purple-300/80 hover:border-pink-400 bg-gradient-to-br from-white via-purple-50/50 to-pink-50/40 shadow-xl shadow-purple-500/10 hover:shadow-2xl hover:shadow-purple-500/20 flex flex-col justify-between space-y-4 group">
+                        
+                        <!-- Special Floating Corner Ribbon -->
+                        <div class="absolute -top-1 -right-1 z-10 pointer-events-none">
+                            <span class="inline-flex items-center gap-1 px-3 py-1 rounded-bl-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 text-white text-[10px] font-black uppercase tracking-wider shadow-md">
+                                <span>✨ SPECIAL ART</span>
+                            </span>
+                        </div>
+
+                        <div class="space-y-3">
+                            <div class="flex items-start justify-between gap-3 pr-20 sm:pr-24">
+                                <div class="min-w-0 flex-1">
+                                    <div class="flex flex-wrap items-center gap-2">
+                                        <h3 class="font-black text-base sm:text-lg bg-gradient-to-r from-purple-900 via-indigo-900 to-pink-900 bg-clip-text text-transparent truncate">${font.name}</h3>
+                                        <span class="text-[10px] font-black px-2.5 py-0.5 rounded-full bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-sm whitespace-nowrap">
+                                            🎨 စာလုံးအလှ
+                                        </span>
+                                        <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 border border-emerald-300 font-bold">
+                                            ✓ 100% Free
+                                        </span>
+                                    </div>
+                                    <p class="text-xs text-purple-700 font-medium mt-1 truncate">${font.mmName} • By ${font.designer}</p>
+                                </div>
+
+                                <div class="flex items-center gap-1.5 shrink-0">
+                                    <button onclick="shareFont('${font.id}')" class="p-2 rounded-full bg-white/80 hover:bg-white text-slate-500 hover:text-purple-600 shadow-sm transition" title="ဖောင့်လင့်ခ် မျှဝေမည်">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                                        </svg>
+                                    </button>
+                                    <button onclick="toggleFavorite('${font.id}')" class="p-2 rounded-full bg-white/80 hover:bg-white shadow-sm transition" title="သိမ်းဆည်းမည်">
+                                        <svg class="w-4 h-4 ${isFav ? 'text-rose-500 fill-current' : 'text-slate-400'}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Stylized Artistic Live Preview Box -->
+                            <div class="bg-white/95 border-2 border-purple-200/90 rounded-2xl p-4 focus-within:border-purple-600 focus-within:ring-4 focus-within:ring-purple-100 shadow-inner relative transition">
+                                <div class="flex items-center justify-between text-[11px] text-purple-600 mb-1.5 font-bold">
+                                    <span class="flex items-center gap-1">
+                                        <span class="w-2 h-2 rounded-full bg-pink-500 animate-pulse"></span>
+                                        <span>Artistic Live Specimen:</span>
+                                    </span>
+                                    <div class="flex items-center gap-2">
+                                        <span class="font-mono text-purple-400 text-[10px] hidden sm:inline">${font.family || font.name}</span>
+                                        <button onclick="copySpecimen('${font.id}')" class="text-pink-600 hover:text-purple-700 text-[11px] font-black underline">Copy Text</button>
+                                    </div>
+                                </div>
+                                <textarea 
+                                    id="specimen-${font.id}"
+                                    data-font-id="${font.id}"
+                                    rows="2"
+                                    autocomplete="off"
+                                    autocorrect="off"
+                                    autocapitalize="off"
+                                    spellcheck="false"
+                                    enterkeyhint="done"
+                                    oninput="handleSpecimenInput(this, '${font.id}')"
+                                    placeholder="စာလုံးအလှ စမ်းချင်သော မြန်မာစာ ရိုက်ထည့်ပါ..."
+                                    class="live-specimen-textarea font-preview-${font.id} ${isGlobalBold ? 'font-bold' : ''} w-full bg-transparent text-slate-900 focus:outline-none resize-none leading-relaxed transition-all"
+                                    style="font-size: ${currentFontSize}px;"
+                                >${font.defaultSample}</textarea>
+                            </div>
+
+                            <p class="text-xs text-slate-600 leading-relaxed line-clamp-2">
+                                ${font.description}
+                            </p>
+                        </div>
+
+                        <div class="pt-3 border-t border-purple-100 flex flex-wrap items-center justify-between gap-2.5">
+                            <div class="flex items-center gap-2 text-xs font-semibold text-purple-800">
+                                <span class="px-2 py-0.5 rounded-md bg-purple-100/80 border border-purple-200 font-mono text-[10px]">v${font.version || '1.0'}</span>
+                                <span class="text-[11px]">📦 ${font.size}</span>
+                                <span class="text-pink-600 font-extrabold text-[11px]">★ Art Display</span>
+                            </div>
+
+                            <div class="flex items-center gap-2">
+                                <button onclick="openFontDetails('${font.id}')" class="px-3.5 py-1.5 rounded-full bg-purple-100/80 hover:bg-purple-200 text-purple-800 text-xs font-bold transition">
+                                    အသေးစိတ်
+                                </button>
+                                <button onclick="downloadFont('${font.id}')" class="px-4 py-1.5 rounded-full bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 hover:from-purple-500 hover:to-pink-500 text-white text-xs font-black shadow-lg shadow-purple-500/20 transition flex items-center gap-1.5">
+                                    <span>⬇️</span>
+                                    <span>Download</span>
+                                </button>
+                            </div>
+                        </div>
+                    </article>
+                    `;
+                }
 
                 return `
                 <article class="glass-card rounded-3xl p-5 sm:p-6 flex flex-col justify-between space-y-4">
