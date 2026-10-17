@@ -2990,7 +2990,7 @@ print(f"Enriched {len(enriched_catalog)} fonts with authentic @font-face rules."
 
 
 
-with open('/Users/sithu/Desktop/Gemini 4/zeemotion_logo.png', 'rb') as f:
+with open('/Users/sithu/Desktop/Gemini 4/golden_fonts_logo.png', 'rb') as f:
     LOGO_BASE64 = base64.b64encode(f.read()).decode('ascii')
 
 PANGRAM_WIN_STR = "oD[dkMfrS nmPfjuD;Sifonf tm,k0!~e aq;nTef;pmudk ZvGefaps;ab; Am'Hyifxuf t\"d|mefvsu *CeP zwfcJhonf/"

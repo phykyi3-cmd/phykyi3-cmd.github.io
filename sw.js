@@ -1,9 +1,10 @@
-const CACHE_NAME = 'zeemotion-v3';
+const CACHE_NAME = 'goldenfonts-v1';
 const STATIC_ASSETS = [
   './',
   './index.html',
   './manifest.json',
   './favicon.ico',
+  './golden_fonts_logo.png',
   './icons/icon-192.png',
   './icons/icon-512.png',
   './icons/apple-touch-icon.png'

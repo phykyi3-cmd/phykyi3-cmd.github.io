@@ -1,11 +1,11 @@
 {
-  "name": "Zee Motion Font Studio",
-  "short_name": "Zee Motion",
-  "description": "မြန်မာဖောင့် ၁၇၀+ စုစည်းမှုနှင့် မူရင်းစတိုင် တိုက်ရိုက်စမ်းသပ်ဒေါင်းလုဒ်ဆွဲနိုင်သော Official Font App",
+  "name": "Golden Fonts — Myanmar Typography Studio",
+  "short_name": "Golden Fonts",
+  "description": "မြန်မာဖောင့် ၁၈၀+ (Art House, Masterpiece, Free Art, Unicode) တိုက်ရိုက်စမ်းသပ်ဒေါင်းလုဒ်ဆွဲနိုင်သော Official Font App",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#070a13",
-  "theme_color": "#0b0f19",
+  "background_color": "#090d16",
+  "theme_color": "#090d16",
   "orientation": "portrait-primary",
   "icons": [
     {
