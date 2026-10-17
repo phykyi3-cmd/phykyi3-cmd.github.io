@@ -1,0 +1,1777 @@
+<!DOCTYPE html>
+<html lang="my" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+    <title>Zee Motion Font Studio — Official Myanmar Font Hub (Phone & Laptop)</title>
+    
+    <!-- PWA & Mobile Web App Manifest -->
+    <link rel="manifest" href="./manifest.json">
+    <link rel="apple-touch-icon" sizes="180x180" href="./icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./icons/favicon-32.png">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <meta name="theme-color" content="#f8fafd">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Zee Motion">
+    <meta name="application-name" content="Zee Motion Font Studio">
+
+    <!-- Open Graph & Social Cards -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Zee Motion Font Studio — Official Myanmar Font Hub">
+    <meta property="og:description" content="မြန်မာဖောင့် ၁၇၀+ စုစည်းမှုနှင့် မူရင်းစတိုင် တိုက်ရိုက်စမ်းသပ်ဒေါင်းလုဒ်ဆွဲနိုင်သော Official App (Mobile & Laptop)">
+    <meta property="og:image" content="./icons/icon-512.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Zee Motion Font Studio — Official Myanmar Font Hub">
+    <meta name="twitter:description" content="မြန်မာဖောင့် ၁၇၀+ စုစည်းမှုနှင့် မူရင်းစတိုင် တိုက်ရိုက်စမ်းသပ်ဒေါင်းလုဒ်ဆွဲနိုင်သော Official App">
+    <meta name="twitter:image" content="./icons/icon-512.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&family=Khyay&family=Tharlon&family=Noto+Sans+Myanmar:wght@300;400;500;600;700;800&family=Noto+Serif+Myanmar:wght@400;600;700&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --sat: env(safe-area-inset-top);
+            --sab: env(safe-area-inset-bottom);
+        }
+        body {
+            font-family: 'Plus Jakarta Sans', 'Inter', 'Noto Sans Myanmar', -apple-system, sans-serif;
+            background-color: #f8fafd;
+            color: #0f172a;
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 7px;
+            height: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* 3D Glassmorphism & Spatial Design */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.85);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.95);
+            box-shadow: 0 16px 36px -12px rgba(15, 23, 42, 0.06), 0 0 1px 1px rgba(255, 255, 255, 0.8) inset;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .glass-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 24px 48px -12px rgba(99, 102, 241, 0.12), 0 0 1px 1px rgba(255, 255, 255, 0.9) inset;
+            border-color: rgba(167, 139, 250, 0.4);
+        }
+
+        .dark-bento {
+            background: linear-gradient(145deg, #090d16 0%, #111827 100%);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 24px 50px -15px rgba(0, 0, 0, 0.35);
+        }
+
+        /* Floating 3D animations */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1.5deg); }
+        }
+        @keyframes floatSlowRev {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(10px) rotate(-2deg); }
+        }
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.9; transform: scale(1.05); }
+        }
+        .animate-float-slow {
+            animation: floatSlow 6s ease-in-out infinite;
+        }
+        .animate-float-rev {
+            animation: floatSlowRev 7s ease-in-out infinite;
+        }
+        .animate-pulse-glow {
+            animation: pulseGlow 4s ease-in-out infinite;
+        }
+
+        /* Subtle mesh background */
+        .mesh-gradient-bg {
+            background: 
+                radial-gradient(circle at 85% 15%, rgba(167, 139, 250, 0.22) 0%, transparent 40%),
+                radial-gradient(circle at 10% 45%, rgba(129, 140, 248, 0.15) 0%, transparent 45%),
+                radial-gradient(circle at 75% 85%, rgba(56, 189, 248, 0.12) 0%, transparent 45%),
+                #f8fafd;
+        }
+
+        /* ================= AUTHENTIC FONT-FACE DEFINITIONS FOR ALL 172 FONTS ================= */
+        /* __ALL_FONT_FACES_CSS__ */
+    </style>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f5f3ff',
+                            100: '#ede9fe',
+                            500: '#8b5cf6',
+                            600: '#7c3aed',
+                            700: '#6d28d9'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="mesh-gradient-bg min-h-screen flex flex-col selection:bg-purple-500 selection:text-white">
+
+    <!-- Floating Top Navigation Bar (Inspired by the Reference UI) -->
+    <header class="sticky top-0 z-40 glass-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-3">
+            
+            <!-- Brand Logo & Title -->
+            <a href="./index.html" class="flex items-center gap-2.5 sm:gap-3.5 shrink-0 group">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl overflow-hidden p-1 bg-white border border-slate-200/80 shadow-md shadow-purple-500/10 group-hover:scale-105 transition duration-200 shrink-0">
+                    <img src="data:image/png;base64,__LOGO_BASE64__" alt="Zee Motion Logo" class="w-full h-full object-contain" />
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-lg sm:text-2xl font-black tracking-tight text-slate-900 whitespace-nowrap">
+                            Zee Motion
+                        </span>
+                        <span class="text-[11px] font-bold text-purple-700 px-2 py-0.5 rounded-full bg-purple-50 border border-purple-200/60 whitespace-nowrap">
+                            Font Studio
+                        </span>
+                    </div>
+                    <p class="hidden sm:block text-xs text-slate-500 font-medium">မြန်မာဖောင့် ၁၇၀+ စုစည်းမှု • Live Engine & Download</p>
+                </div>
+            </a>
+
+            <!-- Center Navigation Links (Desktop) -->
+            <nav class="hidden lg:flex items-center gap-1 p-1.5 rounded-full bg-slate-100/90 border border-slate-200 shadow-inner text-xs font-bold text-slate-600">
+                <a href="#studioSection" class="px-4 py-1.5 rounded-full hover:text-slate-950 hover:bg-white transition shadow-sm whitespace-nowrap">
+                    🏠 ဖောင့်စတူဒီယို
+                </a>
+                <button onclick="setCategory('arthouse')" class="px-4 py-1.5 rounded-full hover:text-slate-950 hover:bg-white transition whitespace-nowrap">
+                    🎨 Art House W01–W70
+                </button>
+                <button onclick="openModal('guideModal')" class="px-4 py-1.5 rounded-full hover:text-slate-950 hover:bg-white transition whitespace-nowrap">
+                    📱 ဖောင့်သွင်းနည်း
+                </button>
+                <button onclick="toggleFavoritesFilter()" class="px-4 py-1.5 rounded-full hover:text-slate-950 hover:bg-white transition flex items-center gap-1.5 whitespace-nowrap">
+                    ❤️ သိမ်းထား (<span id="navFavCount">0</span>)
+                </button>
+            </nav>
+
+            <!-- Right Actions: Download Zip & Auth Account State -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                
+                <!-- Mega Pack Download Button -->
+                <button onclick="downloadArtHouseZip()" class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold shadow-md shadow-slate-900/10 transition whitespace-nowrap" title="Art House W01-W70 Zip ဒေါင်းလုဒ်">
+                    <span>📥 W01–W70 ZIP</span>
+                </button>
+
+                <!-- Auth State Pill (Logged out vs Logged in) -->
+                <div id="authNavContainer">
+                    <!-- Logged Out Button: Opens Auth Modal -->
+                    <button id="navSignInBtn" onclick="openAuthModal('signin')" class="px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-slate-950 hover:bg-slate-800 text-white text-xs sm:text-sm font-bold shadow-md shadow-purple-500/10 hover:shadow-lg transition flex items-center gap-1.5 whitespace-nowrap">
+                        <span>🔑 အကောင့်ဝင်ရန်</span>
+                        <span class="text-xs">→</span>
+                    </button>
+
+                    <!-- Logged In User Pill (Shown when user logs in) -->
+                    <div id="navUserPill" class="hidden relative">
+                        <button onclick="toggleUserDropdown()" class="flex items-center gap-2 p-1.5 sm:pr-3 rounded-full bg-white border border-slate-200/90 shadow-sm hover:border-purple-300 transition">
+                            <div id="userAvatar" class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-tr from-purple-600 to-indigo-500 text-white font-bold text-xs sm:text-sm flex items-center justify-center shadow-inner">
+                                S
+                            </div>
+                            <div class="hidden sm:block text-left text-xs leading-tight">
+                                <div id="userName" class="font-bold text-slate-800 truncate max-w-[100px]">User</div>
+                                <div class="text-[10px] text-purple-600 font-semibold flex items-center gap-1">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> PRO Member
+                                </div>
+                            </div>
+                            <span class="text-slate-400 text-xs ml-0.5">▾</span>
+                        </button>
+
+                        <!-- User Profile Dropdown Menu -->
+                        <div id="userDropdown" class="hidden absolute right-0 mt-2 w-64 rounded-2xl bg-white border border-slate-200 shadow-2xl p-3 z-50 animate-in fade-in slide-in-from-top-2">
+                            <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 mb-2">
+                                <p class="text-[11px] text-slate-400 font-medium">Logged in as</p>
+                                <p id="dropdownUserEmail" class="text-xs font-bold text-slate-800 truncate">user@zeemotion.com</p>
+                                <p id="dropdownUserRole" class="text-[10px] text-purple-600 font-semibold mt-0.5">Creative Designer</p>
+                            </div>
+                            
+                            <div class="space-y-1 text-xs text-slate-600 font-medium">
+                                <button onclick="toggleFavoritesFilter(); toggleUserDropdown();" class="w-full text-left px-3 py-2 rounded-xl hover:bg-purple-50 hover:text-purple-700 transition flex items-center justify-between">
+                                    <span>❤️ သိမ်းထားသော ဖောင့်များ</span>
+                                    <span id="dropdownFavBadge" class="text-[10px] px-1.5 py-0.5 rounded-full bg-rose-100 text-rose-600 font-bold">0</span>
+                                </button>
+                                <button onclick="openModal('guideModal'); toggleUserDropdown();" class="w-full text-left px-3 py-2 rounded-xl hover:bg-slate-100 transition flex items-center gap-2">
+                                    <span>📱 ဖုန်း/Laptop ဖောင့်သွင်းနည်း</span>
+                                </button>
+                                <button onclick="shareApp(); toggleUserDropdown();" class="w-full text-left px-3 py-2 rounded-xl hover:bg-slate-100 transition flex items-center gap-2">
+                                    <span>🔗 Website လင့်ခ် မျှဝေမည်</span>
+                                </button>
+                            </div>
+
+                            <div class="mt-2 pt-2 border-t border-slate-100">
+                                <button onclick="handleSignOut()" class="w-full px-3 py-2 rounded-xl text-rose-600 hover:bg-rose-50 font-semibold text-xs transition flex items-center gap-2">
+                                    <span>🚪 အကောင့်ထွက်မည် (Sign Out)</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8 pb-32 md:pb-16">
+        
+        <!-- Hero Section: Ultra-Modern 3D Glassmorphic Bento (Matching User Reference Image) -->
+        <section class="relative overflow-hidden rounded-3xl p-6 sm:p-10 lg:p-12 glass-card border border-white/80">
+            
+            <!-- Soft Ambient Background Glows -->
+            <div class="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-purple-400/20 blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-indigo-400/15 blur-3xl pointer-events-none"></div>
+
+            <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                
+                <!-- Left Column: Typography & CTAs & Dark Bento Card -->
+                <div class="lg:col-span-7 space-y-6">
+                    
+                    <!-- Pill Tag -->
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-purple-50 border border-purple-200/80 text-purple-700 text-xs font-bold tracking-wide">
+                        <span class="w-2 h-2 rounded-full bg-purple-600 animate-pulse"></span>
+                        <span>SMART TYPOGRAPHY SOLUTIONS FOR CREATORS</span>
+                    </div>
+
+                    <!-- Bold Headline -->
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-[1.18] tracking-tight">
+                        Grow your design <br class="hidden sm:inline" />
+                        with <span class="bg-gradient-to-r from-purple-600 via-indigo-600 to-cyan-600 bg-clip-text text-transparent">smart Myanmar fonts</span>.
+                    </h2>
+
+                    <!-- Subtitle -->
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed max-w-xl font-normal">
+                        မြန်မာစာလုံးအလှ ဖောင့်ပေါင်း ၁၇၀+ (Art House W01–W70၊ Masterpiece၊ Aka လက်ရေးလှများနှင့် စံချိန်မီ Unicode ဖောင့်များ) အားလုံးကို Live စာရိုက်စမ်းသပ်၊ စိတ်ကြိုက်ချိန်ညှိ ဒေါင်းလုဒ်ဆွဲနိုင်သော Official Font Hub ဖြစ်ပါသည်။
+                    </p>
+
+                    <!-- CTA Action Pills -->
+                    <div class="flex flex-wrap items-center gap-3 pt-1">
+                        <button onclick="scrollToStudioOrLogin()" class="px-6 py-3 rounded-full bg-slate-950 hover:bg-slate-800 text-white text-xs sm:text-sm font-bold shadow-lg shadow-purple-500/10 hover:shadow-xl transition flex items-center gap-2">
+                            <span>🚀 စတင်အသုံးပြုမည်</span>
+                            <span>→</span>
+                        </button>
+                        <a href="#studioSection" class="px-5 py-3 rounded-full bg-white/90 hover:bg-white text-slate-700 border border-slate-200/90 text-xs sm:text-sm font-semibold shadow-sm transition flex items-center gap-2">
+                            <span>🔍 ဖောင့်များရှာရန်</span>
+                        </a>
+                    </div>
+
+                    <!-- Embedded Dark Bento Showcase Card (As Seen in User Reference Image) -->
+                    <div class="dark-bento rounded-2xl sm:rounded-3xl p-4 sm:p-5 text-white space-y-3 relative overflow-hidden group">
+                        <div class="flex items-center justify-between border-b border-white/10 pb-3">
+                            <div class="flex items-center gap-2">
+                                <div class="flex gap-1.5">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
+                                    <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
+                                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+                                </div>
+                                <span class="text-xs font-mono text-slate-300 ml-1">Live Specimen Engine</span>
+                            </div>
+                            <span class="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-500/30">
+                                Realtime Sync
+                            </span>
+                        </div>
+
+                        <div class="space-y-1.5">
+                            <div class="text-[11px] text-slate-400 flex items-center justify-between">
+                                <span>Active Sample Preview (Art House W60):</span>
+                                <span class="text-cyan-400 font-mono text-[10px]">100% True Typeface</span>
+                            </div>
+                            <div class="p-3 rounded-xl bg-slate-900/90 border border-white/5 font-preview-arthouse-w60 text-lg sm:text-xl text-amber-300 tracking-wide select-none">
+                                r*Fvmyg jrefrmjynf - tvSyqHk; 'DZdkif;rsm;
+                            </div>
+                        </div>
+
+                        <div class="flex items-center justify-between pt-1 text-xs text-slate-400">
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                                <span class="text-[11px]">Auto Win-Innwa Converter Ready</span>
+                            </div>
+                            <button onclick="copySnippetCssHero()" class="text-[11px] font-semibold text-purple-300 hover:text-white px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 transition">
+                                Copy CSS
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Right Column: 3D Spatial Glass Composition (Matching Reference Image) -->
+                <div class="lg:col-span-5 relative flex items-center justify-center min-h-[320px] sm:min-h-[400px]">
+                    
+                    <div class="relative w-full max-w-[380px] h-[360px] flex items-center justify-center">
+                        
+                        <!-- Floating Glass Cylinder (Center 3D Element) -->
+                        <div class="absolute z-20 w-32 h-64 rounded-full p-2 bg-gradient-to-b from-white/60 via-white/20 to-white/40 border border-white/80 shadow-2xl backdrop-blur-md flex flex-col justify-end overflow-hidden animate-float-slow">
+                            <div class="w-full h-44 rounded-b-full bg-gradient-to-t from-purple-600 via-indigo-500 to-cyan-400/80 shadow-inner relative overflow-hidden">
+                                <div class="absolute inset-0 bg-white/20 skew-y-6"></div>
+                                <div class="absolute top-2 left-3 w-4 h-12 bg-white/40 rounded-full blur-xs"></div>
+                            </div>
+                            <div class="absolute top-4 left-3 w-2 h-52 bg-white/60 rounded-full blur-[1px]"></div>
+                        </div>
+
+                        <!-- Secondary Glass Cylinder (Taller Back) -->
+                        <div class="absolute z-10 -right-2 top-2 w-28 h-72 rounded-full p-2 bg-gradient-to-b from-white/40 via-white/10 to-white/30 border border-white/70 shadow-xl backdrop-blur-sm flex flex-col justify-end overflow-hidden animate-float-rev">
+                            <div class="w-full h-36 rounded-b-full bg-gradient-to-t from-cyan-500 to-blue-400 shadow-inner relative">
+                                <div class="absolute top-2 left-2 w-2 h-20 bg-white/40 rounded-full blur-[1px]"></div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Glass Cube Top-Right (with colorful blocks inside like reference) -->
+                        <div class="absolute z-30 -top-4 right-4 w-24 h-24 rounded-2xl bg-white/50 border border-white/80 shadow-xl backdrop-blur-md p-3.5 flex flex-col justify-between animate-float-slow">
+                            <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-purple-500 to-indigo-500 shadow-md flex items-center justify-center text-white text-xs font-bold">
+                                W
+                            </div>
+                            <div class="flex gap-1.5">
+                                <div class="w-4 h-4 rounded-md bg-emerald-400 shadow-sm"></div>
+                                <div class="w-6 h-4 rounded-md bg-amber-400 shadow-sm"></div>
+                            </div>
+                        </div>
+
+                        <!-- Floating Glass Cube Bottom-Left -->
+                        <div class="absolute z-30 bottom-4 -left-2 w-20 h-20 rounded-2xl bg-slate-900/90 border border-white/20 shadow-2xl backdrop-blur-md p-3 flex flex-col justify-between animate-float-rev">
+                            <div class="w-6 h-6 rounded-md bg-gradient-to-tr from-cyan-400 to-blue-500 flex items-center justify-center text-white text-[10px] font-bold">
+                                Aa
+                            </div>
+                            <div class="w-full h-1.5 rounded-full bg-white/20"></div>
+                        </div>
+
+                        <!-- Floating Iridescent Spheres / Bubbles -->
+                        <div class="absolute z-30 top-16 -left-6 w-12 h-12 rounded-full bg-gradient-to-tr from-indigo-300/60 via-purple-200/40 to-white border border-white shadow-lg backdrop-blur-sm animate-pulse-glow"></div>
+                        <div class="absolute z-20 bottom-10 right-2 w-10 h-10 rounded-full bg-gradient-to-tr from-cyan-300/50 via-white/40 to-white border border-white shadow-md animate-float-slow"></div>
+
+                        <!-- Floating Stat Pill -->
+                        <div class="absolute z-40 top-32 -right-6 px-3.5 py-1.5 rounded-full bg-white/90 border border-white shadow-xl backdrop-blur-md text-[11px] font-bold text-slate-800 flex items-center gap-1.5 animate-float-slow">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                            <span>172+ True Fonts</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- 4 Modern Stat Pills Bar (Exact Layout from Reference Image) -->
+            <div class="mt-8 pt-8 border-t border-slate-200/80 grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
+                
+                <div class="p-3.5 sm:p-4 rounded-2xl bg-white/90 border border-slate-200/70 shadow-sm flex items-center justify-between">
+                    <div>
+                        <div class="text-xs text-slate-400 font-medium">စုစုပေါင်း ဖောင့်များ</div>
+                        <div class="text-lg sm:text-2xl font-black text-slate-900 mt-0.5" id="heroTotalCount">172+</div>
+                    </div>
+                    <span class="px-2.5 py-1 rounded-full bg-purple-100 text-purple-700 text-[10px] font-bold">Fonts</span>
+                </div>
+
+                <div class="p-3.5 sm:p-4 rounded-2xl bg-white/90 border border-slate-200/70 shadow-sm flex items-center justify-between">
+                    <div>
+                        <div class="text-xs text-slate-400 font-medium">Art House Suite</div>
+                        <div class="text-lg sm:text-2xl font-black text-purple-600 mt-0.5">W01–W70</div>
+                    </div>
+                    <span class="px-2.5 py-1 rounded-full bg-purple-100 text-purple-700 text-[10px] font-bold">Series</span>
+                </div>
+
+                <div class="p-3.5 sm:p-4 rounded-2xl bg-white/90 border border-slate-200/70 shadow-sm flex items-center justify-between">
+                    <div>
+                        <div class="text-xs text-slate-400 font-medium">မူရင်းစစ်မှန်မှု</div>
+                        <div class="text-lg sm:text-2xl font-black text-emerald-600 mt-0.5">100%</div>
+                    </div>
+                    <span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-700 text-[10px] font-bold">True</span>
+                </div>
+
+                <div class="p-3.5 sm:p-4 rounded-2xl bg-white/90 border border-slate-200/70 shadow-sm flex items-center justify-between">
+                    <div>
+                        <div class="text-xs text-slate-400 font-medium">ဖုန်း & Laptop</div>
+                        <div class="text-lg sm:text-2xl font-black text-cyan-600 mt-0.5">PWA Ready</div>
+                    </div>
+                    <span class="px-2.5 py-1 rounded-full bg-cyan-100 text-cyan-700 text-[10px] font-bold">Offline</span>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ================= AUTH GATE / LOGIN REQUIRED SECTION ================= -->
+        <!-- Shown ONLY when user is NOT logged in -->
+        <section id="authGateSection" class="relative overflow-hidden rounded-3xl p-6 sm:p-10 glass-card border border-white text-center space-y-6">
+            
+            <div class="max-w-xl mx-auto space-y-4">
+                
+                <!-- Glowing 3D Lock Badge -->
+                <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-3xl mx-auto bg-gradient-to-tr from-purple-600 to-indigo-500 shadow-xl shadow-purple-500/20 flex items-center justify-center text-white text-2xl sm:text-3xl animate-bounce">
+                    🔒
+                </div>
+
+                <div class="space-y-2">
+                    <span class="px-3 py-1 rounded-full bg-purple-100 text-purple-700 font-bold text-xs">
+                        MEMBER ACCESS REQUIRED
+                    </span>
+                    <h3 class="text-2xl sm:text-3xl font-black text-slate-900">
+                        Zee Motion Font Studio ကို အသုံးပြုရန် အကောင့်ဝင်ပါ
+                    </h3>
+                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                        မြန်မာဖောင့် ၁၇၀+ ကို တိုက်ရိုက်စာရိုက်စမ်းသပ်ခြင်း၊ TrueType (.ttf) ဖိုင်များ ရယူခြင်းနှင့် Art House W01 မှ W70 Mega Pack ZIP ကို ဒေါင်းလုဒ်ဆွဲနိုင်ရန် အကောင့်ဝင်ရောက်ပေးရန် လိုအပ်ပါသည်။
+                    </p>
+                </div>
+
+                <!-- Quick Action Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
+                    <button onclick="openAuthModal('signin')" class="w-full sm:w-auto px-7 py-3 rounded-full bg-slate-950 hover:bg-slate-800 text-white font-bold text-sm shadow-lg shadow-purple-500/10 transition flex items-center justify-center gap-2">
+                        <span>🔑 အကောင့်ဝင်ရောက်မည် (Sign In)</span>
+                    </button>
+                    <button onclick="quickDemoLogin()" class="w-full sm:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-bold text-sm shadow-md transition flex items-center justify-center gap-2">
+                        <span>⚡ 1-Click Demo Login (ချက်ချင်းစမ်းသပ်ရန်)</span>
+                    </button>
+                </div>
+
+                <div class="text-xs text-slate-500 pt-1">
+                    အကောင့်မရှိသေးပါက <button onclick="openAuthModal('signup')" class="text-purple-600 font-bold hover:underline">ဤနေရာတွင် အခမဲ့အကောင့်သစ်ဖွင့်ပါ</button>
+                </div>
+
+            </div>
+
+            <!-- Frosted Teaser Preview Grid (Shows blurred font cards behind lock) -->
+            <div class="pt-6 border-t border-slate-200/80">
+                <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">
+                    Studio Teaser Preview (170+ Fonts Awaiting)
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 opacity-40 blur-[1.5px] pointer-events-none select-none">
+                    <div class="p-4 rounded-2xl bg-white border border-slate-200 space-y-2 text-left">
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-slate-800">W60 Art House</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-amber-100 text-amber-700">Art House</span>
+                        </div>
+                        <div class="font-preview-arthouse-w60 text-lg text-slate-800">r*Fvmyg jrefrmjynf</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-white border border-slate-200 space-y-2 text-left">
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-slate-800">Masterpiece Uni Round</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-indigo-100 text-indigo-700">Masterpiece</span>
+                        </div>
+                        <div class="font-preview-masterpiece-uniround text-lg text-slate-800">မင်္ဂလာပါ မြန်မာပြည်</div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-white border border-slate-200 space-y-2 text-left">
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-slate-800">Aka02 Regular</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded bg-rose-100 text-rose-700">Handwriting</span>
+                        </div>
+                        <div class="font-preview-aka-02 text-lg text-slate-800">သီဟိုဠ်မှ ဉာဏ်ကြီးရှင်သည်</div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ================= FULL INTERACTIVE FONT STUDIO SECTION ================= -->
+        <!-- Unlocked & displayed when user is logged in -->
+        <section id="studioSection" class="hidden space-y-6">
+
+            <!-- Search, Filter & Global Studio Controls Panel -->
+            <div class="glass-card rounded-3xl p-5 sm:p-6 space-y-4">
+                
+                <div class="flex flex-col lg:flex-row gap-3 sm:gap-4 items-stretch lg:items-center justify-between">
+                    
+                    <!-- Search Input -->
+                    <div class="relative flex-1">
+                        <svg class="w-5 h-5 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                        <input 
+                            type="text" 
+                            id="searchInput" 
+                            placeholder="ဖောင့်အမည် ရှာရန် (ဥပမာ - W60, W70, Aka02, Masterpiece, Bagan, Padauk)..."
+                            class="w-full pl-11 pr-10 py-3 bg-white border border-slate-200 rounded-2xl text-slate-900 placeholder-slate-400 text-xs sm:text-sm focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-100 transition shadow-inner"
+                        >
+                        <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-3.5 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-slate-100 text-slate-500 hover:text-slate-900 flex items-center justify-center text-xs">
+                            ✕
+                        </button>
+                    </div>
+
+                    <!-- Global Controls Toolbar -->
+                    <div class="flex flex-wrap items-center gap-2 sm:gap-3 shrink-0">
+                        
+                        <!-- Font Size Slider -->
+                        <div class="flex items-center gap-2 bg-white px-3.5 py-2 rounded-2xl border border-slate-200 shadow-sm">
+                            <span class="text-xs text-slate-500 font-medium">အရွယ်အစား:</span>
+                            <input 
+                                type="range" 
+                                id="fontSizeSlider" 
+                                min="14" 
+                                max="48" 
+                                value="22" 
+                                class="w-20 sm:w-28 accent-purple-600 cursor-pointer h-2"
+                            >
+                            <span id="fontSizeValue" class="text-xs font-mono font-bold text-purple-700 w-9 text-right">22px</span>
+                        </div>
+
+                        <!-- Bold Button -->
+                        <button onclick="toggleGlobalBold()" id="globalBoldBtn" class="px-3.5 py-2 rounded-2xl bg-white border border-slate-200 text-slate-700 text-xs font-bold hover:border-purple-400 shadow-sm transition">
+                            B စာလုံးထူ
+                        </button>
+
+                        <!-- Sample Text Preset Selector -->
+                        <div class="relative">
+                            <select onchange="applyPresetText(this.value)" class="bg-white border border-slate-200 rounded-2xl px-3 py-2 text-slate-700 text-xs font-medium focus:outline-none focus:border-purple-500 shadow-sm">
+                                <option value="pangram">စာသား: သီဟိုဠ်မှ ဉာဏ်ကြီးရှင် (Pangram)</option>
+                                <option value="headline">စာသား: မင်္ဂလာပါ မြန်မာပြည် (Headline)</option>
+                                <option value="design">စာသား: Graphic & Typography Design</option>
+                            </select>
+                        </div>
+
+                        <!-- Favorites Filter Button -->
+                        <button onclick="toggleFavoritesFilter()" id="favFilterBtn" class="px-3.5 py-2 rounded-2xl bg-white border border-slate-200 text-slate-700 text-xs font-bold hover:border-rose-400 shadow-sm transition flex items-center gap-1.5">
+                            <span class="text-rose-500">❤️</span>
+                            <span>သိမ်းထားမှုများ (<span id="favCountBadge">0</span>)</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <!-- Category Tabs (Horizontally Scrollable) -->
+                <div class="flex items-center gap-1.5 sm:gap-2 overflow-x-auto no-scrollbar pt-2 border-t border-slate-100">
+                    <button onclick="setCategory('all')" data-cat="all" class="cat-tab active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition bg-slate-900 text-white shadow-md">
+                        အားလုံး (<span id="catCount-all">172</span>)
+                    </button>
+                    <button onclick="setCategory('arthouse')" data-cat="arthouse" class="cat-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-50">
+                        🎨 Art House Series W01–W70 (<span id="catCount-arthouse">0</span>)
+                    </button>
+                    <button onclick="setCategory('masterpiece')" data-cat="masterpiece" class="cat-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-50">
+                        👑 Masterpiece Series (<span id="catCount-masterpiece">0</span>)
+                    </button>
+                    <button onclick="setCategory('handwriting')" data-cat="handwriting" class="cat-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-50">
+                        ✍️ Aka & လက်ရေးလှ (<span id="catCount-handwriting">0</span>)
+                    </button>
+                    <button onclick="setCategory('uni-myanmar')" data-cat="uni-myanmar" class="cat-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-50">
+                        📂 Uni-Myanmar စုစည်းမှု (<span id="catCount-uni-myanmar">0</span>)
+                    </button>
+                    <button onclick="setCategory('unicode')" data-cat="unicode" class="cat-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-50">
+                        🌟 Unicode စံချိန်မီ (<span id="catCount-unicode">0</span>)
+                    </button>
+                    <button onclick="setCategory('win')" data-cat="win" class="cat-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-50">
+                        🖨️ Win Myanmar (<span id="catCount-win">0</span>)
+                    </button>
+                    <button onclick="setCategory('zawgyi')" data-cat="zawgyi" class="cat-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-50">
+                        📜 Zawgyi & Legacy (<span id="catCount-zawgyi">0</span>)
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Search Status & Sort Bar -->
+            <div class="flex items-center justify-between gap-2 px-1">
+                <p class="text-xs sm:text-sm text-slate-500 font-medium">
+                    တွေ့ရှိသော မူရင်းဖောင့်အရေအတွက်: <span id="resultCount" class="text-purple-700 font-bold">172</span> ခု
+                </p>
+                <div class="flex items-center gap-2 text-xs text-slate-500">
+                    <span class="hidden sm:inline font-medium">စီစဉ်မှု:</span>
+                    <select id="sortSelect" onchange="renderFonts()" class="bg-white border border-slate-200 rounded-xl px-3 py-1.5 text-slate-800 text-xs font-medium focus:outline-none focus:border-purple-500 shadow-sm">
+                        <option value="popular">လူသုံးအများဆုံး (Popular)</option>
+                        <option value="name">အမည် အစဉ်လိုက် (A - Z)</option>
+                        <option value="category">အမျိုးအစားအလိုက် (Category)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Fonts Grid with Live Specimen Cards -->
+            <div id="fontGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                <!-- Dynamically populated via renderFonts() -->
+            </div>
+
+            <!-- Empty State -->
+            <div id="emptyState" class="hidden text-center py-16 bg-white/80 rounded-3xl border border-slate-200">
+                <div class="w-16 h-16 rounded-2xl bg-purple-50 text-purple-600 mx-auto flex items-center justify-center text-2xl mb-3 shadow-inner">
+                    🔍
+                </div>
+                <h3 class="text-base sm:text-lg font-bold text-slate-900 mb-1">မည်သည့်ဖောင့်မှ မတွေ့ရှိပါ</h3>
+                <p class="text-xs sm:text-sm text-slate-500 max-w-md mx-auto">
+                    အခြားစာလုံးပေါင်း သို့မဟုတ် အမျိုးအစားခလုတ်များကို ပြောင်းလဲရှာဖွေကြည့်ပါ။
+                </p>
+                <button onclick="clearSearch()" class="mt-4 px-5 py-2 rounded-full bg-slate-900 text-white font-semibold text-xs sm:text-sm">
+                    ရှာဖွေမှုကို ရှင်းလင်းမည်
+                </button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- ================= AUTH MODAL (SIGN IN & SIGN UP) ================= -->
+    <div id="authModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-md">
+        <div class="relative w-full max-w-md rounded-3xl bg-white border border-slate-200 shadow-2xl p-6 sm:p-8 space-y-5 animate-in fade-in zoom-in-95">
+            
+            <!-- Modal Close Button -->
+            <button onclick="closeModal('authModal')" class="absolute right-5 top-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 flex items-center justify-center text-sm font-bold transition">
+                ✕
+            </button>
+
+            <!-- Brand Header -->
+            <div class="text-center space-y-2">
+                <div class="w-12 h-12 rounded-2xl mx-auto p-1 bg-white border border-slate-200 shadow-md">
+                    <img src="data:image/png;base64,__LOGO_BASE64__" alt="Logo" class="w-full h-full object-contain" />
+                </div>
+                <h3 class="text-xl sm:text-2xl font-black text-slate-900">Zee Motion Studio</h3>
+                <p class="text-xs text-slate-500">ဖောင့် ၁၇၀+ ကို အသုံးပြုရန် အကောင့်ဝင်ရောက်ပါ</p>
+            </div>
+
+            <!-- Tab Switcher (Sign In vs Sign Up) -->
+            <div class="grid grid-cols-2 p-1 rounded-2xl bg-slate-100 text-xs font-bold">
+                <button id="authTabSignIn" onclick="switchAuthTab('signin')" class="py-2 rounded-xl bg-white text-slate-900 shadow-sm transition">
+                    အကောင့်ဝင်ရန် (Sign In)
+                </button>
+                <button id="authTabSignUp" onclick="switchAuthTab('signup')" class="py-2 rounded-xl text-slate-500 hover:text-slate-900 transition">
+                    အကောင့်သစ် (Sign Up)
+                </button>
+            </div>
+
+            <!-- Sign In Form -->
+            <form id="signInForm" onsubmit="handleSignInSubmit(event)" class="space-y-4">
+                <div class="space-y-1">
+                    <label class="text-xs font-bold text-slate-700">အီးမေးလ် သို့မဟုတ် အကောင့်အမည်</label>
+                    <input 
+                        type="text" 
+                        id="loginEmail" 
+                        required 
+                        placeholder="ဥပမာ - designer@zeemotion.com"
+                        class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs sm:text-sm focus:outline-none focus:border-purple-500 focus:bg-white transition"
+                    >
+                </div>
+                <div class="space-y-1">
+                    <div class="flex justify-between items-center">
+                        <label class="text-xs font-bold text-slate-700">စကားဝှက် (Password)</label>
+                        <button type="button" onclick="showToast('Demo စကားဝှက်: 123456 သို့မဟုတ် 1-Click Demo Login ကို သုံးပါ', 'info')" class="text-[11px] text-purple-600 hover:underline">စကားဝှက်မေ့နေသလား?</button>
+                    </div>
+                    <div class="relative">
+                        <input 
+                            type="password" 
+                            id="loginPassword" 
+                            required 
+                            placeholder="စကားဝှက် ရိုက်ထည့်ပါ..."
+                            class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs sm:text-sm focus:outline-none focus:border-purple-500 focus:bg-white transition"
+                        >
+                        <button type="button" onclick="togglePasswordVisibility('loginPassword')" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 text-xs">
+                            👁️
+                        </button>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-between text-xs text-slate-600">
+                    <label class="flex items-center gap-1.5 cursor-pointer">
+                        <input type="checkbox" id="rememberMe" checked class="rounded accent-purple-600">
+                        <span>Remember Me (အကောင့်မှတ်ထားမည်)</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="w-full py-3 rounded-full bg-slate-950 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm shadow-lg shadow-purple-500/10 transition">
+                    အကောင့်ဝင်မည် (Sign In)
+                </button>
+
+                <div class="relative my-3 text-center">
+                    <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-slate-200"></div></div>
+                    <span class="relative px-3 bg-white text-[11px] text-slate-400 font-medium uppercase">သို့မဟုတ် (Or)</span>
+                </div>
+
+                <!-- 1-Click Instant Demo Login Button -->
+                <button type="button" onclick="quickDemoLogin()" class="w-full py-2.5 rounded-full bg-purple-50 hover:bg-purple-100 text-purple-700 border border-purple-200/80 font-bold text-xs transition flex items-center justify-center gap-2">
+                    <span>⚡ 1-Click Demo Login (ချက်ချင်းစမ်းသပ်ဝင်မည်)</span>
+                </button>
+            </form>
+
+            <!-- Sign Up Form (Hidden by default) -->
+            <form id="signUpForm" onsubmit="handleSignUpSubmit(event)" class="hidden space-y-3.5">
+                <div class="space-y-1">
+                    <label class="text-xs font-bold text-slate-700">နာမည်အပြည့်အစုံ</label>
+                    <input 
+                        type="text" 
+                        id="regName" 
+                        required 
+                        placeholder="ဥပမာ - Sithu Kyaw"
+                        class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs sm:text-sm focus:outline-none focus:border-purple-500 focus:bg-white transition"
+                    >
+                </div>
+                <div class="space-y-1">
+                    <label class="text-xs font-bold text-slate-700">အီးမေးလ်</label>
+                    <input 
+                        type="email" 
+                        id="regEmail" 
+                        required 
+                        placeholder="ဥပမာ - yourname@gmail.com"
+                        class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs sm:text-sm focus:outline-none focus:border-purple-500 focus:bg-white transition"
+                    >
+                </div>
+                <div class="space-y-1">
+                    <label class="text-xs font-bold text-slate-700">အလုပ်အကိုင် / Role</label>
+                    <select id="regRole" class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs sm:text-sm focus:outline-none focus:border-purple-500 focus:bg-white transition">
+                        <option value="Creative Graphic Designer">Creative Graphic Designer</option>
+                        <option value="Video Editor & Motion Designer">Video Editor & Motion Designer</option>
+                        <option value="Content Creator / Social Media">Content Creator / Social Media</option>
+                        <option value="Software Developer / Web">Software Developer / Web</option>
+                        <option value="General User">General User (အထွေထွေ)</option>
+                    </select>
+                </div>
+                <div class="space-y-1">
+                    <label class="text-xs font-bold text-slate-700">စကားဝှက် ဖန်တီးပါ</label>
+                    <input 
+                        type="password" 
+                        id="regPassword" 
+                        required 
+                        placeholder="အနည်းဆုံး ၆ လုံး..."
+                        class="w-full px-4 py-2.5 rounded-xl bg-slate-50 border border-slate-200 text-xs sm:text-sm focus:outline-none focus:border-purple-500 focus:bg-white transition"
+                    >
+                </div>
+
+                <button type="submit" class="w-full py-3 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-bold text-xs sm:text-sm shadow-lg shadow-purple-500/20 transition">
+                    ✨ အကောင့်သစ် ဖွင့်မည် (Create Account)
+                </button>
+            </form>
+
+        </div>
+    </div>
+
+    <!-- ================= DEVICE INSTALLATION GUIDE MODAL ================= -->
+    <div id="guideModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-md">
+        <div class="relative w-full max-w-2xl rounded-3xl bg-white border border-slate-200 shadow-2xl p-5 sm:p-7 space-y-4 max-h-[90vh] overflow-y-auto">
+            
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-9 h-9 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center text-lg">
+                        📱
+                    </div>
+                    <div>
+                        <h3 class="font-extrabold text-base sm:text-lg text-slate-900">ဖုန်း & Laptop ဖောင့်ထည့်သွင်းနည်းလမ်းညွှန်</h3>
+                        <p class="text-xs text-slate-500">CapCut, PixelLab, iFont, Windows & Mac အသုံးပြုနည်းများ</p>
+                    </div>
+                </div>
+                <button onclick="closeModal('guideModal')" class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:text-slate-900 flex items-center justify-center font-bold">
+                    ✕
+                </button>
+            </div>
+
+            <!-- Guide Tabs -->
+            <div class="flex gap-1.5 overflow-x-auto no-scrollbar p-1 rounded-2xl bg-slate-100 text-xs">
+                <button id="btn-tab-ios" onclick="switchGuideTab('tab-ios')" class="guide-tab-btn active px-3.5 py-2 rounded-xl bg-purple-600 text-white font-bold whitespace-nowrap">
+                    🍎 iPhone / iPad
+                </button>
+                <button id="btn-tab-android" onclick="switchGuideTab('tab-android')" class="guide-tab-btn px-3.5 py-2 rounded-xl text-slate-600 font-semibold whitespace-nowrap">
+                    🤖 Android (CapCut / PixelLab)
+                </button>
+                <button id="btn-tab-desktop" onclick="switchGuideTab('tab-desktop')" class="guide-tab-btn px-3.5 py-2 rounded-xl text-slate-600 font-semibold whitespace-nowrap">
+                    💻 Laptop (Mac / Windows)
+                </button>
+                <button id="btn-tab-pwa" onclick="switchGuideTab('tab-pwa')" class="guide-tab-btn px-3.5 py-2 rounded-xl text-slate-600 font-semibold whitespace-nowrap">
+                    📲 PWA Home Screen
+                </button>
+            </div>
+
+            <!-- Tab 1: iOS -->
+            <div id="tab-ios" class="guide-content space-y-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <div class="p-4 rounded-2xl bg-purple-50/50 border border-purple-100 space-y-2">
+                    <h4 class="font-bold text-purple-900 flex items-center gap-1.5">
+                        <span>🎬</span> CapCut iOS (iPhone) ထဲသို့ ဖောင့်တိုက်ရိုက်ထည့်နည်း
+                    </h4>
+                    <ol class="list-decimal list-inside space-y-1.5 text-slate-700">
+                        <li>Zee Motion ဝက်ဘ်ဆိုက်မှ ဖောင့်ကို <strong>Download</strong> ဆွဲပါ (Safari ၏ Downloads ဖိုဒါထဲ ရောက်ရှိမည်)။</li>
+                        <li><strong>CapCut</strong> အက်ပ်ကို ဖွင့်ပါ > Text > Add Text > <strong>Font</strong> ကို နှိပ်ပါ။</li>
+                        <li>Font မီနူးတွင် <strong class="text-purple-700">+ (Add Font)</strong> ကို နှိပ်ပြီး ဖုန်းထဲမှ ဒေါင်းလုဒ်ဆွဲထားသော <strong>.ttf</strong> ဖိုင်ကို ရွေးပေးလိုက်ရုံဖြင့် ချက်ချင်း အသုံးပြုနိုင်ပါပြီ။</li>
+                    </ol>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
+                    <h4 class="font-bold text-slate-800 flex items-center gap-1.5">
+                        <span>📱</span> iOS System (Settings) တစ်ခုလုံးသို့ ဖောင့်သွင်းနည်း (iFont App)
+                    </h4>
+                    <p class="text-slate-600">
+                        App Store မှ အခမဲ့ရရှိသော <strong>iFont</strong> အက်ပ်ကို ဒေါင်းလုဒ်ဆွဲပြီး Zee Motion မှ ဒေါင်းလုဒ်ရရှိသော ဖောင့်ကို Open in iFont ဖြင့် ဖွင့်ကာ Install Profile ပြုလုပ်၍ iPhone စနစ်တစ်ခုလုံးတွင် သုံးနိုင်ပါသည်။
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tab 2: Android -->
+            <div id="tab-android" class="guide-content hidden space-y-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <div class="p-4 rounded-2xl bg-emerald-50/50 border border-emerald-100 space-y-2">
+                    <h4 class="font-bold text-emerald-900 flex items-center gap-1.5">
+                        <span>🎬</span> CapCut, PixelLab, InShot, Canva တွင် ဖောင့်ထည့်သွင်းနည်း
+                    </h4>
+                    <ol class="list-decimal list-inside space-y-1.5 text-slate-700">
+                        <li>Zee Motion မှ ဖောင့်ကို ဒေါင်းလုဒ်ဆွဲပါ (ဖုန်း၏ <code>Download</code> ဖိုဒါထဲသို့ ရောက်ရှိသွားပါမည်)။</li>
+                        <li><strong>CapCut Mobile</strong> တွင် Text > Font > <span class="text-purple-700 font-bold">+ (Add Font)</span> > ဖုန်းထဲမှ .ttf ဖိုင်ကို ရွေးပေးပါ။</li>
+                        <li><strong>PixelLab</strong> တွင် Font > My Fonts > ဖိုဒါအိုင်ကွန် (+) ကို နှိပ်ပြီး <code>Download</code> ဖိုဒါထဲမှ ဖောင့်ကို ရွေးပါ။</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Tab 3: Desktop -->
+            <div id="tab-desktop" class="guide-content hidden space-y-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                    <h4 class="font-bold text-slate-800 flex items-center gap-1.5">
+                        <span>🪟</span> Windows Laptop & PC
+                    </h4>
+                    <p class="text-slate-600">
+                        ဒေါင်းလုဒ်ရရှိသော <code>.ttf</code> ဖိုင်ပေါ်တွင် <strong>Right Click</strong> နှိပ်ပါ > <span class="text-purple-700 font-semibold">Install for all users</span> ကို နှိပ်ပါ။ Photoshop, Premiere Pro, CapCut PC ထဲတွင် ဖောင့်အမည်ဖြင့် ချက်ချင်းပေါ်လာပါမည်။
+                    </p>
+                </div>
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                    <h4 class="font-bold text-slate-800 flex items-center gap-1.5">
+                        <span>🍎</span> Apple Mac (MacBook / iMac)
+                    </h4>
+                    <p class="text-slate-600">
+                        ဒေါင်းလုဒ်ရရှိသော <code>.ttf</code> ဖိုင်ကို <strong>Double Click</strong> နှိပ်ပါ > ပွင့်လာသော Font Book ပေါ်တွင် <span class="text-purple-700 font-semibold">Install Font</span> ကို နှိပ်ပါ။
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tab 4: PWA -->
+            <div id="tab-pwa" class="guide-content hidden space-y-3 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <div class="p-4 rounded-2xl bg-indigo-50/50 border border-indigo-100 space-y-2">
+                    <h4 class="font-bold text-indigo-900 flex items-center gap-1.5">
+                        <span>📲</span> Official App အဖြစ် Home Screen တွင် သွင်းယူနည်း (PWA)
+                    </h4>
+                    <ul class="space-y-2 text-slate-700">
+                        <li><strong>iPhone (Safari):</strong> မျက်နှာပြင်အောက်ခြေရှိ <strong>Share (⎋)</strong> အိုင်ကွန်ကို နှိပ်ပါ > <span class="text-purple-700 font-semibold">"Add to Home Screen (ပင်မစာမျက်နှာသို့ ထည့်ပါ)"</span> ကို ရွေးပါ။</li>
+                        <li><strong>Android (Chrome):</strong> ညာဘက်အပေါ်ရှိ မီနူး <strong>(⋮)</strong> ကို နှိပ်ပါ > <span class="text-purple-700 font-semibold">"Install app (သို့) Add to Home screen"</span> ကို ရွေးပါ။</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="flex justify-end pt-2 border-t border-slate-100">
+                <button onclick="closeModal('guideModal')" class="px-5 py-2 rounded-full bg-slate-900 text-white text-xs font-bold">
+                    နားလည်ပါပြီ
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ================= FONT DETAIL MODAL ================= -->
+    <div id="fontDetailModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-md">
+        <div class="relative w-full max-w-2xl rounded-3xl bg-white border border-slate-200 shadow-2xl p-6 sm:p-8 space-y-5 max-h-[90vh] overflow-y-auto">
+            <div class="flex items-start justify-between border-b border-slate-100 pb-4">
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h3 id="modalFontName" class="text-xl sm:text-2xl font-black text-slate-900">Font Name</h3>
+                        <span id="modalFontCategory" class="text-xs px-2.5 py-0.5 rounded-full bg-purple-50 text-purple-700 font-bold border border-purple-200">Category</span>
+                    </div>
+                    <p id="modalFontMmName" class="text-xs sm:text-sm text-slate-500 mt-0.5">မြန်မာအမည်</p>
+                </div>
+                <button onclick="closeModal('fontDetailModal')" class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:text-slate-900 flex items-center justify-center font-bold">
+                    ✕
+                </button>
+            </div>
+
+            <div class="space-y-4">
+                <div>
+                    <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">နမူနာစာသား စမ်းသပ်ချက် (Large Preview):</label>
+                    <div id="modalFontPreviewBox" class="mt-1.5 p-5 rounded-2xl bg-slate-50 border border-slate-200 text-2xl sm:text-3xl text-slate-900 leading-relaxed font-normal">
+                        သီဟိုဠ်မှ ဉာဏ်ကြီးရှင်သည်
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-xs">
+                    <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                        <div class="text-slate-400">ဖိုင်အမျိုးအစား</div>
+                        <div id="modalFileType" class="font-bold text-slate-800 mt-0.5">TrueType (.TTF)</div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                        <div class="text-slate-400">ဖိုင်အရွယ်အစား</div>
+                        <div id="modalFileSize" class="font-bold text-slate-800 mt-0.5">350 KB</div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                        <div class="text-slate-400">ဒီဇိုင်နာ</div>
+                        <div id="modalDesigner" class="font-bold text-slate-800 mt-0.5 truncate">Art House</div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                        <div class="text-slate-400">Encoding</div>
+                        <div id="modalEncoding" class="font-bold text-purple-600 mt-0.5">Unicode / Win</div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex items-center justify-between mb-1.5">
+                        <label class="text-xs font-bold text-slate-500 uppercase tracking-wider">Web CSS Code (@font-face):</label>
+                        <button onclick="copyCssSnippet()" class="text-xs text-purple-600 font-bold hover:underline">Copy CSS</button>
+                    </div>
+                    <pre id="modalCssCode" class="p-3.5 rounded-xl bg-slate-950 text-slate-200 font-mono text-[11px] overflow-x-auto select-all"></pre>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-4 border-t border-slate-100">
+                <button onclick="closeModal('fontDetailModal')" class="px-4 py-2 rounded-full bg-slate-100 text-slate-600 font-semibold text-xs">
+                    ပိတ်မည်
+                </button>
+                <button id="modalDownloadBtn" onclick="downloadCurrentModalFont()" class="px-6 py-2.5 rounded-full bg-slate-950 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm shadow-md transition flex items-center gap-1.5">
+                    <span>⬇️</span>
+                    <span>Download TrueType</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Container -->
+    <div id="toastContainer" class="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-50 flex flex-col gap-2 pointer-events-none max-w-sm"></div>
+
+    <!-- Mobile Floating Bottom Navigation Bar -->
+    <div class="md:hidden fixed bottom-3 left-4 right-4 z-40">
+        <nav class="glass-nav rounded-2xl border border-white/80 shadow-2xl p-1.5 flex items-center justify-around text-slate-600">
+            <a href="#studioSection" class="flex flex-col items-center py-1 px-2.5 rounded-xl text-purple-600 font-bold">
+                <span class="text-base">🏠</span>
+                <span class="text-[10px]">Studio</span>
+            </a>
+            <button onclick="setCategory('arthouse')" class="flex flex-col items-center py-1 px-2.5 rounded-xl hover:text-slate-900">
+                <span class="text-base">🎨</span>
+                <span class="text-[10px]">Art House</span>
+            </button>
+            <button onclick="openModal('guideModal')" class="flex flex-col items-center py-1 px-2.5 rounded-xl hover:text-slate-900">
+                <span class="text-base">📱</span>
+                <span class="text-[10px]">သွင်းနည်း</span>
+            </button>
+            <button onclick="toggleFavoritesFilter()" class="flex flex-col items-center py-1 px-2.5 rounded-xl hover:text-slate-900 relative">
+                <span class="text-base">❤️</span>
+                <span class="text-[10px]">သိမ်းထား</span>
+                <span id="mobileFavCountBadge" class="hidden absolute top-0 right-1 w-4 h-4 rounded-full bg-rose-500 text-white text-[9px] font-bold flex items-center justify-center">0</span>
+            </button>
+            <button onclick="handleMobileAuthClick()" class="flex flex-col items-center py-1 px-2.5 rounded-xl hover:text-slate-900">
+                <span id="mobileAuthIcon" class="text-base">👤</span>
+                <span id="mobileAuthText" class="text-[10px]">အကောင့်</span>
+            </button>
+        </nav>
+    </div>
+
+    <!-- Global Application Logic & Font Catalog -->
+    <script>
+        const MYANMAR_FONTS = __CATALOG_JSON__;
+        const WIN_CMAP = __CMAP_JSON__;
+        const PANGRAM_WIN = __PANGRAM_WIN_JSON__;
+        const HEADLINE_WIN = __HEADLINE_WIN_JSON__;
+
+        // App States
+        let activeCategory = 'all';
+        let currentFontSize = 22;
+        let isGlobalBold = false;
+        let favoritesOnly = false;
+        let savedFavorites = JSON.parse(localStorage.getItem('mm_font_favs_v9') || '[]');
+        let winModeState = {};
+        let currentModalFontId = null;
+
+        // User Auth Session State
+        const DEMO_USER = {
+            name: 'Sithu Kyaw',
+            email: 'designer@zeemotion.com',
+            role: 'Creative Motion Designer',
+            avatar: '👨‍🎨',
+            joined: '2026',
+            isPro: true
+        };
+
+        let currentUser = null;
+
+        // Init Session from LocalStorage
+        function checkAuthSession() {
+            const savedSession = localStorage.getItem('zeemotion_auth_user');
+            if (savedSession) {
+                try {
+                    currentUser = JSON.parse(savedSession);
+                } catch(e) {
+                    currentUser = null;
+                }
+            }
+            updateAuthUI();
+        }
+
+        function updateAuthUI() {
+            const isAuthed = currentUser !== null;
+            const gateSection = document.getElementById('authGateSection');
+            const studioSection = document.getElementById('studioSection');
+            const navSignInBtn = document.getElementById('navSignInBtn');
+            const navUserPill = document.getElementById('navUserPill');
+            const mobileAuthText = document.getElementById('mobileAuthText');
+
+            if (isAuthed) {
+                if (gateSection) gateSection.classList.add('hidden');
+                if (studioSection) studioSection.classList.remove('hidden');
+
+                if (navSignInBtn) navSignInBtn.classList.add('hidden');
+                if (navUserPill) navUserPill.classList.remove('hidden');
+
+                const nameInit = currentUser.name ? currentUser.name.charAt(0).toUpperCase() : 'U';
+                document.getElementById('userAvatar').textContent = nameInit;
+                document.getElementById('userName').textContent = currentUser.name.split(' ')[0];
+                document.getElementById('dropdownUserEmail').textContent = currentUser.email;
+                document.getElementById('dropdownUserRole').textContent = currentUser.role || 'Member';
+                if (mobileAuthText) mobileAuthText.textContent = 'ပရိုဖိုင်';
+            } else {
+                if (gateSection) gateSection.classList.remove('hidden');
+                if (studioSection) studioSection.classList.add('hidden');
+
+                if (navSignInBtn) navSignInBtn.classList.remove('hidden');
+                if (navUserPill) navUserPill.classList.add('hidden');
+                if (mobileAuthText) mobileAuthText.textContent = 'အကောင့်ဝင်';
+            }
+        }
+
+        function scrollToStudioOrLogin() {
+            if (!currentUser) {
+                openAuthModal('signin');
+            } else {
+                const el = document.getElementById('studioSection');
+                if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function handleMobileAuthClick() {
+            if (!currentUser) {
+                openAuthModal('signin');
+            } else {
+                toggleUserDropdown();
+            }
+        }
+
+        function toggleUserDropdown() {
+            const dd = document.getElementById('userDropdown');
+            if (dd) dd.classList.toggle('hidden');
+        }
+
+        document.addEventListener('click', (e) => {
+            const navUserPill = document.getElementById('navUserPill');
+            const dd = document.getElementById('userDropdown');
+            if (navUserPill && dd && !navUserPill.contains(e.target)) {
+                dd.classList.add('hidden');
+            }
+        });
+
+        function openAuthModal(tab = 'signin') {
+            switchAuthTab(tab);
+            openModal('authModal');
+        }
+
+        function switchAuthTab(tab) {
+            const btnIn = document.getElementById('authTabSignIn');
+            const btnUp = document.getElementById('authTabSignUp');
+            const formIn = document.getElementById('signInForm');
+            const formUp = document.getElementById('signUpForm');
+
+            if (tab === 'signin') {
+                btnIn.className = 'py-2 rounded-xl bg-white text-slate-900 shadow-sm transition';
+                btnUp.className = 'py-2 rounded-xl text-slate-500 hover:text-slate-900 transition';
+                formIn.classList.remove('hidden');
+                formUp.classList.add('hidden');
+            } else {
+                btnUp.className = 'py-2 rounded-xl bg-white text-slate-900 shadow-sm transition';
+                btnIn.className = 'py-2 rounded-xl text-slate-500 hover:text-slate-900 transition';
+                formUp.classList.remove('hidden');
+                formIn.classList.add('hidden');
+            }
+        }
+
+        function togglePasswordVisibility(fieldId) {
+            const field = document.getElementById(fieldId);
+            if (field) {
+                field.type = field.type === 'password' ? 'text' : 'password';
+            }
+        }
+
+        function quickDemoLogin() {
+            currentUser = DEMO_USER;
+            localStorage.setItem('zeemotion_auth_user', JSON.stringify(currentUser));
+            updateAuthUI();
+            closeModal('authModal');
+            showToast('မင်္ဂလာပါ Sithu Kyaw! Zee Motion Studio သို့ ဝင်ရောက်ပြီးပါပြီ ⚡', 'success');
+            renderFonts();
+            const el = document.getElementById('studioSection');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function handleSignInSubmit(e) {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPassword').value.trim();
+
+            if (!email || !password) {
+                showToast('အီးမေးလ်နှင့် စကားဝှက် ရိုက်ထည့်ပေးပါ', 'info');
+                return;
+            }
+
+            const usersDb = JSON.parse(localStorage.getItem('zeemotion_users_db') || '[]');
+            const matched = usersDb.find(u => u.email.toLowerCase() === email.toLowerCase());
+
+            if (matched) {
+                currentUser = matched;
+            } else {
+                currentUser = {
+                    name: email.split('@')[0],
+                    email: email,
+                    role: 'Creative Designer',
+                    avatar: '👤',
+                    isPro: true
+                };
+            }
+
+            localStorage.setItem('zeemotion_auth_user', JSON.stringify(currentUser));
+            updateAuthUI();
+            closeModal('authModal');
+            showToast('မင်္ဂလာပါ ' + currentUser.name + '! အကောင့်ဝင်ရောက်မှု အောင်မြင်ပါသည် ✓', 'success');
+            renderFonts();
+            const el = document.getElementById('studioSection');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function handleSignUpSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('regName').value.trim();
+            const email = document.getElementById('regEmail').value.trim();
+            const role = document.getElementById('regRole').value;
+            const password = document.getElementById('regPassword').value.trim();
+
+            if (!name || !email || !password) {
+                showToast('အချက်အလက်များ အပြည့်အစုံ ဖြည့်စွက်ပေးပါ', 'info');
+                return;
+            }
+
+            const newUser = {
+                name: name,
+                email: email,
+                role: role,
+                avatar: '✨',
+                isPro: true,
+                created: new Date().toISOString()
+            };
+
+            const usersDb = JSON.parse(localStorage.getItem('zeemotion_users_db') || '[]');
+            usersDb.push(newUser);
+            localStorage.setItem('zeemotion_users_db', JSON.stringify(usersDb));
+
+            currentUser = newUser;
+            localStorage.setItem('zeemotion_auth_user', JSON.stringify(currentUser));
+
+            updateAuthUI();
+            closeModal('authModal');
+            showToast('အကောင့်အသစ် ဖန်တီးပြီးပါပြီ! ကြိုဆိုပါတယ် ' + name + ' 🎉', 'success');
+            renderFonts();
+            const el = document.getElementById('studioSection');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function handleSignOut() {
+            currentUser = null;
+            localStorage.removeItem('zeemotion_auth_user');
+            updateAuthUI();
+            const dd = document.getElementById('userDropdown');
+            if (dd) dd.classList.add('hidden');
+            showToast('အကောင့်မှ ထွက်ပြီးပါပြီ။ နောက်မှ ပြန်လည်ဆုံတွေ့ပါမည် 👋', 'info');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Service Worker Registration for Offline PWA
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js').then((reg) => {
+                    console.log('Zee Motion PWA ServiceWorker active:', reg.scope);
+                }).catch(() => {});
+            });
+        }
+
+        // Sharing
+        function shareApp() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Zee Motion Font Studio',
+                    text: 'မြန်မာဖောင့် ၁၇၀+ စုစည်းမှုနှင့် မူရင်းစတိုင် တိုက်ရိုက်စမ်းသပ်ဒေါင်းလုဒ်ဆွဲနိုင်သော Official App',
+                    url: window.location.href
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(window.location.href).then(() => {
+                    showToast('ဝက်ဘ်ဆိုက်လင့်ခ်ကို Copy ကူးယူပြီးပါပြီ! 🔗', 'success');
+                }).catch(() => {});
+            }
+        }
+
+        function shareFont(fontId) {
+            const font = MYANMAR_FONTS.find(f => f.id === fontId);
+            if (!font) return;
+            const shareUrl = window.location.origin + window.location.pathname + '?q=' + encodeURIComponent(font.name);
+            if (navigator.share) {
+                navigator.share({
+                    title: font.name + ' — Zee Motion',
+                    text: font.name + ' (' + font.mmName + ') မြန်မာဖောင့်ကို Zee Motion Font Studio တွင် စမ်းသပ်ဒေါင်းလုဒ်ဆွဲပါ',
+                    url: shareUrl
+                }).catch(() => {});
+            } else {
+                navigator.clipboard.writeText(shareUrl).then(() => {
+                    showToast(font.name + ' ဖောင့်လင့်ခ်ကို Copy ကူးယူပြီးပါပြီ! 🔗', 'success');
+                }).catch(() => {});
+            }
+        }
+
+        function copySnippetCssHero() {
+            const css = [
+                "@font-face {",
+                "  font-family: 'ArtHouseW60';",
+                "  src: url('./fonts/W60Art House-2ndEdition2007.ttf') format('truetype');",
+                "}"
+            ].join('\n');
+            navigator.clipboard.writeText(css).then(() => {
+                showToast('Art House W60 CSS ကုဒ်ကို Copy ကူးယူပြီးပါပြီ!', 'success');
+            }).catch(() => {});
+        }
+
+        // Guide Tabs
+        function switchGuideTab(tabId) {
+            document.querySelectorAll('.guide-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.guide-tab-btn').forEach(btn => {
+                btn.className = 'guide-tab-btn px-3.5 py-2 rounded-xl text-slate-600 font-semibold whitespace-nowrap';
+            });
+            const target = document.getElementById(tabId);
+            if (target) target.classList.remove('hidden');
+            const targetBtn = document.getElementById('btn-' + tabId);
+            if (targetBtn) {
+                targetBtn.className = 'guide-tab-btn active px-3.5 py-2 rounded-xl bg-purple-600 text-white font-bold whitespace-nowrap';
+            }
+        }
+
+        // Unicode to Win Converter Engine
+        function unicodeToWin(text) {
+            if (!text) return '';
+            let out = text;
+
+            // Reorder E-vowel
+            out = out.replace(/([က-အ])([ေ])/g, '$2$1');
+            out = out.replace(/([က-အ])([ြ-ှ]+)([ေ])/g, '$3$1$2');
+
+            // Medials & vowels
+            out = out.replace(/ျွှ/g, 'Gs');
+            out = out.replace(/ျှ/g, 'sS');
+            out = out.replace(/ြွှ/g, 'Gj');
+            out = out.replace(/ြှ/g, 'jS');
+            out = out.replace(/ွှ/g, 'GS');
+            out = out.replace(/ို/g, 'dkd');
+            out = out.replace(/ိ/g, 'd');
+            out = out.replace(/ီ/g, 'D');
+            out = out.replace(/ု/g, 'k');
+            out = out.replace(/ူ/g, 'l');
+            out = out.replace(/ဲ/g, 'J');
+            out = out.replace(/ံ/g, 'H');
+            out = out.replace(/့/g, 'h');
+            out = out.replace(/း/g, ';');
+            out = out.replace(/်/g, 'f');
+            out = out.replace(/ျ/g, 's');
+            out = out.replace(/ြ/g, 'j');
+            out = out.replace(/ွ/g, 'G');
+            out = out.replace(/ှ/g, 'S');
+            out = out.replace(/ေ/g, 'a');
+            out = out.replace(/ာ/g, 'm');
+            out = out.replace(/ါ/g, 'g');
+
+            let res = '';
+            for (let i = 0; i < out.length; i++) {
+                const c = out[i];
+                res += WIN_CMAP[c] !== undefined ? WIN_CMAP[c] : c;
+            }
+            return res;
+        }
+
+        function initApp() {
+            const totalCount = MYANMAR_FONTS.length;
+            const heroTotalEl = document.getElementById('heroTotalCount');
+            if (heroTotalEl) heroTotalEl.textContent = totalCount + '+';
+            const catAllEl = document.getElementById('catCount-all');
+            if (catAllEl) catAllEl.textContent = totalCount;
+
+            const counts = {
+                'arthouse': 0, 'masterpiece': 0, 'handwriting': 0,
+                'uni-myanmar': 0, 'unicode': 0, 'win': 0, 'zawgyi': 0
+            };
+            MYANMAR_FONTS.forEach(f => {
+                if (counts[f.category] !== undefined) counts[f.category]++;
+            });
+            for (const cat in counts) {
+                const el = document.getElementById('catCount-' + cat);
+                if (el) el.textContent = counts[cat];
+            }
+
+            updateFavBadge();
+            checkAuthSession();
+
+            const urlParams = new URLSearchParams(window.location.search);
+            const initialCat = urlParams.get('cat') || window.location.hash.replace('#', '');
+            const initialQuery = urlParams.get('q');
+            if (initialQuery) {
+                document.getElementById('searchInput').value = initialQuery;
+                document.getElementById('clearSearchBtn').classList.remove('hidden');
+            }
+            if (initialCat && counts[initialCat] !== undefined) {
+                setCategory(initialCat);
+            } else {
+                renderFonts();
+            }
+
+            document.getElementById('searchInput').addEventListener('input', (e) => {
+                const clearBtn = document.getElementById('clearSearchBtn');
+                clearBtn.classList.toggle('hidden', !e.target.value.trim());
+                renderFonts();
+            });
+
+            document.getElementById('fontSizeSlider').addEventListener('input', (e) => {
+                currentFontSize = parseInt(e.target.value, 10);
+                document.getElementById('fontSizeValue').textContent = currentFontSize + 'px';
+                document.querySelectorAll('.live-specimen-textarea').forEach(el => {
+                    el.style.fontSize = currentFontSize + 'px';
+                });
+            });
+        }
+
+        function setCategory(cat) {
+            if (!currentUser) {
+                openAuthModal('signin');
+                return;
+            }
+            activeCategory = cat;
+            document.querySelectorAll('.cat-tab').forEach(tab => {
+                if (tab.dataset.cat === cat) {
+                    tab.className = 'cat-tab active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold whitespace-nowrap transition bg-slate-900 text-white shadow-md';
+                } else {
+                    tab.className = 'cat-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold whitespace-nowrap transition bg-white text-slate-600 border border-slate-200/80 hover:bg-slate-50';
+                }
+            });
+            renderFonts();
+        }
+
+        function clearSearch() {
+            document.getElementById('searchInput').value = '';
+            document.getElementById('clearSearchBtn').classList.add('hidden');
+            renderFonts();
+        }
+
+        function toggleGlobalBold() {
+            isGlobalBold = !isGlobalBold;
+            const btn = document.getElementById('globalBoldBtn');
+            btn.classList.toggle('bg-purple-600', isGlobalBold);
+            btn.classList.toggle('text-white', isGlobalBold);
+            btn.classList.toggle('bg-white', !isGlobalBold);
+            btn.classList.toggle('text-slate-700', !isGlobalBold);
+            document.querySelectorAll('.live-specimen-textarea').forEach(el => {
+                el.classList.toggle('font-bold', isGlobalBold);
+            });
+        }
+
+        function applyPresetText(type) {
+            let targetText = '';
+            if (type === 'pangram') {
+                targetText = 'သီဟိုဠ်မှ ဉာဏ်ကြီးရှင်သည် အာယုဝဍ္ဎနဆေးညွှန်းစာကို ဇလွန်ဈေးဘေး ဗာဒံပင်ထက် အဓိဋ္ဌာန်လျက် ဂဃနဏဖတ်ခဲ့သည်။';
+            } else if (type === 'headline') {
+                targetText = 'မင်္ဂလာပါ မြန်မာပြည် - လှပဆန်းသစ်သော မြန်မာဖောင့်ဒီဇိုင်းများ';
+            } else {
+                targetText = 'Zee Motion Font Studio • Creative Graphic & Motion Typography';
+            }
+
+            document.querySelectorAll('.live-specimen-textarea').forEach(el => {
+                const fontId = el.dataset.fontId;
+                const font = MYANMAR_FONTS.find(f => f.id === fontId);
+                if (font) {
+                    const mode = winModeState[fontId] || 'auto';
+                    if (font.isWin && mode === 'auto') {
+                        el.value = unicodeToWin(targetText);
+                    } else {
+                        el.value = targetText;
+                    }
+                }
+            });
+            showToast('နမူနာစာသားကို ပြောင်းလဲပြင်ဆင်ပြီးပါပြီ ✓', 'info');
+        }
+
+        function toggleWinMode(fontId) {
+            const current = winModeState[fontId] || 'auto';
+            const next = current === 'auto' ? 'direct' : 'auto';
+            winModeState[fontId] = next;
+
+            const btn = document.getElementById('winToggle-' + fontId);
+            if (btn) {
+                if (next === 'auto') {
+                    btn.className = 'text-[10px] px-2 py-0.5 rounded-full bg-purple-50 text-purple-700 border border-purple-200 font-bold';
+                    btn.innerHTML = '⚡ Auto-Win Active';
+                } else {
+                    btn.className = 'text-[10px] px-2 py-0.5 rounded-full bg-slate-100 text-slate-500 border border-slate-200 font-medium';
+                    btn.innerHTML = '⌨️ Direct Win Layout';
+                }
+            }
+
+            const textarea = document.getElementById('specimen-' + fontId);
+            if (textarea) {
+                if (next === 'auto') {
+                    textarea.value = unicodeToWin('မင်္ဂလာပါ မြန်မာပြည်');
+                } else {
+                    textarea.value = 'r*Fvmyg jrefrmjynf';
+                }
+            }
+        }
+
+        function handleSpecimenInput(textarea, fontId) {
+            const font = MYANMAR_FONTS.find(f => f.id === fontId);
+            if (!font || !font.isWin) return;
+
+            const mode = winModeState[fontId] || 'auto';
+            if (mode !== 'auto') return;
+
+            const val = textarea.value;
+            const hasMyanmarUnicode = /[က-႟]/.test(val);
+            if (hasMyanmarUnicode) {
+                const converted = unicodeToWin(val);
+                const start = textarea.selectionStart;
+                const end = textarea.selectionEnd;
+                textarea.value = converted;
+                textarea.setSelectionRange(start, end);
+            }
+        }
+
+        function copySpecimen(fontId) {
+            const textarea = document.getElementById('specimen-' + fontId);
+            if (!textarea) return;
+            navigator.clipboard.writeText(textarea.value).then(() => {
+                showToast('စာသားကို Copy ကူးယူပြီးပါပြီ!', 'success');
+            }).catch(() => {
+                showToast('Copy ကူးယူမှု မအောင်မြင်ပါ', 'info');
+            });
+        }
+
+        function toggleFavorite(fontId) {
+            if (!currentUser) {
+                openAuthModal('signin');
+                return;
+            }
+            const idx = savedFavorites.indexOf(fontId);
+            if (idx > -1) {
+                savedFavorites.splice(idx, 1);
+                showToast('သိမ်းဆည်းထားသောစာရင်းမှ ဖယ်ရှားလိုက်ပါပြီ', 'info');
+            } else {
+                savedFavorites.push(fontId);
+                showToast('သိမ်းဆည်းထားသောစာရင်းသို့ ထည့်သွင်းပြီးပါပြီ ❤️', 'success');
+            }
+            localStorage.setItem('mm_font_favs_v9', JSON.stringify(savedFavorites));
+            updateFavBadge();
+            renderFonts();
+        }
+
+        function updateFavBadge() {
+            const count = savedFavorites.length;
+            const favCountBadge = document.getElementById('favCountBadge');
+            if (favCountBadge) favCountBadge.textContent = count;
+            const navFavCount = document.getElementById('navFavCount');
+            if (navFavCount) navFavCount.textContent = count;
+            const dropdownFavBadge = document.getElementById('dropdownFavBadge');
+            if (dropdownFavBadge) dropdownFavBadge.textContent = count;
+
+            const mobileBadge = document.getElementById('mobileFavCountBadge');
+            if (mobileBadge) {
+                mobileBadge.textContent = count;
+                mobileBadge.classList.toggle('hidden', count === 0);
+            }
+        }
+
+        function toggleFavoritesFilter() {
+            if (!currentUser) {
+                openAuthModal('signin');
+                return;
+            }
+            favoritesOnly = !favoritesOnly;
+            const btn = document.getElementById('favFilterBtn');
+            if (btn) {
+                btn.classList.toggle('bg-rose-50', favoritesOnly);
+                btn.classList.toggle('border-rose-300', favoritesOnly);
+                btn.classList.toggle('text-rose-700', favoritesOnly);
+            }
+            renderFonts();
+        }
+
+        function getCategoryBadgeStyle(cat) {
+            switch (cat) {
+                case 'arthouse': return 'bg-purple-50 text-purple-700 border-purple-200/80';
+                case 'masterpiece': return 'bg-indigo-50 text-indigo-700 border-indigo-200/80';
+                case 'handwriting': return 'bg-rose-50 text-rose-700 border-rose-200/80';
+                case 'uni-myanmar': return 'bg-emerald-50 text-emerald-700 border-emerald-200/80';
+                case 'unicode': return 'bg-sky-50 text-sky-700 border-sky-200/80';
+                case 'win': return 'bg-amber-50 text-amber-700 border-amber-200/80';
+                case 'zawgyi': return 'bg-orange-50 text-orange-700 border-orange-200/80';
+                default: return 'bg-slate-100 text-slate-700 border-slate-200';
+            }
+        }
+
+        function renderFonts() {
+            if (!currentUser) return;
+
+            const query = document.getElementById('searchInput').value.trim().toLowerCase();
+            const sortBy = document.getElementById('sortSelect').value;
+
+            let filtered = MYANMAR_FONTS.filter(f => {
+                const matchesCat = activeCategory === 'all' || f.category === activeCategory;
+                const matchesFav = !favoritesOnly || savedFavorites.includes(f.id);
+                const matchesQuery = !query || 
+                    (f.name && f.name.toLowerCase().includes(query)) ||
+                    (f.mmName && f.mmName.toLowerCase().includes(query)) ||
+                    (f.file && f.file.toLowerCase().includes(query)) ||
+                    (f.tags && f.tags.some(t => t.toLowerCase().includes(query)));
+                return matchesCat && matchesFav && matchesQuery;
+            });
+
+            if (sortBy === 'name') {
+                filtered.sort((a, b) => a.name.localeCompare(b.name));
+            } else if (sortBy === 'popular') {
+                filtered.sort((a, b) => (b.popular || 0) - (a.popular || 0));
+            } else if (sortBy === 'category') {
+                filtered.sort((a, b) => (a.category || '').localeCompare(b.category || ''));
+            }
+
+            const resultCountEl = document.getElementById('resultCount');
+            if (resultCountEl) resultCountEl.textContent = filtered.length;
+            const grid = document.getElementById('fontGrid');
+            const emptyState = document.getElementById('emptyState');
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+            emptyState.classList.add('hidden');
+
+            grid.innerHTML = filtered.map(font => {
+                const isFav = savedFavorites.includes(font.id);
+                const badgeClass = getCategoryBadgeStyle(font.category);
+                const isWin = font.isWin;
+                const winMode = winModeState[font.id] || 'auto';
+
+                return `
+                <article class="glass-card rounded-3xl p-5 sm:p-6 flex flex-col justify-between space-y-4">
+                    <div class="space-y-3">
+                        <div class="flex items-start justify-between gap-3">
+                            <div class="min-w-0 flex-1">
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <h3 class="font-bold text-base sm:text-lg text-slate-900 truncate">${font.name}</h3>
+                                    <span class="text-[11px] font-bold px-2.5 py-0.5 rounded-full border ${badgeClass} whitespace-nowrap">
+                                        ${font.categoryLabel}
+                                    </span>
+                                    ${isWin ? `
+                                    <button id="winToggle-${font.id}" onclick="toggleWinMode('${font.id}')" class="text-[10px] px-2 py-0.5 rounded-full ${winMode === 'auto' ? 'bg-purple-50 text-purple-700 border border-purple-200 font-bold' : 'bg-slate-100 text-slate-500 border border-slate-200 font-medium'}" title="Toggle Win / Direct Conversion">
+                                        ${winMode === 'auto' ? '⚡ Auto-Win Active' : '⌨️ Direct Win Layout'}
+                                    </button>
+                                    ` : `
+                                    <span class="text-[10px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold">
+                                        ✓ Unicode
+                                    </span>
+                                    `}
+                                </div>
+                                <p class="text-xs text-slate-500 mt-1 truncate">${font.mmName} • By ${font.designer}</p>
+                            </div>
+
+                            <div class="flex items-center gap-1.5 shrink-0">
+                                <button onclick="shareFont('${font.id}')" class="p-2 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 transition" title="ဖောင့်လင့်ခ် မျှဝေမည်">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                                    </svg>
+                                </button>
+                                <button onclick="toggleFavorite('${font.id}')" class="p-2 rounded-full bg-slate-100 hover:bg-slate-200 transition" title="သိမ်းဆည်းမည်">
+                                    <svg class="w-4 h-4 ${isFav ? 'text-rose-500 fill-current' : 'text-slate-400'}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Live Specimen Interactive Typing Box -->
+                        <div class="bg-slate-50/90 border border-slate-200/90 rounded-2xl p-3.5 focus-within:border-purple-500 focus-within:bg-white focus-within:ring-2 focus-within:ring-purple-100 transition relative">
+                            <div class="flex items-center justify-between text-[11px] text-slate-400 mb-1.5">
+                                <span class="font-medium text-slate-500">Live Typing Preview:</span>
+                                <div class="flex items-center gap-2">
+                                    <span class="font-mono text-slate-400 text-[10px] hidden sm:inline">${font.family || font.name}</span>
+                                    <button onclick="copySpecimen('${font.id}')" class="text-purple-600 hover:underline text-[11px] font-bold">Copy</button>
+                                </div>
+                            </div>
+                            <textarea 
+                                id="specimen-${font.id}"
+                                data-font-id="${font.id}"
+                                rows="2"
+                                autocomplete="off"
+                                autocorrect="off"
+                                autocapitalize="off"
+                                spellcheck="false"
+                                enterkeyhint="done"
+                                oninput="handleSpecimenInput(this, '${font.id}')"
+                                placeholder="ဒီနေရာမှာ စမ်းချင်တဲ့ မြန်မာစာ ရိုက်ထည့်ပါ..."
+                                class="live-specimen-textarea font-preview-${font.id} ${isGlobalBold ? 'font-bold' : ''} w-full bg-transparent text-slate-900 focus:outline-none resize-none leading-relaxed transition-all"
+                                style="font-size: ${currentFontSize}px;"
+                            >${font.defaultSample}</textarea>
+                        </div>
+
+                        <p class="text-xs text-slate-500 leading-relaxed line-clamp-2">
+                            ${font.description}
+                        </p>
+                    </div>
+
+                    <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2.5">
+                        <div class="flex items-center gap-2 text-xs text-slate-500 font-medium">
+                            <span class="px-2 py-0.5 rounded-md bg-slate-100 border border-slate-200 font-mono text-[10px]">v${font.version || '2.0'}</span>
+                            <span class="text-[11px]">📦 ${font.size}</span>
+                            <span class="text-purple-600 font-bold text-[11px]">✓ TTF</span>
+                        </div>
+
+                        <div class="flex items-center gap-2">
+                            <button onclick="openFontDetails('${font.id}')" class="px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition">
+                                အသေးစိတ်
+                            </button>
+                            <button onclick="downloadFont('${font.id}')" class="px-4 py-1.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold shadow-md shadow-slate-900/10 transition flex items-center gap-1.5">
+                                <span>⬇️</span>
+                                <span>Download</span>
+                            </button>
+                        </div>
+                    </div>
+                </article>
+                `;
+            }).join('');
+        }
+
+        function downloadFont(fontId) {
+            if (!currentUser) {
+                openAuthModal('signin');
+                return;
+            }
+            const font = MYANMAR_FONTS.find(f => f.id === fontId);
+            if (!font) return;
+            const a = document.createElement('a');
+            a.href = font.directUrl || ('./fonts/' + font.fileName);
+            a.download = font.fileName;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            showToast(font.name + ' ဖောင့်ဖိုင်ကို စတင်ဒေါင်းလုဒ်ဆွဲနေပါပြီ! ⬇️', 'success');
+        }
+
+        function downloadArtHouseZip() {
+            if (!currentUser) {
+                openAuthModal('signin');
+                return;
+            }
+            const a = document.createElement('a');
+            a.href = './Art_House_W01_to_W70_Fonts.zip';
+            a.download = 'Art_House_W01_to_W70_Fonts.zip';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            showToast('Art House W01–W70 Mega Pack (ZIP) ကို ဒေါင်းလုဒ်ဆွဲနေပါပြီ! 📦', 'success');
+        }
+
+        function downloadCurrentModalFont() {
+            if (currentModalFontId) {
+                downloadFont(currentModalFontId);
+            }
+        }
+
+        function openFontDetails(fontId) {
+            const font = MYANMAR_FONTS.find(f => f.id === fontId);
+            if (!font) return;
+            currentModalFontId = fontId;
+
+            document.getElementById('modalFontName').textContent = font.name;
+            document.getElementById('modalFontCategory').textContent = font.categoryLabel;
+            document.getElementById('modalFontMmName').textContent = font.mmName + ' • ' + font.description;
+            document.getElementById('modalFileSize').textContent = font.size;
+            document.getElementById('modalDesigner').textContent = font.designer;
+            document.getElementById('modalEncoding').textContent = font.isWin ? 'Win-Innwa Layout' : 'Standard Unicode';
+
+            const previewBox = document.getElementById('modalFontPreviewBox');
+            previewBox.className = 'mt-1.5 p-5 rounded-2xl bg-slate-50 border border-slate-200 text-2xl sm:text-3xl text-slate-900 leading-relaxed font-normal font-preview-' + font.id;
+            const textarea = document.getElementById('specimen-' + fontId);
+            previewBox.textContent = textarea ? textarea.value : font.defaultSample;
+
+            const cssSnippet = [
+                "@font-face {",
+                "  font-family: '" + (font.family || font.name) + "';",
+                "  src: local('" + font.ps + "'), url('./fonts/" + font.fileName + "') format('truetype');",
+                "  font-display: swap;",
+                "}"
+            ].join('\n');
+            document.getElementById('modalCssCode').textContent = cssSnippet;
+
+            openModal('fontDetailModal');
+        }
+
+        function copyCssSnippet() {
+            const code = document.getElementById('modalCssCode').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                showToast('CSS ကုဒ်ကို Copy ကူးယူပြီးပါပြီ!', 'success');
+            }).catch(() => {
+                const temp = document.createElement('textarea');
+                temp.value = code;
+                document.body.appendChild(temp);
+                temp.select();
+                document.execCommand('copy');
+                document.body.removeChild(temp);
+                showToast('CSS ကုဒ်ကို Copy ကူးယူပြီးပါပြီ!', 'success');
+            });
+        }
+
+        function openModal(id) {
+            const el = document.getElementById(id);
+            if (el) el.classList.remove('hidden');
+        }
+
+        function closeModal(id) {
+            const el = document.getElementById(id);
+            if (el) el.classList.add('hidden');
+        }
+
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            const borderCol = type === 'success' ? 'border-emerald-200 bg-white text-emerald-800' : 'border-purple-200 bg-white text-purple-900';
+            
+            toast.className = 'pointer-events-auto px-4 py-3 rounded-2xl border ' + borderCol + ' shadow-2xl text-xs sm:text-sm font-semibold flex items-center gap-2 transition-all duration-300';
+            toast.innerHTML = '<span>' + message + '</span>';
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(10px)';
+                setTimeout(() => toast.remove(), 300);
+            }, 3200);
+        }
+
+        window.onload = initApp;
+    </script>
+</body>
+</html>
