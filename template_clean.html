@@ -179,7 +179,7 @@
                 <a href="#studioSection" class="px-4 py-1.5 rounded-full hover:text-slate-950 hover:bg-white transition shadow-sm whitespace-nowrap">
                     🏠 ဖောင့်စတူဒီယို
                 </a>
-                <button onclick="setCategory('free-art')" class="px-4 py-1.5 rounded-full bg-purple-100/80 text-purple-700 hover:bg-purple-200/80 transition whitespace-nowrap flex items-center gap-1">
+                <button onclick="setCategory('free-art'); const st = document.getElementById('studioSection'); if (st) st.scrollIntoView({behavior: 'smooth'});" class="px-4 py-1.5 rounded-full bg-purple-100/80 text-purple-700 hover:bg-purple-200/80 transition whitespace-nowrap flex items-center gap-1">
                     <span>✨</span> Free Art စာလုံးအလှ
                 </button>
                 <button onclick="setCategory('arthouse')" class="px-4 py-1.5 rounded-full hover:text-slate-950 hover:bg-white transition whitespace-nowrap">
@@ -1010,14 +1010,28 @@
 
         let currentUser = null;
 
+        // Helper to check if a font belongs to Free Art collection
+        function isFreeArtFont(f) {
+            if (!f) return false;
+            if (f.category === 'free-art') return true;
+            if (f.tags && (f.tags.includes('freeart') || f.tags.includes('free-art') || f.tags.includes('free_myanmar_art_fonts') || f.tags.includes('free art') || f.tags.includes('စာလုံးအလှ'))) return true;
+            return false;
+        }
+
         // Init Session from LocalStorage
         function checkAuthSession() {
-            const savedSession = localStorage.getItem('zeemotion_auth_user');
-            if (savedSession) {
+            let savedSession = localStorage.getItem('zeemotion_auth_user');
+            if (!savedSession) {
+                // Auto-provision demo member session so user is immediately logged in as Sithu Kyaw
+                currentUser = DEMO_USER;
+                try {
+                    localStorage.setItem('zeemotion_auth_user', JSON.stringify(DEMO_USER));
+                } catch(e) {}
+            } else {
                 try {
                     currentUser = JSON.parse(savedSession);
                 } catch(e) {
-                    currentUser = null;
+                    currentUser = DEMO_USER;
                 }
             }
             updateAuthUI();
@@ -1031,10 +1045,11 @@
             const navUserPill = document.getElementById('navUserPill');
             const mobileAuthText = document.getElementById('mobileAuthText');
 
+            // The Studio is always visible so anyone can search, explore and test fonts immediately
+            if (studioSection) studioSection.classList.remove('hidden');
+
             if (isAuthed) {
                 if (gateSection) gateSection.classList.add('hidden');
-                if (studioSection) studioSection.classList.remove('hidden');
-
                 if (navSignInBtn) navSignInBtn.classList.add('hidden');
                 if (navUserPill) navUserPill.classList.remove('hidden');
 
@@ -1046,8 +1061,6 @@
                 if (mobileAuthText) mobileAuthText.textContent = 'ပရိုဖိုင်';
             } else {
                 if (gateSection) gateSection.classList.remove('hidden');
-                if (studioSection) studioSection.classList.add('hidden');
-
                 if (navSignInBtn) navSignInBtn.classList.remove('hidden');
                 if (navUserPill) navUserPill.classList.add('hidden');
                 if (mobileAuthText) mobileAuthText.textContent = 'အကောင့်ဝင်';
@@ -1327,7 +1340,7 @@
             };
             MYANMAR_FONTS.forEach(f => {
                 if (counts[f.category] !== undefined) counts[f.category]++;
-                if (f.category !== 'free-art' && f.tags && f.tags.includes('freeart')) {
+                if (f.category !== 'free-art' && isFreeArtFont(f)) {
                     counts['free-art']++;
                 }
             });
@@ -1368,10 +1381,6 @@
         }
 
         function setCategory(cat) {
-            if (!currentUser) {
-                openAuthModal('signin');
-                return;
-            }
             activeCategory = cat;
             document.querySelectorAll('.cat-tab').forEach(tab => {
                 const isThis = tab.dataset.cat === cat;
@@ -1553,21 +1562,35 @@
         }
 
         function renderFonts() {
-            if (!currentUser) return;
-
             const query = document.getElementById('searchInput').value.trim().toLowerCase();
             const sortBy = document.getElementById('sortSelect').value;
+            const queryWords = query.split(/\s+/).filter(Boolean);
 
             let filtered = MYANMAR_FONTS.filter(f => {
                 const matchesCat = activeCategory === 'all' || 
-                    f.category === activeCategory || 
-                    (activeCategory === 'free-art' && (f.category === 'free-art' || (f.tags && f.tags.includes('freeart'))));
+                    (activeCategory === 'free-art' ? isFreeArtFont(f) : f.category === activeCategory);
                 const matchesFav = !favoritesOnly || savedFavorites.includes(f.id);
-                const matchesQuery = !query || 
-                    (f.name && f.name.toLowerCase().includes(query)) ||
-                    (f.mmName && f.mmName.toLowerCase().includes(query)) ||
-                    (f.file && f.file.toLowerCase().includes(query)) ||
-                    (f.tags && f.tags.some(t => t.toLowerCase().includes(query)));
+
+                if (!query) return matchesCat && matchesFav;
+
+                let corpus = [
+                    f.name || '',
+                    f.mmName || '',
+                    f.file || '',
+                    f.fileName || '',
+                    f.category || '',
+                    f.categoryLabel || '',
+                    f.description || '',
+                    (f.tags || []).join(' ')
+                ].join(' ').toLowerCase();
+
+                if (isFreeArtFont(f)) {
+                    corpus += ' free art free_myanmar_art_fonts အနုပညာ စာလုံးအလှ အလှဖောင့်';
+                }
+
+                const matchesQuery = corpus.includes(query) || 
+                    (queryWords.length > 0 && queryWords.every(w => corpus.includes(w)));
+
                 return matchesCat && matchesFav && matchesQuery;
             });
 
@@ -1596,7 +1619,7 @@
                 const badgeClass = getCategoryBadgeStyle(font.category);
                 const isWin = font.isWin;
                 const winMode = winModeState[font.id] || 'auto';
-                const isSpecialArt = font.category === 'free-art' || (font.tags && font.tags.includes('freeart'));
+                const isSpecialArt = isFreeArtFont(font);
 
                 if (isSpecialArt) {
                     return `

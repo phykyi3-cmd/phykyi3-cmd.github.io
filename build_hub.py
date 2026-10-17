@@ -2896,6 +2896,18 @@ CATALOG_SPECS = [
 font_rules = []
 enriched_catalog = []
 
+FREE_ART_FILES = {
+    'Aka08-Regular.ttf', 'Burma025-Bold.ttf', 'BurmaArt006Uni.ttf',
+    'Burmese Handwriting.ttf', 'AJkunheing20-Regular.ttf', 'MasterpieceUniHand.ttf',
+    'MasterpieceYayChanZin.ttf', 'SM01_WaTokeLay-Regular.ttf', 'SM02_KanBaung-Regular.ttf',
+    'SM04Moon-Italic.ttf', 'SM04_Moon-Bold.ttf', 'SM06_LaikPyar-Bold.ttf',
+    'SM09_BeeZee-Regular.otf', 'Uni-Burmese Handwriting 01_Style 01_Regular.ttf',
+    'Uni-Burmese Handwriting 01_Style 02_Regular.ttf', 'Uni-Burmese Handwriting 01_Style 03_Regular.ttf',
+    'Uni-Burmese Handwriting 01_Style 04_Regular.ttf', 'Uni-Burmese Handwriting 01_Style 05_Regular.ttf',
+    'Uni-MasterpieceUniRound.ttf', 'Uni-Myanmar Khittar.ttf', 'Uni-MyanmarBlack.ttf',
+    'Font.ttf', 'SM02_KanBaung-Regular(4).ttf'
+}
+
 for spec in CATALOG_SPECS:
     fname = spec.get('file', '')
     info = font_db.get(fname)
@@ -2915,6 +2927,17 @@ for spec in CATALOG_SPECS:
     spec['mmName'] = spec.get('mmName') or spec['name']
     spec['tags'] = spec.get('tags') or [spec['name'].lower()]
     spec['popular'] = spec.get('popular', 85)
+
+    if fname in FREE_ART_FILES or spec.get('category') == 'free-art':
+        current_tags = list(spec.get('tags') or [])
+        for extra in ['freeart', 'free-art', 'free_myanmar_art_fonts', 'free art', 'art', 'စာလုံးအလှ', 'အလှဖောင့်']:
+            if extra not in current_tags:
+                current_tags.append(extra)
+        if fname == 'AJkunheing20-Regular.ttf':
+            current_tags.extend(['font.ttf', 'font'])
+        if fname == 'SM02_KanBaung-Regular.ttf':
+            current_tags.extend(['sm02_kanbaung-regular(4).ttf', 'kanbaung-regular(4)'])
+        spec['tags'] = current_tags
     
     # Determine download url:
     # 1. githubRel if specified

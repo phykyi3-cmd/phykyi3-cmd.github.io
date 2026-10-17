@@ -1,4 +1,4 @@
-const CACHE_NAME = 'zeemotion-v1';
+const CACHE_NAME = 'zeemotion-v3';
 const STATIC_ASSETS = [
   './',
   './index.html',
@@ -32,7 +32,25 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
 
-  // Stale-while-revalidate strategy
+  // Network-first for HTML navigation so users immediately receive the latest font catalog updates
+  if (event.request.mode === 'navigate' || event.request.destination === 'document') {
+    event.respondWith(
+      fetch(event.request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const responseToCache = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(event.request, responseToCache);
+            });
+          }
+          return networkResponse;
+        })
+        .catch(() => caches.match(event.request) || caches.match('./index.html'))
+    );
+    return;
+  }
+
+  // Stale-while-revalidate strategy for fonts & static assets
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       const fetchPromise = fetch(event.request).then((networkResponse) => {
