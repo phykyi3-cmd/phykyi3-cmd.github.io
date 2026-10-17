@@ -2367,7 +2367,7 @@
                     </div>
                 </div>
 
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-xs">
+                <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5 text-xs">
                     <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
                         <div class="text-slate-400">ဖိုင်အမျိုးအစား</div>
                         <div id="modalFileType" class="font-bold text-slate-800 mt-0.5">TrueType (.TTF)</div>
@@ -2383,6 +2383,10 @@
                     <div class="p-3 rounded-xl bg-slate-50 border border-slate-200">
                         <div class="text-slate-400">Encoding</div>
                         <div id="modalEncoding" class="font-bold text-purple-600 mt-0.5">Unicode / Win</div>
+                    </div>
+                    <div class="p-3 rounded-xl bg-amber-50/80 border border-amber-200 col-span-2 sm:col-span-1">
+                        <div class="text-amber-700 font-semibold text-[11px]">ဒေါင်းလုဒ်ဆွဲမှု</div>
+                        <div id="modalDownloadCount" class="font-black text-amber-950 mt-0.5 truncate">လူ ၀ ယောက် download သွားပါပြီ</div>
                     </div>
                 </div>
 
@@ -7721,6 +7725,49 @@
             return false;
         }
 
+        // Live Font Download Counter & Tracker
+        function getFontDownloadCount(fontId) {
+            const stored = JSON.parse(localStorage.getItem('goldenfonts_downloads_v1') || '{}');
+            return stored[fontId] !== undefined ? stored[fontId] : 0;
+        }
+
+        function formatDownloadText(count) {
+            if (count === 1) {
+                return 'လူ ၁ ယောက် download သွားပါပြီ';
+            } else if (count === 0) {
+                return 'လူ 0 ယောက် download သွားပါပြီ';
+            } else {
+                return 'လူ ' + count.toLocaleString() + ' ယောက် download သွားပါပြီ';
+            }
+        }
+
+        function incrementDownloadCount(fontId) {
+            const stored = JSON.parse(localStorage.getItem('goldenfonts_downloads_v1') || '{}');
+            const current = stored[fontId] !== undefined ? stored[fontId] : 0;
+            const updated = current + 1;
+            stored[fontId] = updated;
+            try {
+                localStorage.setItem('goldenfonts_downloads_v1', JSON.stringify(stored));
+            } catch(e) {}
+
+            // Update on card live
+            const numEl = document.getElementById('dl-num-' + fontId);
+            if (numEl) {
+                numEl.textContent = updated === 1 ? '၁' : updated.toLocaleString();
+                numEl.classList.add('scale-125', 'text-emerald-600', 'transition-transform');
+                setTimeout(() => {
+                    numEl.classList.remove('scale-125');
+                }, 400);
+            }
+            // Update in modal live
+            const modalEl = document.getElementById('modalDownloadCount');
+            if (modalEl && currentModalFontId === fontId) {
+                modalEl.textContent = formatDownloadText(updated);
+            }
+
+            return updated;
+        }
+
         // Init Session from LocalStorage
         function checkAuthSession() {
             let savedSession = localStorage.getItem('goldenfonts_auth_user') || localStorage.getItem('zeemotion_auth_user');
@@ -8324,6 +8371,7 @@
                 const isWin = font.isWin;
                 const winMode = winModeState[font.id] || 'auto';
                 const isSpecialArt = isFreeArtFont(font);
+                const dlCount = getFontDownloadCount(font.id);
 
                 if (isSpecialArt) {
                     return `
@@ -8398,21 +8446,36 @@
                             </p>
                         </div>
 
-                        <div class="pt-3 border-t border-purple-100 flex flex-wrap items-center justify-between gap-2.5">
-                            <div class="flex items-center gap-2 text-xs font-semibold text-purple-800">
-                                <span class="px-2 py-0.5 rounded-md bg-purple-100/80 border border-purple-200 font-mono text-[10px]">v${font.version || '1.0'}</span>
-                                <span class="text-[11px]">📦 ${font.size}</span>
-                                <span class="text-pink-600 font-extrabold text-[11px]">★ Art Display</span>
+                        <div>
+                            <div class="pt-3 border-t border-purple-100 flex flex-wrap items-center justify-between gap-2.5">
+                                <div class="flex items-center gap-2 text-xs font-semibold text-purple-800">
+                                    <span class="px-2 py-0.5 rounded-md bg-purple-100/80 border border-purple-200 font-mono text-[10px]">v${font.version || '1.0'}</span>
+                                    <span class="text-[11px]">📦 ${font.size}</span>
+                                    <span class="text-pink-600 font-extrabold text-[11px]">★ Art Display</span>
+                                </div>
+
+                                <div class="flex items-center gap-2">
+                                    <button onclick="openFontDetails('${font.id}')" class="px-3.5 py-1.5 rounded-full bg-purple-100/80 hover:bg-purple-200 text-purple-800 text-xs font-bold transition">
+                                        အသေးစိတ်
+                                    </button>
+                                    <button onclick="downloadFont('${font.id}')" class="px-4 py-1.5 rounded-full bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 hover:from-purple-500 hover:to-pink-500 text-white text-xs font-black shadow-lg shadow-purple-500/20 transition flex items-center gap-1.5">
+                                        <span>⬇️</span>
+                                        <span>Download</span>
+                                    </button>
+                                </div>
                             </div>
 
-                            <div class="flex items-center gap-2">
-                                <button onclick="openFontDetails('${font.id}')" class="px-3.5 py-1.5 rounded-full bg-purple-100/80 hover:bg-purple-200 text-purple-800 text-xs font-bold transition">
-                                    အသေးစိတ်
-                                </button>
-                                <button onclick="downloadFont('${font.id}')" class="px-4 py-1.5 rounded-full bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 hover:from-purple-500 hover:to-pink-500 text-white text-xs font-black shadow-lg shadow-purple-500/20 transition flex items-center gap-1.5">
-                                    <span>⬇️</span>
-                                    <span>Download</span>
-                                </button>
+                            <!-- Live Download Counter Bar -->
+                            <div class="mt-3 pt-2.5 border-t border-purple-200/60 flex items-center justify-between text-xs text-purple-800/90 bg-purple-50/60 -mx-5 sm:-mx-6 -mb-5 sm:-mb-6 px-5 sm:px-6 py-2.5 rounded-b-3xl">
+                                <div class="flex items-center gap-2 text-[11px] font-semibold text-purple-950">
+                                    <span class="w-5 h-5 rounded-full bg-gradient-to-tr from-purple-600 to-pink-600 text-white flex items-center justify-center text-[10px] shadow-xs">📥</span>
+                                    <span id="dl-tracker-${font.id}">
+                                        လူ <strong id="dl-num-${font.id}" class="text-pink-600 font-black">${dlCount === 1 ? '၁' : dlCount.toLocaleString()}</strong> ယောက် download သွားပါပြီ
+                                    </span>
+                                </div>
+                                <span class="text-[10px] text-pink-600 font-bold flex items-center gap-1">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-pink-500 animate-pulse"></span> Free Art
+                                </span>
                             </div>
                         </div>
                     </article>
@@ -8486,21 +8549,36 @@
                         </p>
                     </div>
 
-                    <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2.5">
-                        <div class="flex items-center gap-2 text-xs text-slate-500 font-medium">
-                            <span class="px-2 py-0.5 rounded-md bg-slate-100 border border-slate-200 font-mono text-[10px]">v${font.version || '2.0'}</span>
-                            <span class="text-[11px]">📦 ${font.size}</span>
-                            <span class="text-purple-600 font-bold text-[11px]">✓ TTF</span>
+                    <div>
+                        <div class="pt-3 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2.5">
+                            <div class="flex items-center gap-2 text-xs text-slate-500 font-medium">
+                                <span class="px-2 py-0.5 rounded-md bg-slate-100 border border-slate-200 font-mono text-[10px]">v${font.version || '2.0'}</span>
+                                <span class="text-[11px]">📦 ${font.size}</span>
+                                <span class="text-purple-600 font-bold text-[11px]">✓ TTF</span>
+                            </div>
+
+                            <div class="flex items-center gap-2">
+                                <button onclick="openFontDetails('${font.id}')" class="px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition">
+                                    အသေးစိတ်
+                                </button>
+                                <button onclick="downloadFont('${font.id}')" class="px-4 py-1.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold shadow-md shadow-slate-900/10 transition flex items-center gap-1.5">
+                                    <span>⬇️</span>
+                                    <span>Download</span>
+                                </button>
+                            </div>
                         </div>
 
-                        <div class="flex items-center gap-2">
-                            <button onclick="openFontDetails('${font.id}')" class="px-3.5 py-1.5 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold transition">
-                                အသေးစိတ်
-                            </button>
-                            <button onclick="downloadFont('${font.id}')" class="px-4 py-1.5 rounded-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold shadow-md shadow-slate-900/10 transition flex items-center gap-1.5">
-                                <span>⬇️</span>
-                                <span>Download</span>
-                            </button>
+                        <!-- Live Download Counter Bar -->
+                        <div class="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 bg-slate-50/80 -mx-5 sm:-mx-6 -mb-5 sm:-mb-6 px-5 sm:px-6 py-2.5 rounded-b-3xl">
+                            <div class="flex items-center gap-2 text-[11px] font-semibold text-slate-700">
+                                <span class="w-5 h-5 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center text-[10px] font-bold">📥</span>
+                                <span id="dl-tracker-${font.id}">
+                                    လူ <strong id="dl-num-${font.id}" class="text-slate-900 font-black">${dlCount === 1 ? '၁' : dlCount.toLocaleString()}</strong> ယောက် download သွားပါပြီ
+                                </span>
+                            </div>
+                            <span class="text-[10px] text-emerald-600 font-semibold flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span> တိုက်ရိုက်ဒေါင်းလုဒ်
+                            </span>
                         </div>
                     </div>
                 </article>
@@ -8521,7 +8599,9 @@
             document.body.appendChild(a);
             a.click();
             document.body.removeChild(a);
-            showToast(font.name + ' ဖောင့်ဖိုင်ကို စတင်ဒေါင်းလုဒ်ဆွဲနေပါပြီ! ⬇️', 'success');
+
+            const newCount = incrementDownloadCount(fontId);
+            showToast(font.name + ' ဖောင့်ဖိုင်ကို စတင်ဒေါင်းလုဒ်ဆွဲနေပါပြီ! ⬇️ (' + formatDownloadText(newCount) + ')', 'success');
         }
 
         function downloadArtHouseZip() {
@@ -8555,6 +8635,9 @@
             document.getElementById('modalFileSize').textContent = font.size;
             document.getElementById('modalDesigner').textContent = font.designer;
             document.getElementById('modalEncoding').textContent = font.isWin ? 'Win-Innwa Layout' : 'Standard Unicode';
+
+            const dlCountEl = document.getElementById('modalDownloadCount');
+            if (dlCountEl) dlCountEl.textContent = formatDownloadText(getFontDownloadCount(fontId));
 
             const previewBox = document.getElementById('modalFontPreviewBox');
             previewBox.className = 'mt-1.5 p-5 rounded-2xl bg-slate-50 border border-slate-200 text-2xl sm:text-3xl text-slate-900 leading-relaxed font-normal font-preview-' + font.id;
