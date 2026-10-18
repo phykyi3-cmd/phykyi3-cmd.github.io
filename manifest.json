@@ -1,11 +1,11 @@
 {
-  "name": "Golden Fonts — Myanmar Typography Studio",
-  "short_name": "Golden Fonts",
+  "name": "Smart Myanmar Fonts — Typography Studio",
+  "short_name": "Smart Fonts",
   "description": "မြန်မာဖောင့် ၁၈၀+ (Art House, Masterpiece, Free Art, Unicode) တိုက်ရိုက်စမ်းသပ်ဒေါင်းလုဒ်ဆွဲနိုင်သော Official Font App",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#090d16",
-  "theme_color": "#090d16",
+  "background_color": "#064e3b",
+  "theme_color": "#10b981",
   "orientation": "portrait-primary",
   "icons": [
     {
