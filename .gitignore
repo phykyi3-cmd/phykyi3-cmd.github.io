@@ -21,6 +21,13 @@
 !ads.txt
 !*.txt
 !CNAME
+!smart_myanmar_fonts_logo.png
+!premium-fonts.html
+!fonts_english/
+!fonts_english/**
+!fonts_english.css
+!english_fonts_data.json
+!premium_english_motion_fonts_108.zip
 !.github/
 !.github/**
 !.gitignore
