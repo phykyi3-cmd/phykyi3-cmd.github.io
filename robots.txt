@@ -2,4 +2,5 @@ User-agent: *
 Allow: /
 
 # Googlebot & Bingbot Sitemap
-Sitemap: https://phykyi3-cmd.github.io/zee-motion-font-studio/sitemap.xml
+Sitemap: https://smartmyanmarfonts.com/sitemap.xml
+Sitemap: https://phykyi3-cmd.github.io/sitemap.xml
