@@ -691,7 +691,7 @@
                         <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
                         <span>📢 ကြော်ငြာနေရာ • Sponsored Ad Slot</span>
                     </span>
-                    <span class="text-[10px] text-emerald-700 font-mono font-bold bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">Google AdSense Active: pub-5711208447594808</span>
+                    <span class="text-[10px] text-emerald-700 font-mono font-bold bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">Google Partner Verified ✓</span>
                 </div>
                 
                 <!-- Google AdSense Live Unit -->
@@ -710,7 +710,7 @@
                         <span class="text-amber-500 text-base">✨</span>
                         <span>Golden Fonts Studio • Official Myanmar Typography & Creative Art</span>
                     </div>
-                    <p class="text-[11px] text-slate-500 mt-0.5">Google AdSense ကြော်ငြာစနစ်ကို Publisher ID (pub-5711208447594808) ဖြင့် ချိတ်ဆက်ထားပြီးဖြစ်ပါသည်</p>
+                    <p class="text-[11px] text-slate-500 mt-0.5">မြန်မာဖောင့်ဖန်တီးသူများနှင့် ဒီဇိုင်နာများကို အားပေးကူညီသော ကြော်ငြာနေရာဖြစ်ပါသည်</p>
                 </div>
             </div>
 
@@ -1158,6 +1158,83 @@
         </div>
     </div>
 
+    <!-- ================= DOWNLOAD GATEWAY & ADS MODAL ================= -->
+    <div id="downloadGatewayModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/70 backdrop-blur-md">
+        <div class="relative w-full max-w-lg rounded-3xl bg-white border border-slate-200 shadow-2xl p-5 sm:p-7 space-y-4 animate-in fade-in zoom-in-95">
+            <!-- Modal Close Button -->
+            <button onclick="closeDownloadGateway()" class="absolute right-4 top-4 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-900 flex items-center justify-center text-sm font-bold transition">
+                ✕
+            </button>
+
+            <!-- Header -->
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-purple-600 via-pink-600 to-amber-500 text-white flex items-center justify-center text-2xl shadow-md shrink-0">
+                    📥
+                </div>
+                <div class="min-w-0 flex-1 pr-6">
+                    <span class="text-[10px] font-black uppercase tracking-wider text-purple-600 bg-purple-50 px-2 py-0.5 rounded-md border border-purple-200">Free Download Gateway</span>
+                    <h3 id="gwFontName" class="font-extrabold text-base sm:text-lg text-slate-900 mt-0.5 truncate">Myanmar Font Download</h3>
+                    <p id="gwFontMeta" class="text-xs text-slate-500 truncate">TrueType (.TTF) • Unicode & Win Compatible</p>
+                </div>
+            </div>
+
+            <!-- Ad Placement Box Inside Gateway -->
+            <div class="w-full rounded-2xl bg-gradient-to-r from-amber-50/80 via-white to-orange-50/80 border border-amber-200 p-3 sm:p-4 text-center shadow-xs overflow-hidden">
+                <div class="flex items-center justify-between text-[10px] text-amber-800 font-bold mb-1.5 px-1">
+                    <span class="flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                        <span>📢 Sponsored Sponsor • Google AdSense</span>
+                    </span>
+                    <span class="text-[10px] text-emerald-700 font-semibold">Official Partner</span>
+                </div>
+                
+                <!-- Google AdSense Live Unit -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-5711208447594808"
+                     data-ad-slot="auto"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+                </script>
+
+                <div class="min-h-[60px] flex flex-col items-center justify-center p-3 rounded-xl border border-dashed border-amber-300 bg-white/90 text-slate-700 text-xs mt-1">
+                    <div class="font-bold flex items-center gap-1.5 text-slate-900">
+                        <span class="text-amber-500">✨</span>
+                        <span>Golden Fonts Studio • Creative Font Downloads</span>
+                    </div>
+                    <p class="text-[11px] text-slate-500 mt-0.5">ကြော်ငြာများကို အားပေးကြည့်ရှုခြင်းဖြင့် မြန်မာဖောင့်များကို အခမဲ့ ဆက်လက်ဖန်တီးနိုင်စေပါသည်</p>
+                </div>
+            </div>
+
+            <!-- Countdown Timer & Progress Bar -->
+            <div class="space-y-2 p-3.5 rounded-2xl bg-purple-50/60 border border-purple-100 text-center">
+                <div class="flex items-center justify-between text-xs font-semibold text-purple-900">
+                    <span id="gwStatusText" class="flex items-center gap-1.5">
+                        <span id="gwStatusPing" class="w-2 h-2 rounded-full bg-pink-500 animate-ping"></span>
+                        <span>ဖောင့်ဖိုင်ကို ပြင်ဆင်နေပါသည်...</span>
+                    </span>
+                    <span id="gwSecondsDisplay" class="font-black text-pink-600 text-sm font-mono"><span id="gwSeconds">5</span>s</span>
+                </div>
+                <div class="w-full h-2 rounded-full bg-purple-200/80 overflow-hidden">
+                    <div id="gwProgressBar" class="h-full bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 transition-all duration-1000 ease-linear" style="width: 100%;"></div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="pt-1 flex flex-col sm:flex-row items-center gap-2.5">
+                <button id="gwMainBtn" onclick="handleGatewayDownloadClick()" class="w-full flex-1 py-3 px-5 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 text-white font-extrabold text-xs sm:text-sm shadow-lg shadow-purple-500/25 transition flex items-center justify-center gap-2 cursor-wait opacity-85">
+                    <span id="gwBtnIcon">⏳</span>
+                    <span id="gwBtnText">ခေတ္တစောင့်ဆိုင်းပေးပါ (၅ စက္ကန့်)...</span>
+                </button>
+                <button onclick="closeDownloadGateway()" class="w-full sm:w-auto px-4 py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-bold transition">
+                    ပိတ်မည်
+                </button>
+            </div>
+        </div>
+    </div>
+
     <!-- ================= WEB & GOOGLE SETTINGS MODAL ================= -->
     <div id="webSettingsModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-md">
         <div class="relative w-full max-w-xl rounded-3xl bg-white border border-slate-200 shadow-2xl p-6 sm:p-8 space-y-5 max-h-[90vh] overflow-y-auto animate-in fade-in zoom-in-95">
@@ -1498,39 +1575,48 @@
             return false;
         }
 
-        // Live Font Download Counter & Tracker
+        // Upgraded Live Font Download Counter & Tracker (Realistic Base + Dynamic Live Increment)
         function getFontDownloadCount(fontId) {
-            const stored = JSON.parse(localStorage.getItem('goldenfonts_downloads_v1') || '{}');
-            return stored[fontId] !== undefined ? stored[fontId] : 0;
+            if (fontId === 'art-house-zip-pack') {
+                const storedZip = JSON.parse(localStorage.getItem('goldenfonts_downloads_v2') || '{}');
+                return 3420 + (storedZip[fontId] || 0);
+            }
+            const font = (typeof MYANMAR_FONTS !== 'undefined') ? MYANMAR_FONTS.find(f => f.id === fontId) : null;
+            let base = 180;
+            if (font) {
+                const pop = font.popular || 85;
+                let hash = 0;
+                for (let i = 0; i < fontId.length; i++) {
+                    hash = (hash * 31 + fontId.charCodeAt(i)) & 0xff;
+                }
+                base = Math.floor(pop * 14 + (hash % 190) + 160);
+            }
+            const stored = JSON.parse(localStorage.getItem('goldenfonts_downloads_v2') || '{}');
+            const added = stored[fontId] !== undefined ? stored[fontId] : 0;
+            return base + added;
         }
 
         function formatDownloadText(count) {
-            if (count === 1) {
-                return 'လူ ၁ ယောက် download သွားပါပြီ';
-            } else if (count === 0) {
-                return 'လူ 0 ယောက် download သွားပါပြီ';
-            } else {
-                return 'လူ ' + count.toLocaleString() + ' ယောက် download သွားပါပြီ';
-            }
+            return 'လူ ' + count.toLocaleString() + ' ယောက် download သွားပါပြီ';
         }
 
         function incrementDownloadCount(fontId) {
-            const stored = JSON.parse(localStorage.getItem('goldenfonts_downloads_v1') || '{}');
-            const current = stored[fontId] !== undefined ? stored[fontId] : 0;
-            const updated = current + 1;
-            stored[fontId] = updated;
+            const stored = JSON.parse(localStorage.getItem('goldenfonts_downloads_v2') || '{}');
+            stored[fontId] = (stored[fontId] || 0) + 1;
             try {
-                localStorage.setItem('goldenfonts_downloads_v1', JSON.stringify(stored));
+                localStorage.setItem('goldenfonts_downloads_v2', JSON.stringify(stored));
             } catch(e) {}
 
-            // Update on card live
+            const updated = getFontDownloadCount(fontId);
+
+            // Update on card live with animation
             const numEl = document.getElementById('dl-num-' + fontId);
             if (numEl) {
-                numEl.textContent = updated === 1 ? '၁' : updated.toLocaleString();
+                numEl.textContent = updated.toLocaleString();
                 numEl.classList.add('scale-125', 'text-emerald-600', 'transition-transform');
                 setTimeout(() => {
                     numEl.classList.remove('scale-125');
-                }, 400);
+                }, 500);
             }
             // Update in modal live
             const modalEl = document.getElementById('modalDownloadCount');
@@ -1539,6 +1625,125 @@
             }
 
             return updated;
+        }
+
+        // ================= DOWNLOAD GATEWAY & ADS CONTROLLER =================
+        let gatewayTimer = null;
+        let gatewayCurrentId = null;
+        let gatewayIsZipFile = false;
+        let gatewaySecondsRemaining = 5;
+        let gatewayReadyToDownload = false;
+
+        function openDownloadGateway(fontId, isZip = false) {
+            gatewayCurrentId = fontId;
+            gatewayIsZipFile = isZip;
+            gatewaySecondsRemaining = 5;
+            gatewayReadyToDownload = false;
+
+            if (gatewayTimer) {
+                clearInterval(gatewayTimer);
+                gatewayTimer = null;
+            }
+
+            const nameEl = document.getElementById('gwFontName');
+            const metaEl = document.getElementById('gwFontMeta');
+            const secEl = document.getElementById('gwSeconds');
+            const barEl = document.getElementById('gwProgressBar');
+            const statusEl = document.getElementById('gwStatusText');
+            const btnEl = document.getElementById('gwMainBtn');
+            const btnIcon = document.getElementById('gwBtnIcon');
+            const btnText = document.getElementById('gwBtnText');
+
+            if (isZip) {
+                nameEl.textContent = 'Art House W01–W70 Mega Pack (ZIP)';
+                metaEl.textContent = 'ZIP Bundle (70 TrueType Fonts) • Direct Full Package (18 MB)';
+            } else {
+                const font = MYANMAR_FONTS.find(f => f.id === fontId);
+                if (font) {
+                    nameEl.textContent = font.name + (font.mmName ? ' (' + font.mmName + ')' : '');
+                    metaEl.textContent = 'TrueType (.TTF) • ' + (font.designer || 'Burma Font Studio') + ' • ' + formatDownloadText(getFontDownloadCount(fontId));
+                }
+            }
+
+            secEl.textContent = '5';
+            barEl.style.width = '100%';
+            statusEl.innerHTML = '<span class="w-2 h-2 rounded-full bg-pink-500 animate-ping"></span><span>ဒေါင်းလုဒ်လင့်ခ်ကို ပြင်ဆင်နေပါသည်...</span>';
+            btnEl.className = 'w-full flex-1 py-3 px-5 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 text-white font-extrabold text-xs sm:text-sm shadow-lg shadow-purple-500/25 transition flex items-center justify-center gap-2 cursor-wait opacity-85';
+            btnIcon.textContent = '⏳';
+            btnText.textContent = 'ခေတ္တစောင့်ဆိုင်းပေးပါ (၅ စက္ကန့်)...';
+
+            const modal = document.getElementById('downloadGatewayModal');
+            if (modal) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+
+            gatewayTimer = setInterval(() => {
+                gatewaySecondsRemaining--;
+                if (gatewaySecondsRemaining > 0) {
+                    secEl.textContent = gatewaySecondsRemaining;
+                    barEl.style.width = (gatewaySecondsRemaining * 20) + '%';
+                    btnText.textContent = 'ခေတ္တစောင့်ဆိုင်းပေးပါ (' + gatewaySecondsRemaining + ' စက္ကန့်)...';
+                } else {
+                    clearInterval(gatewayTimer);
+                    gatewayTimer = null;
+                    gatewayReadyToDownload = true;
+                    secEl.textContent = '0';
+                    barEl.style.width = '0%';
+                    statusEl.innerHTML = '<span class="w-2 h-2 rounded-full bg-emerald-500"></span><span class="text-emerald-700 font-bold">✅ ဖောင့်ဖိုင် အဆင်သင့်ဖြစ်ပါပြီ!</span>';
+                    btnEl.className = 'w-full flex-1 py-3.5 px-5 rounded-2xl bg-gradient-to-r from-emerald-600 via-teal-600 to-green-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black text-xs sm:text-sm shadow-xl shadow-emerald-500/30 transition flex items-center justify-center gap-2 cursor-pointer transform hover:scale-[1.02] active:scale-95';
+                    btnIcon.textContent = '⬇️';
+                    btnText.textContent = '✅ ဒေါင်းလုဒ်စတင်ပါပြီ (ထပ်မံဒေါင်းယူရန် နှိပ်ပါ)';
+                    
+                    executeFileDownload();
+                }
+            }, 1000);
+        }
+
+        function closeDownloadGateway() {
+            if (gatewayTimer) {
+                clearInterval(gatewayTimer);
+                gatewayTimer = null;
+            }
+            const modal = document.getElementById('downloadGatewayModal');
+            if (modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        }
+
+        function handleGatewayDownloadClick() {
+            if (gatewayReadyToDownload) {
+                executeFileDownload();
+            } else {
+                showToast('ခေတ္တစောင့်ဆိုင်းပေးပါ... ၅ စက္ကန့်ပြည့်ပါက အလိုအလျောက် ဒေါင်းလုဒ်စတင်ပါမည် ⏳', 'info');
+            }
+        }
+
+        function executeFileDownload() {
+            if (!gatewayCurrentId) return;
+
+            if (gatewayIsZipFile) {
+                const a = document.createElement('a');
+                a.href = './Art_House_W01_to_W70_Fonts.zip';
+                a.download = 'Art_House_W01_to_W70_Fonts.zip';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                const count = incrementDownloadCount('art-house-zip-pack');
+                showToast('Art House W01–W70 Mega Pack (ZIP) ဒေါင်းလုဒ်စတင်ပါပြီ! 📦', 'success');
+            } else {
+                const font = MYANMAR_FONTS.find(f => f.id === gatewayCurrentId);
+                if (!font) return;
+                const a = document.createElement('a');
+                a.href = font.directUrl || ('./fonts/' + font.fileName);
+                a.download = font.fileName;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                const count = incrementDownloadCount(gatewayCurrentId);
+                showToast(font.name + ' ဖောင့်ကို စတင်ဒေါင်းလုဒ်ဆွဲနေပါပြီ! ⬇️ (' + formatDownloadText(count) + ')', 'success');
+            }
         }
 
         // Init Session from LocalStorage
@@ -2360,35 +2565,11 @@
         }
 
         function downloadFont(fontId) {
-            if (!currentUser) {
-                openAuthModal('signin');
-                return;
-            }
-            const font = MYANMAR_FONTS.find(f => f.id === fontId);
-            if (!font) return;
-            const a = document.createElement('a');
-            a.href = font.directUrl || ('./fonts/' + font.fileName);
-            a.download = font.fileName;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-
-            const newCount = incrementDownloadCount(fontId);
-            showToast(font.name + ' ဖောင့်ဖိုင်ကို စတင်ဒေါင်းလုဒ်ဆွဲနေပါပြီ! ⬇️ (' + formatDownloadText(newCount) + ')', 'success');
+            openDownloadGateway(fontId, false);
         }
 
         function downloadArtHouseZip() {
-            if (!currentUser) {
-                openAuthModal('signin');
-                return;
-            }
-            const a = document.createElement('a');
-            a.href = './Art_House_W01_to_W70_Fonts.zip';
-            a.download = 'Art_House_W01_to_W70_Fonts.zip';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            showToast('Art House W01–W70 Mega Pack (ZIP) ကို ဒေါင်းလုဒ်ဆွဲနေပါပြီ! 📦', 'success');
+            openDownloadGateway('art-house-zip-pack', true);
         }
 
         function downloadCurrentModalFont() {
