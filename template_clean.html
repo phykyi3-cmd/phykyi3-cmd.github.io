@@ -17,15 +17,70 @@
     <meta name="apple-mobile-web-app-title" content="Golden Fonts">
     <meta name="application-name" content="Golden Fonts Studio">
 
+    <!-- Canonical & SEO Meta for Google Search Engine -->
+    <link rel="canonical" href="https://phykyi3-cmd.github.io/zee-motion-font-studio/">
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="./sitemap.xml">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="keywords" content="Golden Fonts, Myanmar Fonts, မြန်မာဖောင့်, Art House Fonts, Masterpiece Fonts, Free Myanmar Art Fonts, စာလုံးအလှဖောင့်, Unicode Fonts, Zawgyi, CapCut Myanmar Font, Win Innwa Fonts, ဖောင့်ဒေါင်းလုဒ်, TTF download">
+    <meta name="author" content="Sithu Kyaw">
+    <meta name="description" content="Golden Fonts Studio — မြန်မာဖောင့် ၁၈၀+ (Art House, Masterpiece, Free Art, Unicode) တိုက်ရိုက်စမ်းသပ်ဒေါင်းလုဒ်ဆွဲနိုင်သော Official Font App (Mobile & Laptop)">
+
     <!-- Open Graph & Social Cards -->
     <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Golden Fonts Studio">
     <meta property="og:title" content="Golden Fonts — Official Myanmar Typography Studio">
     <meta property="og:description" content="မြန်မာဖောင့် ၁၈၀+ စုစည်းမှုနှင့် မူရင်းစတိုင် တိုက်ရိုက်စမ်းသပ်ဒေါင်းလုဒ်ဆွဲနိုင်သော Official App (Mobile & Laptop)">
+    <meta property="og:url" content="https://phykyi3-cmd.github.io/zee-motion-font-studio/">
     <meta property="og:image" content="./icons/icon-512.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Golden Fonts — Official Myanmar Typography Studio">
     <meta name="twitter:description" content="မြန်မာဖောင့် ၁၈၀+ စုစည်းမှုနှင့် မူရင်းစတိုင် တိုက်ရိုက်စမ်းသပ်ဒေါင်းလုဒ်ဆွဲနိုင်သော Official App">
     <meta name="twitter:image" content="./icons/icon-512.png">
+
+    <!-- Google AdSense Ready Hook (Uncomment & replace ca-pub-ID when active) -->
+    <!-- <meta name="google-adsense-account" content="ca-pub-XXXXXXXXXXXXXXXX"> -->
+
+    <!-- Structured Data for Google (Schema.org WebApplication & FontCatalog) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://phykyi3-cmd.github.io/zee-motion-font-studio/#webapp",
+          "name": "Golden Fonts Studio",
+          "url": "https://phykyi3-cmd.github.io/zee-motion-font-studio/",
+          "description": "Official Myanmar typography and art fonts studio featuring 180+ fonts with real-time specimen testing and instant downloads.",
+          "applicationCategory": "DesignApplication",
+          "operatingSystem": "Android, iOS, Windows, macOS, Linux",
+          "browserRequirements": "Requires JavaScript. Requires HTML5.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "MMK"
+          },
+          "author": {
+            "@type": "Person",
+            "name": "Sithu Kyaw"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://phykyi3-cmd.github.io/zee-motion-font-studio/#website",
+          "url": "https://phykyi3-cmd.github.io/zee-motion-font-studio/",
+          "name": "Golden Fonts Studio",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Golden Fonts Studio",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://phykyi3-cmd.github.io/zee-motion-font-studio/icons/icon-512.png"
+            }
+          }
+        }
+      ]
+    }
+    </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -196,6 +251,12 @@
             <!-- Right Actions: Download Zip & Auth Account State -->
             <div class="flex items-center gap-2 sm:gap-3">
                 
+                <!-- PWA Install App Button (Desktop & Mobile) -->
+                <button onclick="triggerPWAInstall()" class="pwa-install-btn inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-2 rounded-full bg-gradient-to-r from-amber-500 via-yellow-500 to-amber-600 hover:from-amber-400 hover:to-yellow-400 text-slate-950 text-xs font-black shadow-md shadow-amber-500/20 transition whitespace-nowrap" title="ဖုန်း သို့မဟုတ် Laptop ထဲ App အဖြစ် သွင်းယူမည်">
+                    <span>📲</span>
+                    <span class="hidden sm:inline">App သွင်းမည်</span>
+                </button>
+
                 <!-- Mega Pack Download Button -->
                 <button onclick="downloadArtHouseZip()" class="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold shadow-md shadow-slate-900/10 transition whitespace-nowrap" title="Art House W01-W70 Zip ဒေါင်းလုဒ်">
                     <span>📥 W01–W70 ZIP</span>
@@ -619,6 +680,24 @@
                 </div>
             </div>
 
+            <!-- Google AdSense / Sponsor Ad Placement Slot (Top) -->
+            <div id="adSlotTop" class="w-full rounded-2xl bg-gradient-to-r from-amber-50/70 via-white to-amber-50/70 border border-amber-200/80 p-3 sm:p-4 text-center shadow-xs">
+                <div class="flex items-center justify-between text-[11px] text-amber-800 font-bold mb-1.5 px-1">
+                    <span class="flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                        <span>📢 ကြော်ငြာနေရာ • Sponsored Ad Slot</span>
+                    </span>
+                    <span class="text-[10px] text-slate-400 font-mono">Google AdSense Ready</span>
+                </div>
+                <div class="min-h-[50px] sm:min-h-[65px] flex flex-col items-center justify-center p-3 rounded-xl border border-dashed border-amber-300 bg-white/80 text-slate-600 text-xs sm:text-sm">
+                    <div class="font-bold text-slate-800 flex items-center gap-2">
+                        <span class="text-amber-500 text-base">✨</span>
+                        <span>Golden Fonts Studio • Official Myanmar Typography & Creative Art</span>
+                    </div>
+                    <p class="text-[11px] text-slate-500 mt-0.5">Google AdSense သို့မဟုတ် Brand Sponsor ကြော်ငြာများ ချိတ်ဆက်ပြသနိုင်ရန် စနစ်ထည့်သွင်းထားပြီးဖြစ်ပါသည်</p>
+                </div>
+            </div>
+
             <!-- Fonts Grid with Live Specimen Cards -->
             <div id="fontGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                 <!-- Dynamically populated via renderFonts() -->
@@ -638,7 +717,102 @@
                 </button>
             </div>
 
+            <!-- Google AdSense / Sponsor Ad Placement Slot (Bottom) -->
+            <div id="adSlotBottom" class="w-full rounded-2xl bg-gradient-to-r from-purple-50/70 via-white to-pink-50/70 border border-purple-200/80 p-3 sm:p-4 text-center shadow-xs">
+                <div class="flex items-center justify-between text-[11px] text-purple-800 font-bold mb-1.5 px-1">
+                    <span class="flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-purple-500 animate-pulse"></span>
+                        <span>📢 ကြော်ငြာနေရာ • Sponsored Ad Slot (Bottom Banner)</span>
+                    </span>
+                    <span class="text-[10px] text-slate-400 font-mono">Google AdSense Ready</span>
+                </div>
+                <div class="min-h-[50px] sm:min-h-[65px] flex flex-col items-center justify-center p-3 rounded-xl border border-dashed border-purple-300 bg-white/80 text-slate-600 text-xs sm:text-sm">
+                    <div class="font-bold text-slate-800 flex items-center gap-2">
+                        <span class="text-purple-500 text-base">🎁</span>
+                        <span>Free Myanmar Fonts Download • 100% Virus-Free & Direct TTF</span>
+                    </div>
+                    <p class="text-[11px] text-slate-500 mt-0.5">ဒီဇိုင်းနာများနှင့် ဖန်တီးသူများအတွက် အထူးသင့်လျော်သော ကြော်ငြာများ ချိတ်ဆက်ရန် အသင့်ဖြစ်ပါသည်</p>
+                </div>
+            </div>
+
         </section>
+
+        <!-- ================= OFFICIAL FOOTER (AdSense & SEO Mandatory) ================= -->
+        <footer class="mt-16 pt-12 pb-24 sm:pb-12 border-t border-slate-200/90 text-slate-600 space-y-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                
+                <!-- Col 1: Brand & Bio -->
+                <div class="space-y-3 md:col-span-1">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-9 h-9 rounded-xl p-1 bg-gradient-to-tr from-amber-400/20 via-white to-amber-100/40 border border-amber-300 shadow-sm shrink-0">
+                            <img src="data:image/png;base64,__LOGO_BASE64__" alt="Golden Fonts Logo" class="w-full h-full object-contain" />
+                        </div>
+                        <span class="text-lg font-black bg-gradient-to-r from-amber-600 to-yellow-600 bg-clip-text text-transparent">Golden Fonts</span>
+                    </div>
+                    <p class="text-xs text-slate-500 leading-relaxed">
+                        မြန်မာစာလုံးဒီဇိုင်း၊ Art House W01-W70 စာလုံးအလှများနှင့် ယူနီကုဒ်ဖောင့်များကို ဖုန်းနှင့် ကွန်ပျူတာတိုင်းတွင် အခမဲ့စမ်းသပ်ဒေါင်းလုဒ်ဆွဲနိုင်သော Official Web App စတူဒီယို။
+                    </p>
+                    <div class="flex items-center gap-2 text-xs font-bold text-slate-700">
+                        <span>👨‍🎨 By Sithu Kyaw</span>
+                        <span>•</span>
+                        <span class="text-amber-600">Golden Fonts Studio</span>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div class="space-y-2.5 text-xs">
+                    <h4 class="font-bold text-slate-900 uppercase tracking-wider text-[11px]">ဖောင့်ကဏ္ဍများ</h4>
+                    <ul class="space-y-1.5 text-slate-500 font-medium">
+                        <li><button onclick="setCategory('free-art'); const st = document.getElementById('studioSection'); if (st) st.scrollIntoView({behavior: 'smooth'});" class="hover:text-purple-600 transition">✨ Free Art စာလုံးအလှများ</button></li>
+                        <li><button onclick="setCategory('arthouse'); const st = document.getElementById('studioSection'); if (st) st.scrollIntoView({behavior: 'smooth'});" class="hover:text-purple-600 transition">🎨 Art House W01–W70 စီးရီး</button></li>
+                        <li><button onclick="setCategory('masterpiece'); const st = document.getElementById('studioSection'); if (st) st.scrollIntoView({behavior: 'smooth'});" class="hover:text-purple-600 transition">👑 Masterpiece ဖောင့်များ</button></li>
+                        <li><button onclick="setCategory('unicode'); const st = document.getElementById('studioSection'); if (st) st.scrollIntoView({behavior: 'smooth'});" class="hover:text-purple-600 transition">✓ စံပြု ယူနီကုဒ်ဖောင့်များ</button></li>
+                        <li><button onclick="downloadArtHouseZip()" class="hover:text-purple-600 transition">📦 W01–W70 All-in-One ZIP</button></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: App & Installation -->
+                <div class="space-y-2.5 text-xs">
+                    <h4 class="font-bold text-slate-900 uppercase tracking-wider text-[11px]">အသုံးပြုနည်း & အက်ပ်</h4>
+                    <ul class="space-y-1.5 text-slate-500 font-medium">
+                        <li><button onclick="openModal('guideModal')" class="hover:text-purple-600 transition">📱 ဖုန်း/Laptop ဖောင့်သွင်းနည်း</button></li>
+                        <li><button onclick="triggerPWAInstall()" class="hover:text-purple-600 transition text-amber-700 font-bold">📲 ဖုန်းထဲ App အဖြစ် သွင်းမည် (PWA)</button></li>
+                        <li><button onclick="openModal('pwaModal')" class="hover:text-purple-600 transition">🍎 iPhone Safari တွင် Add to Home</button></li>
+                        <li><button onclick="toggleFavoritesFilter()" class="hover:text-purple-600 transition">❤️ သိမ်းဆည်းထားသော ဖောင့်များ</button></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Legal & AdSense Compliance -->
+                <div class="space-y-2.5 text-xs">
+                    <h4 class="font-bold text-slate-900 uppercase tracking-wider text-[11px]">စည်းကမ်းချက် & မူဝါဒ</h4>
+                    <ul class="space-y-1.5 text-slate-500 font-medium">
+                        <li><button onclick="openModal('privacyModal')" class="hover:text-purple-600 transition underline">🛡️ Privacy Policy (လုံခြုံရေးမူဝါဒ)</button></li>
+                        <li><button onclick="openModal('termsModal')" class="hover:text-purple-600 transition underline">📜 Terms of Service (စည်းမျဉ်းများ)</button></li>
+                        <li><button onclick="openModal('licenseModal')" class="hover:text-purple-600 transition underline">⚖️ Font Licensing & DMCA</button></li>
+                        <li><button onclick="openModal('contactModal')" class="hover:text-purple-600 transition underline">✉️ Contact & About Us</button></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright & Badges -->
+            <div class="pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
+                <div class="flex items-center gap-2">
+                    <span>© 2026 Golden Fonts Studio. All rights reserved.</span>
+                    <span class="hidden sm:inline">•</span>
+                    <span class="text-emerald-600 font-semibold flex items-center gap-1">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> 100% Free & Open Access
+                    </span>
+                </div>
+                <div class="flex items-center gap-3 text-slate-400 text-[11px]">
+                    <span>PWA Enabled</span>
+                    <span>•</span>
+                    <span>Google SEO Ready</span>
+                    <span>•</span>
+                    <span>Google AdSense Ready</span>
+                </div>
+            </div>
+        </footer>
 
     </main>
 
@@ -952,6 +1126,200 @@
                     <span>⬇️</span>
                     <span>Download TrueType</span>
                 </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PWA INSTALLATION MODAL ================= -->
+    <div id="pwaModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-md">
+        <div class="relative w-full max-w-lg rounded-3xl bg-white border border-slate-200 shadow-2xl p-6 sm:p-7 space-y-4 max-h-[90vh] overflow-y-auto">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-10 h-10 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center text-xl shadow-xs">
+                        📲
+                    </div>
+                    <div>
+                        <h3 class="font-extrabold text-base sm:text-lg text-slate-900">Golden Fonts ကို App အဖြစ် သွင်းယူနည်း</h3>
+                        <p class="text-xs text-slate-500">Play Store မလိုဘဲ ဖုန်း Screen ပေါ်သို့ အက်ပ်ထည့်သွင်းခြင်း</p>
+                    </div>
+                </div>
+                <button onclick="closeModal('pwaModal')" class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:text-slate-900 flex items-center justify-center font-bold">
+                    ✕
+                </button>
+            </div>
+
+            <div class="space-y-4 text-xs text-slate-600">
+                <!-- Android Chrome -->
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
+                    <div class="flex items-center gap-2 font-bold text-slate-900 text-sm">
+                        <span>🤖</span>
+                        <span>Android ဖုန်းများအတွက် (Chrome Browser)</span>
+                    </div>
+                    <ol class="list-decimal pl-5 space-y-1 leading-relaxed text-slate-600">
+                        <li>Chrome Browser ညာဘက်အပေါ်ထောင့်ရှိ မီနူးအစက်သုံးစက် <strong>(⋮)</strong> ကို နှိပ်ပါ။</li>
+                        <li>ပေါ်လာသော မီနူးထဲမှ <strong>"Install app" (သို့မဟုတ်) "Add to Home screen"</strong> ကို ရွေးပါ။</li>
+                        <li><strong>"Install"</strong> ကို နှိပ်လိုက်သည်နှင့် ဖုန်း Home Screen ပေါ်တွင် Golden Fonts App Icon ပေါ်လာပါမည်။</li>
+                    </ol>
+                </div>
+
+                <!-- iPhone / iPad Safari -->
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
+                    <div class="flex items-center gap-2 font-bold text-slate-900 text-sm">
+                        <span>🍎</span>
+                        <span>iPhone & iPad များအတွက် (Safari Browser)</span>
+                    </div>
+                    <ol class="list-decimal pl-5 space-y-1 leading-relaxed text-slate-600">
+                        <li>Safari Browser အောက်ခြေရှိ <strong>Share Icon 📤 (မျှဝေရန်ခလုတ်)</strong> ကို နှိပ်ပါ။</li>
+                        <li>အောက်သို့ အနည်းငယ်ဆွဲချပြီး <strong>"Add to Home Screen ➕ (ပင်မစာမျက်နှာသို့ ထည့်မည်)"</strong> ကို ရွေးပါ။</li>
+                        <li>ညာဘက်အပေါ်ထောင့်ရှိ <strong>"Add"</strong> ကို နှိပ်လိုက်ပါက iPhone မျက်နှာပြင်တွင် App အဖြစ် အသုံးပြုနိုင်ပါပြီ။</li>
+                    </ol>
+                </div>
+
+                <!-- Laptop / Desktop -->
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
+                    <div class="flex items-center gap-2 font-bold text-slate-900 text-sm">
+                        <span>💻</span>
+                        <span>Windows PC & Mac Laptop များအတွက်</span>
+                    </div>
+                    <p class="leading-relaxed">Chrome သို့မဟုတ် Edge လိပ်စာဘား (Address Bar) ညာဘက်အစွန်ရှိ <strong>Install Icon (⤓)</strong> ကို နှိပ်၍ Desktop App အဖြစ် သွင်းနိုင်ပါသည်။</p>
+                </div>
+            </div>
+
+            <div class="flex justify-end pt-2 border-t border-slate-100">
+                <button onclick="closeModal('pwaModal')" class="px-5 py-2 rounded-full bg-slate-950 text-white text-xs font-bold">
+                    နားလည်ပါပြီ
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= PRIVACY POLICY MODAL (AdSense Required) ================= -->
+    <div id="privacyModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-md">
+        <div class="relative w-full max-w-2xl rounded-3xl bg-white border border-slate-200 shadow-2xl p-6 sm:p-8 space-y-5 max-h-[85vh] overflow-y-auto">
+            <div class="flex items-start justify-between border-b border-slate-100 pb-3">
+                <div>
+                    <h3 class="font-extrabold text-lg sm:text-xl text-slate-900">Privacy Policy (ကိုယ်ရေးကိုယ်တာ အချက်အလက် မူဝါဒ)</h3>
+                    <p class="text-xs text-slate-500">Last Updated: October 2026 • Golden Fonts Studio</p>
+                </div>
+                <button onclick="closeModal('privacyModal')" class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:text-slate-900 flex items-center justify-center font-bold">✕</button>
+            </div>
+
+            <div class="space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-1">၁။ မိတ်ဆက်နှင့် ခြုံငုံသုံးသပ်ချက် (Overview)</h4>
+                    <p>Golden Fonts Studio (https://phykyi3-cmd.github.io/zee-motion-font-studio/) သည် အသုံးပြုသူများ၏ ကိုယ်ရေးကိုယ်တာလုံခြုံမှုကို အလေးထားပါသည်။ ဤ Privacy Policy သည် ကျွန်ုပ်တို့၏ ဝဘ်အက်ပ်ကို အသုံးပြုရာတွင် မည်သည့်အချက်အလက်များကို ရယူခြင်း၊ ထိန်းသိမ်းခြင်းနှင့် အသုံးပြုခြင်းဆိုင်ရာ အချက်များကို ရှင်းလင်းစွာ ဖော်ပြထားပါသည်။</p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-1">၂။ အချက်အလက် ရယူခြင်း (Information We Collect)</h4>
+                    <p>ကျွန်ုပ်တို့သည် အသုံးပြုသူများထံမှ အရေးကြီးသော ပုဂ္ဂိုလ်ရေးအချက်အလက်များကို သိမ်းဆည်းခြင်း မပြုပါ။ သင်၏ စိတ်ကြိုက်ဖောင့်များ (Favorites) နှင့် စာရင်းသွင်းမှုအခြေအနေများကို သင့် Browser ၏ LocalStorage ထဲတွင်သာ လုံခြုံစွာ သိမ်းဆည်းပါသည်။</p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-1">၃။ ကွတ်ကီးများနှင့် ကြော်ငြာများ (Cookies & Google AdSense)</h4>
+                    <p>ဤဝဘ်ဆိုက်သည် ပြင်ပကြော်ငြာဝန်ဆောင်မှုများဖြစ်သော Google AdSense နှင့် Google Analytics တို့ကို အသုံးပြုနိုင်ပါသည်။ Google အပါအဝင် ပြင်ပကုမ္ပဏီများသည် အသုံးပြုသူများ၏ ဝဘ်ဆိုက်ဝင်ရောက်မှု မှတ်တမ်းအပေါ် မူတည်၍ သင့်လျော်သော ကြော်ငြာများကို ဖော်ပြရန် Cookies များကို အသုံးပြုနိုင်ပါသည်။ အသုံးပြုသူများသည် Google Ad Settings တွင် မိမိစိတ်ကြိုက် ကြော်ငြာရွေးချယ်မှုများကို ပိတ်ပင် (Opt-out) ပြုလုပ်နိုင်ပါသည်။</p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-1">၄။ ပြင်ပလင့်ခ်များ (Third-Party Links)</h4>
+                    <p>ကျွန်ုပ်တို့၏ ဝဘ်ဆိုက်တွင် အခြားပြင်ပဝဘ်ဆိုက်များနှင့် ဖောင့်အရင်းအမြစ် လင့်ခ်များ ပါဝင်နိုင်ပြီး ၎င်းတို့၏ ကိုယ်ပိုင် Privacy Policy များအတွက် ကျွန်ုပ်တို့တွင် တာဝန်မရှိပါ။</p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-1">၅။ ဆက်သွယ်ရန် (Contact Us)</h4>
+                    <p>ဤ Privacy Policy နှင့် ပတ်သက်၍ မေးမြန်းစုံစမ်းလိုပါက designer@goldenfonts.com သို့ ဆက်သွယ်မေးမြန်းနိုင်ပါသည်။</p>
+                </div>
+            </div>
+
+            <div class="flex justify-end pt-3 border-t border-slate-100">
+                <button onclick="closeModal('privacyModal')" class="px-5 py-2 rounded-full bg-slate-950 text-white text-xs font-bold">နားလည်လက်ခံပါသည်</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= TERMS OF SERVICE MODAL ================= -->
+    <div id="termsModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-md">
+        <div class="relative w-full max-w-2xl rounded-3xl bg-white border border-slate-200 shadow-2xl p-6 sm:p-8 space-y-5 max-h-[85vh] overflow-y-auto">
+            <div class="flex items-start justify-between border-b border-slate-100 pb-3">
+                <div>
+                    <h3 class="font-extrabold text-lg sm:text-xl text-slate-900">Terms of Service (အသုံးပြုမှု စည်းကမ်းချက်များ)</h3>
+                    <p class="text-xs text-slate-500">Golden Fonts Studio Terms & Conditions</p>
+                </div>
+                <button onclick="closeModal('termsModal')" class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:text-slate-900 flex items-center justify-center font-bold">✕</button>
+            </div>
+
+            <div class="space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <p>Golden Fonts Studio ဝဘ်ဆိုက်သို့ ဝင်ရောက်အသုံးပြုခြင်းဖြင့် အောက်ဖော်ပြပါ စည်းကမ်းချက်များကို လိုက်နာရန် သဘောတူညီပြီး ဖြစ်ပါသည်-</p>
+                <ul class="list-disc pl-5 space-y-2">
+                    <li><strong>ဖောင့်များ အသုံးပြုခွင့်-</strong> ဤဝဘ်ဆိုက်ပေါ်တွင် ဖော်ပြထားသော ဖောင့်များသည် ကိုယ်ပိုင်ဖန်တီးမှု၊ ပညာရေး၊ ဒီဇိုင်းနှင့် ဗီဒီယိုအလှဆင်ခြင်းများအတွက် အခမဲ့ ရယူနိုင်ရန် စီစဉ်ပေးထားခြင်း ဖြစ်ပါသည်။</li>
+                    <li><strong>စီးပွားဖြစ် အသုံးပြုမှု-</strong> စီးပွားဖြစ် ဒီဇိုင်းလုပ်ငန်းများတွင် အသုံးပြုလိုပါက သက်ဆိုင်ရာ မူရင်းဖောင့်ဒီဇိုင်နာများ (Art House, Masterpiece စသည်) ၏ မူရင်းလိုင်စင်စည်းမျဉ်းများကို လေးစားလိုက်နာရန် လိုအပ်ပါသည်။</li>
+                    <li><strong>ဝန်ဆောင်မှု ပြင်ဆင်ပြောင်းလဲခြင်း-</strong> ဝဘ်ဆိုက်စနစ်နှင့် ဖောင့်များကို ကြိုတင်အကြောင်းကြားခြင်းမရှိဘဲ အချိန်မရွေး အဆင့်မြှင့်တင်ခြင်း၊ ပြုပြင်ခြင်းများ ဆောင်ရွက်ခွင့်ရှိပါသည်။</li>
+                </ul>
+            </div>
+
+            <div class="flex justify-end pt-3 border-t border-slate-100">
+                <button onclick="closeModal('termsModal')" class="px-5 py-2 rounded-full bg-slate-950 text-white text-xs font-bold">ပိတ်မည်</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= FONT LICENSING & DMCA MODAL ================= -->
+    <div id="licenseModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-md">
+        <div class="relative w-full max-w-2xl rounded-3xl bg-white border border-slate-200 shadow-2xl p-6 sm:p-8 space-y-5 max-h-[85vh] overflow-y-auto">
+            <div class="flex items-start justify-between border-b border-slate-100 pb-3">
+                <div>
+                    <h3 class="font-extrabold text-lg sm:text-xl text-slate-900">Font Licensing & DMCA (ဖောင့်မူပိုင်ခွင့်နှင့် လိုင်စင်)</h3>
+                    <p class="text-xs text-slate-500">Copyright, Fair Use & Licensing Standards</p>
+                </div>
+                <button onclick="closeModal('licenseModal')" class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:text-slate-900 flex items-center justify-center font-bold">✕</button>
+            </div>
+
+            <div class="space-y-4 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <p>Golden Fonts Studio သည် မြန်မာစာလုံးဒီဇိုင်းများ၊ အနုပညာစာလုံးများနှင့် စံပြုယူနီကုဒ်ဖောင့်များကို မြန်မာပြည်သူများနှင့် ဖန်တီးသူများ လွယ်ကူစွာ စမ်းသပ်လေ့လာနိုင်စေရန် စုစည်းပေးထားသော Open Community Hub တစ်ခုဖြစ်ပါသည်။</p>
+                <div class="p-3.5 rounded-2xl bg-slate-50 border border-slate-200/80 space-y-2">
+                    <div class="font-bold text-slate-800">မူရင်းဒီဇိုင်နာများသို့ ဂုဏ်ပြုမှတ်တမ်းတင်ခြင်း-</div>
+                    <p class="text-xs">Art House Studio (Mandalay), Masterpiece (Saturngod), Myanmar NLP/MCF, ThanLwinSoft နှင့် အခြားသော မြန်မာဖောင့်ပညာရှင်များအားလုံးကို လေးစားစွာ ဂုဏ်ပြုမှတ်တမ်းတင်ပါသည်။</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-slate-900 mb-1">DMCA Notice & မူပိုင်ခွင့် အကြောင်းကြားရန်-</h4>
+                    <p>အကယ်၍ သင်သည် မူရင်းဖောင့်ပိုင်ရှင်ဖြစ်ပြီး မိမိ၏ ဖောင့်အား ဖယ်ရှားပေးစေလိုပါက သို့မဟုတ် အချက်အလက် ပြင်ဆင်လိုပါက <strong>designer@goldenfonts.com</strong> သို့ မူပိုင်ခွင့်အထောက်အထားနှင့်တကွ အကြောင်းကြားနိုင်ပြီး ၂၄ နာရီအတွင်း ချက်ချင်း ဖြေရှင်းဆောင်ရွက်ပေးပါမည်။</p>
+                </div>
+            </div>
+
+            <div class="flex justify-end pt-3 border-t border-slate-100">
+                <button onclick="closeModal('licenseModal')" class="px-5 py-2 rounded-full bg-slate-950 text-white text-xs font-bold">ပိတ်မည်</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= CONTACT & ABOUT US MODAL ================= -->
+    <div id="contactModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-md">
+        <div class="relative w-full max-w-lg rounded-3xl bg-white border border-slate-200 shadow-2xl p-6 sm:p-8 space-y-5">
+            <div class="flex items-start justify-between border-b border-slate-100 pb-3">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-10 h-10 rounded-2xl bg-purple-100 text-purple-700 flex items-center justify-center text-xl shadow-xs">
+                        👨‍🎨
+                    </div>
+                    <div>
+                        <h3 class="font-extrabold text-base sm:text-lg text-slate-900">About & Contact Us</h3>
+                        <p class="text-xs text-slate-500">Golden Fonts Studio • Creative Type Design</p>
+                    </div>
+                </div>
+                <button onclick="closeModal('contactModal')" class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:text-slate-900 flex items-center justify-center font-bold">✕</button>
+            </div>
+
+            <div class="space-y-3.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <p>Golden Fonts Studio သည် မြန်မာစာလုံးဒီဇိုင်းများကို ခေတ်မီ Web နည်းပညာများဖြင့် ဖုန်းနှင့် ကွန်ပျူတာတိုင်းတွင် အဆင်ပြေချောမွေ့စွာ အသုံးပြုနိုင်စေရန် ရည်ရွယ်ဖန်တီးထားပါသည်။</p>
+                <div class="p-3.5 rounded-2xl bg-purple-50/80 border border-purple-200/80 space-y-1.5">
+                    <div class="font-bold text-purple-950">ဆက်သွယ်ရန် အချက်အလက်များ-</div>
+                    <p>📧 Email: <span class="font-mono text-purple-700 font-semibold">designer@goldenfonts.com</span></p>
+                    <p>🌐 Web: <span class="font-mono text-purple-700 font-semibold">Golden Fonts Studio (Official)</span></p>
+                    <p>📍 ဖန်တီးသူ: <span class="text-slate-800 font-bold">Sithu Kyaw</span> (Type & Motion Designer)</p>
+                </div>
+            </div>
+
+            <div class="flex justify-end pt-3 border-t border-slate-100">
+                <button onclick="closeModal('contactModal')" class="px-5 py-2 rounded-full bg-slate-950 text-white text-xs font-bold">ပိတ်မည်</button>
             </div>
         </div>
     </div>
@@ -1992,6 +2360,43 @@
                 toast.style.transform = 'translateY(10px)';
                 setTimeout(() => toast.remove(), 300);
             }, 3200);
+        }
+
+        // Register Service Worker for PWA (Progressive Web App)
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js').then((reg) => {
+                    console.log('Golden Fonts PWA Service Worker registered:', reg.scope);
+                }).catch((err) => {
+                    console.log('Service Worker registration note:', err);
+                });
+            });
+        }
+
+        // PWA Install Prompt Handler
+        let deferredPWAEvent = null;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPWAEvent = e;
+        });
+
+        window.addEventListener('appinstalled', () => {
+            showToast('Golden Fonts App ကို အောင်မြင်စွာ ထည့်သွင်းပြီးပါပြီ! 🎉📱', 'success');
+            deferredPWAEvent = null;
+        });
+
+        function triggerPWAInstall() {
+            if (deferredPWAEvent) {
+                deferredPWAEvent.prompt();
+                deferredPWAEvent.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        showToast('Golden Fonts App ကို ထည့်သွင်းနေပါပြီ...', 'success');
+                    }
+                    deferredPWAEvent = null;
+                });
+            } else {
+                openModal('pwaModal');
+            }
         }
 
         window.onload = initApp;

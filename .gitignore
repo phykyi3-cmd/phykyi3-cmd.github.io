@@ -16,6 +16,10 @@
 !build_hub.py
 !template_clean.html
 !README.md
+!robots.txt
+!sitemap.xml
+!ads.txt
+!CNAME
 !.github/
 !.github/**
 !.gitignore
