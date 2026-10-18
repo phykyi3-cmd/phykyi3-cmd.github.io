@@ -19,6 +19,7 @@
 !robots.txt
 !sitemap.xml
 !ads.txt
+!*.txt
 !CNAME
 !.github/
 !.github/**
