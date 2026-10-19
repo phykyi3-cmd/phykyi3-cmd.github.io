@@ -1,0 +1,157 @@
+{
+	Tools = ordered() {
+		Template = TextPlus {
+			CtrlWZoom = false,
+			CustomData = { Path = { Map = { ["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Letter/06 Rotation/" } }, },
+			Inputs = {
+				GlobalOut = Input { Value = 149, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				StyledText = Input {
+					SourceOp = "FollowerLetterAnimation",
+					Source = "StyledText",
+				},
+				Font = Input { Value = "Open Sans", },
+				Style = Input { Value = "Bold", },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { -275, 115.5 } },
+		},
+		FollowerLetterAnimation = StyledTextFollower {
+			CtrlWZoom = false,
+			NameSet = true,
+			CustomData = { Path = { Map = { ["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Letter/06 Rotation/" } }, },
+			Inputs = {
+				Order = Input { Value = 7, },
+				Delay = Input { Value = 1, },
+				Text = Input { Value = "Letter Scale + Slide + Rotate", },
+				CharacterOffset = Input {
+					SourceOp = "Path1",
+					Source = "Position",
+				},
+				TransformRotation = Input { Value = 1, },
+				CharacterAngleZ = Input {
+					SourceOp = "FollowerLetterAnimationCharacterAngleZ",
+					Source = "Value",
+				},
+				TransformSize = Input { Value = 1, },
+				CharacterSizeX = Input {
+					SourceOp = "FollowerLetterAnimationCharacterSizeX",
+					Source = "Value",
+					Expression = "CharacterSizeY",
+				},
+				CharacterSizeY = Input {
+					SourceOp = "FollowerLetterAnimationCharacterSizeY",
+					Source = "Value",
+				},
+				Opacity1 = Input {
+					SourceOp = "FollowerLetterAnimationOpacity1",
+					Source = "Value",
+				},
+				Softness1 = Input { Value = 1, },
+				Softness2 = Input { Value = 1, },
+				Softness3 = Input { Value = 1, },
+				Softness4 = Input { Value = 1, },
+				Softness5 = Input { Value = 1, },
+				Softness6 = Input { Value = 1, },
+				Softness7 = Input { Value = 1, },
+				Softness8 = Input { Value = 1, }
+			},
+		},
+		Path1 = PolyPath {
+			DrawMode = "InsertAndModify",
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Letter/06 Rotation/"
+					}
+				},
+			},
+			Inputs = {
+				Displacement = Input {
+					SourceOp = "Path1Displacement",
+					Source = "Value",
+				},
+				PolyLine = Input {
+					Value = Polyline {
+						Points = {
+							{ Linear = true, LockY = true, X = -0.489, Y = -0.514, RX = -0.00366666666666667, RY = 0.00466666666666652 },
+							{ Linear = true, LockY = true, X = -0.5, Y = -0.5, LX = 0.00366666666666667, LY = -0.00466666666666652 }
+						}
+					},
+				}
+			},
+		},
+		Path1Displacement = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 255 },
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Letter/06 Rotation/"
+					}
+				},
+			},
+			KeyFrames = {
+				[0] = { 0, RH = { 3.00228575297764, 1.05 }, Flags = { Linear = true, LockedY = true } },
+				[14.8000001907349] = { 1, LH = { 9.86667172715664, 1 }, Flags = { LockedY = true } }
+			}
+		},
+		FollowerLetterAnimationCharacterAngleZ = BezierSpline {
+			SplineColor = { Red = 28, Green = 216, Blue = 243 },
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Letter/06 Rotation/"
+					}
+				},
+			},
+			KeyFrames = {
+				[0] = { -60, RH = { 3.03400003910065, 0.8 }, Flags = { Linear = true } },
+				[14.8000001907349] = { 0, LH = { 9.86667172715664, 0 }, Flags = { } }
+			}
+		},
+		FollowerLetterAnimationCharacterSizeX = BezierSpline {
+			SplineColor = { Red = 28, Green = 53, Blue = 243 },
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Letter/06 Rotation/"
+					}
+				},
+			},
+			KeyFrames = {
+				[0] = { 0, Flags = { Linear = true } }
+			}
+		},
+		FollowerLetterAnimationCharacterSizeY = BezierSpline {
+			SplineColor = { Red = 28, Green = 132, Blue = 243 },
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Letter/06 Rotation/"
+					}
+				},
+			},
+			KeyFrames = {
+				[0] = { 0, RH = { 0, 0.718 }, Flags = { Linear = true } },
+				[14.8000001907349] = { 1, LH = { 8.08714296136584, 0.995999999999999 }, Flags = { } }
+			}
+		},
+		FollowerLetterAnimationOpacity1 = BezierSpline {
+			SplineColor = { Red = 179, Green = 28, Blue = 244 },
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Letter/06 Rotation/"
+					}
+				},
+			},
+			KeyFrames = {
+				[0] = { 0, RH = { 2.34685717310224, 1.054 }, Flags = { Linear = true } },
+				[14.8000001907349] = { 1, LH = { 9.641142981393, 0.995999999999999 }, Flags = { } }
+			}
+		}
+	}
+}

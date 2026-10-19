@@ -1,0 +1,852 @@
+{
+	Tools = ordered() {
+		NeoGlow = MacroOperator {
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "Macros:/"
+					}
+				},
+				SxSFilename = "/Library/Application Support/Blackmagic Design/DaVinci Resolve/Fusion/Macros/Neo Glow.setting",
+			},
+			Inputs = ordered() {
+				Channel = InstanceInput {
+					SourceOp = "NGBM",
+					Source = "Channel",
+				},
+				Low = InstanceInput {
+					SourceOp = "NGBM",
+					Source = "Low",
+					ControlGroup = 2,
+					Default = 0,
+				},
+				High = InstanceInput {
+					SourceOp = "NGBM",
+					Source = "High",
+					ControlGroup = 2,
+					Default = 1,
+				},
+				GlowOnly = InstanceInput {
+					SourceOp = "GlowOnly",
+					Source = "Blend",
+					Default = 0,
+				},
+				Quality = InstanceInput {
+					SourceOp = "NGQuality",
+					Source = "Quality",
+					Default = 3,
+				},
+				Intensity = InstanceInput {
+					SourceOp = "NGBC",
+					Source = "Gain",
+					Name = "Intensity",
+					MaxScale = 1,
+					Default = 0.15,
+				},
+				Radius = InstanceInput {
+					SourceOp = "MasterBlur",
+					Source = "Radius",
+					MinScale = 0.1,
+					MaxScale = 3,
+					Default = 1,
+				},
+				Spread = InstanceInput {
+					SourceOp = "GC",
+					Source = "MasterRGBGamma",
+					Name = "Spread",
+					Default = 1,
+				},
+				TintControls = InstanceInput {
+					SourceOp = "LabelTint",
+					Source = "Tint",
+					MinScale = 1,
+					Default = 3,
+				},
+				WheelHue1 = InstanceInput {
+					SourceOp = "CC",
+					Source = "WheelHue1",
+					ControlGroup = 7,
+				},
+				WheelSaturation1 = InstanceInput {
+					SourceOp = "CC",
+					Source = "WheelSaturation1",
+					ControlGroup = 7,
+					Default = 1,
+				},
+				WheelTintAngle1 = InstanceInput {
+					SourceOp = "CC",
+					Source = "WheelTintAngle1",
+					ControlGroup = 7,
+				},
+				WheelTintLength1 = InstanceInput {
+					SourceOp = "CC",
+					Source = "WheelTintLength1",
+					ControlGroup = 7,
+				},
+				WheelRangeDummy1 = InstanceInput {
+					SourceOp = "CC",
+					Source = "WheelRangeDummy1",
+					ControlGroup = 7,
+					Default = 0,
+				},
+				WheelHue2 = InstanceInput {
+					SourceOp = "CC",
+					Source = "WheelHue2",
+					ControlGroup = 7,
+				},
+				WheelSaturation2 = InstanceInput {
+					SourceOp = "CC",
+					Source = "WheelSaturation2",
+					ControlGroup = 7,
+					Default = 1,
+				},
+				WheelTintAngle2 = InstanceInput {
+					SourceOp = "CC",
+					Source = "WheelTintAngle2",
+					ControlGroup = 7,
+				},
+				WheelTintLength2 = InstanceInput {
+					SourceOp = "CC",
+					Source = "WheelTintLength2",
+					ControlGroup = 7,
+				},
+				WheelHue3 = InstanceInput {
+					SourceOp = "CC",
+					Source = "WheelHue3",
+					ControlGroup = 7,
+				},
+				WheelSaturation3 = InstanceInput {
+					SourceOp = "CC",
+					Source = "WheelSaturation3",
+					ControlGroup = 7,
+					Default = 1,
+				},
+				WheelTintAngle3 = InstanceInput {
+					SourceOp = "CC",
+					Source = "WheelTintAngle3",
+					ControlGroup = 7,
+				},
+				WheelTintLength3 = InstanceInput {
+					SourceOp = "CC",
+					Source = "WheelTintLength3",
+					ControlGroup = 7,
+				},
+				WheelHue4 = InstanceInput {
+					SourceOp = "CC",
+					Source = "WheelHue4",
+					ControlGroup = 7,
+				},
+				WheelSaturation4 = InstanceInput {
+					SourceOp = "CC",
+					Source = "WheelSaturation4",
+					ControlGroup = 7,
+					Default = 1,
+				},
+				WheelTintAngle4 = InstanceInput {
+					SourceOp = "CC",
+					Source = "WheelTintAngle4",
+					ControlGroup = 7,
+				},
+				WheelTintLength4 = InstanceInput {
+					SourceOp = "CC",
+					Source = "WheelTintLength4",
+					ControlGroup = 7,
+				},
+				ResetAllColorChanges = InstanceInput {
+					SourceOp = "CC",
+					Source = "ResetAllColorChanges",
+				},
+				AdvancedControlls = InstanceInput {
+					SourceOp = "LabelAdvanced",
+					Source = "Advanced",
+					MinScale = 1,
+					Default = 3,
+				},
+				Depth = InstanceInput {
+					SourceOp = "GlowDepth",
+					Source = "Depth",
+					Default = 4,
+				},
+				ApplyMode = InstanceInput {
+					SourceOp = "Final",
+					Source = "ApplyMode",
+				},
+				Blend = InstanceInput {
+					SourceOp = "Final",
+					Source = "Blend",
+					Default = 1,
+				},
+				ProcessRed = InstanceInput {
+					SourceOp = "Final",
+					Source = "ProcessRed",
+					Name = "Process",
+					ControlGroup = 13,
+					Default = 1,
+				},
+				ProcessGreen = InstanceInput {
+					SourceOp = "Final",
+					Source = "ProcessGreen",
+					ControlGroup = 13,
+					Default = 1,
+				},
+				ProcessBlue = InstanceInput {
+					SourceOp = "Final",
+					Source = "ProcessBlue",
+					ControlGroup = 13,
+					Default = 1,
+				},
+				ProcessAlpha = InstanceInput {
+					SourceOp = "Final",
+					Source = "ProcessAlpha",
+					ControlGroup = 13,
+					Default = 1,
+				},
+				MainInput1 = InstanceInput {
+					SourceOp = "PipeRouter1",
+					Source = "Input",
+				},
+				HowToButt = InstanceInput {
+					SourceOp = "LabelAdvanced",
+					Source = "HowToButt",
+					MinScale = 1,
+					Width = 1,
+					Page = "Links",
+					Default = 3,
+				},
+				LatestVersion = InstanceInput {
+					SourceOp = "LabelAdvanced",
+					Source = "LatestVersion",
+					MinScale = 1,
+					Width = 1,
+					Page = "Links",
+					Default = 3,
+				},
+				NeoEdit = InstanceInput {
+					SourceOp = "LabelAdvanced",
+					Source = "NeoEditButt",
+					MinScale = 1,
+					Width = 1,
+					Page = "Links",
+					Default = 3,
+				},
+				EffectMask = InstanceInput {
+					SourceOp = "NGMaskInput",
+					Source = "EffectMask",
+				}
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "Final",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 440, 115.5 } },
+			Tools = ordered() {
+				NGBM = BitmapMask {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						MaskWidth = Input { Value = 1920, },
+						MaskHeight = Input { Value = 1080, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						Image = Input {
+							SourceOp = "PipeRouter1",
+							Source = "Output",
+						},
+						Channel = Input { Value = FuID { "Luminance" }, }
+					},
+					ViewInfo = OperatorInfo { Pos = { -717, 106.519 } },
+					Colors = { TileColor = { R = 0.0823529411764706, G = 0.384313725490196, B = 0.517647058823529 }, }
+				},
+				GlowOnly = BrightnessContrast {
+					CtrlWShown = false,
+					NameSet = true,
+					CustomData = { Path = { Map = { ["Setting:"] = "C:\\Users\\loren\\Downloads\\" } }, },
+					Inputs = {
+						Alpha = Input { Value = 1, },
+						Gain = Input { Value = 0, },
+						ClipBlack = Input { Value = 1, },
+						ClipWhite = Input { Value = 1, },
+						PreDividePostMultiply = Input { Value = 1, },
+						Input = Input {
+							SourceOp = "PipeRouter1",
+							Source = "Output",
+						},
+						Blend = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 658, 271.519 } },
+					Colors = { TileColor = { R = 0.474509803921569, G = 0.658823529411765, B = 0.815686274509804 }, },
+					UserControls = ordered() { Blend = { INP_MaxAllowed = 1000000, INP_Integer = true, INPID_InputControl = "CheckboxControl", INP_MaxScale = 1, INP_Default = 1, INP_MinScale = 0, INP_MinAllowed = -1000000, LINKID_DataType = "Number", CBC_TriState = false, INP_SplineType = "Default", LINKS_Name = "Glow Only", } }
+				},
+				NGQuality = Switch {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						NumberOfInputs = Input { Value = 4, },
+						Source = Input { Expression = "Quality", },
+						Quality = Input { Value = 3, },
+						Input0 = Input {
+							SourceOp = "Merge2",
+							Source = "Output",
+						},
+						Input1 = Input {
+							SourceOp = "Merge4",
+							Source = "Output",
+						},
+						Input2 = Input {
+							SourceOp = "Merge7",
+							Source = "Output",
+						},
+						Input3 = Input {
+							SourceOp = "Merge9",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 52.9999, 172.519 } },
+					Colors = { TileColor = { R = 0.0823529411764706, G = 0.384313725490196, B = 0.517647058823529 }, },
+					UserControls = ordered() {
+						Quality = {
+							{ CCS_AddString = "Low" },
+							{ CCS_AddString = "Medium" },
+							{ CCS_AddString = "High" },
+							{ CCS_AddString = "Ultra" },
+							INP_Integer = true,
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ComboControl",
+							INP_MaxScale = 3,
+							CC_LabelPosition = "Horizontal",
+							INP_SplineType = "Default",
+							LINKS_Name = "Quality",
+						}
+					}
+				},
+				NGBC = BrightnessContrast {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Alpha = Input { Value = 1, },
+						Gain = Input { Value = 0.15, },
+						Input = Input {
+							SourceOp = "NGMaskInput",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { -607, 7.51909 } },
+				},
+				MasterBlur = Blur {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						XBlurSize = Input {
+							Value = 1.5,
+							Expression = "(\n  NGQuality.Quality == 0 and 30 or\n  NGQuality.Quality == 1 and 15 or\n  NGQuality.Quality == 2 and 3 or\n  NGQuality.Quality == 3 and 1.5\n) * Radius",
+						},
+						ClippingMode = Input { Value = FuID { "Domain" }, },
+						Input = Input {
+							SourceOp = "NGBC",
+							Source = "Output",
+						},
+						Radius = Input { Value = 1, }
+					},
+					ViewInfo = OperatorInfo { Pos = { -332, 40.5191 } },
+					Colors = { TileColor = { R = 0.0823529411764706, G = 0.384313725490196, B = 0.517647058823529 }, },
+					UserControls = ordered() {
+						Radius = {
+							INP_Integer = false,
+							LINKID_DataType = "Number",
+							INPID_InputControl = "SliderControl",
+							INP_MaxScale = 4,
+							INP_SplineType = "Default",
+							LINKS_Name = "Radius",
+						}
+					}
+				},
+				LabelTint = AlphaDivide {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Tint = Input { Value = 1, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 713, 139.519 } },
+					Colors = { TileColor = { R = 0.474509803921569, G = 0.658823529411765, B = 0.815686274509804 }, },
+					UserControls = ordered() { Tint = { INP_Integer = false, LBLC_DropDownButton = true, LINKID_DataType = "Number", LBLC_NumInputs = 18, INPID_InputControl = "LabelControl", INP_SplineType = "Default", LINKS_Name = "Tint", } }
+				},
+				CC = ColorCorrector {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						ColorRanges = Input {
+							Value = ColorCurves {
+								Curves = {
+									{
+										Points = {
+											{ 0, 1 },
+											{ 0.4, 0.2 },
+											{ 0.6, 0 },
+											{ 1, 0 }
+										}
+									},
+									{
+										Points = {
+											{ 0, 0 },
+											{ 0.4, 0 },
+											{ 0.6, 0.2 },
+											{ 1, 1 }
+										}
+									}
+								}
+							},
+						},
+						HistogramIgnoreTransparent = Input { Value = 1, },
+						Input = Input {
+							SourceOp = "GC",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 824, 181.5 } },
+					Colors = { TileColor = { R = 0.0823529411764706, G = 0.384313725490196, B = 0.517647058823529 }, }
+				},
+				LabelAdvanced = AlphaDivide {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Advanced = Input { Value = 1, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 823, 139.519 } },
+					Colors = { TileColor = { R = 0.474509803921569, G = 0.658823529411765, B = 0.815686274509804 }, },
+					UserControls = ordered() {
+						Advanced = { INP_Integer = true, LBLC_DropDownButton = true, INPID_InputControl = "LabelControl", LBLC_NumInputs = 6, INP_SplineType = "Default", INP_External = false, LINKID_DataType = "Number", INP_Passive = true, LINKS_Name = "Advanced", },
+						HowToButt = {
+							INP_MaxAllowed = 1000000,
+							INP_Integer = false,
+							INPID_InputControl = "ButtonControl",
+							BTNCS_Execute = "local url = \"https://youtu.be/mx2SRzAclvA\"\nlocal osName = package.config:sub(1,1) == \"\\\\\" and \"windows\" or \"unix\"\n\nif osName == \"windows\" then\n    os.execute('start \"\" \"' .. url .. '\"')\nelse\n    local uname = io.popen(\"uname\"):read(\"*l\")\n    if uname == \"Darwin\" then\n        os.execute('open \"' .. url .. '\"')\n    else\n        os.execute('xdg-open \"' .. url .. '\"')\n    end\nend",
+							INP_MaxScale = 1,
+							INP_MinScale = 0,
+							INP_MinAllowed = -1000000,
+							LINKID_DataType = "Number",
+							ICD_Width = 1,
+							INP_SplineType = "Default",
+							ICS_ControlPage = "Links",
+							LINKS_Name = "Tutorial"
+						},
+						LatestVersion = {
+							INP_MaxAllowed = 1000000,
+							INP_Integer = false,
+							INPID_InputControl = "ButtonControl",
+							BTNCS_Execute = "local url = \"https://drive.google.com/drive/folders/1xKDy-1TrO7KWDPwRLYOdOJh6DJ_W6oH7?usp=drive_link\"\nlocal osName = package.config:sub(1,1) == \"\\\\\" and \"windows\" or \"unix\"\n\nif osName == \"windows\" then\n    os.execute('start \"\" \"' .. url .. '\"')\nelse\n    local uname = io.popen(\"uname\"):read(\"*l\")\n    if uname == \"Darwin\" then\n        os.execute('open \"' .. url .. '\"')\n    else\n        os.execute('xdg-open \"' .. url .. '\"')\n    end\nend",
+							INP_MaxScale = 1,
+							INP_MinScale = 0,
+							INP_MinAllowed = -1000000,
+							LINKID_DataType = "Number",
+							ICD_Width = 1,
+							INP_SplineType = "Default",
+							ICS_ControlPage = "Links",
+							LINKS_Name = "Latest Version"
+						},
+						NeoEditButt = {
+							INP_MaxAllowed = 1000000,
+							INP_Integer = false,
+							INPID_InputControl = "ButtonControl",
+							BTNCS_Execute = "local url = \"https://neoeditfx.com/pages/contact\"\nlocal osName = package.config:sub(1,1) == \"\\\\\" and \"windows\" or \"unix\"\n\nif osName == \"windows\" then\n    os.execute('start \"\" \"' .. url .. '\"')\nelse\n    local uname = io.popen(\"uname\"):read(\"*l\")\n    if uname == \"Darwin\" then\n        os.execute('open \"' .. url .. '\"')\n    else\n        os.execute('xdg-open \"' .. url .. '\"')\n    end\nend",
+							INP_MaxScale = 1,
+							INP_MinScale = 0,
+							INP_MinAllowed = -1000000,
+							LINKID_DataType = "Number",
+							ICD_Width = 1,
+							INP_SplineType = "Default",
+							ICS_ControlPage = "Links",
+							LINKS_Name = "Contact Us"
+						}
+					}
+				},
+				GlowDepth = ChangeDepth {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Depth = Input { Value = 4, },
+						Input = Input {
+							SourceOp = "CC",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 823, 238.519 } },
+				},
+				Final = Merge {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Background = Input {
+							SourceOp = "GlowOnly",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "GlowDepth",
+							Source = "Output",
+						},
+						ApplyMode = Input { Value = FuID { "Screen" }, },
+						PerformDepthMerge = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 823, 271.519 } },
+				},
+				ChannelBooleans = ChannelBoolean {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Operation = Input { Value = 1, },
+						Background = Input {
+							SourceOp = "NGQuality",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 549, 181.5 } },
+					Colors = { TileColor = { R = 0.0823529411764706, G = 0.384313725490196, B = 0.517647058823529 }, }
+				},
+				Blur100 = Blur {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						XBlurSize = Input {
+							Value = 99.9,
+							Expression = "MasterBlur.XBlurSize*66.6",
+						},
+						Input = Input {
+							SourceOp = "NGBC",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 548, 7.51909 } },
+					Colors = { TileColor = { R = 0.0823529411764706, G = 0.384313725490196, B = 0.517647058823529 }, }
+				},
+				Merge9 = Merge {
+					CtrlWShown = false,
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge8",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Blur100",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 548, 73.519 } },
+				},
+				Blur72 = Blur {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						XBlurSize = Input {
+							Value = 72,
+							Expression = "MasterBlur.XBlurSize*48",
+						},
+						Input = Input {
+							SourceOp = "NGBC",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 438, 40.5191 } },
+					Colors = { TileColor = { R = 0.0823529411764706, G = 0.384313725490196, B = 0.517647058823529 }, }
+				},
+				Merge8 = Merge {
+					CtrlWShown = false,
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge7",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Blur72",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 438, 73.519 } },
+				},
+				Merge7 = Merge {
+					CtrlWShown = false,
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge6",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Blur52",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 328, 73.519 } },
+				},
+				Blur52 = Blur {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						XBlurSize = Input {
+							Value = 54,
+							Expression = "MasterBlur.XBlurSize*36",
+						},
+						Input = Input {
+							SourceOp = "NGBC",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 328, 40.5191 } },
+					Colors = { TileColor = { R = 0.0823529411764706, G = 0.384313725490196, B = 0.517647058823529 }, }
+				},
+				Merge6 = Merge {
+					CtrlWShown = false,
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge5",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Blur36",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 218, 73.519 } },
+				},
+				Blur36 = Blur {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						XBlurSize = Input {
+							Value = 36,
+							Expression = "MasterBlur.XBlurSize*24",
+						},
+						Input = Input {
+							SourceOp = "NGBC",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 218, 40.5191 } },
+					Colors = { TileColor = { R = 0.0823529411764706, G = 0.384313725490196, B = 0.517647058823529 }, }
+				},
+				Blur24 = Blur {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						XBlurSize = Input {
+							Value = 24,
+							Expression = "MasterBlur.XBlurSize*16",
+						},
+						Input = Input {
+							SourceOp = "NGBC",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 108, 40.5191 } },
+					Colors = { TileColor = { R = 0.0823529411764706, G = 0.384313725490196, B = 0.517647058823529 }, }
+				},
+				Merge5 = Merge {
+					CtrlWShown = false,
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge4",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Blur24",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 108, 73.519 } },
+				},
+				Merge4 = Merge {
+					CtrlWShown = false,
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge3",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Blur12",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { -2.00006, 73.519 } },
+				},
+				Blur12 = Blur {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						XBlurSize = Input {
+							Value = 12,
+							Expression = "MasterBlur.XBlurSize*8",
+						},
+						Input = Input {
+							SourceOp = "NGBC",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { -2.00006, 40.5191 } },
+					Colors = { TileColor = { R = 0.0823529411764706, G = 0.384313725490196, B = 0.517647058823529 }, }
+				},
+				Blur6 = Blur {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						XBlurSize = Input {
+							Value = 6,
+							Expression = "MasterBlur.XBlurSize*4",
+						},
+						Input = Input {
+							SourceOp = "NGBC",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { -112, 40.5191 } },
+					Colors = { TileColor = { R = 0.0823529411764706, G = 0.384313725490196, B = 0.517647058823529 }, }
+				},
+				Merge3 = Merge {
+					CtrlWShown = false,
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge2",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Blur6",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { -112, 73.519 } },
+				},
+				Merge2 = Merge {
+					CtrlWShown = false,
+					Inputs = {
+						Background = Input {
+							SourceOp = "Merge1_3",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "Blur3",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { -222, 73.519 } },
+				},
+				Blur3 = Blur {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						XBlurSize = Input {
+							Value = 3,
+							Expression = "MasterBlur.XBlurSize*2",
+						},
+						Input = Input {
+							SourceOp = "NGBC",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { -222, 40.5191 } },
+					Colors = { TileColor = { R = 0.0823529411764706, G = 0.384313725490196, B = 0.517647058823529 }, }
+				},
+				Merge1_3 = Merge {
+					CtrlWShown = false,
+					Inputs = {
+						Background = Input {
+							SourceOp = "NGBC",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "MasterBlur",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { -332, 73.519 } },
+				},
+				PipeRouter1 = PipeRouter {
+					CtrlWShown = false,
+					ViewInfo = PipeRouterInfo { Pos = { -825.58, 301.996 } },
+				},
+				GC = ColorCorrector {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						ColorRanges = Input {
+							Value = ColorCurves {
+								Curves = {
+									{
+										Points = {
+											{ 0, 1 },
+											{ 0.4, 0.2 },
+											{ 0.6, 0 },
+											{ 1, 0 }
+										}
+									},
+									{
+										Points = {
+											{ 0, 0 },
+											{ 0.4, 0 },
+											{ 0.6, 0.2 },
+											{ 1, 1 }
+										}
+									}
+								}
+							},
+						},
+						HistogramIgnoreTransparent = Input { Value = 1, },
+						Input = Input {
+							SourceOp = "ChannelBooleans",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 714, 181.5 } },
+					Colors = { TileColor = { R = 0.0823529411764706, G = 0.384313725490196, B = 0.517647058823529 }, }
+				},
+				NGGlowMask = Transform {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "NGBM",
+							Source = "Mask",
+						},
+						MultiplyByMask = Input { Value = 1, },
+						Input = Input {
+							SourceOp = "PipeRouter1",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { -716, 181.5 } },
+				},
+				NGMaskInput = Transform {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						MultiplyByMask = Input { Value = 1, },
+						Input = Input {
+							SourceOp = "NGGlowMask",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { -606, 181.5 } },
+				}
+			},
+		}
+	},
+	ActiveTool = "NeoGlow"
+}

@@ -1,0 +1,78 @@
+{
+	Tools = ordered() {
+		Template = TextPlus {
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Full Text/01 Basic/"
+					}
+				},
+			},
+			Inputs = {
+				Quality = Input { Value = 8, },
+				ShutterAngle = Input { Value = 360, },
+				GlobalOut = Input { Value = 149, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Wrap = Input { Value = 1, },
+				LayoutRotation = Input { Value = 1, },
+				CharacterOffset = Input {
+					SourceOp = "Path1",
+					Source = "Position",
+				},
+				TransformRotation = Input { Value = 1, },
+				Softness1 = Input { Value = 1, },
+				Size1 = Input { Value = 1, },
+				StyledText = Input { Value = "Slide Down", },
+				Font = Input { Value = "Open Sans", },
+				Style = Input { Value = "Bold", },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { -275, -16.5 } },
+		},
+		Path1 = PolyPath {
+			DrawMode = "InsertAndModify",
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Full Text/01 Basic/"
+					}
+				},
+			},
+			Inputs = {
+				Displacement = Input {
+					SourceOp = "Path1Displacement",
+					Source = "Value",
+				},
+				PolyLine = Input {
+					Value = Polyline {
+						Points = {
+							{ Linear = true, LockY = true, X = -0.5, Y = -0.183, RX = 0, RY = -0.105666666666667 },
+							{ Linear = true, LockY = true, X = -0.5, Y = -0.5, LX = 0, LY = 0.105666666666667 }
+						}
+					},
+				}
+			},
+		},
+		Path1Displacement = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 255 },
+			NameSet = true,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Full Text/01 Basic/"
+					}
+				},
+			},
+			KeyFrames = {
+				[0] = { 0, RH = { 2.46948574611119, 1.036 }, Flags = { LockedY = true } },
+				[14.8000001907349] = { 1, LH = { 9.86667172715664, 1 }, Flags = { LockedY = true } }
+			}
+		}
+	}
+}

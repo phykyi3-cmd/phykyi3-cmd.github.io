@@ -1,0 +1,203 @@
+{
+	Tools = ordered() {
+		FLICKER_HERE = TextPlus {
+			NameSet = true,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Word/04 Flicker/"
+					}
+				},
+			},
+			SourceOp = "Template",
+			Inputs = {
+				EffectMask = Input {
+				},
+				SettingsNest = Input {
+				},
+				LayersNest = Input {
+				},
+				ImageNest = Input {
+				},
+				["Gamut.ColorSpaceNest"] = Input {
+				},
+				["Gamut.GammaSpaceNest"] = Input {
+				},
+				Layout = Input {
+				},
+				LayoutRotation = Input {
+					Value = 1,
+				},
+				Background = Input {
+				},
+				TransformTransform = Input {
+				},
+				TransformRotation = Input {
+					Value = 1,
+				},
+				TransformPivot = Input {
+				},
+				TransformShear = Input {
+				},
+				TransformSize = Input {
+				},
+				Enabled1 = Input {
+					Value = 0,
+				},
+				Enabled5 = Input {
+					Value = 1,
+				},
+				Properties1 = Input {
+				},
+				Softness1 = Input {
+					Value = 1,
+				},
+				Position1 = Input {
+				},
+				Rotation1 = Input {
+				},
+				PivotNest1 = Input {
+				},
+				Shear1 = Input {
+				},
+				Size1 = Input {
+				},
+				TextText = Input {
+				},
+				TabSpacing = Input {
+				},
+				AdvancedFontControls = Input {
+				},
+				ClearSelectedKerning = Input {
+				},
+				ClearAllKerning = Input {
+				},
+				ClearSelectedPlacement = Input {
+				},
+				ClearAllPlacement = Input {
+				},
+				Internal = Input {
+				},
+				CommentsNest = Input {
+				},
+				FrameRenderScriptNest = Input {
+				},
+				StartRenderScripts = Input {
+				},
+				EndRenderScripts = Input {
+				},
+				Properties5 = Input {
+				},
+				Softness5 = Input {
+					Value = 1,
+				},
+				Position5 = Input {
+				},
+				Rotation5 = Input {
+				},
+				PivotNest5 = Input {
+				},
+				Shear5 = Input {
+				},
+				Size5 = Input {
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { -440, 115.5 } },
+		},
+		Follower1 = StyledTextFollower {
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Word/04 Flicker/"
+					}
+				},
+			},
+			Inputs = {
+				Order = Input { Value = 7, },
+				Delay = Input { Value = 1.5, },
+				Text = Input {
+					Value = StyledText {
+						Value = "Word Flicker"
+					},
+				},
+				SelectTransform = Input { Value = 1, },
+				TransformRotation = Input { Value = 1, },
+				TransformSize = Input { Value = 1, },
+				SelectElement = Input { Value = 4, },
+				Softness1 = Input { Value = 1, },
+				Softness2 = Input { Value = 1, },
+				Softness3 = Input { Value = 1, },
+				Softness4 = Input { Value = 1, },
+				Opacity5 = Input {
+					SourceOp = "Follower1Opacity5",
+					Source = "Value",
+				},
+				Softness5 = Input { Value = 1, },
+				Softness6 = Input { Value = 1, },
+				Softness7 = Input { Value = 1, },
+				Softness8 = Input { Value = 1, }
+			},
+		},
+		Follower1Opacity5 = BezierSpline {
+			SplineColor = { Red = 179, Green = 28, Blue = 244 },
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Word/04 Flicker/"
+					}
+				},
+			},
+			KeyFrames = {
+				[0] = { 0, RH = { 0.937373721410359, 0 } },
+				[1.59999997275216] = { 0.5, LH = { 0.750021150758405, 0.43465787694646 }, RH = { 2.53727994123566, 0.572053398804231 } },
+				[3.19999994550432] = { 0.246, LH = { 2.35002112351057, 0.193407559493492 }, RH = { 4.13727991398783, 0.303994199037552 } },
+				[4.79999991825649] = { 0.698, LH = { 3.95002109626273, 0.64859498013025 }, RH = { 5.73727988673998, 0.752479399095881 } },
+				[6.39999989100865] = { 0.432, LH = { 5.5500210690149, 0.391094768494938 }, RH = { 7.33727985949215, 0.477106599251429 } },
+				[7.99999986376081] = { 0.851999999999999, LH = { 7.15002104176707, 0.795157665311148 }, RH = { 8.93727983224431, 0.914680598959778 } },
+				[9.59999983651297] = { 0.646, LH = { 8.75002101451923, 0.606688478813317 }, RH = { 11.0059199089516, 0.711023804457635 } },
+				[12] = { 1, LH = { 10.7249041277004, 1 } }
+			}
+		},
+		Template = TextPlus {
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Word/04 Flicker/"
+					}
+				},
+			},
+			Inputs = {
+				EffectMask = Input {
+					SourceOp = "FLICKER_HERE",
+					Source = "Output",
+				},
+				GlobalOut = Input { Value = 149, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Wrap = Input { Value = 1, },
+				LayoutRotation = Input { Value = 1, },
+				TransformRotation = Input { Value = 1, },
+				Softness1 = Input { Value = 1, },
+				StyledText = Input {
+					SourceOp = "Follower1",
+					Source = "StyledText",
+				},
+				Font = Input { Value = "Open Sans", },
+				Style = Input { Value = "Bold", },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, },
+				ElementShape5 = Input { Value = 2, },
+				Level5 = Input { Value = 2, },
+				ExtendHorizontal5 = Input { Value = -0.09, },
+				ExtendVertical5 = Input { Value = -0.01, },
+				Softness5 = Input { Value = 1, }
+			},
+			ViewInfo = OperatorInfo { Pos = { -330, 115.5 } },
+		}
+	},
+	ActiveTool = "Template"
+}

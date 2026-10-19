@@ -1,0 +1,88 @@
+{
+	Tools = ordered() {
+		Template = TextPlus {
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/60 Fps/Letter/Motion + Fade/"
+					}
+				},
+			},
+			Inputs = {
+				GlobalOut = Input { Value = 299, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				StyledText = Input {
+					SourceOp = "FollowerLetterAnimation",
+					Source = "StyledText",
+				},
+				Font = Input { Value = "Open Sans", },
+				Style = Input { Value = "Bold", },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 55, 49.5 } },
+		},
+		FollowerLetterAnimation = StyledTextFollower {
+			CtrlWZoom = false,
+			NameSet = true,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/60 Fps/Letter/Motion + Fade/"
+					}
+				},
+			},
+			Inputs = {
+				Order = Input { Value = 7, },
+				Delay = Input { Value = 1.5, },
+				Text = Input {
+					Value = StyledText {
+						Value = "Letter Scale In Bounce"
+					},
+				},
+				TransformRotation = Input { Value = 1, },
+				TransformSize = Input { Value = 1, },
+				CharacterSizeX = Input {
+					SourceOp = "FollowerLetterAnimationCharacterSizeX",
+					Source = "Value",
+					Expression = "CharacterSizeY",
+				},
+				CharacterSizeY = Input {
+					SourceOp = "FollowerLetterAnimationCharacterSizeY",
+					Source = "Value",
+				},
+				Softness1 = Input { Value = 1, },
+				Softness2 = Input { Value = 1, },
+				Softness3 = Input { Value = 1, },
+				Softness4 = Input { Value = 1, },
+				Softness5 = Input { Value = 1, },
+				Softness6 = Input { Value = 1, },
+				Softness7 = Input { Value = 1, },
+				Softness8 = Input { Value = 1, }
+			},
+		},
+		FollowerLetterAnimationCharacterSizeX = BezierSpline {
+			SplineColor = { Red = 28, Green = 216, Blue = 243 },
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, Flags = { Linear = true } }
+			}
+		},
+		FollowerLetterAnimationCharacterSizeY = BezierSpline {
+			SplineColor = { Red = 28, Green = 132, Blue = 243 },
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 1.6, 0.777999999999999 }, Flags = { Linear = true } },
+				[20] = { 1, LH = { 11.52, 1.724 }, RH = { 22.4, 0.77 } },
+				[31] = { 1, LH = { 29.86, 0.943999999999999 }, RH = { 32.34, 1.065 } },
+				[42] = { 1, LH = { 39.88, 1.069 }, RH = { 43.1, 0.968999999999999 } },
+				[53] = { 1, LH = { 50.74, 0.963999999999999 }, RH = { 53.96, 1.015 } },
+				[66] = { 1, LH = { 64, 1.0164 }, RH = { 67, 0.992649999999998 } },
+				[75] = { 1, LH = { 73.72, 0.993799999999998 } }
+			}
+		}
+	}
+}

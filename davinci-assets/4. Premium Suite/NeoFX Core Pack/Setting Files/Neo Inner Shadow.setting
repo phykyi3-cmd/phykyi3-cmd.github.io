@@ -1,0 +1,328 @@
+{
+	Tools = ordered() {
+		NeoInnerShadow_1 = MacroOperator {
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Volumes/T7/NeoEdit/Plugins & Presets/Plugins/NeoEdit Core Pack/Neo Inner Shadow/"
+					}
+				},
+			},
+			Inputs = ordered() {
+				UpdateRes = InstanceInput {
+					SourceOp = "NISBG",
+					Source = "UpdateRes",
+					Page = "Controls",
+				},
+				ShadowSettings = InstanceInput {
+					SourceOp = "ShadowSettings_1",
+					Source = "ShadowSettings",
+					MinScale = 1,
+					Default = 3,
+				},
+				Blend = InstanceInput {
+					SourceOp = "NISBM",
+					Source = "Level",
+					Name = "Blend",
+					Default = 1,
+				},
+				Radius = InstanceInput {
+					SourceOp = "NISBLUR",
+					Source = "XBlurSize",
+					Name = "Radius",
+					MaxScale = 90,
+					Default = 3,
+				},
+				TopLeftRed = InstanceInput {
+					SourceOp = "NISBG",
+					Source = "TopLeftRed",
+					Name = "Color",
+					ControlGroup = 5,
+					Default = 0,
+				},
+				TopLeftGreen = InstanceInput {
+					SourceOp = "NISBG",
+					Source = "TopLeftGreen",
+					ControlGroup = 5,
+					Default = 0,
+				},
+				TopLeftBlue = InstanceInput {
+					SourceOp = "NISBG",
+					Source = "TopLeftBlue",
+					ControlGroup = 5,
+					Default = 0,
+				},
+				TopLeftAlpha = InstanceInput {
+					SourceOp = "NISBG",
+					Source = "TopLeftAlpha",
+					ControlGroup = 5,
+					Default = 1,
+				},
+				ShadowShape = InstanceInput {
+					SourceOp = "ShadowShape_1",
+					Source = "ShadowShape",
+					MinScale = 1,
+					Default = 3,
+				},
+				Spread = InstanceInput {
+					SourceOp = "NISED",
+					Source = "XAmount",
+					Name = "Spread",
+					Default = 0,
+				},
+				Offset = InstanceInput {
+					SourceOp = "Vector1_1",
+					Source = "Distance",
+					Name = "Offset",
+					Default = 0,
+				},
+				Angle = InstanceInput {
+					SourceOp = "Vector1_1",
+					Source = "Angle",
+					Default = 0,
+				},
+				BGWidth = InstanceInput {
+					SourceOp = "NISBG",
+					Source = "Width",
+					Page = "Common",
+				},
+				BGHeight = InstanceInput {
+					SourceOp = "NISBG",
+					Source = "Height",
+					Page = "Common",
+				},
+				MainInput1 = InstanceInput {
+					SourceOp = "PipeRouter1_1",
+					Source = "Input",
+				},
+				HowToButt = InstanceInput {
+					SourceOp = "ShadowShape_1",
+					Source = "HowToButt",
+					MinScale = 1,
+					Width = 1,
+					Page = "Links",
+					Default = 3,
+				},
+				LatestVersion = InstanceInput {
+					SourceOp = "ShadowShape_1",
+					Source = "LatestVersion",
+					MinScale = 1,
+					Width = 1,
+					Page = "Links",
+					Default = 3,
+				},
+				NeoEdit = InstanceInput {
+					SourceOp = "ShadowShape_1",
+					Source = "NeoEditButt",
+					MinScale = 1,
+					Width = 1,
+					Page = "Links",
+					Default = 3,
+				},
+				EffectMask = InstanceInput {
+					SourceOp = "NISM",
+					Source = "EffectMask",
+					Name = "Effect Mask",
+				}
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "NISM",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo {
+				Pos = { 660, 115.5 },
+				Flags = {
+					AllowPan = false,
+					GridSnap = true,
+					AutoSnap = true,
+					RemoveRouters = true
+				},
+				Size = { 639.437, 237.312, 223.969, 129.19 },
+				Direction = "Horizontal",
+				PipeStyle = "Direct",
+				Scale = 1,
+				Offset = { 0, 0 }
+			},
+			Tools = ordered() {
+				PipeRouter1_1 = PipeRouter {
+					Inputs = {
+						Input = Input {
+							SourceOp = "Background2",
+							Source = "Output",
+						}
+					},
+					ViewInfo = PipeRouterInfo { Pos = { -165, 82.5 } },
+				},
+				NISM = Merge {
+					NameSet = true,
+					Inputs = {
+						Background = Input {
+							SourceOp = "PipeRouter1_1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "NISBLUR",
+							Source = "Output",
+						},
+						Operator = Input { Value = FuID { "Atop" }, },
+						PerformDepthMerge = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 55, 82.5 } },
+				},
+				NISED = ErodeDilate {
+					NameSet = true,
+					Inputs = {
+						Red = Input { Value = 0, },
+						Green = Input { Value = 0, },
+						Blue = Input { Value = 0, },
+						Filter = Input { Value = 2, },
+						Input = Input {
+							SourceOp = "NISBM",
+							Source = "Mask",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { -55, -16.5 } },
+				},
+				ShadowShape_1 = AlphaDivide {
+					NameSet = true,
+					Inputs = {
+						ShadowShape = Input { Value = 1, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 165, 49.5 } },
+					UserControls = ordered() {
+						ShadowShape = { INP_Integer = false, LBLC_DropDownButton = true, LINKID_DataType = "Number", LBLC_NumInputs = 5, INPID_InputControl = "LabelControl", INP_SplineType = "Default", LINKS_Name = "Shadow Shape", },
+						HowToButt = {
+							INP_MaxAllowed = 1000000,
+							INP_Integer = false,
+							INPID_InputControl = "ButtonControl",
+							BTNCS_Execute = "local url = \"https://youtu.be/wqs94FujSBQ\"\nlocal osName = package.config:sub(1,1) == \"\\\\\" and \"windows\" or \"unix\"\n\nif osName == \"windows\" then\n    os.execute('start \"\" \"' .. url .. '\"')\nelse\n    local uname = io.popen(\"uname\"):read(\"*l\")\n    if uname == \"Darwin\" then\n        os.execute('open \"' .. url .. '\"')\n    else\n        os.execute('xdg-open \"' .. url .. '\"')\n    end\nend",
+							INP_MaxScale = 1,
+							INP_MinScale = 0,
+							INP_MinAllowed = -1000000,
+							LINKID_DataType = "Number",
+							ICD_Width = 1,
+							ICS_ControlPage = "Links",
+							INP_SplineType = "Default",
+							LINKS_Name = "Tutorial"
+						},
+						LatestVersion = {
+							INP_MaxAllowed = 1000000,
+							INP_Integer = false,
+							INPID_InputControl = "ButtonControl",
+							BTNCS_Execute = "local url = \"https://drive.google.com/drive/folders/1xKDy-1TrO7KWDPwRLYOdOJh6DJ_W6oH7?usp=drive_link\"\nlocal osName = package.config:sub(1,1) == \"\\\\\" and \"windows\" or \"unix\"\n\nif osName == \"windows\" then\n    os.execute('start \"\" \"' .. url .. '\"')\nelse\n    local uname = io.popen(\"uname\"):read(\"*l\")\n    if uname == \"Darwin\" then\n        os.execute('open \"' .. url .. '\"')\n    else\n        os.execute('xdg-open \"' .. url .. '\"')\n    end\nend",
+							INP_MaxScale = 1,
+							INP_MinScale = 0,
+							INP_MinAllowed = -1000000,
+							LINKID_DataType = "Number",
+							ICD_Width = 1,
+							ICS_ControlPage = "Links",
+							INP_SplineType = "Default",
+							LINKS_Name = "Latest Version"
+						},
+						NeoEditButt = {
+							INP_MaxAllowed = 1000000,
+							INP_Integer = false,
+							INPID_InputControl = "ButtonControl",
+							BTNCS_Execute = "local url = \"https://neoeditfx.com/pages/contact\"\nlocal osName = package.config:sub(1,1) == \"\\\\\" and \"windows\" or \"unix\"\n\nif osName == \"windows\" then\n    os.execute('start \"\" \"' .. url .. '\"')\nelse\n    local uname = io.popen(\"uname\"):read(\"*l\")\n    if uname == \"Darwin\" then\n        os.execute('open \"' .. url .. '\"')\n    else\n        os.execute('xdg-open \"' .. url .. '\"')\n    end\nend",
+							INP_MaxScale = 1,
+							INP_MinScale = 0,
+							INP_MinAllowed = -1000000,
+							LINKID_DataType = "Number",
+							ICD_Width = 1,
+							ICS_ControlPage = "Links",
+							INP_SplineType = "Default",
+							LINKS_Name = "Contacts Us"
+						}
+					}
+				},
+				NISBG = Background {
+					NameSet = true,
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "NISED",
+							Source = "Output",
+						},
+						GlobalOut = Input { Value = 119, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						Start = Input { Value = { -0.304107540310626, 1.37041477254393 }, },
+						End = Input { Value = { 0.997733983031995, 0.00415323383084607 }, },
+						Gradient = Input {
+							Value = Gradient {
+								Colors = {
+									[0] = { 0, 0, 0, 1 },
+									[1] = { 0.63921568627451, 0.63921568627451, 0.63921568627451, 1 }
+								}
+							},
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 55, -16.5 } },
+					UserControls = ordered() {
+						UpdateRes = {
+							LINKS_Name = "UpdateRes",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ButtonControl",
+							INP_Integer = false,
+							INP_SplineType = "Default",
+							BTNCS_Execute = "tool:SetInput('BGWidth', comp.ActiveTool:GetInput('MainInput1',comp.CurrentTime).Width)\ntool:SetInput('BGHeight', comp.ActiveTool:GetInput('MainInput1',comp.CurrentTime).Height)",
+						}
+					}
+				},
+				NISBLUR = Blur {
+					NameSet = true,
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						XBlurSize = Input { Value = 3, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						Input = Input {
+							SourceOp = "NISBG",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 55, 16.5 } },
+				},
+				Vector1_1 = Vector {
+					CtrlWZoom = false,
+					Inputs = {
+						ImageAspect = Input { Value = 1.777778, }
+					},
+				},
+				NISBM = BitmapMask {
+					NameSet = true,
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						Invert = Input { Value = 1, },
+						MaskWidth = Input { Value = 1080, },
+						MaskHeight = Input { Value = 1920, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						Image = Input {
+							SourceOp = "PipeRouter1_1",
+							Source = "Output",
+						},
+						Center = Input {
+							SourceOp = "Vector1_1",
+							Source = "Position",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { -165, -16.5 } },
+				},
+				ShadowSettings_1 = AlphaDivide {
+					NameSet = true,
+					Inputs = {
+						ShadowSettings = Input { Value = 1, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 165, 16.5 } },
+					UserControls = ordered() {
+						ShadowSettings = { INP_Integer = false, LBLC_DropDownButton = true, LINKID_DataType = "Number", LBLC_NumInputs = 5, INPID_InputControl = "LabelControl", INP_SplineType = "Default", LINKS_Name = "Shadow Settings", }
+					}
+				}
+			},
+		}
+	}
+}

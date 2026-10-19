@@ -374,6 +374,150 @@
         .group.is-previewing .glitch-matrix-anim {
             animation: glitchSliceAnim 0.3s steps(2) infinite !important;
         }
+
+        /* 4. PREMIUM SUITE ANIMATIONS (GOLDEN & RADIANT DYNAMICS) */
+        @keyframes textBounceAnim {
+            0%, 100% { transform: scale(1) translateY(0); }
+            25% { transform: scale(1.22, 0.8) translateY(-14px); }
+            55% { transform: scale(0.9, 1.15) translateY(4px); }
+            75% { transform: scale(1.05, 0.95) translateY(-2px); }
+        }
+        @keyframes textSlideDownAnim {
+            0% { transform: translateY(-45px); opacity: 0; }
+            60% { transform: translateY(6px); opacity: 1; }
+            85% { transform: translateY(-2px); }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes textSlideUpAnim {
+            0% { transform: translateY(45px); opacity: 0; }
+            60% { transform: translateY(-6px); opacity: 1; }
+            85% { transform: translateY(2px); }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes textSlideLeftAnim {
+            0% { transform: translateX(50px); opacity: 0; }
+            60% { transform: translateX(-6px); opacity: 1; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes textSlideRightAnim {
+            0% { transform: translateX(-50px); opacity: 0; }
+            60% { transform: translateX(6px); opacity: 1; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes textRotateAnim {
+            0% { transform: rotate(-50deg) scale(0.3); opacity: 0; }
+            70% { transform: rotate(10deg) scale(1.1); opacity: 1; }
+            100% { transform: rotate(0deg) scale(1); opacity: 1; }
+        }
+        @keyframes textFlickerAnim {
+            0%, 100% { opacity: 1; text-shadow: 0 0 16px #fbbf24, 0 0 30px #f59e0b; }
+            20%, 23% { opacity: 0.1; text-shadow: none; }
+            50%, 53% { opacity: 0.25; text-shadow: none; }
+            70% { opacity: 1; text-shadow: 0 0 25px #f59e0b; }
+        }
+        @keyframes textBlurInAnim {
+            0% { filter: blur(16px); opacity: 0; transform: scale(1.25); }
+            100% { filter: blur(0px); opacity: 1; transform: scale(1); }
+        }
+        @keyframes textScaleBounceAnim {
+            0% { transform: scale(0.1); opacity: 0; }
+            65% { transform: scale(1.22); opacity: 1; }
+            85% { transform: scale(0.95); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes textStretchAnim {
+            0% { transform: scaleX(0.1) scaleY(2.2); opacity: 0; }
+            60% { transform: scaleX(1.35) scaleY(0.75); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes neoGlowPulse {
+            0%, 100% { box-shadow: 0 0 15px rgba(245, 158, 11, 0.4), inset 0 0 10px rgba(251, 191, 36, 0.3); transform: scale(1); }
+            50% { box-shadow: 0 0 45px rgba(245, 158, 11, 0.95), 0 0 25px #f59e0b, inset 0 0 25px #fff; transform: scale(1.12); }
+        }
+        @keyframes neoLightSweepAnim {
+            0% { left: -70%; }
+            100% { left: 150%; }
+        }
+        @keyframes neoLensDistortAnim {
+            0%, 100% { transform: scale(1); border-radius: 20%; }
+            50% { transform: scale(1.25) rotate(6deg); border-radius: 50%; box-shadow: 0 0 35px #f59e0b; }
+        }
+        @keyframes drfxBoxSpin {
+            0% { transform: rotateY(0deg) scale(0.92); }
+            50% { transform: rotateY(180deg) scale(1.12); }
+            100% { transform: rotateY(360deg) scale(0.92); }
+        }
+
+        .group:hover .anim-text-bounce,
+        .group:active .anim-text-bounce,
+        .group.is-previewing .anim-text-bounce {
+            animation: textBounceAnim 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) infinite !important;
+        }
+        .group:hover .anim-text-slide-down,
+        .group:active .anim-text-slide-down,
+        .group.is-previewing .anim-text-slide-down {
+            animation: textSlideDownAnim 1.4s cubic-bezier(0.2, 0.8, 0.3, 1) infinite !important;
+        }
+        .group:hover .anim-text-slide-up,
+        .group:active .anim-text-slide-up,
+        .group.is-previewing .anim-text-slide-up {
+            animation: textSlideUpAnim 1.4s cubic-bezier(0.2, 0.8, 0.3, 1) infinite !important;
+        }
+        .group:hover .anim-text-slide-left,
+        .group:active .anim-text-slide-left,
+        .group.is-previewing .anim-text-slide-left {
+            animation: textSlideLeftAnim 1.4s cubic-bezier(0.2, 0.8, 0.3, 1) infinite !important;
+        }
+        .group:hover .anim-text-slide-right,
+        .group:active .anim-text-slide-right,
+        .group.is-previewing .anim-text-slide-right {
+            animation: textSlideRightAnim 1.4s cubic-bezier(0.2, 0.8, 0.3, 1) infinite !important;
+        }
+        .group:hover .anim-text-rotate,
+        .group:active .anim-text-rotate,
+        .group.is-previewing .anim-text-rotate {
+            animation: textRotateAnim 1.5s cubic-bezier(0.34, 1.56, 0.64, 1) infinite !important;
+        }
+        .group:hover .anim-text-flicker,
+        .group:active .anim-text-flicker,
+        .group.is-previewing .anim-text-flicker {
+            animation: textFlickerAnim 1.8s infinite !important;
+        }
+        .group:hover .anim-text-blur,
+        .group:active .anim-text-blur,
+        .group.is-previewing .anim-text-blur {
+            animation: textBlurInAnim 1.6s ease-in-out infinite alternate !important;
+        }
+        .group:hover .anim-text-scale,
+        .group:active .anim-text-scale,
+        .group.is-previewing .anim-text-scale {
+            animation: textScaleBounceAnim 1.4s cubic-bezier(0.34, 1.56, 0.64, 1) infinite !important;
+        }
+        .group:hover .anim-text-stretch,
+        .group:active .anim-text-stretch,
+        .group.is-previewing .anim-text-stretch {
+            animation: textStretchAnim 1.5s cubic-bezier(0.2, 0.8, 0.3, 1) infinite !important;
+        }
+        .group:hover .anim-neo-glow,
+        .group:active .anim-neo-glow,
+        .group.is-previewing .anim-neo-glow {
+            animation: neoGlowPulse 1.8s ease-in-out infinite !important;
+        }
+        .group:hover .anim-neo-sweep,
+        .group:active .anim-neo-sweep,
+        .group.is-previewing .anim-neo-sweep {
+            animation: neoLightSweepAnim 1.6s ease-in-out infinite !important;
+        }
+        .group:hover .anim-neo-lens,
+        .group:active .anim-neo-lens,
+        .group.is-previewing .anim-neo-lens {
+            animation: neoLensDistortAnim 2s ease-in-out infinite !important;
+        }
+        .group:hover .anim-drfx-box,
+        .group:active .anim-drfx-box,
+        .group.is-previewing .anim-drfx-box {
+            animation: drfxBoxSpin 3.5s ease-in-out infinite !important;
+        }
     </style>
 </head>
 <body class="min-h-screen flex flex-col selection:bg-amber-500 selection:text-slate-950 overflow-x-hidden w-full max-w-full bg-[#070a12]">
@@ -404,13 +548,13 @@
                         </span>
                     </div>
                     <p class="text-[11px] text-slate-400 font-medium hidden sm:block">
-                        578+ Free DaVinci Resolve Plugins, Effects & DCTLs
+                        731+ Free DaVinci Resolve Plugins, Premium Suite & DCTLs
                     </p>
                 </div>
             </a>
 
-            <!-- 3-Way Suite Switcher Pill (Desktop) -->
-            <div class="hidden lg:flex items-center p-1 rounded-full bg-slate-900/90 border border-slate-800 shadow-inner shrink-0">
+            <!-- 5-Way Suite Switcher Pill (Desktop) -->
+            <div class="hidden xl:flex items-center p-1 rounded-full bg-slate-900/90 border border-slate-800 shadow-inner shrink-0">
                 <a href="./index.html" class="px-3.5 py-1.5 rounded-full text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-800/60 transition flex items-center gap-1.5 whitespace-nowrap" title="မြန်မာဖောင့်များ သို့ သွားမည်">
                     <span>🇲🇲</span>
                     <span>မြန်မာဖောင့်</span>
@@ -424,25 +568,33 @@
                 <div class="px-3.5 py-1.5 rounded-full text-xs font-black bg-gradient-to-r from-amber-500 to-orange-600 text-slate-950 shadow-md shadow-amber-500/25 flex items-center gap-1.5 whitespace-nowrap">
                     <span>🎬</span>
                     <span>DaVinci Plugins</span>
-                    <span class="text-[10px] bg-black/20 text-slate-950 px-1.5 py-0.2 rounded-full font-bold">578</span>
+                    <span class="text-[10px] bg-black/20 text-slate-950 px-1.5 py-0.2 rounded-full font-bold">731</span>
                 </div>
                 <a href="./ae-plugins.html" class="px-3.5 py-1.5 rounded-full text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-800/60 transition flex items-center gap-1.5 whitespace-nowrap" title="After Effects Plugins သို့ သွားမည်">
                     <span>⚡</span>
                     <span>After Effects</span>
                     <span class="text-[10px] opacity-60">367</span>
                 </a>
+                <a href="./sound-effects.html" class="px-3.5 py-1.5 rounded-full text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-800/60 transition flex items-center gap-1.5 whitespace-nowrap" title="Sound Effects & Audio Studio သို့ သွားမည်">
+                    <span>🎵</span>
+                    <span>Audio & SFX</span>
+                    <span class="text-[10px] opacity-60">488</span>
+                </a>
             </div>
 
             <!-- Right Actions -->
             <div class="flex items-center gap-2 sm:gap-3">
-                <button onclick="openPluginDownloadGateway('master-zip', 'DaVinci Resolve Master Suite (All 578 Plugins)', './davinci_plugins_suite.zip', '4.4 MB')" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-400 text-slate-950 text-xs font-black shadow-lg shadow-amber-500/20 transition whitespace-nowrap">
-                    <span>📦 Master ZIP (4.4 MB)</span>
+                <button onclick="openPluginDownloadGateway('premium-zip', 'DaVinci Resolve Premium Suite (153 Plugins + DRFX)', './davinci_premium_plugins.zip', '1.4 MB')" class="hidden md:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-yellow-300 hover:to-amber-400 text-slate-950 text-xs font-black shadow-md shadow-amber-500/20 transition whitespace-nowrap">
+                    <span>👑 Premium ZIP (1.4 MB)</span>
+                </button>
+                <button onclick="openPluginDownloadGateway('master-zip', 'DaVinci Resolve Master Suite (All 731 Plugins)', './davinci_plugins_suite.zip', '5.8 MB')" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-400 text-slate-950 text-xs font-black shadow-lg shadow-amber-500/20 transition whitespace-nowrap">
+                    <span>📦 Master ZIP (5.8 MB)</span>
                 </button>
                 <button onclick="openInstallModal()" class="px-3.5 sm:px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold transition flex items-center gap-1.5 whitespace-nowrap border border-slate-700">
-                    <span>⚡ သွင်းနည်းလမ်းညွှန်</span>
+                    <span>⚡ သွင်းနည်း</span>
                 </button>
                 <a href="./index.html" class="px-3.5 py-2 rounded-full bg-slate-900 hover:bg-slate-800 text-slate-300 text-xs font-bold transition flex items-center gap-1 border border-slate-800">
-                    <span>🏠 မူလစာမျက်နှာ</span>
+                    <span>🏠 မူလ</span>
                 </a>
             </div>
 
@@ -452,46 +604,45 @@
     <!-- Main Content Container -->
     <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8 z-10 pb-24 md:pb-12">
 
-        <!-- Mobile 3-Suite Switcher (Prominent 3-Card Toggle for Mobile Phones) -->
-        <section class="lg:hidden w-full -mt-2 mb-4">
+        <!-- Mobile 5-Suite Switcher -->
+        <section class="xl:hidden w-full -mt-2 mb-4">
             <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 p-2 rounded-2xl border border-slate-700/80 shadow-xl">
                 <div class="text-[11px] font-bold text-slate-400 px-1 py-1 mb-1.5 flex items-center justify-between">
                     <span class="flex items-center gap-1.5 text-slate-200">
                         <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
                         Creative Studio Suites ရွေးချယ်ပါ
                     </span>
-                    <span class="text-[10px] text-amber-400 font-semibold bg-amber-950/80 px-2 py-0.5 rounded-full border border-amber-500/30">လက်ရှိ: DaVinci Suite</span>
+                    <span class="text-[10px] text-amber-400 font-semibold bg-amber-950/80 px-2 py-0.5 rounded-full border border-amber-500/30">Active: DaVinci Suite</span>
                 </div>
-                <div class="grid grid-cols-4 gap-1.5">
+                <div class="grid grid-cols-5 gap-1 text-center">
                     <!-- Myanmar Fonts -->
-                    <a href="./index.html" class="relative p-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 border border-slate-700 transition flex flex-col justify-between text-center group">
-                        <div class="text-lg">🇲🇲</div>
-                        <div class="font-black text-xs text-white group-hover:text-emerald-400 mt-1 leading-tight">မြန်မာဖောင့်</div>
-                        <div class="text-[9px] text-slate-400">၁၈၀+ ဖောင့်</div>
+                    <a href="./index.html" class="p-1.5 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 border border-slate-700 transition flex flex-col items-center">
+                        <span class="text-base">🇲🇲</span>
+                        <span class="text-[10px] font-bold mt-0.5">ဖောင့်</span>
                     </a>
 
                     <!-- English Motion Fonts -->
-                    <a href="./premium-fonts.html" class="relative p-2 rounded-xl bg-slate-800/80 hover:bg-slate-750 text-slate-300 border border-slate-700 transition flex flex-col justify-between text-center group">
-                        <div class="text-lg">💎</div>
-                        <div class="font-black text-xs text-white group-hover:text-purple-300 mt-1 leading-tight">English</div>
-                        <div class="text-[9px] text-slate-400">၁၀၈+ Video</div>
+                    <a href="./premium-fonts.html" class="p-1.5 rounded-xl bg-slate-800/80 hover:bg-slate-750 text-slate-300 border border-slate-700 transition flex flex-col items-center">
+                        <span class="text-base">💎</span>
+                        <span class="text-[10px] font-bold mt-0.5">English</span>
                     </a>
 
                     <!-- DaVinci Plugins (Active) -->
-                    <div class="relative p-2 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 text-slate-950 shadow-md shadow-amber-500/20 border border-amber-300/40 flex flex-col justify-between text-center">
-                        <div class="flex items-center justify-center gap-1">
-                            <span class="text-lg">🎬</span>
-                            <span class="text-[8px] font-black uppercase bg-black/25 text-white px-1 py-0.2 rounded">Active</span>
-                        </div>
-                        <div class="font-black text-xs text-slate-950 mt-1 leading-tight">DaVinci</div>
-                        <div class="text-[9px] text-amber-950 font-bold">၅၇၈ မျိုး</div>
+                    <div class="p-1.5 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 text-slate-950 font-black shadow-md border border-amber-300/40 flex flex-col items-center">
+                        <span class="text-base">🎬</span>
+                        <span class="text-[10px] font-black mt-0.5">DaVinci</span>
                     </div>
 
                     <!-- After Effects Plugins -->
-                    <a href="./ae-plugins.html" class="relative p-2 rounded-xl bg-slate-800/80 hover:bg-slate-750 text-slate-300 border border-slate-700 transition flex flex-col justify-between text-center group">
-                        <div class="text-lg">⚡</div>
-                        <div class="font-black text-xs text-white group-hover:text-indigo-400 mt-1 leading-tight">AfterFX</div>
-                        <div class="text-[9px] text-slate-400">၃၆၇ မျိုး</div>
+                    <a href="./ae-plugins.html" class="p-1.5 rounded-xl bg-slate-800/80 hover:bg-slate-750 text-slate-300 border border-slate-700 transition flex flex-col items-center">
+                        <span class="text-base">⚡</span>
+                        <span class="text-[10px] font-bold mt-0.5">AfterFX</span>
+                    </a>
+
+                    <!-- Audio Studio -->
+                    <a href="./sound-effects.html" class="p-1.5 rounded-xl bg-slate-800/80 hover:bg-slate-750 text-slate-300 border border-slate-700 transition flex flex-col items-center">
+                        <span class="text-base">🎵</span>
+                        <span class="text-[10px] font-bold mt-0.5">Audio</span>
                     </a>
                 </div>
             </div>
@@ -505,45 +656,56 @@
                 
                 <!-- Left Details -->
                 <div class="lg:col-span-8 space-y-5">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 text-xs font-bold">
-                        <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
-                        <span>OFFICIAL DAVINCI RESOLVE MASTER PLUGIN & DCTL SUITE</span>
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-500/20 to-yellow-500/20 border border-amber-400/50 text-amber-300 text-xs font-black shadow-lg shadow-amber-500/10">
+                        <span class="w-2 h-2 rounded-full bg-yellow-400 animate-ping"></span>
+                        <span>👑 NEW: DAVINCI RESOLVE PREMIUM SUITE & 731+ MASTER PLUGINS</span>
                     </div>
 
                     <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
-                        DaVinci Resolve <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-amber-200">Plugins ၅၇၈ မျိုး</span> စုစည်းမှု
+                        DaVinci Resolve <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-200">Plugins ၇၃၁ မျိုး</span> နှင့် Premium Suite
                     </h1>
 
                     <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-                        Plugin တစ်ခုချင်းစီပေါ်တွင် <b>မောက်စ်ထောက်လိုက်ရုံဖြင့် (သို့မဟုတ် ဖုန်းပေါ်တွင် နှိပ်လိုက်ရုံဖြင့်)</b> Text Animation လှုပ်ရှားမှုများ၊ Color Grading အရောင်ပြောင်းလဲမှုများနှင့် Visual Effects များကို <b>ကတ်တစ်ခုချင်းစီပေါ်တွင် တိုက်ရိုက် Live Animation စမ်းသပ်ကြည့်ရှုနိုင်ပါသည်</b>။
+                        Plugin တစ်ခုချင်းစီပေါ်တွင် <b>မောက်စ်ထောက်လိုက်ရုံဖြင့် (သို့မဟုတ် ဖုန်းပေါ်တွင် နှိပ်လိုက်ရုံဖြင့်)</b> ရွှေရောင်တောက်တောက် <b>Premium Text Animations (60/30 FPS)၊ NeoFX Core Effects၊ Fuses နှင့် DCTL Color Grading</b> များကို ကတ်တစ်ခုချင်းစီပေါ်တွင် တိုက်ရိုက် Live Animation စမ်းသပ်ကြည့်ရှုနိုင်ပါသည် (Device ထဲသို့ တိုက်ရိုက်ဒေါင်းလုဒ်ရယူနိုင်ပါသည်)။
                     </p>
 
                     <!-- CTAs -->
                     <div class="flex flex-wrap items-center gap-3 pt-2">
-                        <button onclick="openPluginDownloadGateway('master-zip', 'DaVinci Resolve Master Suite (All 578 Plugins)', './davinci_plugins_suite.zip', '4.4 MB')" class="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-black text-sm shadow-xl shadow-amber-500/25 transition flex items-center gap-2">
-                            <span>📦 578 Plugins အားလုံး Zip ဒေါင်းမည် (4.4 MB)</span>
+                        <button onclick="openPluginDownloadGateway('premium-zip', 'DaVinci Resolve Premium Suite (153 Plugins + DRFX)', './davinci_premium_plugins.zip', '1.4 MB')" class="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-yellow-300 hover:to-amber-400 text-slate-950 font-black text-sm shadow-xl shadow-amber-500/30 transition flex items-center gap-2">
+                            <span>👑 153 Premium Pack ဒေါင်းမည် (1.4 MB)</span>
                         </button>
 
-                        <button onclick="openInstallModal()" class="px-5 py-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-700 text-white font-bold text-sm transition border border-slate-700 flex items-center gap-2">
-                            <span>⚡ macOS Auto-Installer & လမ်းညွှန်</span>
+                        <button onclick="openPluginDownloadGateway('master-zip', 'DaVinci Resolve Master Suite (All 731 Plugins)', './davinci_plugins_suite.zip', '5.8 MB')" class="px-5 py-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-700 text-white font-bold text-sm transition border border-slate-700 flex items-center gap-2">
+                            <span>📦 731 Plugins အားလုံး Master Zip (5.8 MB)</span>
+                        </button>
+
+                        <button onclick="openInstallModal()" class="px-5 py-3.5 rounded-2xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 font-bold text-sm transition border border-slate-700 flex items-center gap-2">
+                            <span>⚡ သွင်းနည်းလမ်းညွှန်</span>
                         </button>
                     </div>
                 </div>
 
                 <!-- Right Stats Bento -->
                 <div class="lg:col-span-4 grid grid-cols-2 gap-3">
+                    <div class="p-4 rounded-2xl bg-gradient-to-b from-amber-950/40 to-slate-900/90 border border-amber-400/50 shadow-lg shadow-amber-500/10 flex flex-col justify-between">
+                        <span class="text-2xl">👑</span>
+                        <div class="mt-3">
+                            <div class="text-2xl font-black text-yellow-400">၁၅၃ မျိုး</div>
+                            <div class="text-xs text-amber-300 font-bold">Premium Suite</div>
+                        </div>
+                    </div>
                     <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
                         <span class="text-2xl">✍️</span>
                         <div class="mt-3">
-                            <div class="text-2xl font-black text-amber-400">၄၃ မျိုး</div>
+                            <div class="text-2xl font-black text-amber-400">၁၇၉ မျိုး</div>
                             <div class="text-xs text-slate-400 font-semibold">Text Animations</div>
                         </div>
                     </div>
                     <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
                         <span class="text-2xl">⚡</span>
                         <div class="mt-3">
-                            <div class="text-2xl font-black text-purple-400">၂၅၉ မျိုး</div>
-                            <div class="text-xs text-slate-400 font-semibold">Effect Plugins</div>
+                            <div class="text-2xl font-black text-purple-400">၂၇၄ မျိုး</div>
+                            <div class="text-xs text-slate-400 font-semibold">Effect & Fuses</div>
                         </div>
                     </div>
                     <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
@@ -551,13 +713,6 @@
                         <div class="mt-3">
                             <div class="text-2xl font-black text-cyan-400">၂၇၆ မျိုး</div>
                             <div class="text-xs text-slate-400 font-semibold">Color DCTLs & LUTs</div>
-                        </div>
-                    </div>
-                    <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
-                        <span class="text-2xl">🆓</span>
-                        <div class="mt-3">
-                            <div class="text-2xl font-black text-emerald-400">100% Free</div>
-                            <div class="text-xs text-slate-400 font-semibold">Mac & Windows</div>
                         </div>
                     </div>
                 </div>
@@ -572,7 +727,10 @@
                 <!-- Category Tabs -->
                 <div class="flex items-center gap-1.5 p-1 rounded-2xl bg-slate-900 border border-slate-800 overflow-x-auto">
                     <button onclick="filterCategory('all')" id="catBtn-all" class="px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-amber-500 text-slate-950 shadow-md shrink-0">
-                        <span>🌟 အားလုံး (All 578)</span>
+                        <span>🌟 အားလုံး (All 731)</span>
+                    </button>
+                    <button onclick="filterCategory('premium')" id="catBtn-premium" class="px-4 py-2 rounded-xl text-xs font-bold text-amber-300 hover:text-white transition flex items-center gap-1.5 shrink-0 border border-amber-500/50 bg-gradient-to-r from-amber-500/20 to-yellow-500/20 shadow-md shadow-amber-500/10">
+                        <span>👑 Premium Suite (153)</span>
                     </button>
                     <button onclick="filterCategory('text-animation')" id="catBtn-text-animation" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition flex items-center gap-1.5 shrink-0">
                         <span>✍️ Text Animation (43)</span>
@@ -769,7 +927,7 @@
     <!-- Scripts: Plugin Data & Interactive Logic -->
     <script src="./davinci_plugins_data.js"></script>
     <script>
-        let allPlugins = window.DAVINCI_PLUGINS_DATA || [];
+        let allPlugins = window.DAVINCI_PLUGINS_DATA || window.davinciPluginsData || [];
         let filteredPlugins = [...allPlugins];
         let currentCategory = 'all';
         let currentSubcategory = 'all';
@@ -783,6 +941,10 @@
         let countdownTimerInterval = null;
 
         document.addEventListener('DOMContentLoaded', () => {
+            if (allPlugins.length === 0 && window.davinciPluginsData) {
+                allPlugins = window.davinciPluginsData;
+                filteredPlugins = [...allPlugins];
+            }
             renderSubcategories();
             applyFilters();
         });
@@ -793,13 +955,21 @@
             currentSubcategory = 'all';
             displayedCount = pageSize;
 
-            ['all', 'text-animation', 'effect', 'color'].forEach(c => {
+            ['all', 'premium', 'text-animation', 'effect', 'color'].forEach(c => {
                 const btn = document.getElementById(`catBtn-${c}`);
                 if (btn) {
                     if (c === cat) {
-                        btn.className = 'px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-amber-500 text-slate-950 shadow-md shrink-0';
+                        if (c === 'premium') {
+                            btn.className = 'px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-slate-950 shadow-md shrink-0 border border-amber-300';
+                        } else {
+                            btn.className = 'px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-amber-500 text-slate-950 shadow-md shrink-0';
+                        }
                     } else {
-                        btn.className = 'px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition flex items-center gap-1.5 shrink-0';
+                        if (c === 'premium') {
+                            btn.className = 'px-4 py-2 rounded-xl text-xs font-bold text-amber-300 hover:text-white transition flex items-center gap-1.5 shrink-0 border border-amber-500/50 bg-amber-950/40';
+                        } else {
+                            btn.className = 'px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition flex items-center gap-1.5 shrink-0';
+                        }
                     }
                 }
             });
@@ -885,6 +1055,158 @@
 
         // ------------------ DIRECT CARD PREVIEW GENERATOR ------------------
         function getCardPreviewHtml(p) {
+            // ================= 0. PREMIUM SUITE PLUGINS (GOLDEN & HIGH-END DYNAMICS) =================
+            if (p.category === 'premium' || p.isPremium) {
+                if (p.subcatType === 'text-animation') {
+                    let animClass = 'anim-text-bounce';
+                    let previewBadge = 'PREMIUM TEXT';
+                    
+                    if (p.previewType === 'text-bounce') {
+                        animClass = 'anim-text-bounce';
+                        previewBadge = 'BOUNCE MOTION';
+                    } else if (p.previewType === 'text-slide-down') {
+                        animClass = 'anim-text-slide-down';
+                        previewBadge = 'SLIDE DOWN';
+                    } else if (p.previewType === 'text-slide-up') {
+                        animClass = 'anim-text-slide-up';
+                        previewBadge = 'SLIDE UP';
+                    } else if (p.previewType === 'text-slide-left') {
+                        animClass = 'anim-text-slide-left';
+                        previewBadge = 'SLIDE LEFT';
+                    } else if (p.previewType === 'text-slide-right') {
+                        animClass = 'anim-text-slide-right';
+                        previewBadge = 'SLIDE RIGHT';
+                    } else if (p.previewType === 'text-rotate') {
+                        animClass = 'anim-text-rotate';
+                        previewBadge = '3D ROTATE';
+                    } else if (p.previewType === 'text-flicker') {
+                        animClass = 'anim-text-flicker';
+                        previewBadge = 'STROBE FLICKER';
+                    } else if (p.previewType === 'text-blur') {
+                        animClass = 'anim-text-blur';
+                        previewBadge = 'GAUSSIAN BLUR';
+                    } else if (p.previewType === 'text-scale') {
+                        animClass = 'anim-text-scale';
+                        previewBadge = 'ELASTIC SCALE';
+                    } else if (p.previewType === 'text-stretch') {
+                        animClass = 'anim-text-stretch';
+                        previewBadge = 'KINETIC STRETCH';
+                    }
+
+                    return `
+                        <div class="relative w-full h-36 rounded-xl overflow-hidden bg-gradient-to-b from-[#1c1404] via-[#0e0b04] to-black border border-amber-500/50 flex flex-col items-center justify-center p-3 text-center select-none group-hover:border-yellow-400/80 shadow-[inset_0_0_20px_rgba(245,158,11,0.15)] transition">
+                            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(251,191,36,0.15)_0,transparent_75%)] pointer-events-none"></div>
+                            <!-- Shimmer Sweep Line -->
+                            <div class="absolute inset-y-0 w-1 bg-gradient-to-b from-transparent via-amber-300 to-transparent opacity-0 group-hover:opacity-100 grade-sweep-bar pointer-events-none z-20 shadow-[0_0_12px_#fbbf24]"></div>
+
+                            <div class="absolute top-2 left-2 flex items-center gap-1.5 text-[9px] font-mono text-amber-300 bg-amber-950/80 px-2 py-0.5 rounded-full border border-amber-500/40">
+                                <span class="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-ping"></span>
+                                <span>👑 ${previewBadge}</span>
+                            </div>
+                            <div class="absolute top-2 right-2 text-[9px] font-mono text-amber-200 bg-amber-950/80 px-2 py-0.5 rounded-full border border-amber-500/30">
+                                ${p.fps || '60 FPS'}
+                            </div>
+                            <div class="absolute bottom-2 right-2 text-[9px] text-amber-400/80 group-hover:text-yellow-300 transition font-mono bg-black/60 px-2 py-0.5 rounded-full border border-amber-500/20">
+                                Touch / Hover: Motion ✨
+                            </div>
+                            <!-- Animated Text Element -->
+                            <div class="z-10 transition-transform duration-300 transform group-hover:scale-105 px-2">
+                                <div class="text-lg sm:text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 transition-all duration-300 ${animClass} tracking-tight leading-tight">
+                                    ${p.name.replace('✨ ', '').replace('⚡ ', '').replace('👑 ', '')}
+                                </div>
+                                <div class="text-[10px] text-amber-400/70 font-medium mt-1">
+                                    DaVinci Resolve Fusion Title (${p.fps || '.setting'})
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                } else if (p.subcatType === 'drfx' || p.previewType === 'drfx-master') {
+                    return `
+                        <div class="relative w-full h-36 rounded-xl overflow-hidden bg-gradient-to-b from-[#1f1604] via-[#0d0902] to-black border border-amber-400/70 flex flex-col items-center justify-center p-3 text-center select-none group-hover:border-yellow-300 shadow-[inset_0_0_25px_rgba(245,158,11,0.2)] transition">
+                            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.25)_0,transparent_75%)] pointer-events-none"></div>
+                            <div class="absolute top-2 left-2 flex items-center gap-1.5 text-[9px] font-mono text-amber-300 bg-amber-950/90 px-2 py-0.5 rounded-full border border-amber-500/50">
+                                <span class="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-ping"></span>
+                                <span>🔥 ONE-CLICK INSTALLER</span>
+                            </div>
+                            <div class="z-10 flex flex-col items-center justify-center anim-drfx-box cursor-pointer">
+                                <div class="text-4xl drop-shadow-[0_0_15px_rgba(245,158,11,0.8)]">📦</div>
+                                <div class="text-xs font-black text-amber-300 mt-1.5 uppercase tracking-wider">
+                                    .DRFX Auto-Install Bundle
+                                </div>
+                            </div>
+                            <div class="absolute bottom-2 inset-x-2 flex items-center justify-between text-[9px] font-mono text-amber-400/80 bg-black/70 px-2 py-0.5 rounded border border-amber-500/20">
+                                <span>Double-click to install</span>
+                                <span>${p.sizeKb} KB</span>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    // NeoFX Effects & Fuses
+                    let pt = p.previewType;
+                    let effectInner = '';
+                    let effectTag = 'NEOFX CORE';
+
+                    if (pt === 'effect-neoglow') {
+                        effectTag = 'RADIANT AMBER GLOW';
+                        effectInner = `
+                            <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-amber-500 to-yellow-300 anim-neo-glow flex items-center justify-center text-xl shadow-[0_0_20px_#f59e0b]">
+                                ✨
+                            </div>
+                        `;
+                    } else if (pt === 'effect-neosweep') {
+                        effectTag = 'LIGHT SWEEP PRO';
+                        effectInner = `
+                            <div class="relative w-28 h-12 rounded-xl bg-gradient-to-r from-amber-900 via-yellow-700 to-amber-950 border border-amber-400/60 overflow-hidden flex items-center justify-center font-black text-amber-200">
+                                <span>NEOFX SWEEP</span>
+                                <div class="absolute inset-y-0 w-8 bg-gradient-to-r from-transparent via-white/80 to-transparent anim-neo-sweep -skew-x-12 pointer-events-none"></div>
+                            </div>
+                        `;
+                    } else if (pt === 'effect-neolens') {
+                        effectTag = 'FISHEYE LENS DISTORT';
+                        effectInner = `
+                            <div class="w-14 h-14 bg-gradient-to-br from-amber-500 to-orange-600 anim-neo-lens flex items-center justify-center text-xl text-black font-black border-2 border-yellow-300">
+                                👁️
+                            </div>
+                        `;
+                    } else if (pt === 'effect-neoglitch' || pt === 'effect-neochroma') {
+                        effectTag = 'CHROMATIC RGB GLITCH';
+                        effectInner = `
+                            <div class="w-14 h-14 rounded-xl bg-black border border-amber-400 glitch-matrix-anim flex items-center justify-center text-2xl text-amber-300 shadow-[0_0_15px_#f59e0b]">
+                                ⚡
+                            </div>
+                        `;
+                    } else {
+                        effectTag = 'NEOFX FUSION';
+                        effectInner = `
+                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-600 via-yellow-500 to-amber-300 anim-neo-glow flex items-center justify-center text-2xl text-slate-950 font-black shadow-lg shadow-amber-500/50">
+                                💎
+                            </div>
+                        `;
+                    }
+
+                    return `
+                        <div class="relative w-full h-36 rounded-xl overflow-hidden bg-gradient-to-b from-[#1b1303] via-[#0d0902] to-black border border-amber-400/60 flex flex-col items-center justify-center p-3 text-center select-none group-hover:border-yellow-300 shadow-[inset_0_0_20px_rgba(245,158,11,0.15)] transition">
+                            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.2)_0,transparent_75%)] pointer-events-none"></div>
+                            <div class="absolute top-2 left-2 flex items-center gap-1.5 text-[9px] font-mono text-amber-300 bg-amber-950/80 px-2 py-0.5 rounded-full border border-amber-500/40">
+                                <span class="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-ping"></span>
+                                <span>👑 ${effectTag}</span>
+                            </div>
+                            <div class="absolute top-2 right-2 text-[9px] font-mono text-amber-200 bg-amber-950/80 px-2 py-0.5 rounded-full border border-amber-500/30">
+                                ${p.fps || 'Fusion'}
+                            </div>
+                            <!-- Central Effect Visual -->
+                            <div class="z-10 flex items-center justify-center">
+                                ${effectInner}
+                            </div>
+                            <div class="absolute bottom-2 inset-x-2 flex items-center justify-between text-[9px] font-mono text-amber-400/80 bg-black/70 px-2 py-0.5 rounded border border-amber-500/20">
+                                <span class="truncate max-w-[140px] text-amber-300">${p.name}</span>
+                                <span>Hover: Active Effect ✨</span>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+
             // ================= 1. TEXT ANIMATION PLUGINS =================
             if (p.category === 'text-animation') {
                 let animClass = 'anim-hormozi-pop';
@@ -1194,20 +1516,41 @@
 
             grid.innerHTML = visible.map(p => {
                 const downloads = getDownloadCount(p.id);
+                const isPrem = p.category === 'premium' || p.isPremium;
+
+                const cardBorder = isPrem 
+                    ? 'border-amber-400/80 bg-gradient-to-b from-amber-950/40 via-[#0c0f1a] to-[#05070e] ring-1 ring-amber-400/30 shadow-[0_0_24px_rgba(245,158,11,0.22)] hover:border-yellow-300 hover:shadow-[0_0_36px_rgba(245,158,11,0.45)]' 
+                    : 'glass-card border-slate-800 hover:border-amber-500/50 hover:shadow-amber-500/10';
+
                 const badgeColor = 
                     p.category === 'text-animation' ? 'bg-amber-500/15 text-amber-300 border-amber-500/30' :
                     p.category === 'effect' ? 'bg-purple-500/15 text-purple-300 border-purple-500/30' :
                     'bg-cyan-500/15 text-cyan-300 border-cyan-500/30';
 
                 const icon = 
+                    isPrem ? '👑' :
                     p.category === 'text-animation' ? '✍️' :
                     p.category === 'effect' ? '⚡' : '🎨';
+
+                const badgeHtml = isPrem 
+                    ? `<span class="text-[10px] font-black uppercase px-2.5 py-0.5 rounded-full bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-slate-950 shadow-md shadow-amber-500/30 border border-amber-300 flex items-center gap-1"><span>👑</span> ${p.subcategory}</span>`
+                    : `<span class="text-[10px] font-black uppercase px-2 py-0.5 rounded-full border ${badgeColor} flex items-center gap-1"><span>${icon}</span> ${p.subcategory}</span>`;
+
+                const tagHtml = isPrem && p.fps
+                    ? `<span class="text-[9px] font-mono font-bold text-amber-300 bg-amber-950/90 px-2 py-0.5 rounded border border-amber-500/40">${p.fps}</span>`
+                    : `<span class="text-[10px] font-mono font-bold text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">${p.ext}</span>`;
+
+                const titleCls = isPrem ? 'text-amber-100 group-hover:text-yellow-300' : 'text-white group-hover:text-amber-400';
+
+                const btnCls = isPrem
+                    ? 'bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-yellow-300 hover:to-amber-400 text-slate-950 text-xs font-black shadow-lg shadow-amber-500/30'
+                    : 'bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 text-xs font-black shadow-md';
 
                 // DIRECT IN-CARD ANIMATION PREVIEW
                 const previewHtml = getCardPreviewHtml(p);
 
                 return `
-                    <div class="group rounded-2xl p-3.5 glass-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-amber-500/10 flex flex-col justify-between space-y-3 border border-slate-800 hover:border-amber-500/50 cursor-pointer" onclick="this.classList.toggle('is-previewing')">
+                    <div class="group rounded-2xl p-3.5 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl flex flex-col justify-between space-y-3 border cursor-pointer ${cardBorder}" onclick="this.classList.toggle('is-previewing')">
                         
                         <!-- 1. LIVE ANIMATION PREVIEW SCREEN DIRECTLY ON THE CARD -->
                         ${previewHtml}
@@ -1215,15 +1558,11 @@
                         <!-- 2. CARD METADATA & TITLE -->
                         <div class="space-y-1.5 px-0.5">
                             <div class="flex items-center justify-between gap-2">
-                                <span class="text-[10px] font-black uppercase px-2 py-0.5 rounded-full border ${badgeColor} flex items-center gap-1">
-                                    <span>${icon}</span> ${p.subcategory}
-                                </span>
-                                <span class="text-[10px] font-mono font-bold text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">
-                                    ${p.ext}
-                                </span>
+                                ${badgeHtml}
+                                ${tagHtml}
                             </div>
 
-                            <h4 class="font-black text-sm text-white group-hover:text-amber-400 transition leading-snug line-clamp-2" title="${p.name}">
+                            <h4 class="font-black text-sm ${titleCls} transition leading-snug line-clamp-2" title="${p.name}">
                                 ${p.name}
                             </h4>
 
@@ -1239,7 +1578,7 @@
                                 <span>📥</span> <span id="dl-count-${p.id}">${downloads}</span>
                             </div>
 
-                            <button onclick="event.stopPropagation(); openPluginDownloadGateway(${p.id}, '${p.name.replace(/'/g, "\\'")}', '${p.downloadUrl}', '${p.sizeKb} KB')" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 text-xs font-black shadow-md transition flex items-center gap-1.5 active:scale-95">
+                            <button onclick="event.stopPropagation(); openPluginDownloadGateway(${p.id}, '${p.name.replace(/'/g, "\\'")}', '${p.downloadUrl}', '${p.sizeKb} KB')" class="px-3.5 py-1.5 rounded-xl ${btnCls} transition flex items-center gap-1.5 active:scale-95">
                                 <span>⬇️ ဒေါင်းလုဒ်</span>
                             </button>
                         </div>

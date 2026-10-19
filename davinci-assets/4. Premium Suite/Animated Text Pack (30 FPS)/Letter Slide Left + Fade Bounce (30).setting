@@ -1,0 +1,120 @@
+{
+	Tools = ordered() {
+		Template = TextPlus {
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Letter/03 Bounce/"
+					}
+				},
+			},
+			Inputs = {
+				GlobalOut = Input { Value = 149, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				StyledText = Input {
+					SourceOp = "FollowerLetterAnimation",
+					Source = "StyledText",
+				},
+				Font = Input { Value = "Open Sans", },
+				Style = Input { Value = "Bold", },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { -275, 115.5 } },
+		},
+		FollowerLetterAnimation = StyledTextFollower {
+			CtrlWZoom = false,
+			NameSet = true,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Letter/03 Bounce/"
+					}
+				},
+			},
+			Inputs = {
+				Order = Input { Value = 7, },
+				Delay = Input { Value = 1, },
+				Text = Input { Value = "Letter Slide Left + Fade Bounce", },
+				CharacterOffset = Input {
+					SourceOp = "Path",
+					Source = "Position",
+				},
+				TransformRotation = Input { Value = 1, },
+				Opacity1 = Input {
+					SourceOp = "FollowerLetterAnimationOpacity1",
+					Source = "Value",
+				},
+				Softness1 = Input { Value = 1, },
+				Softness2 = Input { Value = 1, },
+				Softness3 = Input { Value = 1, },
+				Softness4 = Input { Value = 1, },
+				Softness5 = Input { Value = 1, },
+				Softness6 = Input { Value = 1, },
+				Softness7 = Input { Value = 1, },
+				Softness8 = Input { Value = 1, }
+			},
+		},
+		Path = PolyPath {
+			DrawMode = "InsertAndModify",
+			NameSet = true,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Letter/03 Bounce/"
+					}
+				},
+			},
+			Inputs = {
+				Displacement = Input {
+					SourceOp = "PathDisplacement",
+					Source = "Value",
+				},
+				PolyLine = Input {
+					Value = Polyline {
+						Points = {
+							{ Linear = true, LockY = true, X = -0.46, Y = -0.5, RX = -0.0133333333333333, RY = 0 },
+							{ Linear = true, LockY = true, X = -0.5, Y = -0.5, LX = 0.0133333333333333, LY = 0 }
+						}
+					},
+				}
+			},
+		},
+		PathDisplacement = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 255 },
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Letter/03 Bounce/"
+					}
+				},
+			},
+			KeyFrames = {
+				[0] = { 0, RH = { 0, 0.969999999999999 }, Flags = { LockedY = true } },
+				[10.2702702702703] = { 1, LH = { 6.16216216216216, 1.62 }, RH = { 11.9956756756757, 0.78 }, Flags = { LockedY = true } },
+				[15.9189189189189] = { 1, LH = { 14.552972972973, 0.940999999999999 }, RH = { 17.9010810810811, 1.066 }, Flags = { } },
+				[21.5675675675676] = { 1, LH = { 20.2837837837838, 1.047 }, RH = { 22.6767567567568, 0.96 }, Flags = { } },
+				[27.2162162162162] = { 1, LH = { 26.2918918918919, 0.981899999999999 }, RH = { 27.8221621621622, 1.012 }, Flags = { } },
+				[32.3513513513514] = { 1, LH = { 31.7043243243243, 1.0131 }, RH = { 32.6594594594595, 0.993299999999999 }, Flags = { } },
+				[38] = { 1, LH = { 37.3632432432432, 0.992699999999999 }, Flags = { } }
+			}
+		},
+		FollowerLetterAnimationOpacity1 = BezierSpline {
+			SplineColor = { Red = 179, Green = 28, Blue = 244 },
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Letter/03 Bounce/"
+					}
+				},
+			},
+			KeyFrames = {
+				[0] = { 0, RH = { 2.41351351351351, 0.889999999999999 }, Flags = { Linear = true } },
+				[14.8918918918919] = { 1, LH = { 9.44864864864865, 0.994999999999999 }, Flags = { } }
+			}
+		}
+	}
+}

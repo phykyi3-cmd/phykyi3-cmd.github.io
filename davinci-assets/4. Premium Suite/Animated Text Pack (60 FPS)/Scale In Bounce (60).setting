@@ -1,0 +1,45 @@
+{
+	Tools = ordered() {
+		Template = TextPlus {
+			CtrlWZoom = false,
+			Inputs = {
+				Quality = Input { Value = 8, },
+				ShutterAngle = Input { Value = 360, },
+				GlobalOut = Input { Value = 299, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Wrap = Input { Value = 1, },
+				LayoutSize = Input {
+					SourceOp = "TemplateLayoutSize",
+					Source = "Value",
+				},
+				LayoutRotation = Input { Value = 1, },
+				TransformRotation = Input { Value = 1, },
+				Softness1 = Input { Value = 1, },
+				Size1 = Input { Value = 1, },
+				StyledText = Input { Value = "Scale In Bounce", },
+				Font = Input { Value = "Open Sans", },
+				Style = Input { Value = "Bold", },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 220, 49.5 } },
+		},
+		TemplateLayoutSize = BezierSpline {
+			SplineColor = { Red = 146, Green = 194, Blue = 241 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 3.03636363636363, 1.16363636363636 }, Flags = { Linear = true } },
+				[20] = { 1, LH = { 12, 1.528 }, RH = { 23.9844444444444, 0.731111111111111 } },
+				[31] = { 1, LH = { 27.7244444444444, 0.845999999999999 }, RH = { 32.98, 1.08 } },
+				[41] = { 1, LH = { 38.24, 1.077 }, RH = { 42.56, 0.963299999999999 } },
+				[53] = { 1, LH = { 50.32, 0.955499999999999 }, RH = { 53.9, 1.015 } },
+				[65] = { 1, LH = { 61.3, 1.0232 }, RH = { 67.86, 0.983 } },
+				[74] = { 1, LH = { 71.44, 0.999599999999999 } }
+			}
+		}
+	}
+}

@@ -1,0 +1,365 @@
+{
+	Tools = ordered() {
+		NeoInnerGlow = MacroOperator {
+			CtrlWZoom = false,
+			CustomData = { Path = { Map = { ["Setting:"] = "/Volumes/T7/NeoEdit/Plugins & Presets/Plugins/NeoEdit Core Pack/Neo Inner Glow/" } }, },
+			Inputs = ordered() {
+				UpdateRes = InstanceInput {
+					SourceOp = "NIGColor",
+					Source = "UpdateRes",
+					Page = "Controls",
+				},
+				GlowSettings = InstanceInput {
+					SourceOp = "NIGGlowSettings",
+					Source = "GlowSettings",
+					MinScale = 1,
+					Default = 3,
+				},
+				GlowOnly = InstanceInput {
+					SourceOp = "NIGGlowOnly",
+					Source = "Blend",
+				},
+				ApplyMode = InstanceInput {
+					SourceOp = "NIGFinal",
+					Source = "ApplyMode",
+				},
+				Intensity = InstanceInput {
+					SourceOp = "NIGFinal",
+					Source = "BlendClone",
+					Name = "Intensity",
+					Default = 1,
+				},
+				Radius = InstanceInput {
+					SourceOp = "NIGBlur",
+					Source = "XBlurSize",
+					Name = "Radius",
+					MaxScale = 90,
+					Default = 2.5,
+				},
+				Color = InstanceInput {
+					SourceOp = "NIGColor",
+					Source = "TopLeftRed",
+					Name = "Color",
+					ControlGroup = 4,
+					Default = 1,
+				},
+				TopLeftGreen = InstanceInput {
+					SourceOp = "NIGColor",
+					Source = "TopLeftGreen",
+					ControlGroup = 4,
+					Default = 1,
+				},
+				TopLeftBlue = InstanceInput {
+					SourceOp = "NIGColor",
+					Source = "TopLeftBlue",
+					ControlGroup = 4,
+					Default = 1,
+				},
+				GlowShape = InstanceInput {
+					SourceOp = "NIGGlowShape",
+					Source = "GlowShape",
+					MinScale = 1,
+					Default = 3,
+				},
+				Spread = InstanceInput {
+					SourceOp = "NIGErodeDialate",
+					Source = "XAmount",
+					Name = "Spread",
+					MinScale = -0.2,
+					MaxScale = 0.2,
+					Default = 0,
+				},
+				Offset = InstanceInput {
+					SourceOp = "Vector1",
+					Source = "Distance",
+					Name = "Offset",
+					MinScale = 0,
+					MaxScale = 0.04,
+					Default = 0,
+				},
+				Angle = InstanceInput {
+					SourceOp = "Vector1",
+					Source = "Angle",
+					Default = 0,
+				},
+				HowToButt = InstanceInput {
+					SourceOp = "NIGGlowShape",
+					Source = "HowToButt",
+					MinScale = 1,
+					Width = 1,
+					Page = "Links",
+					Default = 3,
+				},
+				LatestVersion = InstanceInput {
+					SourceOp = "NIGGlowShape",
+					Source = "LatestVersion",
+					MinScale = 1,
+					Width = 1,
+					Page = "Links",
+					Default = 3,
+				},
+				NeoEdit = InstanceInput {
+					SourceOp = "NIGGlowShape",
+					Source = "NeoEditButt",
+					MinScale = 1,
+					Width = 1,
+					Page = "Links",
+					Default = 3,
+				},
+				BGWidth = InstanceInput {
+					SourceOp = "NIGColor",
+					Source = "Width",
+					Page = "Common",
+				},
+				BGHeight = InstanceInput {
+					SourceOp = "NIGColor",
+					Source = "Height",
+					Page = "Common",
+				},
+				MainInput1 = InstanceInput {
+					SourceOp = "PipeRouter1",
+					Source = "Input",
+				},
+				EffectMask = InstanceInput {
+					SourceOp = "NIGFinal",
+					Source = "EffectMask",
+				}
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "NIGFinal",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo {
+				Pos = { 275, -16.5 },
+				Flags = {
+					AllowPan = false,
+					GridSnap = true,
+					AutoSnap = true,
+					RemoveRouters = true
+				},
+				Size = { 824.029, 336.428, 310.5, 129.306 },
+				Direction = "Horizontal",
+				PipeStyle = "Direct",
+				Scale = 1,
+				Offset = { 0, 0 }
+			},
+			Tools = ordered() {
+				NIGGlowSettings = AlphaDivide {
+					PassThrough = true,
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						GlowSettings = Input { Value = 1, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 165, 49.5 } },
+					UserControls = ordered() { GlowSettings = { INP_Integer = false, LBLC_DropDownButton = true, LINKID_DataType = "Number", LBLC_NumInputs = 5, INPID_InputControl = "LabelControl", INP_SplineType = "Default", LINKS_Name = "Glow Settings", } }
+				},
+				NIGFinal = Merge {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Background = Input {
+							SourceOp = "NIGGlowOnly",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "NIGMasking",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 55, 181.5 } },
+				},
+				NIGBlur = Blur {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						XBlurSize = Input { Value = 3, },
+						Input = Input {
+							SourceOp = "NIGColor",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 55, 82.5 } },
+				},
+				NIGColor = Background {
+					NameSet = true,
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "NIGPosition",
+							Source = "Output",
+						},
+						GlobalOut = Input { Value = 299, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftRed = Input { Value = 1, },
+						TopLeftGreen = Input { Value = 1, },
+						TopLeftBlue = Input { Value = 1, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 55, 49.5 } },
+					UserControls = ordered() {
+						UpdateRes = {
+							LINKS_Name = "UpdateRes",
+							LINKID_DataType = "Number",
+							INPID_InputControl = "ButtonControl",
+							INP_Integer = false,
+							INP_SplineType = "Default",
+							ICD_Width = 1,
+							BTNCS_Execute = "tool:SetInput('BGWidth', comp.ActiveTool:GetInput('MainInput1',comp.CurrentTime).Width)\ntool:SetInput('BGHeight', comp.ActiveTool:GetInput('MainInput1',comp.CurrentTime).Height)",
+						}
+					}
+				},
+				NIGGlowShape = AlphaDivide {
+					PassThrough = true,
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						GlowShape = Input { Value = 1, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 165, 82.5 } },
+					UserControls = ordered() { GlowShape = { INP_Integer = false, LBLC_DropDownButton = true, LINKID_DataType = "Number", LBLC_NumInputs = 3, INPID_InputControl = "LabelControl", INP_SplineType = "Default", LINKS_Name = "Glow Shape", }, HowToButt = { INP_MaxAllowed = 1000000, INP_Integer = false, INPID_InputControl = "ButtonControl", BTNCS_Execute = "local url = \"https://youtu.be/DHDyZM5mBm8\"\nlocal osName = package.config:sub(1,1) == \"\\\\\" and \"windows\" or \"unix\"\n\nif osName == \"windows\" then\n    os.execute('start \"\" \"' .. url .. '\"')\nelse\n    local uname = io.popen(\"uname\"):read(\"*l\")\n    if uname == \"Darwin\" then\n        os.execute('open \"' .. url .. '\"')\n    else\n        os.execute('xdg-open \"' .. url .. '\"')\n    end\nend", INP_MaxScale = 1, INP_MinScale = 0, INP_MinAllowed = -1000000, LINKID_DataType = "Number", ICD_Width = 1, INP_SplineType = "Default", ICS_ControlPage = "Links", LINKS_Name = "Tutorial" }, LatestVersion = { INP_MaxAllowed = 1000000, INP_Integer = false, INPID_InputControl = "ButtonControl", BTNCS_Execute = "local url = \"https://drive.google.com/drive/folders/1xKDy-1TrO7KWDPwRLYOdOJh6DJ_W6oH7?usp=drive_link\"\nlocal osName = package.config:sub(1,1) == \"\\\\\" and \"windows\" or \"unix\"\n\nif osName == \"windows\" then\n    os.execute('start \"\" \"' .. url .. '\"')\nelse\n    local uname = io.popen(\"uname\"):read(\"*l\")\n    if uname == \"Darwin\" then\n        os.execute('open \"' .. url .. '\"')\n    else\n        os.execute('xdg-open \"' .. url .. '\"')\n    end\nend", INP_MaxScale = 1, INP_MinScale = 0, INP_MinAllowed = -1000000, LINKID_DataType = "Number", ICD_Width = 1, INP_SplineType = "Default", ICS_ControlPage = "Links", LINKS_Name = "Latest Version" }, NeoEditButt = { INP_MaxAllowed = 1000000, INP_Integer = false, INPID_InputControl = "ButtonControl", BTNCS_Execute = "local url = \"https://neoeditfx.com/pages/contact\"\nlocal osName = package.config:sub(1,1) == \"\\\\\" and \"windows\" or \"unix\"\n\nif osName == \"windows\" then\n    os.execute('start \"\" \"' .. url .. '\"')\nelse\n    local uname = io.popen(\"uname\"):read(\"*l\")\n    if uname == \"Darwin\" then\n        os.execute('open \"' .. url .. '\"')\n    else\n        os.execute('xdg-open \"' .. url .. '\"')\n    end\nend", INP_MaxScale = 1, INP_MinScale = 0, INP_MinAllowed = -1000000, LINKID_DataType = "Number", ICD_Width = 1, INP_SplineType = "Default", ICS_ControlPage = "Links", LINKS_Name = "Contact Us" } }
+				},
+				NIGErodeDialate = ErodeDilate {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Filter = Input { Value = 2, },
+						Input = Input {
+							SourceOp = "NIGInvert",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { -55, 16.5 } },
+				},
+				NIGPosition = Transform {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Center = Input {
+							SourceOp = "Vector1",
+							Source = "Position",
+						},
+						Input = Input {
+							SourceOp = "NIGErodeDialate",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 55, 16.5 } },
+				},
+				Vector1 = Vector {
+					CtrlWZoom = false,
+					Inputs = {
+						ImageAspect = Input { Value = 1.777778, }
+					},
+				},
+				NIGAdd = ChannelBoolean {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Operation = Input { Value = 1, },
+						Background = Input {
+							SourceOp = "NIGBlur",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 55, 115.5 } },
+				},
+				NIGInvert = ChannelBoolean {
+					NameSet = true,
+					Inputs = {
+						Operation = Input { Value = 10, },
+						ToRed = Input { Value = 5, },
+						ToGreen = Input { Value = 6, },
+						ToBlue = Input { Value = 7, },
+						ToAlpha = Input { Value = 8, },
+						Background = Input {
+							SourceOp = "PipeRouter1",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { -165, 16.5 } },
+				},
+				PipeRouter1 = PipeRouter {
+					CtrlWShown = false,
+					Inputs = {
+						Input = Input {
+							SourceOp = "Background1_1",
+							Source = "Output",
+						}
+					},
+					ViewInfo = PipeRouterInfo { Pos = { -220, 181.5 } },
+				},
+				NIGMasking = Merge {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "PipeRouter1",
+							Source = "Output",
+						},
+						Background = Input {
+							SourceOp = "NIGBG1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "NIGAdd",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 55, 148.5 } },
+				},
+				NIGGlowOnly = BrightnessContrast {
+					CtrlWShown = false,
+					NameSet = true,
+					CustomData = { Path = { Map = { ["Setting:"] = "C:\\Users\\loren\\Downloads\\" } }, },
+					Inputs = {
+						Alpha = Input { Value = 1, },
+						Gain = Input { Value = 0, },
+						ClipBlack = Input { Value = 1, },
+						ClipWhite = Input { Value = 1, },
+						PreDividePostMultiply = Input { Value = 1, },
+						Input = Input {
+							SourceOp = "PipeRouter1",
+							Source = "Output",
+						},
+						Blend = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { -55, 181.5 } },
+					Colors = { TileColor = { R = 0.623529411764706, G = 0.776470588235294, B = 0.0823529411764706 }, },
+					UserControls = ordered() {
+						Blend = {
+							INP_MaxAllowed = 1000000,
+							INP_Integer = true,
+							INPID_InputControl = "CheckboxControl",
+							INP_MaxScale = 1,
+							INP_Default = 1,
+							INP_MinScale = 0,
+							INP_MinAllowed = -1000000,
+							LINKID_DataType = "Number",
+							CBC_TriState = false,
+							INP_SplineType = "Default",
+							LINKS_Name = "Glow Only",
+						}
+					}
+				},
+				NIGBG1 = Background {
+					NameSet = true,
+					Inputs = {
+						GlobalOut = Input { Value = 299, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftAlpha = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 165, 148.5 } },
+				}
+			},
+		}
+	}
+}

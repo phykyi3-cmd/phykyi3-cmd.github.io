@@ -1,0 +1,53 @@
+{
+	Tools = ordered() {
+		Template = TextPlus {
+			CtrlWZoom = false,
+			Inputs = {
+				Quality = Input { Value = 8, },
+				ShutterAngle = Input { Value = 360, },
+				GlobalOut = Input { Value = 299, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Wrap = Input { Value = 1, },
+				LayoutSize = Input {
+					SourceOp = "TemplateLayoutSize",
+					Source = "Value",
+				},
+				LayoutRotation = Input { Value = 1, },
+				TransformRotation = Input { Value = 1, },
+				Opacity1 = Input {
+					SourceOp = "TemplateOpacity1",
+					Source = "Value",
+				},
+				Softness1 = Input { Value = 1, },
+				Size1 = Input { Value = 1, },
+				StyledText = Input { Value = "Scale Out Fade", },
+				Font = Input { Value = "Open Sans", },
+				Style = Input { Value = "Bold", },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 220, 49.5 } },
+		},
+		TemplateLayoutSize = BezierSpline {
+			SplineColor = { Red = 146, Green = 194, Blue = 241 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 2.19, RH = { 3.15, 1.01 }, Flags = { Linear = true } },
+				[35] = { 1, LH = { 23.333345, 1 } }
+			}
+		},
+		TemplateOpacity1 = BezierSpline {
+			SplineColor = { Red = 179, Green = 28, Blue = 244 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 5.35, 1.005 }, Flags = { Linear = true } },
+				[30] = { 1, LH = { 20.00001, 1 } }
+			}
+		}
+	}
+}

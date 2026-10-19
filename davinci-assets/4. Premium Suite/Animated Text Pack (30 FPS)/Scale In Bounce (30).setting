@@ -1,0 +1,58 @@
+{
+	Tools = ordered() {
+		Template = TextPlus {
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Full Text/03 Bounce/"
+					}
+				},
+			},
+			Inputs = {
+				Quality = Input { Value = 8, },
+				ShutterAngle = Input { Value = 360, },
+				GlobalOut = Input { Value = 149, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Wrap = Input { Value = 1, },
+				LayoutSize = Input {
+					SourceOp = "TemplateLayoutSize",
+					Source = "Value",
+				},
+				LayoutRotation = Input { Value = 1, },
+				TransformRotation = Input { Value = 1, },
+				Softness1 = Input { Value = 1, },
+				Size1 = Input { Value = 1, },
+				StyledText = Input { Value = "Scale In Bounce", },
+				Font = Input { Value = "Open Sans", },
+				Style = Input { Value = "Bold", },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { -440, -82.5 } },
+		},
+		TemplateLayoutSize = BezierSpline {
+			SplineColor = { Red = 146, Green = 194, Blue = 241 },
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Full Text/03 Bounce/"
+					}
+				},
+			},
+			KeyFrames = {
+				[0] = { 0, RH = { 1.51413339510831, 1.16363636363636 }, Flags = { Linear = true } },
+				[9.97333374023438] = { 1, LH = { 5.98400024414063, 1.528 }, RH = { 11.9602434509277, 0.731111111111111 }, Flags = { } },
+				[15.4586672973633] = { 1, LH = { 13.8252568603515, 0.845999999999999 }, RH = { 16.4460273376465, 1.08 }, Flags = { } },
+				[20.4453341674805] = { 1, LH = { 19.0690141113281, 1.077 }, RH = { 21.2232541992188, 0.963299999999999 }, Flags = { } },
+				[26.4293344116211] = { 1, LH = { 25.0929076904297, 0.955499999999999 }, RH = { 26.8407344284058, 1.01375 }, Flags = { } },
+				[31.91466796875] = { 1, LH = { 29.7205345458984, 1.0285 }, RH = { 33.6459975484129, 0.978659930961341 }, Flags = { } },
+				[37.4000015258789] = { 1, LH = { 35.8397288696289, 0.99951111111111 }, Flags = { } }
+			}
+		}
+	}
+}

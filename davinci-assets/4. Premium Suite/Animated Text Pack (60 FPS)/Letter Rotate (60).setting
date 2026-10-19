@@ -1,0 +1,81 @@
+{
+	Tools = ordered() {
+		Template = TextPlus {
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/60 Fps/Letter/Motion + Fade/"
+					}
+				},
+			},
+			Inputs = {
+				GlobalOut = Input { Value = 299, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				StyledText = Input {
+					SourceOp = "FollowerLetterAnimation",
+					Source = "StyledText",
+				},
+				Font = Input { Value = "Open Sans", },
+				Style = Input { Value = "Bold", },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 55, 49.5 } },
+		},
+		FollowerLetterAnimation = StyledTextFollower {
+			CtrlWZoom = false,
+			NameSet = true,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/60 Fps/Letter/Motion + Fade/"
+					}
+				},
+			},
+			Inputs = {
+				Order = Input { Value = 7, },
+				Delay = Input { Value = 2, },
+				Text = Input { Value = "Letter Scale + Rotate", },
+				TransformRotation = Input { Value = 1, },
+				CharacterAngleZ = Input {
+					SourceOp = "FollowerLetterAnimationCharacterAngleZ",
+					Source = "Value",
+				},
+				TransformSize = Input { Value = 1, },
+				Opacity1 = Input {
+					SourceOp = "FollowerLetterAnimationOpacity1",
+					Source = "Value",
+				},
+				Softness1 = Input { Value = 1, },
+				Softness2 = Input { Value = 1, },
+				Softness3 = Input { Value = 1, },
+				Softness4 = Input { Value = 1, },
+				Softness5 = Input { Value = 1, },
+				Softness6 = Input { Value = 1, },
+				Softness7 = Input { Value = 1, },
+				Softness8 = Input { Value = 1, }
+			},
+		},
+		FollowerLetterAnimationCharacterAngleZ = BezierSpline {
+			SplineColor = { Red = 28, Green = 216, Blue = 243 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { -60, RH = { 5.74, 0.8 }, Flags = { Linear = true } },
+				[28] = { 0, LH = { 18.666676, 0 } }
+			}
+		},
+		FollowerLetterAnimationOpacity1 = BezierSpline {
+			SplineColor = { Red = 179, Green = 28, Blue = 244 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 4.44, 1.054 }, Flags = { Linear = true } },
+				[28] = { 1, LH = { 18.24, 0.995999999999999 } }
+			}
+		}
+	}
+}

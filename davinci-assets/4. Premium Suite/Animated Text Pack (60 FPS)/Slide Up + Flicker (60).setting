@@ -1,0 +1,75 @@
+{
+	Tools = ordered() {
+		Template = TextPlus {
+			CtrlWZoom = false,
+			Inputs = {
+				Quality = Input { Value = 8, },
+				ShutterAngle = Input { Value = 360, },
+				GlobalOut = Input { Value = 299, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Wrap = Input { Value = 1, },
+				LayoutRotation = Input { Value = 1, },
+				CharacterOffset = Input {
+					SourceOp = "Path1",
+					Source = "Position",
+				},
+				TransformRotation = Input { Value = 1, },
+				Opacity1 = Input {
+					SourceOp = "TemplateOpacity1",
+					Source = "Value",
+				},
+				Softness1 = Input { Value = 1, },
+				Size1 = Input { Value = 1, },
+				StyledText = Input { Value = "Slide Up + Flicker ", },
+				Font = Input { Value = "Open Sans", },
+				Style = Input { Value = "Bold", },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { 220, 49.5 } },
+		},
+		Path1 = PolyPath {
+			DrawMode = "InsertAndModify",
+			Inputs = {
+				Displacement = Input {
+					SourceOp = "Path1Displacement2",
+					Source = "Value",
+				},
+				PolyLine = Input {
+					Value = Polyline {
+						Points = {
+							{ Linear = true, LockY = true, X = -0.5, Y = -0.53, RX = 0, RY = 0.01 },
+							{ Linear = true, LockY = true, X = -0.5, Y = -0.5, LX = -0, LY = -0.01 }
+						}
+					},
+				}
+			},
+		},
+		Path1Displacement2 = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 255 },
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 9.99999, 1 }, Flags = { LockedY = true } },
+				[30] = { 1, LH = { 20.00001, 1 }, Flags = { LockedY = true } }
+			}
+		},
+		TemplateOpacity1 = BezierSpline {
+			SplineColor = { Red = 179, Green = 28, Blue = 244 },
+			CtrlWZoom = false,
+			NameSet = true,
+			KeyFrames = {
+				[0] = { 0, RH = { 1.75757575757576, 0 } },
+				[3] = { 0.476, LH = { 1.54560002413663, 0.414430401021784 }, RH = { 4.75739997083491, 0.550396598765344 } },
+				[6] = { 0.254, LH = { 4.54560002413663, 0.21812480059537 }, RH = { 7.75739997083491, 0.297349199280594 } },
+				[9] = { 0.624, LH = { 7.54560002413663, 0.589579200571233 }, RH = { 10.7573999708349, 0.665591799309759 } },
+				[12] = { 0.396, LH = { 10.5456000241366, 0.346550400820645 }, RH = { 14.3431999611132, 0.475668798677849 } },
+				[16] = { 0.793999999999999, LH = { 14.0608000321822, 0.728067201094193 }, RH = { 17.7573999708349, 0.853751599008386 } },
+				[19] = { 0.6, LH = { 17.5456000241366, 0.557199086424592 }, RH = { 21.9289999513915, 0.686196284283807 } },
+				[24] = { 1, LH = { 21.5757575757576, 1 } }
+			}
+		}
+	}
+}

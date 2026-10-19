@@ -1,0 +1,90 @@
+{
+	Tools = ordered() {
+		Template = TextPlus {
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Full Text/05 Blur/"
+					}
+				},
+			},
+			Inputs = {
+				Quality = Input { Value = 8, },
+				ShutterAngle = Input { Value = 360, },
+				GlobalOut = Input { Value = 149, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Wrap = Input { Value = 1, },
+				LayoutSize = Input {
+					SourceOp = "TemplateLayoutSize",
+					Source = "Value",
+				},
+				LayoutRotation = Input { Value = 1, },
+				TransformRotation = Input { Value = 1, },
+				Opacity1 = Input {
+					SourceOp = "TemplateOpacity1",
+					Source = "Value",
+				},
+				Softness1 = Input { Value = 1, },
+				SoftnessX1 = Input { Expression = "SoftnessY1", },
+				SoftnessY1 = Input {
+					SourceOp = "TemplateSoftnessY1",
+					Source = "Value",
+				},
+				Size1 = Input { Value = 1, },
+				StyledText = Input { Value = "Scale Out + Blur", },
+				Font = Input { Value = "Open Sans", },
+				Style = Input { Value = "Bold", },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { -385, -82.5 } },
+		},
+		TemplateLayoutSize = BezierSpline {
+			SplineColor = { Red = 146, Green = 194, Blue = 241 },
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Full Text/05 Blur/"
+					}
+				},
+			},
+			KeyFrames = {
+				[0] = { 2.19, RH = { 1.60199993133545, 1.01 }, Flags = { Linear = true } },
+				[17.7999992370605] = { 1, LH = { 11.8666720913734, 1 }, Flags = { } }
+			}
+		},
+		TemplateOpacity1 = BezierSpline {
+			SplineColor = { Red = 179, Green = 28, Blue = 244 },
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Full Text/05 Blur/"
+					}
+				},
+			},
+			KeyFrames = {
+				[0] = { 0, RH = { 2.7208570262364, 1.005 }, Flags = { Linear = true } },
+				[15.2571422031948] = { 1, LH = { 10.1714332211772, 1 }, Flags = { } }
+			}
+		},
+		TemplateSoftnessY1 = BezierSpline {
+			SplineColor = { Red = 231, Green = 243, Blue = 234 },
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Full Text/05 Blur/"
+					}
+				},
+			},
+			KeyFrames = {
+				[0] = { 10.78, RH = { 2.37384430741049, 0.905281434065763 }, Flags = { Linear = true } },
+				[17.7999992370605] = { 0, LH = { 11.8666720913734, 0 }, Flags = { } }
+			}
+		}
+	}
+}

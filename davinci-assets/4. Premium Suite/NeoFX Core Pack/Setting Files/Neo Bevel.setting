@@ -1,0 +1,161 @@
+{
+	Tools = ordered() {
+		NeoBevel = MacroOperator {
+			Inputs = ordered() {
+				MainInput1 = InstanceInput {
+					SourceOp = "PipeRouter1",
+					Source = "Input"
+				},
+				Intensity = InstanceInput {
+					SourceOp = "Displace1",
+					Source = "LightPower",
+					Page = "Controls",
+					Name = "Intensity",
+					Default = 25
+				},
+				LightAngle = InstanceInput {
+					SourceOp = "Displace1",
+					Source = "LightAngle",
+					Page = "Controls",
+					Name = "Direction",
+					Default = 135
+				},
+				Spread = InstanceInput {
+					SourceOp = "Displace1",
+					Source = "Spread",
+					Page = "Controls",
+					Name = "Spread",
+					Default = 0.15
+				},
+				Blend = InstanceInput {
+					SourceOp = "Displace1",
+					Source = "Blend",
+					Page = "Controls",
+					Name = "Blend",
+					Default = 0.15
+				},
+				TutorialButt = InstanceInput {
+					SourceOp = "Displace1",
+					Source = "TutorialButt",
+					Page = "Tutorial",
+				},
+				LatestVersionButt = InstanceInput {
+					SourceOp = "Displace1",
+					Source = "LatestVersionButt",
+					Page = "Tutorial",
+				},
+				ContactUsButt = InstanceInput {
+					SourceOp = "Displace1",
+					Source = "ContactUsButt",
+					Page = "Tutorial",
+				},
+				CreatedByNeoEdit = InstanceInput {
+					SourceOp = "Displace1",
+					Source = "CreatedByNeoEdit",
+					Page = "Tutorial",
+				},
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "Displace1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+Displace1 = Displace {
+			CtrlWZoom = false,
+			Inputs = {
+				Blend = Input { Value = 0.15, },
+				ProcessAlpha = Input { Value = 0, },
+				Type = Input { Value = 1, },
+				XChannel = Input { Value = 4, },
+				YChannel = Input { Value = 4, },
+				LightPower = Input { Value = 25, },
+				LightAngle = Input { Value = 138.4, },
+				Spread = Input { Value = 0.15, },
+				LightChannel = Input { Value = 4, },
+				Input = Input {
+					SourceOp = "PipeRouter1",
+					Source = "Output",
+				},
+				Foreground = Input {
+					SourceOp = "PipeRouter1",
+					Source = "Output",
+				},
+				EffectMask = Input {
+					SourceOp = "PipeRouter1",
+					Source = "Output",
+				}
+			},
+			ViewInfo = OperatorInfo { Pos = { 495, -49.5 } },
+			UserControls = ordered() {
+				TutorialButt = {
+					INP_MaxAllowed = 1000000,
+					INP_Integer = false,
+					INPID_InputControl = "ButtonControl",
+					BTNCS_Execute = "local url = \"https://youtu.be/DBxhkjtnwKc\"\nlocal osName = package.config:sub(1,1) == \"\\\\\" and \"windows\" or \"unix\"\n\nif osName == \"windows\" then\n    os.execute('start \"\" \"' .. url .. '\"')\nelse\n    local uname = io.popen(\"uname\"):read(\"*l\")\n    if uname == \"Darwin\" then\n        os.execute('open \"' .. url .. '\"')\n    else\n        os.execute('xdg-open \"' .. url .. '\"')\n    end\nend",
+					INP_MaxScale = 1,
+					INP_MinScale = 0,
+					INP_MinAllowed = -1000000,
+					LINKID_DataType = "Number",
+					ICD_Width = 1,
+					INP_SplineType = "Default",
+					ICS_ControlPage = "Tutorial",
+					LINKS_Name = "Tutorial"
+				},
+				LatestVersionButt = {
+					INP_MaxAllowed = 1000000,
+					INP_Integer = false,
+					INPID_InputControl = "ButtonControl",
+					BTNCS_Execute = "local url = \"https://drive.google.com/drive/folders/1T6aAJCU4FxQXYZo-I3GgRDarj0kftmP-?usp=sharing\"\nlocal osName = package.config:sub(1,1) == \"\\\\\" and \"windows\" or \"unix\"\n\nif osName == \"windows\" then\n    os.execute('start \"\" \"' .. url .. '\"')\nelse\n    local uname = io.popen(\"uname\"):read(\"*l\")\n    if uname == \"Darwin\" then\n        os.execute('open \"' .. url .. '\"')\n    else\n        os.execute('xdg-open \"' .. url .. '\"')\n    end\nend",
+					INP_MaxScale = 1,
+					INP_MinScale = 0,
+					INP_MinAllowed = -1000000,
+					LINKID_DataType = "Number",
+					ICD_Width = 0.5,
+					INP_SplineType = "Default",
+					ICS_ControlPage = "Tutorial",
+					LINKS_Name = "Latest Version"
+				},
+				ContactUsButt = {
+					INP_MaxAllowed = 1000000,
+					INP_Integer = false,
+					INPID_InputControl = "ButtonControl",
+					BTNCS_Execute = "local url = \"https://neoeditfx.com/pages/contact\"\nlocal osName = package.config:sub(1,1) == \"\\\\\" and \"windows\" or \"unix\"\n\nif osName == \"windows\" then\n    os.execute('start \"\" \"' .. url .. '\"')\nelse\n    local uname = io.popen(\"uname\"):read(\"*l\")\n    if uname == \"Darwin\" then\n        os.execute('open \"' .. url .. '\"')\n    else\n        os.execute('xdg-open \"' .. url .. '\"')\n    end\nend",
+					INP_MaxScale = 1,
+					INP_MinScale = 0,
+					INP_MinAllowed = -1000000,
+					LINKID_DataType = "Number",
+					ICD_Width = 0.5,
+					INP_SplineType = "Default",
+					ICS_ControlPage = "Tutorial",
+					LINKS_Name = "Contact Us"
+				},
+				CreatedByNeoEdit = {
+					INP_MaxAllowed = 1000000,
+					INP_Integer = true,
+					LBLC_DropDownButton = false,
+					INPID_InputControl = "LabelControl",
+					LBLC_NumInputs = 0,
+					INP_MaxScale = 1,
+					INP_Default = 1,
+					INP_External = false,
+					INP_MinScale = 0,
+					INP_MinAllowed = -1000000,
+					LINKID_DataType = "Number",
+					ICS_ControlPage = "Tutorial",
+					INP_Passive = true,
+					INP_SplineType = "Default",
+					LINKS_Name = "Created & Owned by NeoEdit"
+				}
+			}
+		},
+PipeRouter1 = PipeRouter {
+			ViewInfo = PipeRouterInfo { Pos = { 329.736, -16.5 } },
+		}
+			},
+		}
+	},
+	ActiveTool = "NeoBevel"
+}

@@ -1,0 +1,614 @@
+{
+	Tools = ordered() {
+		NeoReflection = MacroOperator {
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Volumes/T7/NeoEdit/Plugins & Presets/Plugins/NeoEdit Core Pack/Neo Reflection/"
+					}
+				},
+			},
+			Inputs = ordered() {
+				UpdateRes = InstanceInput {
+					SourceOp = "NRBG1",
+					Source = "UpdateRes",
+					Page = "Controls",
+				},
+				GeneralLabel = InstanceInput {
+					SourceOp = "NRCTRL",
+					Source = "GeneralLabel",
+					MinScale = 1,
+					Default = 3,
+				},
+				ReflectionOnly = InstanceInput {
+					SourceOp = "ReflectionOnly",
+					Source = "Blend",
+					Default = 0,
+				},
+				DropDistance = InstanceInput {
+					SourceOp = "NRXF",
+					Source = "posY",
+					Name = "Drop Distance",
+					Default = -0.18,
+				},
+				LockXY = InstanceInput {
+					SourceOp = "NRB",
+					Source = "LockXY",
+					Name = "Lock Blur X/Y ",
+					Default = 1,
+				},
+				XBlurSize = InstanceInput {
+					SourceOp = "NRB",
+					Source = "XBlurSize",
+					Default = 5,
+				},
+				YBlurSize = InstanceInput {
+					SourceOp = "NRB",
+					Source = "YBlurSize",
+					Default = 1,
+				},
+				Opacity = InstanceInput {
+					SourceOp = "NRFM",
+					Source = "BlendClone",
+					Name = "Opacity",
+					Default = 1,
+				},
+				FallofflLabel = InstanceInput {
+					SourceOp = "NRCTRL",
+					Source = "FalloffLabel",
+					MinScale = 1,
+					Default = 3,
+				},
+				FalloffOnly = InstanceInput {
+					SourceOp = "FalloffOnlySwitch",
+					Source = "FalloffOnly",
+					Page = "Controls",
+				},
+				FalloffDistance = InstanceInput {
+					SourceOp = "XYPath1",
+					Source = "Y",
+					Name = "Falloff Distance",
+					Default = 0.5,
+				},
+				FalloffSoftness = InstanceInput {
+					SourceOp = "FalloffSoftness",
+					Source = "YBlurSize",
+					Name = "Falloff Softness",
+					Default = 0,
+				},
+				DistortionLabel = InstanceInput {
+					SourceOp = "NRCTRL",
+					Source = "DistortionLabel",
+					MinScale = 1,
+					Default = 3,
+				},
+				EnableDistortion = InstanceInput {
+					SourceOp = "DistortionSwitch",
+					Source = "EnableDistortion",
+					Page = "Controls",
+				},
+				DistortionCTRLHider = InstanceInput {
+					SourceOp = "NRCTRL",
+					Source = "DistortionCTRLHider",
+					Expression = "EnableDistortion",
+					MinScale = 1,
+					Default = 3,
+				},
+				Strength = InstanceInput {
+					SourceOp = "NRDP",
+					Source = "XRefraction",
+					Name = "Strength",
+					MinScale = 0,
+					MaxScale = 0.2,
+					Default = 0.03,
+				},
+				Scale = InstanceInput {
+					SourceOp = "NRFN",
+					Source = "YScale",
+					Name = "Scale",
+					Default = 60,
+				},
+				Phase = InstanceInput {
+					SourceOp = "NRFN",
+					Source = "Seethe",
+					Name = "Phase",
+					Default = 0,
+				},
+				AnimationSpeed = InstanceInput {
+					SourceOp = "NRFN",
+					Source = "SeetheRate",
+					Name = "Animation Speed",
+					Default = 0,
+				},
+				Pitch = InstanceInput {
+					SourceOp = "NRDVE",
+					Source = "XRotation",
+					Name = "Pitch",
+				},
+				EffectMask = InstanceInput {
+					SourceOp = "NRFM",
+					Source = "EffectMask",
+				},
+				BGWidth = InstanceInput {
+					SourceOp = "NRBG1",
+					Source = "Width",
+					Page = "Common",
+				},
+				BGHeight = InstanceInput {
+					SourceOp = "NRBG1",
+					Source = "Height",
+					Page = "Common",
+				},
+				HowToButt = InstanceInput {
+					SourceOp = "NRBG1",
+					Source = "HowToButt",
+					MinScale = 1,
+					Default = 3,	
+				}, 
+				LatestVersion = InstanceInput {
+					SourceOp = "NRBG1",
+					Source = "LatestVersion",
+					MinScale = 1,
+					Default = 3,
+				},
+				NeoEdit = InstanceInput {
+					SourceOp = "NRBG1",
+					Source = "NeoEditButt",
+					MinScale = 1,
+					Default = 3,
+				},
+				MainInput1 = InstanceInput {
+					SourceOp = "PipeRouter2",
+					Source = "Input",
+				}
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "NRFM",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo {
+				Pos = { 660, -16.5 },
+				Flags = {
+					AllowPan = false,
+					GridSnap = true,
+					AutoSnap = true,
+					RemoveRouters = true
+				},
+				Size = { 676, 346.001, 338, 85.4706 },
+				Direction = "Horizontal",
+				PipeStyle = "Direct",
+				Scale = 1,
+				Offset = { 0, 0 }
+			},
+			Tools = ordered() {
+				NRCTRL = AlphaDivide {
+					PassThrough = true,
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						FalloffLabel = Input { Value = 1, },
+						GeneralLabel = Input { Value = 1, },
+						DistortionLabel = Input { Value = 1, },
+						DistortionCTRLHider = Input { Expression = "EnableDistortion", }
+					},
+					ViewInfo = OperatorInfo { Pos = { 165, -16.5 } },
+					UserControls = ordered() {
+						FalloffLabel = {
+							INP_Integer = true,
+							LBLC_DropDownButton = true,
+							LINKID_DataType = "Number",
+							LBLC_NumInputs = 3,
+							INPID_InputControl = "LabelControl",
+							INP_SplineType = "Default",
+							LINKS_Name = "Falloff",
+						},
+						GeneralLabel = {
+							INP_MaxAllowed = 1000000,
+							INP_Integer = true,
+							LBLC_DropDownButton = true,
+							INPID_InputControl = "LabelControl",
+							LBLC_NumInputs = 6,
+							INP_MaxScale = 1,
+							INP_MinScale = 0,
+							INP_MinAllowed = -1000000,
+							LINKID_DataType = "Number",
+							INP_SplineType = "Default",
+							LINKS_Name = "General",
+						},
+						DistortionLabel = {
+							INP_MaxAllowed = 1000000,
+							INP_Integer = true,
+							LBLC_DropDownButton = true,
+							INPID_InputControl = "LabelControl",
+							LBLC_NumInputs = 8,
+							INP_MaxScale = 1,
+							INP_MinScale = 0,
+							INP_MinAllowed = -1000000,
+							LINKID_DataType = "Number",
+							INP_SplineType = "Default",
+							LINKS_Name = "Distortion",
+						},
+						DistortionCTRLHider = {
+							INP_MaxAllowed = 1000000,
+							INP_Integer = true,
+							LBLC_DropDownButton = true,
+							INPID_InputControl = "LabelControl",
+							LBLC_NumInputs = 5,
+							INP_MaxScale = 1,
+							INP_Default = 0,
+							INP_MinScale = 0,
+							INP_MinAllowed = -1000000,
+							LINKID_DataType = "Number",
+							LINKS_Name = "DistortionCTRLHider",
+							INP_SplineType = "Default",
+							IC_Visible = false,
+						}
+					}
+				},
+				ReflectionOnly = BrightnessContrast {
+					CtrlWShown = false,
+					NameSet = true,
+					CustomData = { Path = { Map = { ["Setting:"] = "C:\\Users\\loren\\Downloads\\" } }, },
+					Inputs = {
+						Alpha = Input { Value = 1, },
+						Gain = Input { Value = 0, },
+						ClipBlack = Input { Value = 1, },
+						ClipWhite = Input { Value = 1, },
+						PreDividePostMultiply = Input { Value = 1, },
+						Input = Input {
+							SourceOp = "PipeRouter2",
+							Source = "Output",
+						},
+						Blend = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { -55, 206.758 } },
+					Colors = { TileColor = { R = 0.623529411764706, G = 0.776470588235294, B = 0.0823529411764706 }, },
+					UserControls = ordered() { Blend = { INP_MaxAllowed = 1000000, INP_Integer = true, INPID_InputControl = "CheckboxControl", INP_MaxScale = 1, INP_Default = 1, INP_MinScale = 0, INP_MinAllowed = -1000000, LINKID_DataType = "Number", CBC_TriState = false, INP_SplineType = "Default", LINKS_Name = "Reflection Only", } }
+				},
+				NRXF = ofx.com.blackmagicdesign.resolvefx.Transform {
+					NameSet = true,
+					Inputs = {
+						Source = Input {
+							SourceOp = "PipeRouter2",
+							Source = "Output",
+						},
+						controlMode = Input { Value = FuID { "TransformControlsSliders" }, },
+						controlReset = Input { Value = 0, },
+						controlGroup = Input { Value = 1, },
+						controlVisibility = Input { Value = FuID { "Show" }, },
+						posX = Input { Value = 0, },
+						posY = Input { Value = -0.18, },
+						zoom = Input { Value = 1, },
+						rotate = Input { Value = 0, },
+						scaleX = Input { Value = 1, },
+						scaleY = Input { Value = 1, },
+						pitch = Input { Value = 0, },
+						yaw = Input { Value = 0, },
+						flipH = Input { Value = 0, },
+						flipV = Input { Value = 1, },
+						adjustGroup = Input { Value = 0, },
+						isCrop = Input { Value = 0, },
+						cropL = Input { Value = 0, },
+						cropR = Input { Value = 0, },
+						cropT = Input { Value = 0, },
+						cropB = Input { Value = 0, },
+						edgeSoftness = Input { Value = 0, },
+						edgeRounding = Input { Value = 0, },
+						animationGroup = Input { Value = 0, },
+						serializedWarpable = Input { Value = "", },
+						serializedPinnable = Input { Value = "", },
+						motionBlur = Input { Value = 0, },
+						advancedGroup = Input { Value = 0, },
+						edgeBehaviour = Input { Value = FuID { "Constant" }, },
+						CompositeType = Input { Value = FuID { "COMPOSITE_NORMAL" }, },
+						olayAntiAlias = Input { Value = 1, },
+						previewAlpha = Input { Value = 0, },
+						isLegacyCrop = Input { Value = 0, },
+						isLegacyAlphaHandling = Input { Value = 0, },
+						isEnforceBlanking = Input { Value = 0, },
+						blendGroup = Input { Value = 0, },
+						blendIn = Input { Value = 1, },
+						blend = Input { Value = 0, },
+						ignoreContentShape = Input { Value = 0, },
+						legacyIsProcessRGBOnly = Input { Value = 0, },
+						IsNoTemporalFramesReqd = Input { Value = 0, },
+						refreshTrigger = Input { Value = 1, },
+						srcProcessingAlphaMode = Input { Value = -1, },
+						dstProcessingAlphaMode = Input { Value = -1, },
+						resolvefxVersion = Input { Value = "1.4", }
+					},
+					ViewInfo = OperatorInfo { Pos = { -220, 49.5 } },
+				},
+				NRB = Blur {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						XBlurSize = Input { Value = 5, },
+						Input = Input {
+							SourceOp = "DistortionSwitch",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 165, 148.5 } },
+				},
+				NRFM = Merge {
+					NameSet = true,
+					Inputs = {
+						Background = Input {
+							SourceOp = "ReflectionOnly",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "FalloffOnlySwitch",
+							Source = "Output",
+						},
+						Operator = Input { Value = FuID { "Under" }, },
+						PerformDepthMerge = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 165, 214.5 } },
+				},
+				FalloffOnlySwitch = Switch {
+					NameSet = true,
+					Inputs = {
+						Source = Input { Expression = "FalloffOnly", },
+						Name0 = Input { Value = "Final", },
+						Input0 = Input {
+							SourceOp = "NRB",
+							Source = "Output",
+						},
+						Name1 = Input { Value = "Falloff Only", },
+						Input1 = Input {
+							SourceOp = "NRM1",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 165, 181.5 } },
+					Colors = { TileColor = { R = 0.572549019607843, G = 0.572549019607843, B = 0.572549019607843 }, },
+					UserControls = ordered() {
+						FalloffOnly = {
+							CBC_TriState = false,
+							INP_Integer = true,
+							LINKID_DataType = "Number",
+							ICS_ControlPage = "Controls",
+							INPID_InputControl = "CheckboxControl",
+							INP_SplineType = "Default",
+							LINKS_Name = "Falloff Only",
+						}
+					}
+				},
+				NRBM = BitmapMask {
+					NameSet = true,
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						MaskWidth = Input { Value = 1920, },
+						MaskHeight = Input { Value = 1080, },
+						PixelAspect = Input { Value = { 1, 1 }, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						ClippingMode = Input { Value = FuID { "None" }, },
+						Image = Input {
+							SourceOp = "NRXF",
+							Source = "Output",
+						},
+						Center = Input {
+							SourceOp = "XYPath1",
+							Source = "Value",
+						},
+						Low = Input { Value = 0.1, }
+					},
+					ViewInfo = OperatorInfo { Pos = { -55, 115.5 } },
+				},
+				FalloffSoftness = Blur {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Filter = Input { Value = FuID { "Fast Gaussian" }, },
+						LockXY = Input { Value = 0, },
+						XBlurSize = Input {
+							Value = 0,
+							Expression = "YBlurSize/4",
+						},
+						YBlurSize = Input { Value = 0, },
+						Input = Input {
+							SourceOp = "NRBM",
+							Source = "Mask",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { -55, 82.5 } },
+				},
+				DistortionSwitch = Switch {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Source = Input {
+							Value = 1,
+							Expression = "EnableDistortion",
+						},
+						Name0 = Input { Value = "No Distortion", },
+						Input0 = Input {
+							SourceOp = "NRM1",
+							Source = "Output",
+						},
+						Name1 = Input { Value = "Texure Enabled", },
+						Input1 = Input {
+							SourceOp = "NRDVE",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 165, 115.5 } },
+					Colors = { TileColor = { R = 1, G = 0.658823529411765, B = 0.2 }, },
+					UserControls = ordered() {
+						EnableDistortion = {
+							INP_MaxAllowed = 1000000,
+							INP_Integer = true,
+							INPID_InputControl = "CheckboxControl",
+							INP_MaxScale = 1,
+							INP_MinScale = 0,
+							INP_MinAllowed = -1000000,
+							LINKID_DataType = "Number",
+							CBC_TriState = false,
+							INP_SplineType = "Default",
+							LINKS_Name = "Enable Distortion",
+						}
+					}
+				},
+				NRDP = Displace {
+					NameSet = true,
+					Inputs = {
+						Type = Input { Value = 1, },
+						XRefraction = Input { Value = 0.03, },
+						LightChannel = Input { Value = 5, },
+						Input = Input {
+							SourceOp = "NRM1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "NRFN",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 165, 49.5 } },
+				},
+				NRFN = FastNoise {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						GlobalOut = Input { Value = 119, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						Brightness = Input { Value = -1, },
+						LockXY = Input { Value = 0, },
+						XScale = Input { Value = 0.5, },
+						YScale = Input { Value = 60, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 275, 49.5 } },
+				},
+				NRBG1 = Background {
+					NameSet = true,
+					Inputs = {
+						GlobalOut = Input { Value = 119, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						TopLeftAlpha = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { -55, 16.5 } },
+					UserControls = ordered() {
+						UpdateRes = {
+							INP_Integer = false,
+							LINKID_DataType = "Number",
+							BTNCS_Execute = "tool:SetInput('BGWidth', comp.ActiveTool:GetInput('MainInput1',comp.CurrentTime).Width)\ntool:SetInput('BGHeight', comp.ActiveTool:GetInput('MainInput1',comp.CurrentTime).Height)",
+							INPID_InputControl = "ButtonControl",
+							INP_SplineType = "Default",
+							LINKS_Name = "UpdateRes",
+						},
+					HowToButt = {
+						LINKS_Name = "Tutorial",
+						LINKID_DataType = "Number",
+						INPID_InputControl = "ButtonControl",
+						INP_Integer = false,
+						INP_MinScale = 0,
+						INP_MaxScale = 1,
+						INP_MinAllowed = -1000000,
+						INP_MaxAllowed = 1000000,
+						INP_SplineType = "Default",
+						ICS_ControlPage = "Links",
+						ICD_Width = 1,
+						BTNCS_Execute = "local url = \"https://youtu.be/C4I0yjf8a7o\"\nlocal osName = package.config:sub(1,1) == \"\\\\\" and \"windows\" or \"unix\"\n\nif osName == \"windows\" then\n    os.execute('start \"\" \"' .. url .. '\"')\nelse\n    local uname = io.popen(\"uname\"):read(\"*l\")\n    if uname == \"Darwin\" then\n        os.execute('open \"' .. url .. '\"')\n    else\n        os.execute('xdg-open \"' .. url .. '\"')\n    end\nend",
+					},
+					LatestVersion = {
+						LINKS_Name = "Latest Version",
+						LINKID_DataType = "Number",
+						INPID_InputControl = "ButtonControl",
+						INP_Integer = false,
+						INP_MinScale = 0,
+						INP_MaxScale = 1,
+						INP_MinAllowed = -1000000,
+						INP_MaxAllowed = 1000000,
+						INP_SplineType = "Default",
+						ICS_ControlPage = "Links",
+						ICD_Width = 1,
+						BTNCS_Execute = "local url = \"https://drive.google.com/drive/folders/1xKDy-1TrO7KWDPwRLYOdOJh6DJ_W6oH7?usp=drive_link\"\nlocal osName = package.config:sub(1,1) == \"\\\\\" and \"windows\" or \"unix\"\n\nif osName == \"windows\" then\n    os.execute('start \"\" \"' .. url .. '\"')\nelse\n    local uname = io.popen(\"uname\"):read(\"*l\")\n    if uname == \"Darwin\" then\n        os.execute('open \"' .. url .. '\"')\n    else\n        os.execute('xdg-open \"' .. url .. '\"')\n    end\nend",
+					},
+					NeoEditButt = {
+						LINKS_Name = "Contact Us",
+						LINKID_DataType = "Number",
+						INPID_InputControl = "ButtonControl",
+						INP_Integer = false,
+						INP_MinScale = 0,
+						INP_MaxScale = 1,
+						INP_MinAllowed = -1000000,
+						INP_MaxAllowed = 1000000,
+						INP_SplineType = "Default",
+						ICS_ControlPage = "Links",
+						ICD_Width = 1,
+						BTNCS_Execute = "local url = \"https://neoeditfx.com/pages/contact\"\nlocal osName = package.config:sub(1,1) == \"\\\\\" and \"windows\" or \"unix\"\n\nif osName == \"windows\" then\n    os.execute('start \"\" \"' .. url .. '\"')\nelse\n    local uname = io.popen(\"uname\"):read(\"*l\")\n    if uname == \"Darwin\" then\n        os.execute('open \"' .. url .. '\"')\n    else\n        os.execute('xdg-open \"' .. url .. '\"')\n    end\nend",
+						}
+					}
+				},
+				PipeRouter2 = PipeRouter {
+					CtrlWShown = false,
+					Inputs = {
+						Input = Input {
+							SourceOp = "NHTM2",
+							Source = "Output",
+						}
+					},
+					ViewInfo = PipeRouterInfo { Pos = { -275, 206.758 } },
+				},
+				NRDVE = DVE {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						AlphaMode = Input { Value = 2, },
+						Input = Input {
+							SourceOp = "NRDP",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 165, 82.5 } },
+				},
+				NRM1 = Merge {
+					NameSet = true,
+					Inputs = {
+						EffectMask = Input {
+							SourceOp = "FalloffSoftness",
+							Source = "Output",
+						},
+						Background = Input {
+							SourceOp = "NRBG1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "NRXF",
+							Source = "Output",
+						},
+						PerformDepthMerge = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { -55, 49.5 } },
+				}
+			},
+		},
+		XYPath1 = XYPath {
+			ShowKeyPoints = false,
+			DrawMode = "ModifyOnly",
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Volumes/T7/NeoEdit/Plugins & Presets/Plugins/NeoEdit Core Pack/Neo Reflection/"
+					}
+				},
+			},
+			Inputs = {
+				X = Input { Value = 0.5, },
+				Y = Input { Value = 0.5, }
+			},
+		}
+	}
+}

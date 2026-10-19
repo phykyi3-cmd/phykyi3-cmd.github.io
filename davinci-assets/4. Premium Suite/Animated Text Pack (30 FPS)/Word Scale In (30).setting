@@ -1,0 +1,96 @@
+{
+	Tools = ordered() {
+		Template = TextPlus {
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Word/01 Basic/"
+					}
+				},
+			},
+			Inputs = {
+				GlobalOut = Input { Value = 149, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+				Wrap = Input { Value = 1, },
+				LayoutRotation = Input { Value = 1, },
+				TransformRotation = Input { Value = 1, },
+				Softness1 = Input { Value = 1, },
+				StyledText = Input {
+					SourceOp = "Follower1",
+					Source = "StyledText",
+				},
+				Font = Input { Value = "Open Sans", },
+				Style = Input { Value = "Bold", },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { -220, 115.5 } },
+		},
+		Follower1 = StyledTextFollower {
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Word/01 Basic/"
+					}
+				},
+			},
+			Inputs = {
+				Order = Input { Value = 7, },
+				Delay = Input { Value = 1.5, },
+				Text = Input { Value = "Word Scale In", },
+				SelectTransform = Input { Value = 1, },
+				TransformRotation = Input { Value = 1, },
+				TransformSize = Input { Value = 1, },
+				WordSizeX = Input {
+					SourceOp = "Follower1WordSizeX",
+					Source = "Value",
+					Expression = "WordSizeY",
+				},
+				WordSizeY = Input {
+					SourceOp = "Follower1WordSizeY",
+					Source = "Value",
+				},
+				Softness1 = Input { Value = 1, },
+				Softness2 = Input { Value = 1, },
+				Softness3 = Input { Value = 1, },
+				Softness4 = Input { Value = 1, },
+				Softness5 = Input { Value = 1, },
+				Softness6 = Input { Value = 1, },
+				Softness7 = Input { Value = 1, },
+				Softness8 = Input { Value = 1, }
+			},
+		},
+		Follower1WordSizeX = BezierSpline {
+			SplineColor = { Red = 227, Green = 36, Blue = 253 },
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Word/01 Basic/"
+					}
+				},
+			},
+			KeyFrames = {
+				[0] = { 0, Flags = { Linear = true } }
+			}
+		},
+		Follower1WordSizeY = BezierSpline {
+			SplineColor = { Red = 253, Green = 36, Blue = 127 },
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Word/01 Basic/"
+					}
+				},
+			},
+			KeyFrames = {
+				[0] = { 0, RH = { 2.75586210448166, 1 }, Flags = { } },
+				[14.8000001907349] = { 1, LH = { 9.86667172715664, 1 }, Flags = { } }
+			}
+		}
+	}
+}

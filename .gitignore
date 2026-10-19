@@ -34,6 +34,7 @@
 !davinci-assets/
 !davinci-assets/**
 !davinci_plugins_suite.zip
+!davinci_premium_plugins.zip
 !davinci_text_animation_plugins.zip
 !davinci_effect_plugins.zip
 !davinci_color_plugins.zip
@@ -48,6 +49,19 @@
 !ae_effect_plugins.zip
 !ae_color_plugins.zip
 !install_to_ae.sh
+!sound-effects.html
+!sound_assets_data.js
+!sound_assets_data.json
+!sound-assets/
+!sound-assets/**
+!sound_sfx_suite.zip
+!sound_bgm_suite.zip
+!sound_design_gears_1.zip
+!sound_design_gears_2.zip
+!sound_design_subbooms_1.zip
+!sound_design_subbooms_2.zip
+!sound_design_risers.zip
+!sound_design_tones.zip
 !.github/
 !.github/**
 !.gitignore

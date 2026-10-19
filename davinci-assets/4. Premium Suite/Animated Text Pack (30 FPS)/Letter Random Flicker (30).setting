@@ -1,0 +1,79 @@
+{
+	Tools = ordered() {
+		Template = TextPlus {
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Letter/04 Flicker/"
+					}
+				},
+			},
+			Inputs = {
+				GlobalOut = Input { Value = 149, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				StyledText = Input {
+					SourceOp = "FollowerLetterAnimation",
+					Source = "StyledText",
+				},
+				Font = Input { Value = "Open Sans", },
+				Style = Input { Value = "Bold", },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { -330, 115.5 } },
+		},
+		FollowerLetterAnimation = StyledTextFollower {
+			CtrlWZoom = false,
+			NameSet = true,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Letter/04 Flicker/"
+					}
+				},
+			},
+			Inputs = {
+				Order = Input { Value = 4, },
+				Delay = Input { Value = 2, },
+				Text = Input { Value = "Letter Random Flicker", },
+				TransformRotation = Input { Value = 1, },
+				TransformSize = Input { Value = 1, },
+				Opacity1 = Input {
+					SourceOp = "FollowerLetterAnimationOpacity1",
+					Source = "Value",
+				},
+				Softness1 = Input { Value = 1, },
+				Softness2 = Input { Value = 1, },
+				Softness3 = Input { Value = 1, },
+				Softness4 = Input { Value = 1, },
+				Softness5 = Input { Value = 1, },
+				Softness6 = Input { Value = 1, },
+				Softness7 = Input { Value = 1, },
+				Softness8 = Input { Value = 1, }
+			},
+		},
+		FollowerLetterAnimationOpacity1 = BezierSpline {
+			SplineColor = { Red = 179, Green = 28, Blue = 244 },
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Letter/04 Flicker/"
+					}
+				},
+			},
+			KeyFrames = {
+				[0] = { 0, RH = { 0.727272727272725, 0 }, Flags = { } },
+				[1.56521739130435] = { 0.496, LH = { 0.774782621813385, 0.445500000838077 }, RH = { 2.29241737923603, 0.542459999228969 }, Flags = { } },
+				[3.1304347826087] = { 0.2, LH = { 2.34000001311773, 0.149500000838077 }, RH = { 3.85763477054038, 0.246459999228969 }, Flags = { } },
+				[4.69565217391304] = { 0.696, LH = { 3.90521740442208, 0.648025000796174 }, RH = { 5.42285216184475, 0.74013699926752 }, Flags = { } },
+				[6.26086956521739] = { 0.39, LH = { 5.47043479572642, 0.35111500064532 }, RH = { 6.9880695531491, 0.425774199406306 }, Flags = { } },
+				[7.82608695652174] = { 0.85, LH = { 7.03565218703077, 0.809095000678843 }, RH = { 9.03808693640786, 0.912720998959108 }, Flags = { } },
+				[10.4347826086957] = { 0.606, LH = { 9.11739132621073, 0.558656250785698 }, RH = { 11.1619825966274, 0.632133749566295 }, Flags = { } },
+				[12] = { 1, LH = { 11.2094861660079, 1 }, Flags = { } }
+			}
+		}
+	}
+}

@@ -1,0 +1,151 @@
+{
+	Tools = ordered() {
+		Template = TextPlus {
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Letter/05 Blur/"
+					}
+				},
+			},
+			Inputs = {
+				GlobalOut = Input { Value = 149, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				StyledText = Input {
+					SourceOp = "FollowerLetterAnimation",
+					Source = "StyledText",
+				},
+				Font = Input { Value = "Open Sans", },
+				Style = Input { Value = "Bold", },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { -275, 115.5 } },
+		},
+		FollowerLetterAnimation = StyledTextFollower {
+			CtrlWZoom = false,
+			NameSet = true,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Letter/05 Blur/"
+					}
+				},
+			},
+			Inputs = {
+				Order = Input { Value = 7, },
+				Delay = Input { Value = 0.7, },
+				Text = Input { Value = "Letter Slide Down + Blur", },
+				CharacterOffset = Input {
+					SourceOp = "Path",
+					Source = "Position",
+				},
+				TransformRotation = Input { Value = 1, },
+				Opacity1 = Input {
+					SourceOp = "FollowerLetterAnimationOpacity1",
+					Source = "Value",
+				},
+				Softness1 = Input { Value = 1, },
+				SoftnessX1 = Input {
+					SourceOp = "FollowerLetterAnimationSoftnessX1",
+					Source = "Value",
+					Expression = "SoftnessY1",
+				},
+				SoftnessY1 = Input {
+					SourceOp = "FollowerLetterAnimationSoftnessY1",
+					Source = "Value",
+				},
+				Softness2 = Input { Value = 1, },
+				Softness3 = Input { Value = 1, },
+				Softness4 = Input { Value = 1, },
+				Softness5 = Input { Value = 1, },
+				Softness6 = Input { Value = 1, },
+				Softness7 = Input { Value = 1, },
+				Softness8 = Input { Value = 1, }
+			},
+		},
+		Path = PolyPath {
+			DrawMode = "InsertAndModify",
+			NameSet = true,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Letter/05 Blur/"
+					}
+				},
+			},
+			Inputs = {
+				Displacement = Input {
+					SourceOp = "PathDisplacement",
+					Source = "Value",
+				},
+				PolyLine = Input {
+					Value = Polyline {
+						Points = {
+							{ Linear = true, LockY = true, X = -0.5, Y = -0.47, RX = 0, RY = -0.00999999999999999 },
+							{ Linear = true, LockY = true, X = -0.5, Y = -0.5, LX = 0, LY = 0.00999999999999999 }
+						}
+					},
+				}
+			},
+		},
+		PathDisplacement = BezierSpline {
+			SplineColor = { Red = 255, Green = 0, Blue = 255 },
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Letter/05 Blur/"
+					}
+				},
+			},
+			KeyFrames = {
+				[0.648740113869977] = { 0, RH = { 2.72495294812509, 0.864999999999999 }, Flags = { LockedY = true } },
+				[15.7012831622195] = { 1, LH = { 10.2576350009752, 0.975754025341323 }, Flags = { LockedY = true } }
+			}
+		},
+		FollowerLetterAnimationOpacity1 = BezierSpline {
+			SplineColor = { Red = 179, Green = 28, Blue = 244 },
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Letter/05 Blur/"
+					}
+				},
+			},
+			KeyFrames = {
+				[0.648740113869977] = { 0, RH = { 0.908266718151864, 0.919999999999999 }, Flags = { Linear = true } },
+				[15.7012831622195] = { 1, LH = { 10.1993191514435, 0.994999999999999 }, Flags = { } }
+			}
+		},
+		FollowerLetterAnimationSoftnessX1 = BezierSpline {
+			SplineColor = { Red = 231, Green = 190, Blue = 243 },
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Letter/05 Blur/"
+					}
+				},
+			},
+			KeyFrames = {
+				[29] = { 0, Flags = { Linear = true } }
+			}
+		},
+		FollowerLetterAnimationSoftnessY1 = BezierSpline {
+			SplineColor = { Red = 231, Green = 243, Blue = 234 },
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Letter/05 Blur/"
+					}
+				},
+			},
+			KeyFrames = {
+				[0.648740113869977] = { 7.53, RH = { 3.24400615668887, 0.15 }, Flags = { Linear = true } },
+				[15.7012831622195] = { 0, LH = { 10.683773830284, 0 }, Flags = { } }
+			}
+		}
+	}
+}

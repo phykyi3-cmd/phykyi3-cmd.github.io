@@ -1,0 +1,556 @@
+{
+	Tools = ordered() {
+		NeoPaperCurl = MacroOperator {
+			CtrlWZoom = false,
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Volumes/T7/NeoEdit/Plugins & Presets/Plugins/NeoEdit Core Pack/Neo Paper Curl/"
+					}
+				},
+			},
+			Inputs = ordered() {
+				MainInput1 = InstanceInput {
+					SourceOp = "PTCAM",
+					Source = "ImageInput",
+					Name = "Input",
+				},
+				UpdateResolution = InstanceInput {
+					SourceOp = "PTR2",
+					Source = "UpdateRes",
+					Width = 1,
+				},
+				BendAmount = InstanceInput {
+					SourceOp = "PTBENDER",
+					Source = "Amount",
+					Name = "Bend Amount",
+					Default = 1,
+				},
+				CurlCenter = InstanceInput {
+					SourceOp = "PTBENDER",
+					Source = "Center",
+					Name = "Curl Center",
+					Default = 1,
+				},
+				InpuCurlAmountt4 = InstanceInput {
+					SourceOp = "PTBENDER",
+					Source = "CurlAmount",
+					Default = 1,
+				},
+				CurlRotation = InstanceInput {
+					SourceOp = "PT3XF",
+					Source = "Transform3DOp.Rotate.Z",
+					Name = "Curl Rotation",
+					Default = -45,
+				},
+				Translation = InstanceInput {
+					SourceOp = "PTCTRL",
+					Source = "TranslationControls",
+					Default = 0,
+				},
+				TranslateX = InstanceInput {
+					SourceOp = "PTCAM2",
+					Source = "Transform3DOp.Translate.X",
+					Name = "X",
+				},
+				TranslateY = InstanceInput {
+					SourceOp = "PTCAM2",
+					Source = "Transform3DOp.Translate.Y",
+					Name = "Y",
+				},
+				TranslateZ = InstanceInput {
+					SourceOp = "PTCAM2",
+					Source = "Transform3DOp.Translate.Z",
+					Name = "Z",
+					Default = 5,
+				},
+				Rotation = InstanceInput {
+					SourceOp = "PTCTRL",
+					Source = "RotationControls",
+					Default = 0,
+				},
+				RotationX = InstanceInput {
+					SourceOp = "PTCAM2",
+					Source = "Transform3DOp.Rotate.X",
+					Name = "X",
+				},
+				RotationY = InstanceInput {
+					SourceOp = "PTCAM2",
+					Source = "Transform3DOp.Rotate.Y",
+					Name = "Y",
+				},
+				RotationZ = InstanceInput {
+					SourceOp = "PTCAM2",
+					Source = "Transform3DOp.Rotate.Z",
+					Name = "Z",
+					Default = 0,
+				},
+				MotionBlurControls = InstanceInput {
+					SourceOp = "PTCTRL",
+					Source = "MotionBlurControls",
+					Default = 0,
+				},
+				MotionBlur = InstanceInput {
+					SourceOp = "PTR2",
+					Source = "MotionBlur",
+					Default = 0,
+				},
+				Quality = InstanceInput {
+					SourceOp = "PTR2",
+					Source = "Quality",
+					Default = 2,
+				},
+				ShutterAngle = InstanceInput {
+					SourceOp = "PTR2",
+					Source = "ShutterAngle",
+					Default = 180,
+				},
+				HowToButt = InstanceInput {
+					SourceOp = "PTCTRL",
+					Source = "HowToButt",
+					MinScale = 1,
+					Width = 1,
+					Page = "Links",
+					Default = 3,
+				},
+				LatestVersion = InstanceInput {
+					SourceOp = "PTCTRL",
+					Source = "LatestVersion",
+					MinScale = 1,
+					Width = 1,
+					Page = "Links",
+					Default = 3,
+				},
+				NeoEdit = InstanceInput {
+					SourceOp = "PTCTRL",
+					Source = "NeoEditButt",
+					MinScale = 1,
+					Width = 1,
+					Page = "Links",
+					Default = 3,
+				},
+				BGWidth = InstanceInput {
+					SourceOp = "PTR2",
+					Source = "Width",
+					Page = "Common",
+				},
+				BGHeight = InstanceInput {
+					SourceOp = "PTR2",
+					Source = "Height",
+					Page = "Common",
+				}
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "PTM",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo {
+				Pos = { 220, 49.5 },
+				Flags = {
+					AllowPan = false,
+					GridSnap = true,
+					AutoSnap = true,
+					RemoveRouters = true
+				},
+				Size = { 566, 250.107, 283, 105.483 },
+				Direction = "Horizontal",
+				PipeStyle = "Direct",
+				Scale = 1,
+				Offset = { 0, 0 }
+			},
+			Tools = ordered() {
+				PTBENDER = Bender3D {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						SceneInput = Input {
+							SourceOp = "PT3XF",
+							Source = "Output",
+						},
+						Amount = Input { Value = 1, },
+						Center = Input { Value = 1, },
+						RangeMax = Input {
+							Value = 0,
+							Expression = "PTBENDER.CurlAmount",
+						},
+						Group = Input { Value = 1, }
+					},
+					ViewInfo = OperatorInfo { Pos = { -110, 16.5 } },
+					UserControls = ordered() { Min = { INP_Integer = false, LINKID_DataType = "Number", ICS_ControlPage = "Controls", INPID_InputControl = "ScrewControl", ICD_Center = 0, LINKS_Name = "Min", }, Max = { INP_Integer = false, LINKID_DataType = "Number", ICS_ControlPage = "Controls", INPID_InputControl = "ScrewControl", ICD_Center = 0, LINKS_Name = "Max", }, CurlAmount = {
+							INP_Integer = false,
+							LINKID_DataType = "Number",
+							INPID_InputControl = "SliderControl",
+							INP_SplineType = "Default",
+							LINKS_Name = "Curl Amount",
+						} }
+				},
+				PT3XF = Transform3D {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						SceneInput = Input {
+							SourceOp = "PTCAM",
+							Source = "Output",
+						},
+						["Transform3DOp.Rotate.Z"] = Input { Value = -45, },
+						["Transform3DOp.Scale.Z"] = Input { Value = 1.003, }
+					},
+					ViewInfo = OperatorInfo { Pos = { -110, 49.5 } },
+				},
+				PTCTRL = AlphaDivide {
+					PassThrough = true,
+					CtrlWShown = false,
+					NameSet = true,
+					ViewInfo = OperatorInfo { Pos = { 110, 16.5 } },
+					UserControls = ordered() {
+						MotionBlurControls = {
+							INP_MaxAllowed = 1000000,
+							INP_Integer = true,
+							LBLC_DropDownButton = true,
+							INPID_InputControl = "LabelControl",
+							LBLC_NumInputs = 3,
+							INP_MaxScale = 1,
+							INP_Default = 0,
+							INP_MinScale = 0,
+							INP_MinAllowed = -1000000,
+							LINKID_DataType = "Number",
+							INP_SplineType = "Default",
+							LINKS_Name = "Motion Blur Controls",
+						},
+						TranslationControls = {
+							INP_MaxAllowed = 1000000,
+							INP_Integer = true,
+							LBLC_DropDownButton = true,
+							INPID_InputControl = "LabelControl",
+							LBLC_NumInputs = 3,
+							INP_MaxScale = 1,
+							INP_Default = 0,
+							INP_MinScale = 0,
+							INP_MinAllowed = -1000000,
+							LINKID_DataType = "Number",
+							INP_SplineType = "Default",
+							LINKS_Name = "Translation",
+						},
+						HowToButt = {
+							INP_MaxAllowed = 1000000,
+							INP_Integer = false,
+							INPID_InputControl = "ButtonControl",
+							BTNCS_Execute = "local url = \"https://youtu.be/CmLjsxcW24c\"\nlocal osName = package.config:sub(1,1) == \"\\\\\" and \"windows\" or \"unix\"\n\nif osName == \"windows\" then\n    os.execute('start \"\" \"' .. url .. '\"')\nelse\n    local uname = io.popen(\"uname\"):read(\"*l\")\n    if uname == \"Darwin\" then\n        os.execute('open \"' .. url .. '\"')\n    else\n        os.execute('xdg-open \"' .. url .. '\"')\n    end\nend",
+							INP_MaxScale = 1,
+							INP_MinScale = 0,
+							INP_MinAllowed = -1000000,
+							LINKID_DataType = "Number",
+							ICD_Width = 1,
+							ICS_ControlPage = "Links",
+							INP_SplineType = "Default",
+							LINKS_Name = "Tutorial"
+						},
+						LatestVersion = {
+							INP_MaxAllowed = 1000000,
+							INP_Integer = false,
+							INPID_InputControl = "ButtonControl",
+							BTNCS_Execute = "local url = \"https://drive.google.com/drive/folders/1xKDy-1TrO7KWDPwRLYOdOJh6DJ_W6oH7?usp=drive_link\"\nlocal osName = package.config:sub(1,1) == \"\\\\\" and \"windows\" or \"unix\"\n\nif osName == \"windows\" then\n    os.execute('start \"\" \"' .. url .. '\"')\nelse\n    local uname = io.popen(\"uname\"):read(\"*l\")\n    if uname == \"Darwin\" then\n        os.execute('open \"' .. url .. '\"')\n    else\n        os.execute('xdg-open \"' .. url .. '\"')\n    end\nend",
+							INP_MaxScale = 1,
+							INP_MinScale = 0,
+							INP_MinAllowed = -1000000,
+							LINKID_DataType = "Number",
+							ICD_Width = 1,
+							ICS_ControlPage = "Links",
+							INP_SplineType = "Default",
+							LINKS_Name = "Latest Version"
+						},
+						NeoEditButt = {
+							INP_MaxAllowed = 1000000,
+							INP_Integer = false,
+							INPID_InputControl = "ButtonControl",
+							BTNCS_Execute = "local url = \"https://neoeditfx.com/pages/contact\"\nlocal osName = package.config:sub(1,1) == \"\\\\\" and \"windows\" or \"unix\"\n\nif osName == \"windows\" then\n    os.execute('start \"\" \"' .. url .. '\"')\nelse\n    local uname = io.popen(\"uname\"):read(\"*l\")\n    if uname == \"Darwin\" then\n        os.execute('open \"' .. url .. '\"')\n    else\n        os.execute('xdg-open \"' .. url .. '\"')\n    end\nend",
+							INP_MaxScale = 1,
+							INP_MinScale = 0,
+							INP_MinAllowed = -1000000,
+							LINKID_DataType = "Number",
+							ICD_Width = 1,
+							ICS_ControlPage = "Links",
+							INP_SplineType = "Default",
+							LINKS_Name = "Contact Us"
+						},
+						RotationControls = {
+							INP_MaxAllowed = 1000000,
+							INP_Integer = true,
+							LBLC_DropDownButton = true,
+							INPID_InputControl = "LabelControl",
+							LBLC_NumInputs = 3,
+							INP_MaxScale = 1,
+							INP_Default = 0,
+							INP_MinScale = 0,
+							INP_MinAllowed = -1000000,
+							LINKID_DataType = "Number",
+							INP_SplineType = "Default",
+							LINKS_Name = "Rotation",
+						}
+					}
+				},
+				PTR2 = Renderer3D {
+					CtrlWShown = false,
+					NameSet = true,
+					CustomData = { ToolVersion = 2, },
+					Inputs = {
+						SettingsNest = Input { Value = 0, },
+						GlobalOut = Input { Value = 299, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						SceneInput = Input {
+							SourceOp = "PT3M",
+							Source = "Output",
+						},
+						CameraSelector = Input { Value = FuID { "PTCAM2" }, },
+						OutputType = Input { Disabled = true, },
+						RendererType = Input { Value = FuID { "RendererOpenGL" }, },
+						UpdateRes = Input { Value = 0, },
+						["RendererOpenGL.AntiAliasing.Channels.RGBA.HighQuality.Enable"] = Input { Value = 1, },
+						["RendererOpenGL.AntiAliasing.Presets.Color.Supersampling.HighQuality.Rate"] = Input { Value = 1, },
+						["RendererOpenGL.AntiAliasing.Presets.Color.Multisampling.LowQuality.SampleCount"] = Input { Value = 2, },
+						["RendererOpenGL.AntiAliasing.Presets.Color.Multisampling.HighQuality.SampleCount"] = Input { Value = 3, },
+						["RendererOpenGL.AntiAliasing.Presets.Aux.Supersampling.HighQuality.Rate"] = Input { Value = 1, },
+						["RendererOpenGL.AntiAliasing.Presets.Aux.Multisampling.LowQuality.SampleCount"] = Input { Value = 2, },
+						["RendererOpenGL.AntiAliasing.Presets.Aux.Multisampling.HighQuality.SampleCount"] = Input { Value = 3, },
+						["RendererOpenGL.AccumQuality"] = Input { Value = 32, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 110, 82.5 } },
+					UserControls = ordered() {
+						UpdateRes = {
+							INP_MaxAllowed = 1000000,
+							INP_Integer = false,
+							INPID_InputControl = "ButtonControl",
+							BTNCS_Execute = "tool:SetInput('BGWidth', comp.ActiveTool:GetInput('MainInput1',comp.CurrentTime).Width)\ntool:SetInput('BGHeight', comp.ActiveTool:GetInput('MainInput1',comp.CurrentTime).Height)",
+							INP_MaxScale = 1,
+							INP_Default = 1,
+							INP_MinScale = 0,
+							INP_MinAllowed = -1000000,
+							LINKID_DataType = "Number",
+							INP_External = false,
+							ICD_Width = 1,
+							INP_SplineType = "Default",
+							LINKS_Name = "UpdateRes",
+						},
+						HowToButt = InstanceInput {
+							SourceOp = "NBCTRL",
+							Source = "HowToButt",
+							MinScale = 1,
+							Width = 1,
+							Page = "Links",
+							Default = 3,
+						},
+						LatestVersion = InstanceInput {
+							SourceOp = "NBCTRL",
+							Source = "LatestVersion",
+							MinScale = 1,
+							Width = 1,
+							Page = "Links",
+							Default = 3,
+						},
+						NeoEdit = InstanceInput {
+							SourceOp = "NBCTRL",
+							Source = "NeoEditButt",
+							MinScale = 1,
+							Width = 1,
+							Page = "Links",
+							Default = 3,
+						}
+					},
+					SubInputsData = {
+						RendererOpenGL = {
+							Version = 1
+						}
+					}
+				},
+				PTM = Merge {
+					NameSet = true,
+					Inputs = {
+						Blend = Input { Value = 0.402, },
+						Background = Input {
+							SourceOp = "PTR1",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "PTR2",
+							Source = "Output",
+						},
+						ApplyMode = Input { Value = FuID { "Lighten" }, },
+						PerformDepthMerge = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 220, 82.5 } },
+				},
+				PTR1 = Renderer3D {
+					CtrlWShown = false,
+					NameSet = true,
+					CustomData = { ToolVersion = 2, },
+					Inputs = {
+						MotionBlur = Input { Expression = "PTR2.MotionBlur", },
+						Quality = Input { Expression = "PTR2.Quality", },
+						ShutterAngle = Input { Expression = "PTR2.ShutterAngle", },
+						GlobalOut = Input { Value = 299, },
+						Width = Input {
+							Value = 1920,
+							Expression = "PTR2.Width",
+						},
+						Height = Input {
+							Value = 1080,
+							Expression = "PTR2.Height",
+						},
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						SceneInput = Input {
+							SourceOp = "PT3M",
+							Source = "Output",
+						},
+						CameraSelector = Input { Value = FuID { "PTCAM2" }, },
+						OutputType = Input { Disabled = true, },
+						RendererType = Input { Value = FuID { "RendererOpenGL" }, },
+						["RendererOpenGL.AntiAliasing.Nest"] = Input { Value = 1, },
+						["RendererOpenGL.AntiAliasing.Channels.RGBA.HighQuality.Enable"] = Input { Value = 1, },
+						["RendererOpenGL.AntiAliasing.Presets.Color.Supersampling.HighQuality.Rate"] = Input { Value = 1, },
+						["RendererOpenGL.AntiAliasing.Presets.Color.Multisampling.LowQuality.SampleCount"] = Input { Value = 2, },
+						["RendererOpenGL.AntiAliasing.Presets.Color.Multisampling.HighQuality.SampleCount"] = Input { Value = 3, },
+						["RendererOpenGL.AntiAliasing.Presets.Aux.Supersampling.HighQuality.Rate"] = Input { Value = 1, },
+						["RendererOpenGL.AntiAliasing.Presets.Aux.Multisampling.LowQuality.SampleCount"] = Input { Value = 2, },
+						["RendererOpenGL.AntiAliasing.Presets.Aux.Multisampling.HighQuality.SampleCount"] = Input { Value = 3, },
+						["RendererOpenGL.AccumQuality"] = Input { Value = 32, },
+						["RendererOpenGL.LightingEnabled"] = Input { Value = 1, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 110, 49.5 } },
+					SubInputsData = {
+						RendererOpenGL = {
+							Version = 1
+						}
+					}
+				},
+				PT3M = Merge3D {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						["Transform3DOp.Translate.Z"] = Input { Value = -3.03, },
+						SceneInput1 = Input {
+							SourceOp = "PT3XF2",
+							Source = "Output",
+						},
+						SceneInput2 = Input {
+							SourceOp = "PTDL",
+							Source = "Output",
+						},
+						SceneInput3 = Input {
+							SourceOp = "PTCAM2",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 0, 49.5 } },
+				},
+				PT3XF2 = Transform3D {
+					CtrlWShown = false,
+					NameSet = true,
+					SourceOp = "PT3XF",
+					Inputs = {
+						LayersNest = Input {
+						},
+						SceneInput = Input {
+							SourceOp = "PTBENDER",
+							Source = "Output",
+						},
+						["Transform3DOp.Translation"] = Input {
+						},
+						["Transform3DOp.Rotation"] = Input {
+						},
+						["Transform3DOp.PivotNest"] = Input {
+						},
+						["Transform3DOp.ScaleNest"] = Input {
+						},
+						["Transform3DOp.TargetNest"] = Input {
+						},
+						["Transform3DOp.InvertTransform"] = Input {
+							Value = 1,
+						},
+						["Transform3DOp.Import"] = Input {
+						},
+						CommentsNest = Input {
+						},
+						FrameRenderScriptNest = Input {
+						},
+						StartRenderScripts = Input {
+						},
+						EndRenderScripts = Input {
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 0, 16.5 } },
+				},
+				PTDL = LightDirectional {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						["ShadowLightInputs3D.ShadowsEnabled"] = Input { Value = 1, },
+						["ShadowLightInputs3D.ShadowMapSize"] = Input { Value = 2048, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 0, 82.5 } },
+				},
+				PTCAM = Camera3D {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						["Transform3DOp.Translate.Z"] = Input { Value = 5, },
+						["Transform3DOp.PivotNest"] = Input { Value = 1, },
+						AoV = Input { Value = 19.26427, },
+						FLength = Input { Value = 34.9999968656308, },
+						["Stereo.Nest"] = Input { Value = 1, },
+						["Stereo.Mode"] = Input { Value = FuID { "OffAxis" }, },
+						FilmGate = Input { Value = FuID { "BMD_URSA_4K_16x9" }, },
+						ApertureW = Input { Value = 0.831496062992126, },
+						ApertureH = Input { Value = 0.467716535433071, },
+						IDepth = Input { Value = 4.6, },
+						["SurfacePlaneInputs.SubdivisionWidth"] = Input { Value = 100, },
+						["SurfacePlaneInputs.Lighting.Nest"] = Input { Value = 1, },
+						["SurfacePlaneInputs.Matte.Nest"] = Input { Value = 1, },
+						["SurfacePlaneInputs.BlendMode.Nest"] = Input { Value = 1, },
+						["SurfacePlaneInputs.Controls.Nest"] = Input { Value = 1, },
+						["SurfacePlaneInputs.ObjectID.Nest"] = Input { Value = 1, },
+						["SurfacePlaneInputs.ObjectID.ObjectID"] = Input { Value = 2, },
+						ImageInput = Input {
+							SourceOp = "MediaIn1",
+							Source = "Output",
+						},
+						["MtlStdInputs.Specular.Nest"] = Input { Value = 1, },
+						["MtlStdInputs.Specular.Intensity"] = Input { Value = 0, },
+						["MtlStdInputs.MaterialID"] = Input { Value = 2, }
+					},
+					ViewInfo = OperatorInfo { Pos = { -220, 49.5 } },
+				},
+				PTCAM2 = Camera3D {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						["Transform3DOp.Translate.Z"] = Input { Value = 5, },
+						["Transform3DOp.PivotNest"] = Input { Value = 1, },
+						AoV = Input { Value = 19.26427, },
+						FLength = Input { Value = 34.9999968656308, },
+						["Stereo.Nest"] = Input { Value = 1, },
+						["Stereo.Mode"] = Input { Value = FuID { "OffAxis" }, },
+						FilmGate = Input { Value = FuID { "BMD_URSA_4K_16x9" }, },
+						ApertureW = Input { Value = 0.831496062992126, },
+						ApertureH = Input { Value = 0.467716535433071, },
+						IDepth = Input { Value = 4.6, },
+						["SurfacePlaneInputs.SubdivisionWidth"] = Input { Value = 100, },
+						["SurfacePlaneInputs.Lighting.Nest"] = Input { Value = 1, },
+						["SurfacePlaneInputs.Matte.Nest"] = Input { Value = 1, },
+						["SurfacePlaneInputs.BlendMode.Nest"] = Input { Value = 1, },
+						["SurfacePlaneInputs.Controls.Nest"] = Input { Value = 1, },
+						["SurfacePlaneInputs.ObjectID.Nest"] = Input { Value = 1, },
+						["SurfacePlaneInputs.ObjectID.ObjectID"] = Input { Value = 2, },
+						["MtlStdInputs.Specular.Nest"] = Input { Value = 1, },
+						["MtlStdInputs.Specular.Intensity"] = Input { Value = 0, },
+						["MtlStdInputs.MaterialID"] = Input { Value = 2, }
+					},
+					ViewInfo = OperatorInfo { Pos = { -110, 82.5 } },
+				}
+			},
+		}
+	}
+}

@@ -1,0 +1,119 @@
+{
+	Tools = ordered() {
+		Template = TextPlus {
+			CtrlWZoom = false,
+			CustomData = { Path = { Map = { ["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Letter/06 Rotation/" } }, },
+			Inputs = {
+				GlobalOut = Input { Value = 149, },
+				Width = Input { Value = 1920, },
+				Height = Input { Value = 1080, },
+				UseFrameFormatSettings = Input { Value = 1, },
+				StyledText = Input {
+					SourceOp = "FollowerLetterAnimation",
+					Source = "StyledText",
+				},
+				Font = Input { Value = "Open Sans", },
+				Style = Input { Value = "Bold", },
+				VerticalJustificationNew = Input { Value = 3, },
+				HorizontalJustificationNew = Input { Value = 3, }
+			},
+			ViewInfo = OperatorInfo { Pos = { -275, 115.5 } },
+		},
+		FollowerLetterAnimation = StyledTextFollower {
+			CtrlWZoom = false,
+			NameSet = true,
+			CustomData = { Path = { Map = { ["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Letter/06 Rotation/" } }, },
+			Inputs = {
+				Order = Input { Value = 7, },
+				Delay = Input { Value = 1, },
+				Text = Input {
+					Value = StyledText {
+						Value = "Letter Scale + Rotate"
+					},
+				},
+				TransformRotation = Input { Value = 1, },
+				CharacterAngleZ = Input {
+					SourceOp = "FollowerLetterAnimationCharacterAngleZ",
+					Source = "Value",
+				},
+				TransformSize = Input { Value = 1, },
+				CharacterSizeX = Input {
+					SourceOp = "FollowerLetterAnimationCharacterSizeX",
+					Source = "Value",
+					Expression = "CharacterSizeY",
+				},
+				CharacterSizeY = Input {
+					SourceOp = "FollowerLetterAnimationCharacterSizeY",
+					Source = "Value",
+				},
+				Opacity1 = Input {
+					SourceOp = "FollowerLetterAnimationOpacity1",
+					Source = "Value",
+				},
+				Softness1 = Input { Value = 1, },
+				Softness2 = Input { Value = 1, },
+				Softness3 = Input { Value = 1, },
+				Softness4 = Input { Value = 1, },
+				Softness5 = Input { Value = 1, },
+				Softness6 = Input { Value = 1, },
+				Softness7 = Input { Value = 1, },
+				Softness8 = Input { Value = 1, }
+			},
+		},
+		FollowerLetterAnimationCharacterAngleZ = BezierSpline {
+			SplineColor = { Red = 28, Green = 216, Blue = 243 },
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Letter/06 Rotation/"
+					}
+				},
+			},
+			KeyFrames = {
+				[0] = { -60, RH = { 3.11599996089935, 0.8 }, Flags = { Linear = true } },
+				[15.1999998092651] = { 0, LH = { 10.1333382728434, 0 }, Flags = { } }
+			}
+		},
+		FollowerLetterAnimationCharacterSizeX = BezierSpline {
+			SplineColor = { Red = 28, Green = 53, Blue = 243 },
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Letter/06 Rotation/"
+					}
+				},
+			},
+			KeyFrames = {
+				[0] = { 0, Flags = { Linear = true } }
+			}
+		},
+		FollowerLetterAnimationCharacterSizeY = BezierSpline {
+			SplineColor = { Red = 28, Green = 132, Blue = 243 },
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Letter/06 Rotation/"
+					}
+				},
+			},
+			KeyFrames = {
+				[0] = { 0, RH = { 0, 0.718 }, Flags = { Linear = true } },
+				[15.1999998092651] = { 1, LH = { 8.30571418149131, 0.995999999999999 }, Flags = { } }
+			}
+		},
+		FollowerLetterAnimationOpacity1 = BezierSpline {
+			SplineColor = { Red = 179, Green = 28, Blue = 244 },
+			CustomData = {
+				Path = {
+					Map = {
+						["Setting:"] = "/Users/victorgrubbe/Documents/NeoEdit/Plugins & Presets/Presets/Animated Text Pack 2.0/Animated Text +/30:24 Fps/Letter/06 Rotation/"
+					}
+				},
+			},
+			KeyFrames = {
+				[0] = { 0, RH = { 2.41028568404061, 1.054 }, Flags = { Linear = true } },
+				[15.1999998092651] = { 1, LH = { 9.90171416146415, 0.995999999999999 }, Flags = { } }
+			}
+		}
+	}
+}
