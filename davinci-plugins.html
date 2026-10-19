@@ -689,9 +689,6 @@
                 <a id="directDownloadLink" href="#" download class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-black text-sm shadow-xl shadow-amber-500/25 transition flex items-center justify-center gap-2">
                     <span>📥 ယခုပင် အခမဲ့ ဒေါင်းလုဒ်ရယူပါ</span>
                 </a>
-                <a id="driveDownloadLink" href="https://drive.google.com/drive/my-drive" target="_blank" class="w-full py-2.5 rounded-xl bg-emerald-500/15 border border-emerald-500/30 hover:bg-emerald-500/25 text-emerald-400 font-bold text-xs transition flex items-center justify-center gap-2">
-                    <span>🟢 Google Drive မှ ဒေါင်းလုဒ်ရယူရန် (မြန်မာပြည်တွင်း အမြန်)</span>
-                </a>
                 <p class="text-[11px] text-emerald-400 text-center font-medium">
                     ✓ စစ်ဆေးပြီး - ဗိုင်းရပ်စ်နှင့် မဲလ်ဝဲလ် ကင်းစင်ပါသည်
                 </p>
@@ -1304,7 +1301,13 @@
 
             if (countdownBox) countdownBox.classList.remove('hidden');
             if (readyBox) readyBox.classList.add('hidden');
-            if (directLink) directLink.href = url;
+            if (directLink) {
+                directLink.href = url;
+                directLink.setAttribute('download', url.split('/').pop());
+                directLink.onclick = () => {
+                    setTimeout(() => closePluginDownloadModal(), 800);
+                };
+            }
 
             modal.classList.remove('hidden');
 
