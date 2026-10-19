@@ -1302,9 +1302,13 @@
             if (countdownBox) countdownBox.classList.remove('hidden');
             if (readyBox) readyBox.classList.add('hidden');
             if (directLink) {
-                directLink.href = url;
-                directLink.setAttribute('download', url.split('/').pop());
-                directLink.onclick = () => {
+                directLink.href = '#';
+                directLink.onclick = (e) => {
+                    e.preventDefault();
+                    triggerPluginFileDownload(id, url);
+                    if (typeof id === 'number') {
+                        incrementDownloadCount(id);
+                    }
                     setTimeout(() => closePluginDownloadModal(), 800);
                 };
             }
@@ -1326,12 +1330,30 @@
                     clearInterval(countdownTimerInterval);
                     if (countdownBox) countdownBox.classList.add('hidden');
                     if (readyBox) readyBox.classList.remove('hidden');
-
-                    if (typeof id === 'number') {
-                        incrementDownloadCount(id);
-                    }
                 }
             }, 1000);
+        }
+
+        function triggerPluginFileDownload(id, url) {
+            const p = (window.DAVINCI_PLUGINS_DATA || []).find(x => x.id === id);
+            const filename = url.split('/').pop();
+
+            if (p && p.dataUri) {
+                const a = document.createElement('a');
+                a.href = p.dataUri;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                setTimeout(() => document.body.removeChild(a), 500);
+                return;
+            }
+
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            setTimeout(() => document.body.removeChild(a), 500);
         }
 
         function closePluginDownloadModal() {

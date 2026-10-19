@@ -1163,14 +1163,37 @@
                     downloadBtn.classList.remove('pointer-events-none', 'bg-slate-800', 'text-slate-500');
                     downloadBtn.classList.add('bg-gradient-to-r', 'from-indigo-600', 'to-purple-600', 'text-white', 'shadow-indigo-600/30', 'hover:from-indigo-500', 'hover:to-purple-500');
                     downloadBtn.innerHTML = `<span>⬇️ ဖိုင်ဒေါင်းလုဒ်ဆွဲမည် (${size})</span>`;
-                    downloadBtn.href = url;
-                    downloadBtn.setAttribute('download', url.split('/').pop());
-                    downloadBtn.onclick = () => {
+                    downloadBtn.href = '#';
+                    downloadBtn.onclick = (e) => {
+                        e.preventDefault();
+                        triggerPluginFileDownload(id, url);
                         incrementDownloadCount(id);
                         setTimeout(() => closePluginDownloadModal(), 800);
                     };
                 }
             }, 1000);
+        }
+
+        function triggerPluginFileDownload(id, url) {
+            const p = allPlugins.find(x => x.id === id);
+            const filename = url.split('/').pop();
+
+            if (p && p.dataUri) {
+                const a = document.createElement('a');
+                a.href = p.dataUri;
+                a.download = filename;
+                document.body.appendChild(a);
+                a.click();
+                setTimeout(() => document.body.removeChild(a), 500);
+                return;
+            }
+
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            setTimeout(() => document.body.removeChild(a), 500);
         }
 
         function closePluginDownloadModal() {
