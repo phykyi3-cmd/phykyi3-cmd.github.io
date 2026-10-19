@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="my" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Adobe After Effects Plugins, Presets & Scripts (367+) | Smart Fonts Studio</title>
+    <meta name="description" content="Adobe After Effects (Mac & Windows) အတွက် အခမဲ့ Text Animation Presets, Duik Rigging, Ease and Wizz, Motion Scripts နှင့် Cinematic Lumetri LUTs (၃၆၇ မျိုးကျော်) ကို တိုက်ရိုက်ဒေါင်းလုဒ် ရယူနိုင်ပါသည်။">
+    
+    <!-- Open Graph / SEO -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://smartmyanmarfonts.com/ae-plugins.html">
+    <meta property="og:title" content="Adobe After Effects Master Plugin Suite (367+) | Smart Fonts Studio">
+    <meta property="og:description" content="Duik Angela, Ease & Wizz, Text Animations, Motion Scripts & Lumetri LUTs များကို အခမဲ့ ဒေါင်းလုဒ်ရယူပါ။">
+    <meta property="og:image" content="https://smartmyanmarfonts.com/smart_myanmar_fonts_logo.png">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="smart_myanmar_fonts_logo.png">
+    <link rel="apple-touch-icon" href="smart_myanmar_fonts_logo.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600;800&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ae: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            200: '#c7d2fe',
+                            300: '#a5b4fc',
+                            400: '#818cf8',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            800: '#3730a3',
+                            900: '#312e81',
+                            950: '#1e1b4b',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', '"Padauk"', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', 'Padauk', sans-serif;
+            background-color: #070913;
+            color: #f8fafc;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Glassmorphism */
+        .glass-card {
+            background: rgba(15, 20, 36, 0.82);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card:hover {
+            border-color: rgba(99, 102, 241, 0.45);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070913;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #232946;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6366f1;
+        }
+
+        /* ==================== 1. AFTER EFFECTS TEXT ANIMATION KEYFRAMES ==================== */
+        @keyframes aeInertialBounce {
+            0% { transform: scale(0.65) translateY(20px); opacity: 0.3; }
+            45% { transform: scale(1.2) translateY(-7px); opacity: 1; }
+            70% { transform: scale(0.95) translateY(3px); }
+            85% { transform: scale(1.05) translateY(-1px); }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
+        }
+        @keyframes aeDefocusBlur {
+            0% { filter: blur(10px); transform: scale(1.15); opacity: 0.2; letter-spacing: 8px; }
+            50% { filter: blur(0px); transform: scale(1); opacity: 1; letter-spacing: 1px; }
+            100% { filter: blur(1px); transform: scale(1.02); opacity: 0.95; letter-spacing: 2px; }
+        }
+        @keyframes aeWordCascade {
+            0% { transform: perspective(400px) rotateX(-90deg) translateY(-10px); opacity: 0; }
+            50% { transform: perspective(400px) rotateX(15deg) translateY(0); opacity: 1; }
+            75% { transform: perspective(400px) rotateX(-5deg); }
+            100% { transform: perspective(400px) rotateX(0deg); opacity: 1; }
+        }
+        @keyframes aeChromaticStrobe {
+            0% { transform: translate(0); text-shadow: -2px 0 #ec4899, 2px 0 #06b6d4; }
+            20% { transform: translate(-2px, 1px); text-shadow: 2px -1px #ec4899, -2px 1px #06b6d4; }
+            40% { transform: translate(2px, -1px); text-shadow: -2px 1px #ec4899, 2px -1px #06b6d4; }
+            60% { transform: translate(-1px, 2px); text-shadow: 2px 1px #ec4899, -1px -1px #06b6d4; }
+            80% { transform: translate(1px, -1px); text-shadow: -1px -2px #ec4899, 1px 2px #06b6d4; }
+            100% { transform: translate(0); text-shadow: -2px 0 #ec4899, 2px 0 #06b6d4; }
+        }
+        @keyframes aeBackingBoxExpand {
+            0% { width: 30%; height: 20%; opacity: 0.4; }
+            50% { width: 92%; height: 80%; opacity: 1; }
+            100% { width: 88%; height: 75%; opacity: 0.95; }
+        }
+
+        .group:hover .anim-ae-bounce,
+        .group:active .anim-ae-bounce,
+        .group.is-previewing .anim-ae-bounce {
+            animation: aeInertialBounce 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) infinite alternate !important;
+        }
+        .group:hover .anim-ae-defocus,
+        .group:active .anim-ae-defocus,
+        .group.is-previewing .anim-ae-defocus {
+            animation: aeDefocusBlur 2s cubic-bezier(0.25, 1, 0.5, 1) infinite alternate !important;
+        }
+        .group:hover .anim-ae-cascade,
+        .group:active .anim-ae-cascade,
+        .group.is-previewing .anim-ae-cascade {
+            animation: aeWordCascade 1.4s cubic-bezier(0.34, 1.56, 0.64, 1) infinite alternate !important;
+        }
+        .group:hover .anim-ae-glitch,
+        .group:active .anim-ae-glitch,
+        .group.is-previewing .anim-ae-glitch {
+            animation: aeChromaticStrobe 0.35s steps(2) infinite !important;
+        }
+        .group:hover .anim-ae-backingbox,
+        .group:active .anim-ae-backingbox,
+        .group.is-previewing .anim-ae-backingbox {
+            animation: aeBackingBoxExpand 1.5s cubic-bezier(0.16, 1, 0.3, 1) infinite alternate !important;
+        }
+
+        /* ==================== 2. AFTER EFFECTS COLOR (NORMAL -> GRADED) ==================== */
+        .color-sphere-shape {
+            background: radial-gradient(circle at 35% 35%, #94a3b8 0%, #64748b 45%, #334155 85%, #1e293b 100%);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
+            filter: saturate(0.2) contrast(0.85);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .group:hover .grade-sphere-kodak,
+        .group:active .grade-sphere-kodak,
+        .group.is-previewing .grade-sphere-kodak {
+            background: radial-gradient(circle at 35% 35%, #fef08a 0%, #f97316 40%, #b91c1c 70%, #0e7490 100%) !important;
+            box-shadow: 0 0 35px rgba(249, 115, 22, 0.6), inset 0 0 15px rgba(254, 240, 138, 0.5) !important;
+            filter: saturate(1.4) contrast(1.25) !important;
+            transform: scale(1.15) !important;
+        }
+        .group:hover .grade-sphere-teal,
+        .group:active .grade-sphere-teal,
+        .group.is-previewing .grade-sphere-teal {
+            background: radial-gradient(circle at 35% 35%, #fed7aa 0%, #ea580c 45%, #0891b2 80%, #164e63 100%) !important;
+            box-shadow: 0 0 35px rgba(8, 145, 178, 0.6), inset 0 0 15px rgba(254, 215, 170, 0.5) !important;
+            filter: saturate(1.5) contrast(1.3) !important;
+            transform: scale(1.15) !important;
+        }
+        .group:hover .grade-sphere-fincher,
+        .group:active .grade-sphere-fincher,
+        .group.is-previewing .grade-sphere-fincher {
+            background: radial-gradient(circle at 35% 35%, #d1fae5 0%, #10b981 40%, #065f46 75%, #022c22 100%) !important;
+            box-shadow: 0 0 35px rgba(16, 185, 129, 0.6), inset 0 0 15px rgba(209, 250, 229, 0.5) !important;
+            filter: saturate(1.25) contrast(1.35) !important;
+            transform: scale(1.15) !important;
+        }
+        .group:hover .grade-sphere-cyber,
+        .group:active .grade-sphere-cyber,
+        .group.is-previewing .grade-sphere-cyber {
+            background: radial-gradient(circle at 35% 35%, #a5f3fc 0%, #d946ef 45%, #7c3aed 80%, #1e1b4b 100%) !important;
+            box-shadow: 0 0 35px rgba(217, 70, 239, 0.65), inset 0 0 15px rgba(165, 243, 252, 0.6) !important;
+            filter: saturate(1.6) contrast(1.3) !important;
+            transform: scale(1.15) !important;
+        }
+        .group:hover .grade-sphere-vintage,
+        .group:active .grade-sphere-vintage,
+        .group.is-previewing .grade-sphere-vintage {
+            background: radial-gradient(circle at 35% 35%, #fef3c7 0%, #d97706 45%, #78350f 80%, #451a03 100%) !important;
+            box-shadow: 0 0 35px rgba(217, 119, 6, 0.6), inset 0 0 15px rgba(254, 243, 199, 0.5) !important;
+            filter: saturate(1.4) contrast(1.2) !important;
+            transform: scale(1.15) !important;
+        }
+
+        @keyframes aeGradeSweep {
+            0% { left: -10%; opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { left: 110%; opacity: 0; }
+        }
+        .group:hover .grade-sweep-bar,
+        .group:active .grade-sweep-bar,
+        .group.is-previewing .grade-sweep-bar {
+            animation: aeGradeSweep 1.6s ease-in-out infinite;
+        }
+
+        /* ==================== 3. AFTER EFFECTS EFFECTS & SCRIPTS KEYFRAMES ==================== */
+        /* 3.1 Duik Angela Rigging & Bone IK Flex */
+        @keyframes duikArmFlex {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(45deg); }
+        }
+        @keyframes duikForearmFlex {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(-70deg); }
+        }
+        .group:hover .duik-upper-arm,
+        .group:active .duik-upper-arm,
+        .group.is-previewing .duik-upper-arm {
+            animation: duikArmFlex 1.6s ease-in-out infinite;
+        }
+        .group:hover .duik-fore-arm,
+        .group:active .duik-fore-arm,
+        .group.is-previewing .duik-fore-arm {
+            animation: duikForearmFlex 1.6s ease-in-out infinite;
+        }
+
+        /* 3.2 Ease and Wizz Graph Curve & Elastic Keyframe */
+        @keyframes easeWizzBall {
+            0% { transform: translate(-30px, 15px); }
+            35% { transform: translate(0px, -20px); }
+            55% { transform: translate(15px, 8px); }
+            75% { transform: translate(25px, -4px); }
+            100% { transform: translate(30px, 0px); }
+        }
+        .group:hover .ease-wizz-ball,
+        .group:active .ease-wizz-ball,
+        .group.is-previewing .ease-wizz-ball {
+            animation: easeWizzBall 1.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite alternate;
+        }
+
+        /* 3.3 Boil Lines Hand-Drawn Sketch Jitter */
+        @keyframes boilSketchJitter {
+            0% { transform: scale(1) rotate(0deg) skew(0deg); }
+            25% { transform: scale(1.02) rotate(1deg) skew(1deg); }
+            50% { transform: scale(0.98) rotate(-1.5deg) skew(-1deg); }
+            75% { transform: scale(1.03) rotate(0.8deg) skew(0.5deg); }
+            100% { transform: scale(1) rotate(0deg) skew(0deg); }
+        }
+        .group:hover .boil-sketch-anim,
+        .group:active .boil-sketch-anim,
+        .group.is-previewing .boil-sketch-anim {
+            animation: boilSketchJitter 0.18s steps(1) infinite;
+        }
+
+        /* 3.4 Rainbow Rumble & Chromatic Prism */
+        @keyframes rainbowRumbleSpin {
+            0% { transform: rotate(0deg); filter: hue-rotate(0deg); }
+            100% { transform: rotate(360deg); filter: hue-rotate(360deg); }
+        }
+        .group:hover .rainbow-prism-anim,
+        .group:active .rainbow-prism-anim,
+        .group.is-previewing .rainbow-prism-anim {
+            animation: rainbowRumbleSpin 3.5s linear infinite;
+        }
+
+        /* 3.5 Infrared Thermal Heat Spectrum */
+        @keyframes infraredHeatPulse {
+            0%, 100% { filter: hue-rotate(0deg) contrast(1.5) invert(0.8); }
+            50% { filter: hue-rotate(180deg) contrast(2) invert(0.9); }
+        }
+        .group:hover .infrared-heat-anim,
+        .group:active .infrared-heat-anim,
+        .group.is-previewing .infrared-heat-anim {
+            animation: infraredHeatPulse 2.2s ease-in-out infinite;
+        }
+
+        /* 3.6 Isometric 3D Projection */
+        @keyframes iso3dRotate {
+            0% { transform: perspective(400px) rotateX(60deg) rotateZ(0deg); }
+            100% { transform: perspective(400px) rotateX(60deg) rotateZ(360deg); }
+        }
+        .group:hover .iso-cube-anim,
+        .group:active .iso-cube-anim,
+        .group.is-previewing .iso-cube-anim {
+            animation: iso3dRotate 4s linear infinite;
+        }
+
+        /* 3.7 Motion Script Precision Crosshair Alignment */
+        @keyframes crosshairScan {
+            0% { transform: scale(0.85); opacity: 0.6; }
+            50% { transform: scale(1.15); opacity: 1; }
+            100% { transform: scale(0.85); opacity: 0.6; }
+        }
+        .group:hover .crosshair-anim,
+        .group:active .crosshair-anim,
+        .group.is-previewing .crosshair-anim {
+            animation: crosshairScan 1.4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-indigo-500 selection:text-white overflow-x-hidden w-full max-w-full bg-[#070913]">
+
+    <!-- Ambient Glowing Background Elements -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div class="absolute -top-40 left-1/4 w-[650px] h-[650px] rounded-full bg-indigo-600/10 blur-[140px]"></div>
+        <div class="absolute top-1/3 -right-40 w-[550px] h-[550px] rounded-full bg-purple-600/10 blur-[150px]"></div>
+        <div class="absolute bottom-10 left-10 w-[500px] h-[500px] rounded-full bg-pink-600/10 blur-[130px]"></div>
+    </div>
+
+    <!-- Sticky Navigation Bar -->
+    <header class="sticky top-0 z-50 backdrop-blur-xl bg-[#070913]/90 border-b border-slate-800/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between gap-2 sm:gap-4">
+            
+            <!-- Logo & Title -->
+            <a href="index.html" class="flex items-center gap-3 shrink-0 group">
+                <img src="smart_myanmar_fonts_logo.png" alt="Smart Fonts Logo" class="w-9 h-9 sm:w-11 sm:h-11 rounded-xl shadow-lg border border-slate-700/60 group-hover:scale-105 transition-transform">
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="font-black text-base sm:text-xl tracking-tight bg-gradient-to-r from-white via-slate-100 to-indigo-300 bg-clip-text text-transparent">
+                            Smart Fonts Studio
+                        </span>
+                        <span class="hidden sm:inline-block text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                            AFTER EFFECTS
+                        </span>
+                    </div>
+                    <p class="text-[11px] text-slate-400 font-medium hidden sm:block">
+                        367+ Free AE Plugins, Presets, Scripts & Lumetri LUTs
+                    </p>
+                </div>
+            </a>
+
+            <!-- Suite Navigation Switcher (Desktop 4-Pill Bar) -->
+            <nav class="hidden md:flex items-center bg-slate-900/90 p-1.5 rounded-2xl border border-slate-800 shadow-inner">
+                <a href="index.html" class="px-3.5 py-1.5 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition flex items-center gap-1.5">
+                    <span>🇲🇲 မြန်မာဖောင့်</span>
+                    <span class="text-[10px] bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded-md">180+</span>
+                </a>
+                <a href="premium-fonts.html" class="px-3.5 py-1.5 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition flex items-center gap-1.5">
+                    <span>💎 English Motion</span>
+                    <span class="text-[10px] bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded-md">108</span>
+                </a>
+                <a href="davinci-plugins.html" class="px-3.5 py-1.5 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition flex items-center gap-1.5">
+                    <span>🎬 DaVinci Plugins</span>
+                    <span class="text-[10px] bg-slate-800 text-slate-400 px-1.5 py-0.5 rounded-md">578</span>
+                </a>
+                <a href="ae-plugins.html" class="px-3.5 py-1.5 rounded-xl text-xs font-black bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 transition flex items-center gap-1.5">
+                    <span>⚡ After Effects</span>
+                    <span class="text-[10px] bg-black/40 text-indigo-100 px-1.5 py-0.5 rounded-md">367</span>
+                </a>
+            </nav>
+
+            <!-- Quick Download Action Bar -->
+            <div class="flex items-center gap-2 sm:gap-3 shrink-0">
+                <a href="ae_plugins_suite.zip" download class="px-3 sm:px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white text-xs font-bold shadow-lg shadow-indigo-600/20 transition flex items-center gap-1.5 active:scale-95">
+                    <span>📦 Master ZIP</span>
+                    <span class="text-[10px] opacity-80 font-mono hidden sm:inline">(34.5 MB)</span>
+                </a>
+
+                <button onclick="openInstallModal()" class="px-3 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 text-slate-300 hover:text-white text-xs font-bold border border-slate-700 transition flex items-center gap-1">
+                    <span>⚡ သွင်းနည်းလမ်းညွှန်</span>
+                </button>
+
+                <a href="index.html" class="px-2.5 py-2 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-400 hover:text-white text-xs font-bold border border-slate-800 transition flex items-center gap-1">
+                    <span>🏠</span> <span class="hidden sm:inline">မူလစာမျက်နှာ</span>
+                </a>
+            </div>
+
+        </div>
+
+        <!-- Suite Switcher for Mobile (4-Card Horizontal Grid) -->
+        <div class="md:hidden px-4 py-2.5 border-t border-slate-800/60 bg-slate-950/80">
+            <div class="grid grid-cols-4 gap-1.5 text-center text-[11px] font-bold">
+                <a href="index.html" class="py-2 px-1 rounded-xl bg-slate-900/90 text-slate-300 border border-slate-800 flex flex-col items-center gap-0.5">
+                    <span>🇲🇲 မြန်မာ</span>
+                    <span class="text-[9px] text-emerald-400 font-mono font-semibold">180+</span>
+                </a>
+                <a href="premium-fonts.html" class="py-2 px-1 rounded-xl bg-slate-900/90 text-slate-300 border border-slate-800 flex flex-col items-center gap-0.5">
+                    <span>💎 English</span>
+                    <span class="text-[9px] text-cyan-400 font-mono font-semibold">108</span>
+                </a>
+                <a href="davinci-plugins.html" class="py-2 px-1 rounded-xl bg-slate-900/90 text-slate-300 border border-slate-800 flex flex-col items-center gap-0.5">
+                    <span>🎬 DaVinci</span>
+                    <span class="text-[9px] text-amber-400 font-mono font-semibold">578</span>
+                </a>
+                <a href="ae-plugins.html" class="py-2 px-1 rounded-xl bg-indigo-600 text-white font-black shadow-md flex flex-col items-center gap-0.5 border border-indigo-400/40">
+                    <span>⚡ AfterFX</span>
+                    <span class="text-[9px] text-indigo-100 font-mono font-semibold">367</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-8 sm:space-y-10 relative z-10">
+        
+        <div class="text-center space-y-4 max-w-3xl mx-auto">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/25 text-indigo-300 text-xs font-bold tracking-wide animate-pulse">
+                <span>⚡ ADOBE AFTER EFFECTS MASTER PLUGIN PACK</span>
+                <span class="w-1.5 h-1.5 rounded-full bg-indigo-400"></span>
+                <span>MAC & WINDOWS</span>
+            </div>
+
+            <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight sm:leading-none">
+                After Effects Plugins & Presets <br>
+                <span class="bg-gradient-to-r from-indigo-400 via-purple-300 to-pink-400 bg-clip-text text-transparent">
+                    ၃၆၇ မျိုးကျော် Free Download
+                </span>
+            </h1>
+
+            <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto font-medium">
+                Duik Angela Character Rigging၊ Ease & Wizz Keyframe Curves၊ Kinetic Text Animations၊ Motion Scripts ၁၅၅ မျိုးနှင့် Cinematic Lumetri LUTs များကို Card ပေါ်တွင် Live Preview ကြည့်ရှုပြီး အခမဲ့ ဒေါင်းလုဒ် ရယူနိုင်ပါသည်။
+            </p>
+
+            <!-- 3 Category Download Shortcuts -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3 max-w-2xl mx-auto">
+                <a href="ae_text_animation_plugins.zip" download class="p-3.5 rounded-2xl glass-card hover:border-indigo-500/60 transition group text-left flex items-center justify-between">
+                    <div>
+                        <div class="text-xs font-bold text-white group-hover:text-indigo-400 transition flex items-center gap-1.5">
+                            <span>✍️ Text Animation Pack</span>
+                        </div>
+                        <div class="text-[11px] text-slate-400 mt-0.5">၅၂ မျိုး • FFX & Kinetic</div>
+                    </div>
+                    <span class="text-xs text-indigo-400 font-bold group-hover:translate-x-1 transition-transform">⬇️</span>
+                </a>
+
+                <a href="ae_effect_plugins.zip" download class="p-3.5 rounded-2xl glass-card hover:border-purple-500/60 transition group text-left flex items-center justify-between">
+                    <div>
+                        <div class="text-xs font-bold text-white group-hover:text-purple-400 transition flex items-center gap-1.5">
+                            <span>⚡ Effect & Scripts Pack</span>
+                        </div>
+                        <div class="text-[11px] text-slate-400 mt-0.5">၂၆၂ မျိုး • Duik & Scripts</div>
+                    </div>
+                    <span class="text-xs text-purple-400 font-bold group-hover:translate-x-1 transition-transform">⬇️</span>
+                </a>
+
+                <a href="ae_color_plugins.zip" download class="p-3.5 rounded-2xl glass-card hover:border-pink-500/60 transition group text-left flex items-center justify-between">
+                    <div>
+                        <div class="text-xs font-bold text-white group-hover:text-pink-400 transition flex items-center gap-1.5">
+                            <span>🎨 Lumetri Color LUTs</span>
+                        </div>
+                        <div class="text-[11px] text-slate-400 mt-0.5">၅၃ မျိုး • Kodak & Film</div>
+                    </div>
+                    <span class="text-xs text-pink-400 font-bold group-hover:translate-x-1 transition-transform">⬇️</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Filter & Search Controls Bar -->
+        <section class="space-y-4">
+            <div class="glass-card rounded-2xl p-4 sm:p-5 space-y-4 border border-slate-800 shadow-xl">
+                
+                <!-- Category Tab Buttons -->
+                <div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+                    <button onclick="filterCategory('all')" id="catBtn-all" class="px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-indigo-600 text-white shadow-md shrink-0">
+                        <span>🌟 အားလုံး</span>
+                        <span id="badge-all" class="text-[10px] px-1.5 py-0.5 rounded-full bg-white/20">367</span>
+                    </button>
+                    <button onclick="filterCategory('text-animation')" id="catBtn-text-animation" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition flex items-center gap-1.5 shrink-0">
+                        <span>✍️ Text Animation</span>
+                        <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-slate-800">52</span>
+                    </button>
+                    <button onclick="filterCategory('effect')" id="catBtn-effect" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition flex items-center gap-1.5 shrink-0">
+                        <span>⚡ Effect & Scripts</span>
+                        <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-slate-800">262</span>
+                    </button>
+                    <button onclick="filterCategory('color')" id="catBtn-color" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition flex items-center gap-1.5 shrink-0">
+                        <span>🎨 Color & LUTs</span>
+                        <span class="text-[10px] px-1.5 py-0.5 rounded-full bg-slate-800">53</span>
+                    </button>
+                </div>
+
+                <!-- Subcategory Filter Pills -->
+                <div id="subcategoryPillsContainer" class="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs">
+                    <!-- Dynamic Subcategories Pills Injected by JS -->
+                </div>
+
+                <!-- Search Input & Sort Dropdown -->
+                <div class="flex flex-col sm:flex-row items-center gap-3 pt-2 border-t border-slate-800/80">
+                    <div class="relative w-full flex-1">
+                        <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm">🔍</span>
+                        <input type="text" id="aeSearchInput" oninput="handleSearch(this.value)" placeholder="Plugin အမည်၊ script၊ သို့မဟုတ် extension ရှာဖွေပါ (ဥပမာ - Duik, Bounce, Kodak, Ease)..." class="w-full bg-slate-900/90 text-sm text-white placeholder-slate-500 rounded-xl pl-10 pr-4 py-2.5 border border-slate-800 focus:outline-none focus:border-indigo-500 transition">
+                    </div>
+
+                    <div class="flex items-center gap-2 w-full sm:w-auto shrink-0">
+                        <select id="aeSortSelect" onchange="handleSort(this.value)" class="bg-slate-900/90 text-xs text-slate-300 font-bold rounded-xl px-3 py-2.5 border border-slate-800 focus:outline-none focus:border-indigo-500 w-full sm:w-auto">
+                            <option value="popular">🔥 အဒေါင်းလုဒ်အများဆုံး</option>
+                            <option value="name-asc">🔤 အမည် (A မှ Z)</option>
+                            <option value="size-asc">📦 ဖိုင်အရွယ်အစား (အသေးမှ အကြီး)</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Result Count Bar -->
+            <div class="flex items-center justify-between text-xs font-mono text-slate-400 px-1">
+                <div>
+                    တွေ့ရှိသော Plugins စုစုပေါင်း: <span id="resultCount" class="text-indigo-400 font-bold">367</span> ခု
+                </div>
+                <div class="text-[11px] text-slate-500 hidden sm:block">
+                    Hover သို့မဟုတ် Tap ဖြင့် Card ပေါ်တွင် Animation ကြည့်ရှုနိုင်ပါသည်
+                </div>
+            </div>
+        </section>
+
+        <!-- Plugins Card Grid -->
+        <section id="pluginsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-5">
+            <!-- Rendered by JavaScript -->
+        </section>
+
+        <!-- Load More Pagination Button -->
+        <div id="loadMoreContainer" class="text-center py-6 hidden">
+            <button onclick="loadMorePlugins()" class="px-6 py-3 rounded-2xl bg-slate-900/90 hover:bg-slate-800 text-slate-200 text-xs font-black border border-slate-800 hover:border-indigo-500 transition shadow-lg active:scale-95">
+                ➕ နောက်ထပ် Plugins များ ဖော်ပြပါ
+            </button>
+        </div>
+
+    </main>
+
+    <!-- Installation Modal -->
+    <div id="installModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-2xl w-full p-6 sm:p-8 space-y-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeInstallModal()" class="absolute top-5 right-5 text-slate-400 hover:text-white text-xl">✕</button>
+
+            <div class="space-y-2">
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-indigo-500/20 text-indigo-300 text-xs font-bold border border-indigo-500/30">
+                    ⚡ AFTER EFFECTS INSTALLATION GUIDE
+                </div>
+                <h3 class="text-xl sm:text-2xl font-black text-white">After Effects Plugins ထည့်သွင်းနည်းလမ်းညွှန်</h3>
+                <p class="text-xs text-slate-400">Mac နှင့် Windows အတွက် Presets (.ffx), Scripts (.jsx) နှင့် LUTs (.cube) သွင်းနည်းများ</p>
+            </div>
+
+            <!-- 1. Automatic Mac Terminal One-Liner -->
+            <div class="p-4 rounded-2xl bg-indigo-950/40 border border-indigo-500/40 space-y-2.5">
+                <div class="text-xs font-black text-indigo-300 flex items-center justify-between">
+                    <span>🚀 နည်းလမ်း (၁) - Mac တွင် ၁ စက္ကန့်အတွင်း အလိုအလျောက်သွင်းခြင်း</span>
+                    <span class="text-[10px] bg-indigo-500/30 px-2 py-0.5 rounded text-white">RECOMMENDED</span>
+                </div>
+                <p class="text-xs text-slate-300">
+                    Master ZIP ကို ဒေါင်းလုဒ်ဆွဲပြီးနောက် Terminal တွင် အောက်ပါ command ကို Run လိုက်ရုံဖြင့် After Effects Folder များထဲသို့ အလိုအလျောက် ကူးယူထည့်သွင်းပေးသွားပါမည် -
+                </p>
+                <div class="bg-black/80 p-3 rounded-xl font-mono text-xs text-emerald-400 flex items-center justify-between overflow-x-auto border border-white/5">
+                    <code>bash install_to_ae.sh</code>
+                    <button onclick="navigator.clipboard.writeText('bash install_to_ae.sh'); alert('Command Copied!');" class="text-slate-400 hover:text-white text-xs bg-slate-800 px-2.5 py-1 rounded transition shrink-0 ml-2">Copy</button>
+                </div>
+            </div>
+
+            <!-- 2. Manual Installation Steps -->
+            <div class="space-y-4 text-xs text-slate-300">
+                <div class="font-bold text-white text-sm">📁 နည်းလမ်း (၂) - Manual ကူးယူထည့်သွင်းနည်းများ:</div>
+                
+                <div class="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                    <div class="font-bold text-indigo-300">၁။ Animation Presets (.ffx) များ ထည့်သွင်းရန်:</div>
+                    <div>• <b>Mac:</b> <code>~/Documents/Adobe/After Effects &lt;Version&gt;/User Presets/</code></div>
+                    <div>• <b>Windows:</b> <code>Documents\Adobe\After Effects &lt;Version&gt;\User Presets\</code></div>
+                    <div class="text-slate-400 text-[11px]">After Effects ၏ Effects & Presets Panel ထဲရှိ User Presets တွင် တိုက်ရိုက်ပေါ်လာပါမည်။</div>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                    <div class="font-bold text-purple-300">၂။ Scripts & ScriptUI Panels (.jsx) များ ထည့်သွင်းရန်:</div>
+                    <div>• <b>Mac:</b> <code>/Applications/Adobe After Effects &lt;Version&gt;/Scripts/ScriptUI Panels/</code></div>
+                    <div>• <b>Windows:</b> <code>C:\Program Files\Adobe\Adobe After Effects &lt;Version&gt;\Support Files\Scripts\ScriptUI Panels\</code></div>
+                    <div class="text-slate-400 text-[11px]">After Effects ၏ Window menu မှ မိမိထည့်ထားသော Script Panel ကို တိုက်ရိုက်ဖွင့်သုံးနိုင်ပါသည်။</div>
+                </div>
+
+                <div class="p-3.5 rounded-xl bg-slate-950/80 border border-slate-800 space-y-1.5">
+                    <div class="font-bold text-pink-300">၃။ Color Grading LUTs (.cube) များ ထည့်သွင်းရန်:</div>
+                    <div>• <b>Mac:</b> <code>/Library/Application Support/Adobe/Common/LUTs/Creative/</code></div>
+                    <div>• <b>Windows:</b> <code>C:\Program Files\Adobe\Common\LUTs\Creative\</code></div>
+                    <div class="text-slate-400 text-[11px]">Lumetri Color -> Creative -> Look Dropdown တွင် ချက်ချင်းပေါ်လာပါမည် (Premiere Pro တွင်လည်း သုံးနိုင်ပါသည်)။</div>
+                </div>
+            </div>
+
+            <div class="pt-2">
+                <button onclick="closeInstallModal()" class="w-full py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white text-xs font-bold transition">
+                    နားလည်ပါပြီ • ပိတ်မည်
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5-Second AdSense Download Countdown Modal -->
+    <div id="pluginDownloadModal" class="fixed inset-0 z-50 bg-black/85 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-3xl max-w-md w-full p-6 sm:p-7 space-y-5 shadow-2xl text-center relative">
+            
+            <button onclick="closePluginDownloadModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg">✕</button>
+
+            <div class="w-14 h-14 rounded-2xl bg-indigo-500/20 border border-indigo-500/30 text-indigo-400 text-2xl flex items-center justify-center mx-auto shadow-inner">
+                ⚡
+            </div>
+
+            <div class="space-y-1.5">
+                <h3 id="modalPluginTitle" class="text-lg font-black text-white leading-snug px-2">
+                    Plugin Name
+                </h3>
+                <div class="flex items-center justify-center gap-2 text-xs font-mono text-slate-400">
+                    <span id="modalFileName" class="truncate max-w-[200px]">filename.jsx</span>
+                    <span>•</span>
+                    <span id="modalFileSize" class="text-indigo-400 font-bold">0 KB</span>
+                </div>
+            </div>
+
+            <!-- Ad Notice & Countdown Box -->
+            <div class="p-4 rounded-2xl bg-slate-950/80 border border-slate-800/80 space-y-3">
+                <div class="text-[11px] font-mono text-slate-400 flex items-center justify-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
+                    <span>ADVERTISEMENT VERIFICATION</span>
+                </div>
+
+                <!-- Google AdSense Placeholder Slot -->
+                <div class="w-full h-24 bg-slate-900/60 rounded-xl border border-dashed border-slate-800 flex flex-col items-center justify-center text-[11px] text-slate-500 space-y-1">
+                    <span class="text-xs text-slate-400 font-bold">Google AdSense Supported</span>
+                    <span>ဒေါင်းလုဒ်လင့်ခ် ရယူရန် ၅ စက္ကန့် စောင့်ဆိုင်းပေးပါ...</span>
+                </div>
+
+                <div class="flex items-center justify-center gap-2 pt-1">
+                    <span class="text-xs text-slate-300 font-semibold">Download Link အဆင်သင့်ဖြစ်ရန်:</span>
+                    <span id="modalCountdown" class="text-xl font-black text-indigo-400 font-mono">5</span>
+                    <span class="text-xs text-slate-400">စက္ကန့်</span>
+                </div>
+            </div>
+
+            <!-- Download Button (Initially Disabled) -->
+            <a id="modalDownloadBtn" href="#" download class="w-full py-3.5 rounded-2xl bg-slate-800 text-slate-500 font-black text-sm transition flex items-center justify-center gap-2 pointer-events-none shadow-lg">
+                <span>⏳ စောင့်ဆိုင်းနေပါသည် (၅ စက္ကန့်)...</span>
+            </a>
+
+            <div class="text-[10px] text-slate-500 font-mono">
+                100% Free • Verified Safe for After Effects
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-800/80 bg-slate-950/90 py-10 mt-16 text-center text-xs text-slate-500 relative z-10 space-y-3">
+        <div class="flex items-center justify-center gap-4 text-xs font-bold text-slate-400">
+            <a href="index.html" class="hover:text-white transition">🇲🇲 မြန်မာဖောင့်များ</a>
+            <span>•</span>
+            <a href="premium-fonts.html" class="hover:text-white transition">💎 English Motion Fonts</a>
+            <span>•</span>
+            <a href="davinci-plugins.html" class="hover:text-white transition">🎬 DaVinci Resolve Plugins</a>
+            <span>•</span>
+            <a href="ae-plugins.html" class="text-indigo-400 font-bold hover:text-indigo-300 transition">⚡ After Effects Plugins</a>
+        </div>
+        <p>© 2026 Smart Myanmar Fonts Studio. All rights reserved.</p>
+    </footer>
+
+    <!-- Load Plugins Data -->
+    <script src="ae_plugins_data.js"></script>
+
+    <!-- App Logic Script -->
+    <script>
+        const allPlugins = window.AE_PLUGINS_DATA || [];
+        let filteredPlugins = [...allPlugins];
+        let currentCategory = 'all';
+        let currentSubcategory = 'all';
+        let searchQuery = '';
+        let currentSort = 'popular';
+        let displayedCount = 48;
+        const pageSize = 48;
+
+        // Download Count Store in LocalStorage
+        const STORAGE_KEY = 'ae_plugin_downloads';
+        function getDownloadStore() {
+            try {
+                return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+            } catch(e) {
+                return {};
+            }
+        }
+        function getDownloadCount(id) {
+            const store = getDownloadStore();
+            if (store[id] !== undefined) return store[id];
+            const p = allPlugins.find(x => x.id === id);
+            return p ? p.downloads : 0;
+        }
+        function incrementDownloadCount(id) {
+            const store = getDownloadStore();
+            const current = getDownloadCount(id);
+            store[id] = current + 1;
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+            const countEl = document.getElementById(`dl-count-${id}`);
+            if (countEl) countEl.innerText = store[id];
+        }
+
+        // Active Download State
+        let activeDownloadItem = null;
+        let countdownTimerInterval = null;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderSubcategories();
+            applyFilters();
+        });
+
+        // ------------------ Filter & Search Logic ------------------
+        function filterCategory(cat) {
+            currentCategory = cat;
+            currentSubcategory = 'all';
+            displayedCount = pageSize;
+
+            ['all', 'text-animation', 'effect', 'color'].forEach(c => {
+                const btn = document.getElementById(`catBtn-${c}`);
+                if (btn) {
+                    if (c === cat) {
+                        btn.className = 'px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-indigo-600 text-white shadow-md shrink-0';
+                    } else {
+                        btn.className = 'px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition flex items-center gap-1.5 shrink-0';
+                    }
+                }
+            });
+
+            renderSubcategories();
+            applyFilters();
+        }
+
+        function filterSubcategory(subcat) {
+            currentSubcategory = subcat;
+            displayedCount = pageSize;
+            renderSubcategories();
+            applyFilters();
+        }
+
+        function renderSubcategories() {
+            const container = document.getElementById('subcategoryPillsContainer');
+            if (!container) return;
+
+            let subs = new Set();
+            allPlugins.forEach(p => {
+                if (currentCategory === 'all' || p.category === currentCategory) {
+                    subs.add(p.subcategory);
+                }
+            });
+
+            let html = `
+                <button onclick="filterSubcategory('all')" class="px-3 py-1.5 rounded-full text-xs font-bold transition whitespace-nowrap ${currentSubcategory === 'all' ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/40' : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'}">
+                    အားလုံး (${Array.from(subs).length} subcategories)
+                </button>
+            `;
+
+            Array.from(subs).sort().forEach(sub => {
+                const count = allPlugins.filter(p => (currentCategory === 'all' || p.category === currentCategory) && p.subcategory === sub).length;
+                const isActive = currentSubcategory === sub;
+                html += `
+                    <button onclick="filterSubcategory('${sub}')" class="px-3 py-1.5 rounded-full text-xs font-bold transition whitespace-nowrap ${isActive ? 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/40' : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'}">
+                        ${sub} (${count})
+                    </button>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        function handleSearch(query) {
+            searchQuery = query.toLowerCase().trim();
+            displayedCount = pageSize;
+            applyFilters();
+        }
+
+        function handleSort(sortVal) {
+            currentSort = sortVal;
+            applyFilters();
+        }
+
+        function applyFilters() {
+            filteredPlugins = allPlugins.filter(p => {
+                const matchesCat = currentCategory === 'all' || p.category === currentCategory;
+                const matchesSub = currentSubcategory === 'all' || p.subcategory === currentSubcategory;
+                const matchesSearch = !searchQuery || 
+                    p.name.toLowerCase().includes(searchQuery) ||
+                    p.filename.toLowerCase().includes(searchQuery) ||
+                    p.subcategory.toLowerCase().includes(searchQuery) ||
+                    p.ext.toLowerCase().includes(searchQuery);
+
+                return matchesCat && matchesSub && matchesSearch;
+            });
+
+            if (currentSort === 'popular') {
+                filteredPlugins.sort((a, b) => getDownloadCount(b.id) - getDownloadCount(a.id));
+            } else if (currentSort === 'name-asc') {
+                filteredPlugins.sort((a, b) => a.name.localeCompare(b.name));
+            } else if (currentSort === 'size-asc') {
+                filteredPlugins.sort((a, b) => a.sizeKb - b.sizeKb);
+            }
+
+            const countEl = document.getElementById('resultCount');
+            if (countEl) countEl.innerText = filteredPlugins.length;
+
+            renderGrid();
+        }
+
+        // ================= DIRECT CARD PREVIEW GENERATOR (AFTER EFFECTS) =================
+        function getCardPreviewHtml(p) {
+            // 1. Text Animation Plugins
+            if (p.category === 'text-animation') {
+                let animClass = 'anim-ae-bounce';
+                let textColor = 'text-indigo-400';
+                let badge = 'KINETIC BOUNCE';
+
+                if (p.previewType === 'ae-text-defocus') {
+                    animClass = 'anim-ae-defocus';
+                    textColor = 'text-cyan-300';
+                    badge = 'OPTICAL DEFOCUS BLUR';
+                } else if (p.previewType === 'ae-text-cascade') {
+                    animClass = 'anim-ae-cascade';
+                    textColor = 'text-amber-300';
+                    badge = '3D CASCADE OFFSET';
+                } else if (p.previewType === 'ae-text-glitch') {
+                    animClass = 'anim-ae-glitch';
+                    textColor = 'text-pink-400';
+                    badge = 'CHROMATIC STROBE';
+                } else if (p.previewType === 'ae-text-subtitle') {
+                    animClass = 'anim-ae-bounce';
+                    textColor = 'text-emerald-300';
+                    badge = 'AUTO SUBTITLE BOX';
+                } else if (p.previewType === 'ae-text-typewriter') {
+                    animClass = 'anim-ae-bounce font-mono';
+                    textColor = 'text-yellow-300';
+                    badge = 'TYPEWRITER WRITE-ON';
+                }
+
+                let extraBox = '';
+                if (p.previewType === 'ae-text-subtitle') {
+                    extraBox = '<div class="absolute inset-2 bg-emerald-950/60 border border-emerald-500/50 rounded-lg pointer-events-none anim-ae-backingbox z-0"></div>';
+                }
+
+                return `
+                    <div class="relative w-full h-36 rounded-xl overflow-hidden bg-gradient-to-b from-slate-950 to-slate-900 border border-slate-800/90 flex flex-col items-center justify-center p-3 text-center select-none group-hover:border-indigo-500/50 transition">
+                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.08)_0,transparent_75%)] pointer-events-none"></div>
+                        ${extraBox}
+                        <div class="absolute top-2 left-2 z-10 flex items-center gap-1 text-[9px] font-mono text-slate-400 bg-black/60 px-2 py-0.5 rounded-full border border-white/5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
+                            <span>${badge}</span>
+                        </div>
+                        <div class="absolute bottom-2 right-2 z-10 text-[9px] text-slate-400 group-hover:text-indigo-400 transition font-mono bg-black/60 px-2 py-0.5 rounded-full border border-white/10">
+                            Touch / Hover: Motion ⚡
+                        </div>
+                        <div class="z-10 transition-transform duration-300 transform group-hover:scale-105 px-2">
+                            <div class="text-lg sm:text-xl font-black ${textColor} transition-all duration-300 ${animClass} tracking-tight leading-tight">
+                                ${p.name}
+                            </div>
+                            <div class="text-[10px] text-slate-400 font-medium mt-1">
+                                After Effects Text Preset (${p.ext})
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+            // 2. Color Plugins: Normal vs Graded Shape Comparison
+            else if (p.category === 'color') {
+                let gradeClass = 'grade-sphere-kodak';
+                let gradeTitle = 'Kodak 2383 Film';
+                let gradeColor = 'text-amber-400';
+
+                if (p.previewType === 'ae-color-teal-orange') {
+                    gradeClass = 'grade-sphere-teal';
+                    gradeTitle = 'Teal & Orange';
+                    gradeColor = 'text-cyan-400';
+                } else if (p.previewType === 'ae-color-fincher') {
+                    gradeClass = 'grade-sphere-fincher';
+                    gradeTitle = 'Fincher Emerald';
+                    gradeColor = 'text-emerald-400';
+                } else if (p.previewType === 'ae-color-cyberpunk') {
+                    gradeClass = 'grade-sphere-cyber';
+                    gradeTitle = 'Cyberpunk Neon';
+                    gradeColor = 'text-pink-400';
+                } else if (p.previewType === 'ae-color-vintage') {
+                    gradeClass = 'grade-sphere-vintage';
+                    gradeTitle = 'Vintage 70s Warmth';
+                    gradeColor = 'text-yellow-400';
+                }
+
+                return `
+                    <div class="relative w-full h-36 rounded-xl overflow-hidden bg-[#070914] border border-slate-800/90 group-hover:border-indigo-500/50 transition select-none flex items-center justify-center">
+                        <!-- Viewfinder Grid -->
+                        <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b22_1px,transparent_1px),linear-gradient(to_bottom,#1e293b22_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none"></div>
+                        <div class="absolute inset-2 border border-white/5 rounded-lg pointer-events-none"></div>
+
+                        <!-- Central 3D Sphere (Normal Log -> Graded Lumetri Look) -->
+                        <div class="relative z-10 flex items-center justify-center">
+                            <div class="w-20 h-20 rounded-full color-sphere-shape ${gradeClass} flex items-center justify-center relative cursor-pointer">
+                                <div class="w-12 h-12 rounded-full border border-white/10 opacity-30 group-hover:opacity-80 group-hover:scale-110 transition-all duration-500 pointer-events-none"></div>
+                                <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                            </div>
+                        </div>
+
+                        <!-- Split Sweep Line -->
+                        <div class="absolute inset-y-0 w-1 bg-gradient-to-b from-transparent via-indigo-400 to-transparent opacity-0 group-hover:opacity-100 grade-sweep-bar pointer-events-none z-20 shadow-[0_0_12px_#818cf8]"></div>
+
+                        <!-- Badges -->
+                        <div class="absolute top-2 left-2 z-20 flex items-center gap-1.5 text-[9px] font-mono bg-black/80 px-2 py-0.5 rounded-full border border-white/10 backdrop-blur-sm">
+                            <span class="w-1.5 h-1.5 rounded-full bg-slate-400 group-hover:bg-indigo-400 group-hover:animate-ping transition"></span>
+                            <span class="group-hover:hidden text-slate-400 font-medium">RAW LOG (NORMAL)</span>
+                            <span class="hidden group-hover:inline ${gradeColor} font-bold">✨ ${gradeTitle} (APPLIED)</span>
+                        </div>
+
+                        <div class="absolute top-2 right-2 z-20 text-[9px] font-mono bg-black/70 px-2 py-0.5 rounded border border-white/5">
+                            <span class="group-hover:hidden text-slate-400">UNGRADED</span>
+                            <span class="hidden group-hover:inline text-indigo-300 font-bold">LUT APPLIED ➔</span>
+                        </div>
+
+                        <div class="absolute bottom-2 inset-x-2 z-20 flex items-center justify-between text-[9px] font-mono text-slate-400 bg-black/75 px-2.5 py-0.5 rounded-md border border-white/5 backdrop-blur-sm">
+                            <span class="truncate max-w-[140px] text-slate-300">${p.name}</span>
+                            <span class="text-slate-500 group-hover:text-indigo-300 transition">
+                                Hover: Normal vs Graded ⚡
+                            </span>
+                        </div>
+                    </div>
+                `;
+            }
+            // 3. Effect & Script Plugins
+            else {
+                let effectInner = '';
+                let effectTag = 'MOTION SCRIPT';
+                let effectColor = 'text-purple-400';
+
+                // Duik Angela Character Rigging & Bone IK Flex
+                if (p.previewType === 'ae-effect-duik') {
+                    effectTag = 'DUIK CHARACTER IK';
+                    effectColor = 'text-indigo-400';
+                    effectInner = `
+                        <div class="relative w-24 h-24 flex items-center justify-center">
+                            <!-- Bone Joint Hierarchy -->
+                            <div class="relative w-8 h-1.5 bg-indigo-500/40 rounded-full duik-upper-arm origin-left">
+                                <div class="absolute right-0 top-0 w-2.5 h-2.5 -mt-0.5 rounded-full bg-indigo-400 shadow-[0_0_10px_#818cf8]"></div>
+                                <div class="absolute right-0 top-0 w-10 h-1.5 bg-purple-500/50 rounded-full duik-fore-arm origin-left">
+                                    <div class="absolute right-0 top-0 w-2.5 h-2.5 -mt-0.5 rounded-full bg-pink-400 shadow-[0_0_10px_#f43f5e]"></div>
+                                </div>
+                            </div>
+                            <div class="absolute bottom-2 text-[9px] font-mono text-indigo-300 font-bold">&lt;IK_SOLVER_ACTIVE&gt;</div>
+                        </div>
+                    `;
+                }
+                // Ease and Wizz Graph Curve & Elastic Keyframe
+                else if (p.previewType === 'ae-effect-ease') {
+                    effectTag = 'EASE & WIZZ ENGINE';
+                    effectColor = 'text-amber-400';
+                    effectInner = `
+                        <div class="relative w-24 h-20 flex flex-col items-center justify-center">
+                            <!-- Bezier Curve Line SVG -->
+                            <svg class="w-20 h-12 stroke-amber-500/60 fill-none stroke-[2]" viewBox="0 0 100 50">
+                                <path d="M 10,45 C 40,45 20,5 90,5" />
+                            </svg>
+                            <!-- Bouncing Keyframe Ball -->
+                            <div class="w-3.5 h-3.5 rounded-full bg-amber-400 shadow-[0_0_12px_#f59e0b] ease-wizz-ball -mt-8 z-10"></div>
+                            <div class="text-[9px] font-mono text-amber-300 mt-5 font-bold">EXPONENTIAL EASE</div>
+                        </div>
+                    `;
+                }
+                // Boil Lines Hand-Drawn Sketch Jitter
+                else if (p.previewType === 'ae-effect-boil') {
+                    effectTag = 'BOIL LINES JITTER';
+                    effectColor = 'text-pink-400';
+                    effectInner = `
+                        <div class="relative flex flex-col items-center justify-center">
+                            <div class="w-14 h-14 rounded-2xl border-2 border-dashed border-pink-400 flex items-center justify-center text-2xl text-pink-300 boil-sketch-anim shadow-[0_0_15px_rgba(244,63,94,0.3)]">
+                                ✏️
+                            </div>
+                            <div class="text-[9px] font-mono text-pink-300 mt-1 font-bold">HAND-DRAWN 12FPS</div>
+                        </div>
+                    `;
+                }
+                // Rainbow Rumble & Chromatic Prism
+                else if (p.previewType === 'ae-effect-rainbow') {
+                    effectTag = 'RAINBOW RUMBLE';
+                    effectColor = 'text-cyan-400';
+                    effectInner = `
+                        <div class="relative w-16 h-16 rounded-full bg-gradient-to-tr from-rose-500 via-amber-400 to-cyan-400 flex items-center justify-center rainbow-prism-anim shadow-[0_0_20px_rgba(6,182,212,0.5)]">
+                            <div class="w-8 h-8 rounded-full bg-black"></div>
+                        </div>
+                    `;
+                }
+                // Infrared Thermal Heat Spectrum
+                else if (p.previewType === 'ae-effect-infrared') {
+                    effectTag = 'INFRARED THERMAL';
+                    effectColor = 'text-rose-400';
+                    effectInner = `
+                        <div class="relative flex flex-col items-center justify-center">
+                            <div class="w-14 h-14 rounded-xl bg-gradient-to-tr from-blue-700 via-yellow-400 to-red-600 flex items-center justify-center text-xl infrared-heat-anim shadow-lg">
+                                🌡️
+                            </div>
+                        </div>
+                    `;
+                }
+                // Isometric 3D Projection
+                else if (p.previewType === 'ae-effect-iso') {
+                    effectTag = 'ISOMETRIC 3D SSR';
+                    effectColor = 'text-cyan-400';
+                    effectInner = `
+                        <div class="relative w-16 h-16 flex items-center justify-center">
+                            <div class="w-12 h-12 border-2 border-cyan-400 bg-cyan-900/40 iso-cube-anim shadow-[0_0_15px_#22d3ee]"></div>
+                        </div>
+                    `;
+                }
+                // Default: Kyle Martinez Motion Tools & Script Engine
+                else {
+                    effectTag = 'MOTION SCRIPT TOOL';
+                    effectColor = 'text-purple-400';
+                    effectInner = `
+                        <div class="relative w-20 h-20 flex flex-col items-center justify-center">
+                            <div class="w-14 h-14 rounded-xl bg-slate-900 border border-slate-700 flex items-center justify-center crosshair-anim relative shadow-lg">
+                                <div class="absolute inset-x-2 h-0.5 bg-indigo-500/80"></div>
+                                <div class="absolute inset-y-2 w-0.5 bg-indigo-500/80"></div>
+                                <div class="w-3 h-3 rounded-full bg-indigo-400 shadow-[0_0_10px_#818cf8] z-10"></div>
+                            </div>
+                        </div>
+                    `;
+                }
+
+                return `
+                    <div class="relative w-full h-36 rounded-xl overflow-hidden bg-slate-950 border border-slate-800/90 group-hover:border-purple-500/50 transition select-none flex flex-col items-center justify-center p-3">
+                        ${effectInner}
+
+                        <div class="absolute top-2 left-2 z-20 flex items-center gap-1.5 text-[9px] font-mono bg-black/80 px-2 py-0.5 rounded-full border border-white/10 backdrop-blur-sm">
+                            <span class="w-1.5 h-1.5 rounded-full bg-purple-400 group-hover:animate-ping"></span>
+                            <span class="group-hover:hidden text-slate-400">RAW SCRIPT</span>
+                            <span class="hidden group-hover:inline ${effectColor} font-bold">⚡ ${effectTag} (APPLIED)</span>
+                        </div>
+
+                        <div class="absolute top-2 right-2 z-20 text-[9px] font-mono bg-black/70 px-2 py-0.5 rounded border border-white/5">
+                            <span class="group-hover:hidden text-slate-400">IDLE</span>
+                            <span class="hidden group-hover:inline text-purple-300 font-bold">ACTIVE SCRIPT ➔</span>
+                        </div>
+
+                        <div class="absolute bottom-2 inset-x-2 z-20 flex items-center justify-between text-[9px] font-mono text-slate-400 bg-black/75 px-2.5 py-0.5 rounded-md border border-white/5 backdrop-blur-sm">
+                            <span class="truncate max-w-[140px] text-slate-300">${p.name}</span>
+                            <span class="text-slate-500 group-hover:text-purple-300 transition">
+                                Hover: Apply Effect ⚡
+                            </span>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // ================= GRID RENDERING =================
+        function renderGrid() {
+            const grid = document.getElementById('pluginsGrid');
+            const loadMore = document.getElementById('loadMoreContainer');
+            if (!grid) return;
+
+            const visible = filteredPlugins.slice(0, displayedCount);
+
+            if (visible.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full py-16 text-center space-y-3">
+                        <div class="text-4xl">🔍</div>
+                        <div class="text-lg font-bold text-white">ရှာဖွေမှုနှင့် ကိုက်ညီသော After Effects Plugin မရှိပါ</div>
+                        <div class="text-xs text-slate-400">အခြားသော စာလုံး သို့မဟုတ် အမျိုးအစားကို ရွေးချယ်စစ်ဆေးကြည့်ပါ</div>
+                    </div>
+                `;
+                if (loadMore) loadMore.classList.add('hidden');
+                return;
+            }
+
+            grid.innerHTML = visible.map(p => {
+                const downloads = getDownloadCount(p.id);
+                const badgeColor = 
+                    p.category === 'text-animation' ? 'bg-indigo-500/15 text-indigo-300 border-indigo-500/30' :
+                    p.category === 'effect' ? 'bg-purple-500/15 text-purple-300 border-purple-500/30' :
+                    'bg-pink-500/15 text-pink-300 border-pink-500/30';
+
+                const icon = 
+                    p.category === 'text-animation' ? '✍️' :
+                    p.category === 'effect' ? '⚡' : '🎨';
+
+                const previewHtml = getCardPreviewHtml(p);
+
+                return `
+                    <div class="group rounded-2xl p-3.5 glass-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-indigo-500/10 flex flex-col justify-between space-y-3 border border-slate-800 hover:border-indigo-500/50 cursor-pointer" onclick="this.classList.toggle('is-previewing')">
+                        
+                        <!-- 1. LIVE ANIMATION PREVIEW SCREEN DIRECTLY ON THE CARD -->
+                        ${previewHtml}
+
+                        <!-- 2. CARD METADATA & TITLE -->
+                        <div class="space-y-1.5 px-0.5">
+                            <div class="flex items-center justify-between gap-2">
+                                <span class="text-[10px] font-black uppercase px-2 py-0.5 rounded-full border ${badgeColor} flex items-center gap-1 truncate max-w-[170px]">
+                                    <span>${icon}</span> ${p.subcategory}
+                                </span>
+                                <span class="text-[10px] font-mono font-bold text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800 shrink-0">
+                                    ${p.ext}
+                                </span>
+                            </div>
+
+                            <h4 class="font-black text-sm text-white group-hover:text-indigo-400 transition leading-snug line-clamp-2" title="${p.name}">
+                                ${p.name}
+                            </h4>
+
+                            <div class="flex items-center justify-between text-[11px] text-slate-400">
+                                <span class="truncate max-w-[140px] font-mono text-[10px] opacity-75">${p.filename}</span>
+                                <span>${p.sizeKb} KB</span>
+                            </div>
+                        </div>
+
+                        <!-- 3. DOWNLOAD BUTTON & COUNTER -->
+                        <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between gap-2">
+                            <div class="text-[10px] font-semibold text-slate-400 flex items-center gap-1">
+                                <span>📥</span> <span id="dl-count-${p.id}">${downloads}</span>
+                            </div>
+
+                            <button onclick="event.stopPropagation(); openPluginDownloadGateway(${p.id}, '${p.name.replace(/'/g, "\\'")}', '${p.downloadUrl}', '${p.sizeKb} KB')" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white text-xs font-black shadow-md transition flex items-center gap-1.5 active:scale-95">
+                                <span>⬇️ ဒေါင်းလုဒ်</span>
+                            </button>
+                        </div>
+
+                    </div>
+                `;
+            }).join('');
+
+            if (loadMore) {
+                if (displayedCount >= filteredPlugins.length) {
+                    loadMore.classList.add('hidden');
+                } else {
+                    loadMore.classList.remove('hidden');
+                }
+            }
+        }
+
+        function loadMorePlugins() {
+            displayedCount += pageSize;
+            renderGrid();
+        }
+
+        // ================= DOWNLOAD GATEWAY & ADSENSE COUNTDOWN =================
+        function openPluginDownloadGateway(id, title, url, size) {
+            activeDownloadItem = { id, title, url, size };
+
+            const modal = document.getElementById('pluginDownloadModal');
+            const titleEl = document.getElementById('modalPluginTitle');
+            const fileNameEl = document.getElementById('modalFileName');
+            const fileSizeEl = document.getElementById('modalFileSize');
+            const countdownEl = document.getElementById('modalCountdown');
+            const downloadBtn = document.getElementById('modalDownloadBtn');
+
+            if (!modal) return;
+
+            titleEl.innerText = title;
+            fileNameEl.innerText = url.split('/').pop();
+            fileSizeEl.innerText = size;
+
+            // Reset modal state
+            modal.classList.remove('hidden');
+            let timeLeft = 5;
+            countdownEl.innerText = timeLeft;
+            downloadBtn.classList.add('pointer-events-none', 'bg-slate-800', 'text-slate-500');
+            downloadBtn.classList.remove('bg-gradient-to-r', 'from-indigo-600', 'to-purple-600', 'text-white', 'shadow-indigo-600/30', 'hover:from-indigo-500', 'hover:to-purple-500');
+            downloadBtn.innerHTML = `<span>⏳ စောင့်ဆိုင်းနေပါသည် (၅ စက္ကန့်)...</span>`;
+            downloadBtn.href = '#';
+
+            if (countdownTimerInterval) clearInterval(countdownTimerInterval);
+
+            countdownTimerInterval = setInterval(() => {
+                timeLeft--;
+                countdownEl.innerText = timeLeft;
+
+                if (timeLeft <= 0) {
+                    clearInterval(countdownTimerInterval);
+                    countdownEl.innerText = '0';
+                    downloadBtn.classList.remove('pointer-events-none', 'bg-slate-800', 'text-slate-500');
+                    downloadBtn.classList.add('bg-gradient-to-r', 'from-indigo-600', 'to-purple-600', 'text-white', 'shadow-indigo-600/30', 'hover:from-indigo-500', 'hover:to-purple-500');
+                    downloadBtn.innerHTML = `<span>⬇️ ဖိုင်ဒေါင်းလုဒ်ဆွဲမည် (${size})</span>`;
+                    downloadBtn.href = url;
+                    downloadBtn.onclick = () => {
+                        incrementDownloadCount(id);
+                        setTimeout(() => closePluginDownloadModal(), 800);
+                    };
+                }
+            }, 1000);
+        }
+
+        function closePluginDownloadModal() {
+            const modal = document.getElementById('pluginDownloadModal');
+            if (modal) modal.classList.add('hidden');
+            if (countdownTimerInterval) clearInterval(countdownTimerInterval);
+        }
+
+        function openInstallModal() {
+            const modal = document.getElementById('installModal');
+            if (modal) modal.classList.remove('hidden');
+        }
+
+        function closeInstallModal() {
+            const modal = document.getElementById('installModal');
+            if (modal) modal.classList.add('hidden');
+        }
+    </script>
+</body>
+</html>

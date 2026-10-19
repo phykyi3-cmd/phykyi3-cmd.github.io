@@ -38,6 +38,17 @@
 !davinci_effect_plugins.zip
 !davinci_color_plugins.zip
 !install_to_davinci.sh
+!ae-plugins.html
+!ae_plugins_data.js
+!ae_plugins_data.json
+!ae-assets/
+!ae-assets/**
+!ae_plugins_suite.zip
+!ae_text_animation_plugins.zip
+!ae_effect_plugins.zip
+!ae_color_plugins.zip
+!install_to_ae.sh
 !.github/
 !.github/**
 !.gitignore
+
