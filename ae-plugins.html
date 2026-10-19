@@ -88,61 +88,197 @@
         }
 
         /* ==================== 1. AFTER EFFECTS TEXT ANIMATION KEYFRAMES ==================== */
+        /* 1.1 Fade In (Opacity Dissolve) */
+        @keyframes aeFadeInAnim {
+            0% { opacity: 0; filter: blur(8px); transform: translateY(12px) scale(0.96); }
+            35%, 82% { opacity: 1; filter: blur(0); transform: translateY(0) scale(1); }
+            100% { opacity: 0; filter: blur(4px); transform: translateY(-8px) scale(0.98); }
+        }
+        /* 1.2 Reverb Echo (Visual Audio Wave Reverberation) */
+        @keyframes aeReverbAnim {
+            0% {
+                opacity: 0;
+                transform: scale(0.7);
+                filter: blur(8px) drop-shadow(0 0 0 rgba(99, 102, 241, 0));
+                letter-spacing: -1px;
+            }
+            30% {
+                opacity: 1;
+                transform: scale(1.14);
+                letter-spacing: 2px;
+                filter: blur(0) drop-shadow(0 0 18px rgba(99, 102, 241, 0.95)) drop-shadow(-6px 0 10px rgba(236, 72, 153, 0.75)) drop-shadow(6px 0 10px rgba(6, 182, 212, 0.75));
+                text-shadow: 
+                    0 0 20px #818cf8,
+                    0 0 45px rgba(99, 102, 241, 0.7),
+                    -6px 0 12px rgba(236, 72, 153, 0.7),
+                    6px 0 12px rgba(6, 182, 212, 0.7);
+            }
+            45% {
+                transform: scale(0.96);
+                letter-spacing: 1px;
+                filter: drop-shadow(0 0 14px rgba(99, 102, 241, 0.7));
+                text-shadow: 0 0 15px rgba(99, 102, 241, 0.6);
+            }
+            60%, 82% {
+                opacity: 1;
+                transform: scale(1);
+                letter-spacing: 0px;
+                filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.4));
+                text-shadow: 0 0 10px rgba(99, 102, 241, 0.4);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(1.12);
+                filter: blur(6px);
+            }
+        }
+        /* 1.3 Slide Down Drop */
+        @keyframes aeSlideDownAnim {
+            0% { transform: translateY(-55px); opacity: 0; filter: blur(4px); }
+            35% { transform: translateY(8px); opacity: 1; filter: blur(0); }
+            48% { transform: translateY(-3px); }
+            60%, 82% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(45px); opacity: 0; filter: blur(2px); }
+        }
+        /* 1.4 Slide Up Rise */
+        @keyframes aeSlideUpAnim {
+            0% { transform: translateY(55px); opacity: 0; filter: blur(4px); }
+            35% { transform: translateY(-8px); opacity: 1; filter: blur(0); }
+            48% { transform: translateY(3px); }
+            60%, 82% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-45px); opacity: 0; filter: blur(2px); }
+        }
+        /* 1.5 Slide Left */
+        @keyframes aeSlideLeftAnim {
+            0% { transform: translateX(65px); opacity: 0; filter: blur(4px); }
+            35% { transform: translateX(-6px); opacity: 1; filter: blur(0); }
+            48% { transform: translateX(2px); }
+            60%, 82% { transform: translateX(0); opacity: 1; }
+            100% { transform: translateX(-65px); opacity: 0; filter: blur(2px); }
+        }
+        /* 1.6 Slide Right */
+        @keyframes aeSlideRightAnim {
+            0% { transform: translateX(-65px); opacity: 0; filter: blur(4px); }
+            35% { transform: translateX(6px); opacity: 1; filter: blur(0); }
+            48% { transform: translateX(-2px); }
+            60%, 82% { transform: translateX(0); opacity: 1; }
+            100% { transform: translateX(65px); opacity: 0; filter: blur(2px); }
+        }
+        /* 1.7 Inertial Bounce Decay */
         @keyframes aeInertialBounce {
-            0% { transform: scale(0.65) translateY(20px); opacity: 0.3; }
-            45% { transform: scale(1.2) translateY(-7px); opacity: 1; }
-            70% { transform: scale(0.95) translateY(3px); }
-            85% { transform: scale(1.05) translateY(-1px); }
-            100% { transform: scale(1) translateY(0); opacity: 1; }
+            0% { transform: scale(0.3) translateY(25px); opacity: 0; }
+            35% { transform: scale(1.22) translateY(-8px); opacity: 1; }
+            50% { transform: scale(0.92) translateY(3px); }
+            62%, 82% { transform: scale(1) translateY(0); opacity: 1; }
+            100% { transform: scale(0.5) translateY(20px); opacity: 0; }
         }
+        /* 1.8 Optical Defocus Gaussian Blur */
         @keyframes aeDefocusBlur {
-            0% { filter: blur(10px); transform: scale(1.15); opacity: 0.2; letter-spacing: 8px; }
-            50% { filter: blur(0px); transform: scale(1); opacity: 1; letter-spacing: 1px; }
-            100% { filter: blur(1px); transform: scale(1.02); opacity: 0.95; letter-spacing: 2px; }
+            0% { filter: blur(18px); opacity: 0; transform: scale(1.25); }
+            40%, 82% { filter: blur(0px); opacity: 1; transform: scale(1); }
+            100% { filter: blur(14px); opacity: 0; transform: scale(0.92); }
         }
-        @keyframes aeWordCascade {
-            0% { transform: perspective(400px) rotateX(-90deg) translateY(-10px); opacity: 0; }
-            50% { transform: perspective(400px) rotateX(15deg) translateY(0); opacity: 1; }
-            75% { transform: perspective(400px) rotateX(-5deg); }
-            100% { transform: perspective(400px) rotateX(0deg); opacity: 1; }
+        /* 1.9 Typewriter Write-On */
+        @keyframes aeTypewriterAnim {
+            0% { clip-path: inset(0 100% 0 0); opacity: 1; }
+            45%, 82% { clip-path: inset(0 0% 0 0); opacity: 1; }
+            100% { clip-path: inset(0 0% 0 100%); opacity: 0.2; }
         }
+        /* 1.10 Chromatic Strobe Glitch */
         @keyframes aeChromaticStrobe {
-            0% { transform: translate(0); text-shadow: -2px 0 #ec4899, 2px 0 #06b6d4; }
-            20% { transform: translate(-2px, 1px); text-shadow: 2px -1px #ec4899, -2px 1px #06b6d4; }
-            40% { transform: translate(2px, -1px); text-shadow: -2px 1px #ec4899, 2px -1px #06b6d4; }
-            60% { transform: translate(-1px, 2px); text-shadow: 2px 1px #ec4899, -1px -1px #06b6d4; }
-            80% { transform: translate(1px, -1px); text-shadow: -1px -2px #ec4899, 1px 2px #06b6d4; }
-            100% { transform: translate(0); text-shadow: -2px 0 #ec4899, 2px 0 #06b6d4; }
+            0%, 100% { transform: translate(0); text-shadow: -2px 0 #ec4899, 2px 0 #06b6d4; filter: drop-shadow(-2px 0 #ec4899) drop-shadow(2px 0 #06b6d4); }
+            20% { transform: translate(-3px, 2px); text-shadow: 3px -1px #ec4899, -3px 1px #06b6d4; filter: drop-shadow(3px -1px #ec4899) drop-shadow(-3px 1px #06b6d4); }
+            40% { transform: translate(3px, -1px); text-shadow: -3px 1px #ec4899, 3px -2px #06b6d4; filter: drop-shadow(-3px 1px #ec4899) drop-shadow(3px -2px #06b6d4); }
+            60% { transform: translate(-2px, -2px); text-shadow: 2px 2px #ec4899, -2px -2px #06b6d4; filter: drop-shadow(2px 2px #ec4899) drop-shadow(-2px -2px #06b6d4); }
+            80% { transform: translate(2px, 1px); text-shadow: -1px -2px #ec4899, 1px 2px #06b6d4; filter: drop-shadow(-1px -2px #ec4899) drop-shadow(1px 2px #06b6d4); }
         }
+        /* 1.11 Electric Neon Glow */
+        @keyframes aeNeonFlicker {
+            0%, 10%, 14%, 18%, 50%, 54%, 100% {
+                filter: drop-shadow(0 0 10px #818cf8) drop-shadow(0 0 25px rgba(99, 102, 241, 0.8));
+                color: #e0e7ff;
+                opacity: 1;
+            }
+            12%, 16%, 52% {
+                filter: none;
+                color: #312e81;
+                opacity: 0.35;
+            }
+        }
+        /* 1.12 3D Card Flip / Cascade */
+        @keyframes aeWordCascade {
+            0% { transform: perspective(400px) rotateX(90deg) scale(0.6); opacity: 0; }
+            40% { transform: perspective(400px) rotateX(-10deg) scale(1.05); opacity: 1; }
+            55%, 82% { transform: perspective(400px) rotateX(0deg) scale(1); opacity: 1; }
+            100% { transform: perspective(400px) rotateX(-90deg) scale(0.6); opacity: 0; }
+        }
+        /* 1.13 Zoom Scale Pop */
+        @keyframes aeScalePopAnim {
+            0% { transform: scale(0.1); opacity: 0; }
+            35% { transform: scale(1.18); opacity: 1; }
+            48% { transform: scale(0.96); }
+            60%, 82% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.6); opacity: 0; filter: blur(6px); }
+        }
+        /* 1.14 Kinetic Stretch */
+        @keyframes aeStretchAnim {
+            0% { transform: scaleX(0.1) scaleY(2.2); opacity: 0; }
+            35% { transform: scaleX(1.3) scaleY(0.8); opacity: 1; }
+            48% { transform: scaleX(0.95) scaleY(1.05); }
+            60%, 82% { transform: scale(1); opacity: 1; }
+            100% { transform: scaleX(0.1) scaleY(2.2); opacity: 0; }
+        }
+        /* 1.15 Backing Box Expand */
         @keyframes aeBackingBoxExpand {
             0% { width: 30%; height: 20%; opacity: 0.4; }
             50% { width: 92%; height: 80%; opacity: 1; }
             100% { width: 88%; height: 75%; opacity: 0.95; }
         }
 
-        .group:hover .anim-ae-bounce,
-        .group:active .anim-ae-bounce,
-        .group.is-previewing .anim-ae-bounce {
-            animation: aeInertialBounce 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) infinite alternate !important;
+        /* After Effects Text Animation Triggers */
+        .group:hover .anim-ae-fade-in, .group:active .anim-ae-fade-in, .group.is-previewing .anim-ae-fade-in {
+            animation: aeFadeInAnim 2s cubic-bezier(0.2, 0.8, 0.2, 1) infinite !important;
         }
-        .group:hover .anim-ae-defocus,
-        .group:active .anim-ae-defocus,
-        .group.is-previewing .anim-ae-defocus {
-            animation: aeDefocusBlur 2s cubic-bezier(0.25, 1, 0.5, 1) infinite alternate !important;
+        .group:hover .anim-ae-reverb, .group:active .anim-ae-reverb, .group.is-previewing .anim-ae-reverb {
+            animation: aeReverbAnim 2.2s cubic-bezier(0.25, 1, 0.5, 1) infinite !important;
         }
-        .group:hover .anim-ae-cascade,
-        .group:active .anim-ae-cascade,
-        .group.is-previewing .anim-ae-cascade {
-            animation: aeWordCascade 1.4s cubic-bezier(0.34, 1.56, 0.64, 1) infinite alternate !important;
+        .group:hover .anim-ae-slide-down, .group:active .anim-ae-slide-down, .group.is-previewing .anim-ae-slide-down {
+            animation: aeSlideDownAnim 2s cubic-bezier(0.2, 0.8, 0.3, 1) infinite !important;
         }
-        .group:hover .anim-ae-glitch,
-        .group:active .anim-ae-glitch,
-        .group.is-previewing .anim-ae-glitch {
+        .group:hover .anim-ae-slide-up, .group:active .anim-ae-slide-up, .group.is-previewing .anim-ae-slide-up {
+            animation: aeSlideUpAnim 2s cubic-bezier(0.2, 0.8, 0.3, 1) infinite !important;
+        }
+        .group:hover .anim-ae-slide-left, .group:active .anim-ae-slide-left, .group.is-previewing .anim-ae-slide-left {
+            animation: aeSlideLeftAnim 2s cubic-bezier(0.2, 0.8, 0.3, 1) infinite !important;
+        }
+        .group:hover .anim-ae-slide-right, .group:active .anim-ae-slide-right, .group.is-previewing .anim-ae-slide-right {
+            animation: aeSlideRightAnim 2s cubic-bezier(0.2, 0.8, 0.3, 1) infinite !important;
+        }
+        .group:hover .anim-ae-bounce, .group:active .anim-ae-bounce, .group.is-previewing .anim-ae-bounce {
+            animation: aeInertialBounce 2s cubic-bezier(0.34, 1.56, 0.64, 1) infinite !important;
+        }
+        .group:hover .anim-ae-defocus, .group:active .anim-ae-defocus, .group.is-previewing .anim-ae-defocus {
+            animation: aeDefocusBlur 2.2s ease-in-out infinite !important;
+        }
+        .group:hover .anim-ae-typewriter, .group:active .anim-ae-typewriter, .group.is-previewing .anim-ae-typewriter {
+            animation: aeTypewriterAnim 2.2s steps(18, end) infinite !important;
+        }
+        .group:hover .anim-ae-glitch, .group:active .anim-ae-glitch, .group.is-previewing .anim-ae-glitch {
             animation: aeChromaticStrobe 0.35s steps(2) infinite !important;
         }
-        .group:hover .anim-ae-backingbox,
-        .group:active .anim-ae-backingbox,
-        .group.is-previewing .anim-ae-backingbox {
+        .group:hover .anim-ae-neon, .group:active .anim-ae-neon, .group.is-previewing .anim-ae-neon {
+            animation: aeNeonFlicker 1.8s infinite !important;
+        }
+        .group:hover .anim-ae-cascade, .group:active .anim-ae-cascade, .group.is-previewing .anim-ae-cascade {
+            animation: aeWordCascade 2.2s cubic-bezier(0.34, 1.56, 0.64, 1) infinite !important;
+        }
+        .group:hover .anim-ae-scale, .group:active .anim-ae-scale, .group.is-previewing .anim-ae-scale {
+            animation: aeScalePopAnim 2s cubic-bezier(0.2, 0.8, 0.3, 1) infinite !important;
+        }
+        .group:hover .anim-ae-stretch, .group:active .anim-ae-stretch, .group.is-previewing .anim-ae-stretch {
+            animation: aeStretchAnim 2s cubic-bezier(0.2, 0.8, 0.3, 1) infinite !important;
+        }
+        .group:hover .anim-ae-backingbox, .group:active .anim-ae-backingbox, .group.is-previewing .anim-ae-backingbox {
             animation: aeBackingBoxExpand 1.5s cubic-bezier(0.16, 1, 0.3, 1) infinite alternate !important;
         }
 
@@ -804,55 +940,90 @@
         function getCardPreviewHtml(p) {
             // 1. Text Animation Plugins
             if (p.category === 'text-animation') {
+                const combined = `${p.name || ''} ${p.subcategory || ''} ${p.previewType || ''}`.toLowerCase();
                 let animClass = 'anim-ae-bounce';
-                let textColor = 'text-indigo-400';
-                let badge = 'KINETIC BOUNCE';
-
-                if (p.previewType === 'ae-text-defocus') {
-                    animClass = 'anim-ae-defocus';
-                    textColor = 'text-cyan-300';
-                    badge = 'OPTICAL DEFOCUS BLUR';
-                } else if (p.previewType === 'ae-text-cascade') {
-                    animClass = 'anim-ae-cascade';
-                    textColor = 'text-amber-300';
-                    badge = '3D CASCADE OFFSET';
-                } else if (p.previewType === 'ae-text-glitch') {
-                    animClass = 'anim-ae-glitch';
-                    textColor = 'text-pink-400';
-                    badge = 'CHROMATIC STROBE';
-                } else if (p.previewType === 'ae-text-subtitle') {
-                    animClass = 'anim-ae-bounce';
-                    textColor = 'text-emerald-300';
-                    badge = 'AUTO SUBTITLE BOX';
-                } else if (p.previewType === 'ae-text-typewriter') {
-                    animClass = 'anim-ae-bounce font-mono';
-                    textColor = 'text-yellow-300';
-                    badge = 'TYPEWRITER WRITE-ON';
-                }
-
+                let textGradient = 'from-indigo-300 via-sky-200 to-indigo-400';
+                let animBadge = 'KINETIC BOUNCE';
                 let extraBox = '';
-                if (p.previewType === 'ae-text-subtitle') {
-                    extraBox = '<div class="absolute inset-2 bg-emerald-950/60 border border-emerald-500/50 rounded-lg pointer-events-none anim-ae-backingbox z-0"></div>';
+
+                if (combined.includes('slide down') || combined.includes('drop') || combined.includes('fall') || combined.includes('down')) {
+                    animClass = 'anim-ae-slide-down';
+                    animBadge = 'SLIDE DOWN (DROP IN)';
+                } else if (combined.includes('slide up') || combined.includes('rise') || combined.includes('lines up')) {
+                    animClass = 'anim-ae-slide-up';
+                    animBadge = 'SLIDE UP (RISE IN)';
+                } else if (combined.includes('slide in') || combined.includes('slide left')) {
+                    animClass = 'anim-ae-slide-left';
+                    animBadge = 'SLIDE LEFT (ENTRANCE)';
+                } else if (combined.includes('reverb') || combined.includes('echo') || combined.includes('tracking') || combined.includes('expander') || combined.includes('ambient') || combined.includes('floating') || combined.includes('breathing')) {
+                    animClass = 'anim-ae-reverb';
+                    animBadge = 'REVERB ECHO (EXPAND)';
+                } else if (combined.includes('fade') || combined.includes('fake') || combined.includes('opacity') || combined.includes('dissolve')) {
+                    animClass = 'anim-ae-fade-in';
+                    animBadge = 'FADE IN (SOFT DISSOLVE)';
+                } else if (combined.includes('typewriter') || combined.includes('cursor') || combined.includes('countup') || combined.includes('timecode') || combined.includes('clock') || combined.includes('terminal')) {
+                    animClass = 'anim-ae-typewriter';
+                    animBadge = 'TYPEWRITER WRITE-ON';
+                } else if (combined.includes('blur') || combined.includes('defocus')) {
+                    animClass = 'anim-ae-defocus';
+                    animBadge = 'OPTICAL DEFOCUS BLUR';
+                } else if (combined.includes('glitch') || combined.includes('strobe') || combined.includes('split') || combined.includes('revolution')) {
+                    animClass = 'anim-ae-glitch';
+                    animBadge = 'CHROMATIC STROBE';
+                } else if (combined.includes('neon') || combined.includes('flicker') || combined.includes('glow')) {
+                    animClass = 'anim-ae-neon';
+                    animBadge = 'ELECTRIC NEON GLOW';
+                } else if (combined.includes('cascade') || combined.includes('door') || combined.includes('card flip') || combined.includes('3d')) {
+                    animClass = 'anim-ae-cascade';
+                    animBadge = '3D CASCADE ROTATE';
+                } else if (combined.includes('stretch')) {
+                    animClass = 'anim-ae-stretch';
+                    animBadge = 'KINETIC STRETCH';
+                } else if (combined.includes('scale') || combined.includes('zoom') || combined.includes('pop') || combined.includes('snap')) {
+                    animClass = 'anim-ae-scale';
+                    animBadge = 'ZOOM SCALE POP';
+                } else {
+                    animClass = 'anim-ae-bounce';
+                    animBadge = 'INERTIAL BOUNCE';
                 }
+
+                if (combined.includes('subtitle') || combined.includes('backingbox') || combined.includes('caption') || combined.includes('bounding box')) {
+                    extraBox = '<div class="absolute inset-2 bg-indigo-950/40 border border-indigo-500/40 rounded-lg pointer-events-none anim-ae-backingbox z-0"></div>';
+                }
+
+                const cleanPresetTitle = p.name.replace(/^[✨⚡👑🔥\s]+/, '');
 
                 return `
-                    <div class="relative w-full h-36 rounded-xl overflow-hidden bg-gradient-to-b from-slate-950 to-slate-900 border border-slate-800/90 flex flex-col items-center justify-center p-3 text-center select-none group-hover:border-indigo-500/50 transition">
+                    <div class="relative w-full h-36 rounded-xl overflow-hidden bg-gradient-to-b from-[#0b0f19] via-[#070a12] to-[#030508] border border-slate-800/90 flex flex-col items-center justify-center p-3 text-center select-none group-hover:border-indigo-400/70 shadow-inner transition-all duration-300">
                         <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(99,102,241,0.08)_0,transparent_75%)] pointer-events-none"></div>
+                        <div class="absolute inset-2 border border-white/5 rounded-lg pointer-events-none"></div>
                         ${extraBox}
-                        <div class="absolute top-2 left-2 z-10 flex items-center gap-1 text-[9px] font-mono text-slate-400 bg-black/60 px-2 py-0.5 rounded-full border border-white/5">
+
+                        <!-- Top Left: Preset Animation Badge -->
+                        <div class="absolute top-2 left-2 z-20 flex items-center gap-1.5 text-[9px] font-mono bg-black/85 px-2.5 py-0.5 rounded-full border border-indigo-500/40 text-indigo-300 backdrop-blur-sm">
                             <span class="w-1.5 h-1.5 rounded-full bg-indigo-400 animate-pulse"></span>
-                            <span>${badge}</span>
+                            <span>⚡ ${animBadge}</span>
                         </div>
-                        <div class="absolute bottom-2 right-2 z-10 text-[9px] text-slate-400 group-hover:text-indigo-400 transition font-mono bg-black/60 px-2 py-0.5 rounded-full border border-white/10">
-                            Touch / Hover: Motion ⚡
+
+                        <!-- Top Right: Ext Tag -->
+                        <div class="absolute top-2 right-2 z-20 text-[9px] font-mono text-indigo-200/90 bg-black/80 px-2 py-0.5 rounded border border-white/10 backdrop-blur-sm">
+                            ${p.ext}
                         </div>
-                        <div class="z-10 transition-transform duration-300 transform group-hover:scale-105 px-2">
-                            <div class="text-lg sm:text-xl font-black ${textColor} transition-all duration-300 ${animClass} tracking-tight leading-tight">
-                                ${p.name}
+
+                        <!-- Central Animating Sample Text: "မြန်မာပြည်သည်" -->
+                        <div class="z-10 flex flex-col items-center justify-center px-2 py-1">
+                            <div class="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r ${textGradient} ${animClass} tracking-normal leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]" style="font-family: 'Padauk', sans-serif;">
+                                မြန်မာပြည်သည်
                             </div>
-                            <div class="text-[10px] text-slate-400 font-medium mt-1">
-                                After Effects Text Preset (${p.ext})
+                            <div class="text-[10px] font-mono text-indigo-300/80 mt-1 truncate max-w-[210px]">
+                                ${cleanPresetTitle}
                             </div>
+                        </div>
+
+                        <!-- Bottom Hint & Action -->
+                        <div class="absolute bottom-1.5 inset-x-2 z-20 flex items-center justify-between text-[8px] font-mono text-slate-400 bg-black/80 px-2.5 py-0.5 rounded border border-white/5 backdrop-blur-sm">
+                            <span class="text-slate-300">After Effects Text Preset</span>
+                            <span class="text-indigo-400 group-hover:text-indigo-300 transition">Hover: Live Animation ▶</span>
                         </div>
                     </div>
                 `;

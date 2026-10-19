@@ -80,117 +80,304 @@
             background: #f59e0b;
         }
 
-        /* ==================== 1. TEXT ANIMATION KEYFRAMES ==================== */
-        @keyframes springBounce {
-            0% { transform: scale(0.7) translateY(18px); opacity: 0.3; }
-            50% { transform: scale(1.18) translateY(-6px); opacity: 1; }
-            70% { transform: scale(0.96) translateY(2px); }
-            100% { transform: scale(1) translateY(0); opacity: 1; }
+        /* ==================== 1. REALISTIC DAVINCI TEXT ANIMATION KEYFRAMES ==================== */
+        /* 1.1 Fade In (Fake In) - Smooth opacity & subtle focus ease */
+        @keyframes textFadeInAnim {
+            0% { opacity: 0; filter: blur(8px); transform: translateY(12px) scale(0.96); }
+            35%, 82% { opacity: 1; filter: blur(0); transform: translateY(0) scale(1); }
+            100% { opacity: 0; filter: blur(4px); transform: translateY(-8px) scale(0.98); }
         }
-        @keyframes hormoziPop {
-            0%, 20% { transform: scale(0.92); color: #ffffff; text-shadow: none; }
-            40%, 70% { transform: scale(1.15); color: #facc15; text-shadow: 0 0 22px rgba(250, 204, 21, 0.7); }
-            90%, 100% { transform: scale(1); color: #4ade80; text-shadow: 0 0 15px rgba(74, 222, 128, 0.5); }
+        /* 1.2 Reverb Echo - Audio-like reverberating aura and optical echo waves */
+        @keyframes textReverbAnim {
+            0% {
+                opacity: 0;
+                transform: scale(0.7);
+                filter: blur(8px) drop-shadow(0 0 0 rgba(245, 158, 11, 0));
+                letter-spacing: -1px;
+            }
+            30% {
+                opacity: 1;
+                transform: scale(1.14);
+                letter-spacing: 2px;
+                filter: blur(0) drop-shadow(0 0 18px rgba(245, 158, 11, 0.95)) drop-shadow(-6px 0 10px rgba(239, 68, 68, 0.75)) drop-shadow(6px 0 10px rgba(6, 182, 212, 0.75));
+                text-shadow: 
+                    0 0 20px #f59e0b,
+                    0 0 45px rgba(245, 158, 11, 0.7),
+                    -6px 0 12px rgba(239, 68, 68, 0.7),
+                    6px 0 12px rgba(6, 182, 212, 0.7);
+            }
+            45% {
+                transform: scale(0.96);
+                letter-spacing: 1px;
+                filter: drop-shadow(0 0 14px rgba(245, 158, 11, 0.7));
+                text-shadow: 0 0 15px rgba(245, 158, 11, 0.6);
+            }
+            60%, 82% {
+                opacity: 1;
+                transform: scale(1);
+                letter-spacing: 0px;
+                filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.4));
+                text-shadow: 0 0 10px rgba(245, 158, 11, 0.4);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(1.12);
+                filter: blur(6px);
+            }
         }
-        @keyframes trackingExpand {
-            0% { letter-spacing: -1px; filter: blur(2px); opacity: 0.4; }
-            50% { letter-spacing: 5px; filter: blur(0); opacity: 1; }
-            100% { letter-spacing: 8px; filter: blur(0.5px); opacity: 0.95; }
+        /* 1.3 Slide Down Drop - Real DaVinci Physics Cushion */
+        @keyframes textSlideDownAnim {
+            0% { transform: translateY(-55px); opacity: 0; filter: blur(4px); }
+            35% { transform: translateY(8px); opacity: 1; filter: blur(0); }
+            48% { transform: translateY(-3px); }
+            60%, 82% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(45px); opacity: 0; filter: blur(2px); }
         }
-        @keyframes chromaticGlitch {
-            0% { transform: translate(0); text-shadow: -2px 0 #ef4444, 2px 0 #06b6d4; }
-            25% { transform: translate(-2px, 1px); text-shadow: 2px -1px #ef4444, -2px 1px #06b6d4; }
-            50% { transform: translate(1px, -1px); text-shadow: -2px 1px #ef4444, 2px -1px #06b6d4; }
-            75% { transform: translate(2px, 1px); text-shadow: -1px -1px #ef4444, 1px 1px #06b6d4; }
-            100% { transform: translate(0); text-shadow: -2px 0 #ef4444, 2px 0 #06b6d4; }
+        /* 1.4 Slide Up Rise */
+        @keyframes textSlideUpAnim {
+            0% { transform: translateY(55px); opacity: 0; filter: blur(4px); }
+            35% { transform: translateY(-8px); opacity: 1; filter: blur(0); }
+            48% { transform: translateY(3px); }
+            60%, 82% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-45px); opacity: 0; filter: blur(2px); }
         }
-        @keyframes neonFlicker {
-            0%, 18%, 22%, 25%, 53%, 57%, 100% {
-                text-shadow: 0 0 4px #f43f5e, 0 0 14px #f43f5e, 0 0 28px #f43f5e;
+        /* 1.5 Slide Left */
+        @keyframes textSlideLeftAnim {
+            0% { transform: translateX(70px); opacity: 0; }
+            35% { transform: translateX(-6px); opacity: 1; }
+            48% { transform: translateX(2px); }
+            60%, 82% { transform: translateX(0); opacity: 1; }
+            100% { transform: translateX(-70px); opacity: 0; }
+        }
+        /* 1.6 Slide Right */
+        @keyframes textSlideRightAnim {
+            0% { transform: translateX(-70px); opacity: 0; }
+            35% { transform: translateX(6px); opacity: 1; }
+            48% { transform: translateX(-2px); }
+            60%, 82% { transform: translateX(0); opacity: 1; }
+            100% { transform: translateX(70px); opacity: 0; }
+        }
+        /* 1.7 Kinetic Spring Bounce */
+        @keyframes textBounceAnim {
+            0% { transform: scale(0.2) translateY(30px); opacity: 0; }
+            35% { transform: scale(1.22) translateY(-10px); opacity: 1; }
+            50% { transform: scale(0.92) translateY(4px); }
+            62%, 82% { transform: scale(1) translateY(0); opacity: 1; }
+            100% { transform: scale(0.5) translateY(20px); opacity: 0; }
+        }
+        /* 1.8 Optical Defocus Blur Reveal */
+        @keyframes textBlurInAnim {
+            0% { filter: blur(20px); opacity: 0; transform: scale(1.28); }
+            40%, 82% { filter: blur(0px); opacity: 1; transform: scale(1); }
+            100% { filter: blur(16px); opacity: 0; transform: scale(0.92); }
+        }
+        /* 1.9 Typewriter Write-On */
+        @keyframes textTypewriterAnim {
+            0% { clip-path: inset(0 100% 0 0); opacity: 1; }
+            45%, 82% { clip-path: inset(0 0% 0 0); opacity: 1; }
+            100% { clip-path: inset(0 0% 0 100%); opacity: 0.2; }
+        }
+        /* 1.10 RGB Chromatic Glitch */
+        @keyframes textGlitchAnim {
+            0%, 100% { transform: translate(0); text-shadow: -2px 0 #ef4444, 2px 0 #06b6d4; filter: drop-shadow(-2px 0 #ef4444) drop-shadow(2px 0 #06b6d4); }
+            20% { transform: translate(-3px, 2px); text-shadow: 3px -1px #ef4444, -3px 1px #06b6d4; filter: drop-shadow(3px -1px #ef4444) drop-shadow(-3px 1px #06b6d4); }
+            40% { transform: translate(3px, -1px); text-shadow: -3px 1px #ef4444, 3px -2px #06b6d4; filter: drop-shadow(-3px 1px #ef4444) drop-shadow(3px -2px #06b6d4); }
+            60% { transform: translate(-2px, -2px); text-shadow: 2px 2px #ef4444, -2px -2px #06b6d4; filter: drop-shadow(2px 2px #ef4444) drop-shadow(-2px -2px #06b6d4); }
+            80% { transform: translate(2px, 1px); text-shadow: -1px -2px #ef4444, 1px 2px #06b6d4; filter: drop-shadow(-1px -2px #ef4444) drop-shadow(1px 2px #06b6d4); }
+        }
+        /* 1.11 Electric Neon Flicker */
+        @keyframes textNeonAnim {
+            0%, 10%, 14%, 18%, 50%, 54%, 100% {
+                text-shadow: 0 0 6px #f59e0b, 0 0 16px #f59e0b, 0 0 35px #f59e0b;
+                filter: drop-shadow(0 0 10px #f59e0b) drop-shadow(0 0 25px rgba(245, 158, 11, 0.8));
+                color: #fffbeb;
                 opacity: 1;
             }
-            20%, 24%, 55% {
+            12%, 16%, 52% {
                 text-shadow: none;
+                filter: none;
+                color: #78350f;
                 opacity: 0.35;
             }
         }
-
-        .group:hover .anim-spring-bounce,
-        .group:active .anim-spring-bounce,
-        .group.is-previewing .anim-spring-bounce {
-            animation: springBounce 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) infinite alternate !important;
+        /* 1.12 3D Rotate Flip */
+        @keyframes textRotateAnim {
+            0% { transform: perspective(400px) rotateX(90deg) scale(0.6); opacity: 0; }
+            40% { transform: perspective(400px) rotateX(-10deg) scale(1.05); opacity: 1; }
+            55%, 82% { transform: perspective(400px) rotateX(0deg) scale(1); opacity: 1; }
+            100% { transform: perspective(400px) rotateX(-90deg) scale(0.6); opacity: 0; }
         }
-        .group:hover .anim-hormozi-pop,
-        .group:active .anim-hormozi-pop,
-        .group.is-previewing .anim-hormozi-pop {
-            animation: hormoziPop 1.6s ease-in-out infinite !important;
-            display: inline-block;
+        /* 1.13 Zoom Scale Pop */
+        @keyframes textScalePopAnim {
+            0% { transform: scale(0.1); opacity: 0; }
+            35% { transform: scale(1.18); opacity: 1; }
+            48% { transform: scale(0.96); }
+            60%, 82% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.6); opacity: 0; filter: blur(6px); }
         }
-        .group:hover .anim-tracking-expand,
-        .group:active .anim-tracking-expand,
-        .group.is-previewing .anim-tracking-expand {
-            animation: trackingExpand 2s cubic-bezier(0.25, 1, 0.5, 1) infinite alternate !important;
-        }
-        .group:hover .anim-chromatic-glitch,
-        .group:active .anim-chromatic-glitch,
-        .group.is-previewing .anim-chromatic-glitch {
-            animation: chromaticGlitch 0.35s steps(2) infinite !important;
-        }
-        .group:hover .anim-neon-flicker,
-        .group:active .anim-neon-flicker,
-        .group.is-previewing .anim-neon-flicker {
-            animation: neonFlicker 1.8s infinite !important;
+        /* 1.14 Kinetic Stretch */
+        @keyframes textStretchAnim {
+            0% { transform: scaleX(0.1) scaleY(2.2); opacity: 0; }
+            35% { transform: scaleX(1.3) scaleY(0.8); opacity: 1; }
+            48% { transform: scaleX(0.95) scaleY(1.05); }
+            60%, 82% { transform: scale(1); opacity: 1; }
+            100% { transform: scaleX(0.1) scaleY(2.2); opacity: 0; }
         }
 
-        /* ==================== 2. COLOR SHAPE TRANSFORMATION (NORMAL -> GRADED) ==================== */
-        /* Normal State: Flat Desaturated Matte Gray Log Sphere */
-        .color-sphere-shape {
+        /* Text Animation Triggers */
+        .group:hover .anim-text-fade-in, .group:active .anim-text-fade-in, .group.is-previewing .anim-text-fade-in {
+            animation: textFadeInAnim 2s cubic-bezier(0.2, 0.8, 0.2, 1) infinite !important;
+        }
+        .group:hover .anim-text-reverb, .group:active .anim-text-reverb, .group.is-previewing .anim-text-reverb {
+            animation: textReverbAnim 2.2s cubic-bezier(0.25, 1, 0.5, 1) infinite !important;
+        }
+        .group:hover .anim-text-slide-down, .group:active .anim-text-slide-down, .group.is-previewing .anim-text-slide-down {
+            animation: textSlideDownAnim 2s cubic-bezier(0.2, 0.8, 0.3, 1) infinite !important;
+        }
+        .group:hover .anim-text-slide-up, .group:active .anim-text-slide-up, .group.is-previewing .anim-text-slide-up {
+            animation: textSlideUpAnim 2s cubic-bezier(0.2, 0.8, 0.3, 1) infinite !important;
+        }
+        .group:hover .anim-text-slide-left, .group:active .anim-text-slide-left, .group.is-previewing .anim-text-slide-left {
+            animation: textSlideLeftAnim 2s cubic-bezier(0.2, 0.8, 0.3, 1) infinite !important;
+        }
+        .group:hover .anim-text-slide-right, .group:active .anim-text-slide-right, .group.is-previewing .anim-text-slide-right {
+            animation: textSlideRightAnim 2s cubic-bezier(0.2, 0.8, 0.3, 1) infinite !important;
+        }
+        .group:hover .anim-text-bounce, .group:active .anim-text-bounce, .group.is-previewing .anim-text-bounce {
+            animation: textBounceAnim 2s cubic-bezier(0.34, 1.56, 0.64, 1) infinite !important;
+        }
+        .group:hover .anim-text-blur, .group:active .anim-text-blur, .group.is-previewing .anim-text-blur {
+            animation: textBlurInAnim 2.2s ease-in-out infinite !important;
+        }
+        .group:hover .anim-text-typewriter, .group:active .anim-text-typewriter, .group.is-previewing .anim-text-typewriter {
+            animation: textTypewriterAnim 2.2s steps(18, end) infinite !important;
+        }
+        .group:hover .anim-text-glitch, .group:active .anim-text-glitch, .group.is-previewing .anim-text-glitch {
+            animation: textGlitchAnim 0.35s steps(2) infinite !important;
+        }
+        .group:hover .anim-text-neon, .group:active .anim-text-neon, .group.is-previewing .anim-text-neon {
+            animation: textNeonAnim 1.8s infinite !important;
+        }
+        .group:hover .anim-text-rotate, .group:active .anim-text-rotate, .group.is-previewing .anim-text-rotate {
+            animation: textRotateAnim 2.2s cubic-bezier(0.34, 1.56, 0.64, 1) infinite !important;
+        }
+        .group:hover .anim-text-scale, .group:active .anim-text-scale, .group.is-previewing .anim-text-scale {
+            animation: textScalePopAnim 2s cubic-bezier(0.2, 0.8, 0.3, 1) infinite !important;
+        }
+        .group:hover .anim-text-stretch, .group:active .anim-text-stretch, .group.is-previewing .anim-text-stretch {
+            animation: textStretchAnim 2s cubic-bezier(0.2, 0.8, 0.3, 1) infinite !important;
+        }
+
+        /* ==================== 2. REALISTIC DAVINCI CINEMA COLOR VIEWPORT ==================== */
+        /* Normal State: Flat Desaturated Raw Log Frame */
+        .cinema-frame-bg {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #090d16 100%);
+            filter: saturate(0.2) contrast(0.8) brightness(1.1);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .cinema-color-orb {
             background: radial-gradient(circle at 35% 35%, #94a3b8 0%, #64748b 45%, #334155 85%, #1e293b 100%);
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.6);
             filter: saturate(0.2) contrast(0.85);
             transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        /* Graded States Triggered on Hover/Tap/Active */
-        .group:hover .grade-sphere-kodak,
-        .group:active .grade-sphere-kodak,
-        .group.is-previewing .grade-sphere-kodak {
+        /* Hover Graded State for Frame & Orb */
+        .group:hover .cinema-frame-bg.grade-style-kodak,
+        .group:active .cinema-frame-bg.grade-style-kodak,
+        .group.is-previewing .cinema-frame-bg.grade-style-kodak {
+            background: radial-gradient(circle at 50% 30%, #451a03 0%, #1e1b4b 60%, #030712 100%) !important;
+            filter: saturate(1.4) contrast(1.3) brightness(0.95) !important;
+        }
+        .group:hover .cinema-color-orb.grade-style-kodak,
+        .group:active .cinema-color-orb.grade-style-kodak,
+        .group.is-previewing .cinema-color-orb.grade-style-kodak {
             background: radial-gradient(circle at 35% 35%, #fef08a 0%, #f97316 40%, #b91c1c 70%, #0e7490 100%) !important;
-            box-shadow: 0 0 35px rgba(249, 115, 22, 0.6), inset 0 0 15px rgba(254, 240, 138, 0.5) !important;
+            box-shadow: 0 0 35px rgba(249, 115, 22, 0.7), inset 0 0 15px rgba(254, 240, 138, 0.6) !important;
             filter: saturate(1.4) contrast(1.25) !important;
-            transform: scale(1.15) !important;
         }
-        .group:hover .grade-sphere-neon,
-        .group:active .grade-sphere-neon,
-        .group.is-previewing .grade-sphere-neon {
-            background: radial-gradient(circle at 35% 35%, #a5f3fc 0%, #d946ef 45%, #7c3aed 80%, #1e1b4b 100%) !important;
-            box-shadow: 0 0 35px rgba(217, 70, 239, 0.65), inset 0 0 15px rgba(165, 243, 252, 0.6) !important;
-            filter: saturate(1.6) contrast(1.3) !important;
-            transform: scale(1.15) !important;
+
+        .group:hover .cinema-frame-bg.grade-style-tealorange,
+        .group:active .cinema-frame-bg.grade-style-tealorange,
+        .group.is-previewing .cinema-frame-bg.grade-style-tealorange {
+            background: linear-gradient(135deg, #083344 0%, #032333 40%, #431407 100%) !important;
+            filter: saturate(1.6) contrast(1.35) !important;
         }
-        .group:hover .grade-sphere-amber,
-        .group:active .grade-sphere-amber,
-        .group.is-previewing .grade-sphere-amber {
+        .group:hover .cinema-color-orb.grade-style-tealorange,
+        .group:active .cinema-color-orb.grade-style-tealorange,
+        .group.is-previewing .cinema-color-orb.grade-style-tealorange {
+            background: radial-gradient(circle at 35% 35%, #fed7aa 0%, #f97316 35%, #0891b2 75%, #083344 100%) !important;
+            box-shadow: 0 0 35px rgba(6, 182, 212, 0.7), inset 0 0 15px rgba(254, 215, 170, 0.6) !important;
+            filter: saturate(1.5) contrast(1.3) !important;
+        }
+
+        .group:hover .cinema-frame-bg.grade-style-golden,
+        .group:active .cinema-frame-bg.grade-style-golden,
+        .group.is-previewing .cinema-frame-bg.grade-style-golden {
+            background: radial-gradient(circle at 40% 40%, #78350f 0%, #451a03 50%, #0a0703 100%) !important;
+            filter: saturate(1.5) contrast(1.25) !important;
+        }
+        .group:hover .cinema-color-orb.grade-style-golden,
+        .group:active .cinema-color-orb.grade-style-golden,
+        .group.is-previewing .cinema-color-orb.grade-style-golden {
             background: radial-gradient(circle at 35% 35%, #fffbeb 0%, #f59e0b 45%, #c2410c 75%, #451a03 100%) !important;
-            box-shadow: 0 0 35px rgba(245, 158, 11, 0.6), inset 0 0 15px rgba(255, 251, 235, 0.5) !important;
-            filter: saturate(1.5) contrast(1.2) !important;
-            transform: scale(1.15) !important;
+            box-shadow: 0 0 35px rgba(245, 158, 11, 0.7), inset 0 0 15px rgba(255, 251, 235, 0.6) !important;
+            filter: saturate(1.5) contrast(1.25) !important;
         }
-        .group:hover .grade-sphere-aces,
-        .group:active .grade-sphere-aces,
-        .group.is-previewing .grade-sphere-aces {
+
+        .group:hover .cinema-frame-bg.grade-style-cyber,
+        .group:active .cinema-frame-bg.grade-style-cyber,
+        .group.is-previewing .cinema-frame-bg.grade-style-cyber {
+            background: linear-gradient(135deg, #1e1b4b 0%, #581c87 50%, #0369a1 100%) !important;
+            filter: saturate(1.7) contrast(1.4) !important;
+        }
+        .group:hover .cinema-color-orb.grade-style-cyber,
+        .group:active .cinema-color-orb.grade-style-cyber,
+        .group.is-previewing .cinema-color-orb.grade-style-cyber {
+            background: radial-gradient(circle at 35% 35%, #a5f3fc 0%, #d946ef 45%, #7c3aed 80%, #1e1b4b 100%) !important;
+            box-shadow: 0 0 35px rgba(217, 70, 239, 0.75), inset 0 0 15px rgba(165, 243, 252, 0.6) !important;
+            filter: saturate(1.6) contrast(1.3) !important;
+        }
+
+        .group:hover .cinema-frame-bg.grade-style-bw,
+        .group:active .cinema-frame-bg.grade-style-bw,
+        .group.is-previewing .cinema-frame-bg.grade-style-bw {
+            background: linear-gradient(135deg, #334155 0%, #0f172a 60%, #020617 100%) !important;
+            filter: grayscale(1) contrast(1.6) brightness(0.9) !important;
+        }
+        .group:hover .cinema-color-orb.grade-style-bw,
+        .group:active .cinema-color-orb.grade-style-bw,
+        .group.is-previewing .cinema-color-orb.grade-style-bw {
+            background: radial-gradient(circle at 35% 35%, #ffffff 0%, #94a3b8 40%, #334155 75%, #020617 100%) !important;
+            box-shadow: 0 0 35px rgba(255, 255, 255, 0.5), inset 0 0 15px #fff !important;
+            filter: grayscale(1) contrast(1.5) !important;
+        }
+
+        .group:hover .cinema-frame-bg.grade-style-aces,
+        .group:active .cinema-frame-bg.grade-style-aces,
+        .group.is-previewing .cinema-frame-bg.grade-style-aces {
+            background: linear-gradient(135deg, #064e3b 0%, #0f172a 50%, #1e3a8a 100%) !important;
+            filter: saturate(1.3) contrast(1.25) !important;
+        }
+        .group:hover .cinema-color-orb.grade-style-aces,
+        .group:active .cinema-color-orb.grade-style-aces,
+        .group.is-previewing .cinema-color-orb.grade-style-aces {
             background: radial-gradient(circle at 35% 35%, #ffffff 0%, #10b981 35%, #0284c7 70%, #1e1b4b 100%) !important;
             box-shadow: 0 0 35px rgba(16, 185, 129, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.6) !important;
             filter: saturate(1.3) contrast(1.2) !important;
-            transform: scale(1.15) !important;
         }
-        .group:hover .grade-sphere-hue,
-        .group:active .grade-sphere-hue,
-        .group.is-previewing .grade-sphere-hue {
-            background: radial-gradient(circle at 35% 35%, #fecdd3 0%, #e11d48 40%, #831843 75%, #0f172a 100%) !important;
-            box-shadow: 0 0 35px rgba(225, 29, 72, 0.6), inset 0 0 15px rgba(254, 205, 211, 0.5) !important;
-            filter: saturate(1.45) contrast(1.25) !important;
-            transform: scale(1.15) !important;
+
+        .group:hover .cinema-frame-bg.grade-style-falsecolor,
+        .group:active .cinema-frame-bg.grade-style-falsecolor,
+        .group.is-previewing .cinema-frame-bg.grade-style-falsecolor {
+            background: linear-gradient(to right, #7e22ce 0%, #0284c7 25%, #10b981 50%, #facc15 75%, #dc2626 100%) !important;
+            filter: contrast(1.5) saturate(1.8) !important;
+        }
+        .group:hover .cinema-color-orb.grade-style-falsecolor,
+        .group:active .cinema-color-orb.grade-style-falsecolor,
+        .group.is-previewing .cinema-color-orb.grade-style-falsecolor {
+            background: radial-gradient(circle at 35% 35%, #dc2626 0%, #facc15 30%, #10b981 60%, #0284c7 85%, #7e22ce 100%) !important;
+            box-shadow: 0 0 35px rgba(220, 38, 38, 0.6), inset 0 0 15px #facc15 !important;
+            filter: contrast(1.6) !important;
         }
 
         /* Split-Grade Animated Sweep Bar */
@@ -204,6 +391,64 @@
         .group:active .grade-sweep-bar,
         .group.is-previewing .grade-sweep-bar {
             animation: gradeSweepAnim 1.6s ease-in-out infinite;
+        }
+
+        /* ==================== 3. EFFECT ANIMATION KEYFRAMES ==================== */
+        /* 3.1 Camera Shake */
+        @keyframes cameraShakeAnim {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            15% { transform: translate(-6px, 4px) rotate(-1.5deg); }
+            30% { transform: translate(5px, -5px) rotate(1.2deg); }
+            45% { transform: translate(-4px, -3px) rotate(-0.8deg); }
+            60% { transform: translate(5px, 3px) rotate(1.1deg); }
+            75% { transform: translate(-3px, 4px) rotate(-0.6deg); }
+            90% { transform: translate(3px, -2px) rotate(0.5deg); }
+        }
+        .group:hover .anim-camera-shake,
+        .group:active .anim-camera-shake,
+        .group.is-previewing .anim-camera-shake {
+            animation: cameraShakeAnim 0.6s infinite !important;
+        }
+
+        /* 3.2 35mm Film Grain Simulation */
+        @keyframes filmGrainJitter {
+            0%, 100% { transform: translate(0, 0); opacity: 0.85; }
+            25% { transform: translate(-2px, 2px); opacity: 1; }
+            50% { transform: translate(2px, -1px); opacity: 0.9; }
+            75% { transform: translate(-1px, -2px); opacity: 1; }
+        }
+        .anim-film-grain {
+            background-image: radial-gradient(rgba(245, 158, 11, 0.15) 1px, transparent 0);
+            background-size: 4px 4px;
+        }
+        .group:hover .anim-film-grain,
+        .group:active .anim-film-grain,
+        .group.is-previewing .anim-film-grain {
+            animation: filmGrainJitter 0.2s steps(2) infinite !important;
+        }
+
+        /* 3.3 Anamorphic Light Leak */
+        @keyframes lightLeakSweep {
+            0% { transform: translateX(-150%) skewX(-20deg); opacity: 0; }
+            30% { opacity: 0.95; }
+            70% { opacity: 0.95; }
+            100% { transform: translateX(200%) skewX(-20deg); opacity: 0; }
+        }
+        .group:hover .anim-light-leak,
+        .group:active .anim-light-leak,
+        .group.is-previewing .anim-light-leak {
+            animation: lightLeakSweep 2s ease-in-out infinite !important;
+        }
+
+        /* 3.4 Fisheye Lens Warp */
+        @keyframes lensWarpScale {
+            0%, 100% { transform: scale(1); border-radius: 16px; }
+            50% { transform: scale(1.2) rotate(4deg); border-radius: 50%; box-shadow: 0 0 35px rgba(236, 72, 153, 0.6); }
+        }
+        .group:hover .anim-lens-warp,
+        .group:active .anim-lens-warp,
+        .group.is-previewing .anim-lens-warp {
+            animation: lensWarpScale 2s ease-in-out infinite !important;
         }
 
         /* ==================== 3. EFFECT ANIMATION KEYFRAMES (RAW SHAPE -> EFFECT APPLIED) ==================== */
@@ -733,7 +978,7 @@
                         <span>👑 Premium Suite (153)</span>
                     </button>
                     <button onclick="filterCategory('text-animation')" id="catBtn-text-animation" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition flex items-center gap-1.5 shrink-0">
-                        <span>✍️ Text Animation (43)</span>
+                        <span>✍️ Text Animation (179)</span>
                     </button>
                     <button onclick="filterCategory('effect')" id="catBtn-effect" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition flex items-center gap-1.5 shrink-0">
                         <span>⚡ Effect Plugins (259)</span>
@@ -989,9 +1234,13 @@
             const container = document.getElementById('subcategoryPillsContainer');
             if (!container) return;
 
+            const isTextFilter = (p) => p.category === 'text-animation' || p.subcatType === 'text-animation' || (p.subcategory || '').toLowerCase().includes('text animation');
+
             let subs = new Set();
             allPlugins.forEach(p => {
-                if (currentCategory === 'all' || p.category === currentCategory) {
+                const matches = currentCategory === 'all' || 
+                                (currentCategory === 'text-animation' ? isTextFilter(p) : p.category === currentCategory);
+                if (matches) {
                     subs.add(p.subcategory);
                 }
             });
@@ -1003,7 +1252,11 @@
             `;
 
             Array.from(subs).sort().forEach(sub => {
-                const count = allPlugins.filter(p => (currentCategory === 'all' || p.category === currentCategory) && p.subcategory === sub).length;
+                const count = allPlugins.filter(p => {
+                    const matches = currentCategory === 'all' || 
+                                    (currentCategory === 'text-animation' ? isTextFilter(p) : p.category === currentCategory);
+                    return matches && p.subcategory === sub;
+                }).length;
                 const isActive = currentSubcategory === sub;
                 html += `
                     <button onclick="filterSubcategory('${sub}')" class="px-3 py-1.5 rounded-full text-xs font-bold transition whitespace-nowrap ${isActive ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40' : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'}">
@@ -1027,8 +1280,11 @@
         }
 
         function applyFilters() {
+            const isTextFilter = (p) => p.category === 'text-animation' || p.subcatType === 'text-animation' || (p.subcategory || '').toLowerCase().includes('text animation');
+
             filteredPlugins = allPlugins.filter(p => {
-                const matchesCat = currentCategory === 'all' || p.category === currentCategory;
+                const matchesCat = currentCategory === 'all' || 
+                                   (currentCategory === 'text-animation' ? isTextFilter(p) : p.category === currentCategory);
                 const matchesSub = currentSubcategory === 'all' || p.subcategory === currentSubcategory;
                 const matchesSearch = !searchQuery || 
                     p.name.toLowerCase().includes(searchQuery) ||
@@ -1055,444 +1311,375 @@
 
         // ------------------ DIRECT CARD PREVIEW GENERATOR ------------------
         function getCardPreviewHtml(p) {
-            // ================= 0. PREMIUM SUITE PLUGINS (GOLDEN & HIGH-END DYNAMICS) =================
-            if (p.category === 'premium' || p.isPremium) {
-                if (p.subcatType === 'text-animation') {
-                    let animClass = 'anim-text-bounce';
-                    let previewBadge = 'PREMIUM TEXT';
-                    
-                    if (p.previewType === 'text-bounce') {
-                        animClass = 'anim-text-bounce';
-                        previewBadge = 'BOUNCE MOTION';
-                    } else if (p.previewType === 'text-slide-down') {
-                        animClass = 'anim-text-slide-down';
-                        previewBadge = 'SLIDE DOWN';
-                    } else if (p.previewType === 'text-slide-up') {
-                        animClass = 'anim-text-slide-up';
-                        previewBadge = 'SLIDE UP';
-                    } else if (p.previewType === 'text-slide-left') {
-                        animClass = 'anim-text-slide-left';
-                        previewBadge = 'SLIDE LEFT';
-                    } else if (p.previewType === 'text-slide-right') {
-                        animClass = 'anim-text-slide-right';
-                        previewBadge = 'SLIDE RIGHT';
-                    } else if (p.previewType === 'text-rotate') {
-                        animClass = 'anim-text-rotate';
-                        previewBadge = '3D ROTATE';
-                    } else if (p.previewType === 'text-flicker') {
-                        animClass = 'anim-text-flicker';
-                        previewBadge = 'STROBE FLICKER';
-                    } else if (p.previewType === 'text-blur') {
-                        animClass = 'anim-text-blur';
-                        previewBadge = 'GAUSSIAN BLUR';
-                    } else if (p.previewType === 'text-scale') {
-                        animClass = 'anim-text-scale';
-                        previewBadge = 'ELASTIC SCALE';
-                    } else if (p.previewType === 'text-stretch') {
-                        animClass = 'anim-text-stretch';
-                        previewBadge = 'KINETIC STRETCH';
-                    }
+            const isPrem = p.category === 'premium' || p.isPremium;
+            const nameLower = (p.name || '').toLowerCase();
+            const subLower = (p.subcategory || '').toLowerCase();
+            const ptLower = (p.previewType || '').toLowerCase();
+            const combined = `${nameLower} ${subLower} ${ptLower}`;
 
-                    return `
-                        <div class="relative w-full h-36 rounded-xl overflow-hidden bg-gradient-to-b from-[#1c1404] via-[#0e0b04] to-black border border-amber-500/50 flex flex-col items-center justify-center p-3 text-center select-none group-hover:border-yellow-400/80 shadow-[inset_0_0_20px_rgba(245,158,11,0.15)] transition">
-                            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(251,191,36,0.15)_0,transparent_75%)] pointer-events-none"></div>
-                            <!-- Shimmer Sweep Line -->
-                            <div class="absolute inset-y-0 w-1 bg-gradient-to-b from-transparent via-amber-300 to-transparent opacity-0 group-hover:opacity-100 grade-sweep-bar pointer-events-none z-20 shadow-[0_0_12px_#fbbf24]"></div>
+            // =========================================================================
+            // 1. TEXT ANIMATION PLUGINS (Both Standard 43 + Premium 136 = 179 Total)
+            // =========================================================================
+            if (p.category === 'text-animation' || p.subcatType === 'text-animation') {
+                let animClass = 'anim-text-bounce';
+                let animBadge = 'BOUNCE MOTION';
+                let textGradient = 'from-amber-300 via-yellow-200 to-amber-400';
+                let borderCls = isPrem ? 'border-amber-500/60' : 'border-slate-800';
 
-                            <div class="absolute top-2 left-2 flex items-center gap-1.5 text-[9px] font-mono text-amber-300 bg-amber-950/80 px-2 py-0.5 rounded-full border border-amber-500/40">
-                                <span class="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-ping"></span>
-                                <span>👑 ${previewBadge}</span>
-                            </div>
-                            <div class="absolute top-2 right-2 text-[9px] font-mono text-amber-200 bg-amber-950/80 px-2 py-0.5 rounded-full border border-amber-500/30">
-                                ${p.fps || '60 FPS'}
-                            </div>
-                            <div class="absolute bottom-2 right-2 text-[9px] text-amber-400/80 group-hover:text-yellow-300 transition font-mono bg-black/60 px-2 py-0.5 rounded-full border border-amber-500/20">
-                                Touch / Hover: Motion ✨
-                            </div>
-                            <!-- Animated Text Element -->
-                            <div class="z-10 transition-transform duration-300 transform group-hover:scale-105 px-2">
-                                <div class="text-lg sm:text-xl font-black text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400 transition-all duration-300 ${animClass} tracking-tight leading-tight">
-                                    ${p.name.replace('✨ ', '').replace('⚡ ', '').replace('👑 ', '')}
-                                </div>
-                                <div class="text-[10px] text-amber-400/70 font-medium mt-1">
-                                    DaVinci Resolve Fusion Title (${p.fps || '.setting'})
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                } else if (p.subcatType === 'drfx' || p.previewType === 'drfx-master') {
-                    return `
-                        <div class="relative w-full h-36 rounded-xl overflow-hidden bg-gradient-to-b from-[#1f1604] via-[#0d0902] to-black border border-amber-400/70 flex flex-col items-center justify-center p-3 text-center select-none group-hover:border-yellow-300 shadow-[inset_0_0_25px_rgba(245,158,11,0.2)] transition">
-                            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.25)_0,transparent_75%)] pointer-events-none"></div>
-                            <div class="absolute top-2 left-2 flex items-center gap-1.5 text-[9px] font-mono text-amber-300 bg-amber-950/90 px-2 py-0.5 rounded-full border border-amber-500/50">
-                                <span class="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-ping"></span>
-                                <span>🔥 ONE-CLICK INSTALLER</span>
-                            </div>
-                            <div class="z-10 flex flex-col items-center justify-center anim-drfx-box cursor-pointer">
-                                <div class="text-4xl drop-shadow-[0_0_15px_rgba(245,158,11,0.8)]">📦</div>
-                                <div class="text-xs font-black text-amber-300 mt-1.5 uppercase tracking-wider">
-                                    .DRFX Auto-Install Bundle
-                                </div>
-                            </div>
-                            <div class="absolute bottom-2 inset-x-2 flex items-center justify-between text-[9px] font-mono text-amber-400/80 bg-black/70 px-2 py-0.5 rounded border border-amber-500/20">
-                                <span>Double-click to install</span>
-                                <span>${p.sizeKb} KB</span>
-                            </div>
-                        </div>
-                    `;
+                // Accurate Classification of Text Animation
+                if (combined.includes('slide down') || combined.includes('drop') || combined.includes('fall') || combined.includes('gravity')) {
+                    animClass = 'anim-text-slide-down';
+                    animBadge = 'SLIDE DOWN (DROP IN)';
+                } else if (combined.includes('slide up') || combined.includes('rise')) {
+                    animClass = 'anim-text-slide-up';
+                    animBadge = 'SLIDE UP (RISE IN)';
+                } else if (combined.includes('slide left')) {
+                    animClass = 'anim-text-slide-left';
+                    animBadge = 'SLIDE LEFT (ENTRANCE)';
+                } else if (combined.includes('slide right')) {
+                    animClass = 'anim-text-slide-right';
+                    animBadge = 'SLIDE RIGHT (ENTRANCE)';
+                } else if (combined.includes('reverb') || combined.includes('echo') || combined.includes('tracking') || combined.includes('expand') || combined.includes('ambient') || combined.includes('cinematic') || combined.includes('contract')) {
+                    animClass = 'anim-text-reverb';
+                    animBadge = 'REVERB ECHO (EXPAND)';
+                } else if (combined.includes('fade') || combined.includes('fake') || combined.includes('opacity') || combined.includes('dissolve') || combined.includes('minimal editorial')) {
+                    animClass = 'anim-text-fade-in';
+                    animBadge = 'FADE IN (SOFT DISSOLVE)';
+                } else if (combined.includes('typewriter') || combined.includes('write') || combined.includes('terminal') || combined.includes('hud')) {
+                    animClass = 'anim-text-typewriter';
+                    animBadge = 'TYPEWRITER (WRITE-ON)';
+                } else if (combined.includes('blur') || combined.includes('defocus')) {
+                    animClass = 'anim-text-blur';
+                    animBadge = 'DEFOCUS BLUR REVEAL';
+                } else if (combined.includes('glitch') || combined.includes('vhs') || combined.includes('analog')) {
+                    animClass = 'anim-text-glitch';
+                    animBadge = 'RGB CHROMATIC GLITCH';
+                } else if (combined.includes('neon') || combined.includes('flicker') || combined.includes('strobe') || combined.includes('electric')) {
+                    animClass = 'anim-text-neon';
+                    animBadge = 'ELECTRIC NEON FLICKER';
+                } else if (combined.includes('rotate') || combined.includes('flip')) {
+                    animClass = 'anim-text-rotate';
+                    animBadge = '3D ROTATE FLIP';
+                } else if (combined.includes('stretch')) {
+                    animClass = 'anim-text-stretch';
+                    animBadge = 'KINETIC STRETCH';
+                } else if (combined.includes('scale') || combined.includes('zoom') || combined.includes('pop') || combined.includes('snap') || combined.includes('slam')) {
+                    animClass = 'anim-text-scale';
+                    animBadge = 'ZOOM SCALE POP';
                 } else {
-                    // NeoFX Effects & Fuses
-                    let pt = p.previewType;
-                    let effectInner = '';
-                    let effectTag = 'NEOFX CORE';
-
-                    if (pt === 'effect-neoglow') {
-                        effectTag = 'RADIANT AMBER GLOW';
-                        effectInner = `
-                            <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-amber-500 to-yellow-300 anim-neo-glow flex items-center justify-center text-xl shadow-[0_0_20px_#f59e0b]">
-                                ✨
-                            </div>
-                        `;
-                    } else if (pt === 'effect-neosweep') {
-                        effectTag = 'LIGHT SWEEP PRO';
-                        effectInner = `
-                            <div class="relative w-28 h-12 rounded-xl bg-gradient-to-r from-amber-900 via-yellow-700 to-amber-950 border border-amber-400/60 overflow-hidden flex items-center justify-center font-black text-amber-200">
-                                <span>NEOFX SWEEP</span>
-                                <div class="absolute inset-y-0 w-8 bg-gradient-to-r from-transparent via-white/80 to-transparent anim-neo-sweep -skew-x-12 pointer-events-none"></div>
-                            </div>
-                        `;
-                    } else if (pt === 'effect-neolens') {
-                        effectTag = 'FISHEYE LENS DISTORT';
-                        effectInner = `
-                            <div class="w-14 h-14 bg-gradient-to-br from-amber-500 to-orange-600 anim-neo-lens flex items-center justify-center text-xl text-black font-black border-2 border-yellow-300">
-                                👁️
-                            </div>
-                        `;
-                    } else if (pt === 'effect-neoglitch' || pt === 'effect-neochroma') {
-                        effectTag = 'CHROMATIC RGB GLITCH';
-                        effectInner = `
-                            <div class="w-14 h-14 rounded-xl bg-black border border-amber-400 glitch-matrix-anim flex items-center justify-center text-2xl text-amber-300 shadow-[0_0_15px_#f59e0b]">
-                                ⚡
-                            </div>
-                        `;
-                    } else {
-                        effectTag = 'NEOFX FUSION';
-                        effectInner = `
-                            <div class="w-14 h-14 rounded-2xl bg-gradient-to-tr from-amber-600 via-yellow-500 to-amber-300 anim-neo-glow flex items-center justify-center text-2xl text-slate-950 font-black shadow-lg shadow-amber-500/50">
-                                💎
-                            </div>
-                        `;
-                    }
-
-                    return `
-                        <div class="relative w-full h-36 rounded-xl overflow-hidden bg-gradient-to-b from-[#1b1303] via-[#0d0902] to-black border border-amber-400/60 flex flex-col items-center justify-center p-3 text-center select-none group-hover:border-yellow-300 shadow-[inset_0_0_20px_rgba(245,158,11,0.15)] transition">
-                            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.2)_0,transparent_75%)] pointer-events-none"></div>
-                            <div class="absolute top-2 left-2 flex items-center gap-1.5 text-[9px] font-mono text-amber-300 bg-amber-950/80 px-2 py-0.5 rounded-full border border-amber-500/40">
-                                <span class="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-ping"></span>
-                                <span>👑 ${effectTag}</span>
-                            </div>
-                            <div class="absolute top-2 right-2 text-[9px] font-mono text-amber-200 bg-amber-950/80 px-2 py-0.5 rounded-full border border-amber-500/30">
-                                ${p.fps || 'Fusion'}
-                            </div>
-                            <!-- Central Effect Visual -->
-                            <div class="z-10 flex items-center justify-center">
-                                ${effectInner}
-                            </div>
-                            <div class="absolute bottom-2 inset-x-2 flex items-center justify-between text-[9px] font-mono text-amber-400/80 bg-black/70 px-2 py-0.5 rounded border border-amber-500/20">
-                                <span class="truncate max-w-[140px] text-amber-300">${p.name}</span>
-                                <span>Hover: Active Effect ✨</span>
-                            </div>
-                        </div>
-                    `;
+                    animClass = 'anim-text-bounce';
+                    animBadge = 'KINETIC SPRING BOUNCE';
                 }
-            }
 
-            // ================= 1. TEXT ANIMATION PLUGINS =================
-            if (p.category === 'text-animation') {
-                let animClass = 'anim-hormozi-pop';
-                let textColor = 'text-amber-400';
-                let previewBadge = 'TEXT ANIMATION';
-
-                if (p.previewType === 'text-kinetic') {
-                    animClass = 'anim-spring-bounce';
-                    textColor = 'text-white';
-                    previewBadge = 'KINETIC BOUNCE';
-                } else if (p.previewType === 'text-typewriter') {
-                    animClass = 'anim-tracking-expand font-mono';
-                    textColor = 'text-cyan-400';
-                    previewBadge = 'TYPEWRITER WRITE-ON';
-                } else if (p.previewType === 'text-glitch') {
-                    animClass = 'anim-chromatic-glitch';
-                    textColor = 'text-white';
-                    previewBadge = 'RGB CHROMATIC GLITCH';
-                } else if (p.previewType === 'text-neon') {
-                    animClass = 'anim-neon-flicker';
-                    textColor = 'text-rose-400';
-                    previewBadge = 'ELECTRIC NEON';
-                } else if (p.previewType === 'text-cinematic') {
-                    animClass = 'anim-tracking-expand';
-                    textColor = 'text-indigo-200';
-                    previewBadge = 'CINEMATIC EXPAND';
-                } else if (p.previewType === 'text-lowerthird') {
-                    animClass = 'anim-spring-bounce';
-                    textColor = 'text-emerald-300';
-                    previewBadge = 'LOWER THIRD BAR';
-                }
+                const fpsLabel = p.fps || (isPrem ? '60 FPS' : 'Fusion Text+');
+                const cleanPresetTitle = p.name.replace(/^[✨⚡👑🔥\s]+/, '');
 
                 return `
-                    <div class="relative w-full h-36 rounded-xl overflow-hidden bg-gradient-to-b from-slate-950 to-slate-900 border border-slate-800/90 flex flex-col items-center justify-center p-3 text-center select-none group-hover:border-amber-500/50 transition">
-                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.08)_0,transparent_75%)] pointer-events-none"></div>
-                        <div class="absolute top-2 left-2 flex items-center gap-1 text-[9px] font-mono text-slate-400 bg-black/60 px-2 py-0.5 rounded-full border border-white/5">
-                            <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
-                            <span>${previewBadge}</span>
+                    <div class="relative w-full h-36 rounded-xl overflow-hidden bg-gradient-to-b from-[#111728] via-[#090d16] to-[#04060b] border ${borderCls} flex flex-col items-center justify-center p-3 text-center select-none group-hover:border-amber-400 shadow-inner transition-all duration-300">
+                        <!-- Cinema Safe Title Guides & Crosshair (Authentic DaVinci Text+ Viewport) -->
+                        <div class="absolute inset-2 border border-white/5 rounded-lg pointer-events-none"></div>
+                        <div class="absolute inset-x-0 top-1/2 h-px bg-white/5 pointer-events-none"></div>
+                        <div class="absolute inset-y-0 left-1/2 w-px bg-white/5 pointer-events-none"></div>
+
+                        <!-- Shimmer Sweep Line on Hover -->
+                        <div class="absolute inset-y-0 w-1 bg-gradient-to-b from-transparent via-amber-300 to-transparent opacity-0 group-hover:opacity-100 grade-sweep-bar pointer-events-none z-20 shadow-[0_0_12px_#fbbf24]"></div>
+
+                        <!-- Top Left: Preset Animation Badge -->
+                        <div class="absolute top-2 left-2 z-20 flex items-center gap-1.5 text-[9px] font-mono bg-black/85 px-2.5 py-0.5 rounded-full border border-amber-500/40 text-amber-300 backdrop-blur-sm">
+                            <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping"></span>
+                            <span>✨ ${animBadge}</span>
                         </div>
-                        <div class="absolute bottom-2 right-2 text-[9px] text-slate-400 group-hover:text-amber-400 transition font-mono bg-black/60 px-2 py-0.5 rounded-full border border-white/10">
-                            Touch / Hover: Motion ⚡
+
+                        <!-- Top Right: Frame Rate / Engine Tag -->
+                        <div class="absolute top-2 right-2 z-20 text-[9px] font-mono text-amber-200/90 bg-black/80 px-2 py-0.5 rounded border border-white/10 backdrop-blur-sm">
+                            ${fpsLabel}
                         </div>
-                        <!-- Animated Text Element directly on the card -->
-                        <div class="z-10 transition-transform duration-300 transform group-hover:scale-105 px-2">
-                            <div class="text-lg sm:text-xl font-black ${textColor} transition-all duration-300 ${animClass} tracking-tight leading-tight">
-                                ${p.name}
+
+                        <!-- Central Animating Sample Text: "မြန်မာပြည်သည်" -->
+                        <div class="z-10 flex flex-col items-center justify-center px-2 py-1">
+                            <div class="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r ${textGradient} ${animClass} tracking-normal leading-tight drop-shadow-[0_2px_12px_rgba(0,0,0,0.9)]" style="font-family: 'Padauk', sans-serif;">
+                                မြန်မာပြည်သည်
                             </div>
-                            <div class="text-[10px] text-slate-400 font-medium mt-1">
-                                DaVinci Resolve Titles (.setting)
+                            <div class="text-[10px] font-mono text-amber-300/80 mt-1 truncate max-w-[210px]">
+                                ${cleanPresetTitle}
                             </div>
+                        </div>
+
+                        <!-- Bottom Hint & Action -->
+                        <div class="absolute bottom-1.5 inset-x-2 z-20 flex items-center justify-between text-[8px] font-mono text-slate-400 bg-black/80 px-2.5 py-0.5 rounded border border-white/5 backdrop-blur-sm">
+                            <span class="text-slate-300">DaVinci Resolve Text+</span>
+                            <span class="text-amber-400 group-hover:text-yellow-300 transition">Hover: Live Animation ▶</span>
                         </div>
                     </div>
                 `;
-            } 
-            // ================= 2. COLOR PLUGINS: NORMAL VS GRADED SHAPE COMPARISON =================
-            else if (p.category === 'color') {
-                const nameLower = p.name.toLowerCase();
-                let gradeClass = 'grade-sphere-kodak';
-                let gradeTitle = 'Kodak 2383 S-Curve';
+            }
+
+            // =========================================================================
+            // 2. DRFX AUTO-INSTALLER BUNDLES
+            // =========================================================================
+            if (p.subcatType === 'drfx' || ptLower === 'drfx-master') {
+                return `
+                    <div class="relative w-full h-36 rounded-xl overflow-hidden bg-gradient-to-b from-[#1f1604] via-[#0d0902] to-black border border-amber-400/80 flex flex-col items-center justify-center p-3 text-center select-none group-hover:border-yellow-300 shadow-[inset_0_0_25px_rgba(245,158,11,0.25)] transition">
+                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.25)_0,transparent_75%)] pointer-events-none"></div>
+                        <div class="absolute top-2 left-2 flex items-center gap-1.5 text-[9px] font-mono text-amber-300 bg-amber-950/90 px-2 py-0.5 rounded-full border border-amber-500/50">
+                            <span class="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-ping"></span>
+                            <span>🔥 ONE-CLICK DRFX INSTALLER</span>
+                        </div>
+                        <div class="z-10 flex flex-col items-center justify-center anim-drfx-box cursor-pointer">
+                            <div class="text-4xl drop-shadow-[0_0_15px_rgba(245,158,11,0.8)]">📦</div>
+                            <div class="text-xs font-black text-amber-300 mt-1.5 uppercase tracking-wider">
+                                .DRFX Auto-Install Bundle
+                            </div>
+                        </div>
+                        <div class="absolute bottom-2 inset-x-2 flex items-center justify-between text-[9px] font-mono text-amber-400/80 bg-black/70 px-2 py-0.5 rounded border border-amber-500/20">
+                            <span>Double-click to install into DaVinci</span>
+                            <span>${p.sizeKb} KB</span>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // =========================================================================
+            // 3. COLOR PLUGINS: CINEMATIC RAW LOG VS COLOR GRADED COMPARISON
+            // =========================================================================
+            if (p.category === 'color') {
+                let gradeClass = 'grade-style-kodak';
+                let gradeTitle = 'Kodak 2383 Film Print';
                 let gradeColor = 'text-amber-400';
 
-                if (nameLower.includes('amber') || nameLower.includes('golden') || nameLower.includes('sunset') || p.previewType === 'color-amber') {
-                    gradeClass = 'grade-sphere-amber';
+                if (combined.includes('chart') || combined.includes('false') || combined.includes('vector') || combined.includes('waveform') || combined.includes('technical')) {
+                    gradeClass = 'grade-style-falsecolor';
+                    gradeTitle = '16-Zone False Color';
+                    gradeColor = 'text-emerald-400';
+                } else if (combined.includes('teal') || combined.includes('orange') || combined.includes('blockbuster')) {
+                    gradeClass = 'grade-style-tealorange';
+                    gradeTitle = 'Teal & Orange Hollywood';
+                    gradeColor = 'text-cyan-400';
+                } else if (combined.includes('gold') || combined.includes('amber') || combined.includes('sunset') || combined.includes('warm')) {
+                    gradeClass = 'grade-style-golden';
                     gradeTitle = 'Golden Hour Amber';
                     gradeColor = 'text-yellow-400';
-                } else if (nameLower.includes('cyber') || nameLower.includes('neon') || nameLower.includes('lut') || p.previewType === 'color-lut') {
-                    gradeClass = 'grade-sphere-neon';
+                } else if (combined.includes('cyber') || combined.includes('neon') || combined.includes('pink') || combined.includes('synth')) {
+                    gradeClass = 'grade-style-cyber';
                     gradeTitle = 'Cyberpunk Neon LUT';
                     gradeColor = 'text-pink-400';
-                } else if (nameLower.includes('aces') || nameLower.includes('balance') || nameLower.includes('chart') || p.previewType === 'color-aces') {
-                    gradeClass = 'grade-sphere-aces';
-                    gradeTitle = 'ACES Color Balance';
+                } else if (combined.includes('bw') || combined.includes('monochrome') || combined.includes('black and white') || combined.includes('silver') || combined.includes('bleach')) {
+                    gradeClass = 'grade-style-bw';
+                    gradeTitle = 'Monochrome Silver Film';
+                    gradeColor = 'text-slate-300';
+                } else if (combined.includes('aces') || combined.includes('gamut') || combined.includes('balance') || combined.includes('matrix')) {
+                    gradeClass = 'grade-style-aces';
+                    gradeTitle = 'ACES Rec.709 Color Science';
                     gradeColor = 'text-emerald-400';
-                } else if (nameLower.includes('hue') || nameLower.includes('saturation') || nameLower.includes('median') || nameLower.includes('curve')) {
-                    gradeClass = 'grade-sphere-hue';
-                    gradeTitle = 'Hue Saturation Curve';
-                    gradeColor = 'text-rose-400';
+                } else {
+                    gradeClass = 'grade-style-kodak';
+                    gradeTitle = 'Kodak 2383 S-Curve Print';
+                    gradeColor = 'text-amber-400';
                 }
 
                 return `
-                    <div class="relative w-full h-36 rounded-xl overflow-hidden bg-[#070b14] border border-slate-800/90 group-hover:border-cyan-500/50 transition select-none flex items-center justify-center">
-                        <!-- Cinema Viewfinder Grid Lines -->
-                        <div class="absolute inset-0 bg-[linear-gradient(to_right,#1e293b22_1px,transparent_1px),linear-gradient(to_bottom,#1e293b22_1px,transparent_1px)] bg-[size:16px_16px] pointer-events-none"></div>
-                        <div class="absolute inset-2 border border-white/5 rounded-lg pointer-events-none"></div>
+                    <div class="relative w-full h-36 rounded-xl overflow-hidden bg-[#070b14] border border-slate-800/90 group-hover:border-cyan-500/60 transition select-none flex items-center justify-center cinema-monitor-viewport">
+                        <!-- Cinema Scene Simulated Frame -->
+                        <div class="absolute inset-0 cinema-frame-bg ${gradeClass} transition-all duration-700"></div>
 
-                        <!-- 1. Central Transforming Shape (Normal Matte Log Sphere -> Graded Radiant Cinema Sphere) -->
+                        <!-- DaVinci Cinema Viewfinder Guides & Scopes -->
+                        <div class="absolute inset-2 border border-white/10 rounded-lg pointer-events-none"></div>
+                        <div class="absolute top-2 inset-x-2 flex items-center justify-between z-20 pointer-events-none px-1">
+                            <span class="text-[8px] font-mono text-slate-400 bg-black/70 px-1.5 py-0.5 rounded">24.00 FPS • REVEAL WIPE</span>
+                            <span class="text-[8px] font-mono text-slate-400 bg-black/70 px-1.5 py-0.5 rounded">IRE 0–100</span>
+                        </div>
+
+                        <!-- Center Grade Sphere with Halation & Dynamic Specular Shine -->
                         <div class="relative z-10 flex items-center justify-center">
-                            <div class="w-20 h-20 rounded-full color-sphere-shape ${gradeClass} flex items-center justify-center relative cursor-pointer">
-                                <!-- Graded Halation Glow Ring -->
-                                <div class="w-12 h-12 rounded-full border border-white/10 opacity-30 group-hover:opacity-80 group-hover:scale-110 transition-all duration-500 pointer-events-none"></div>
-                                <!-- Specular Shine Overlay -->
-                                <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/15 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                            <div class="w-16 h-16 rounded-full cinema-color-orb ${gradeClass} flex items-center justify-center relative cursor-pointer shadow-2xl transition-all duration-500 group-hover:scale-110">
+                                <div class="w-10 h-10 rounded-full border border-white/20 opacity-40 group-hover:opacity-90 group-hover:scale-115 transition-all duration-500 pointer-events-none"></div>
+                                <div class="absolute inset-0 rounded-full bg-gradient-to-tr from-transparent via-white/25 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
                             </div>
                         </div>
 
-                        <!-- 2. Animated Split Sweep Line (Sweeps across on hover) -->
+                        <!-- DaVinci Resolve Split-Screen Animated Laser Sweep Bar -->
                         <div class="absolute inset-y-0 w-1 bg-gradient-to-b from-transparent via-cyan-400 to-transparent opacity-0 group-hover:opacity-100 grade-sweep-bar pointer-events-none z-20 shadow-[0_0_12px_#22d3ee]"></div>
 
-                        <!-- 3. Dynamic Status Badges (Normal -> Color Applied) -->
-                        <div class="absolute top-2 left-2 z-20 flex items-center gap-1.5 text-[9px] font-mono bg-black/80 px-2 py-0.5 rounded-full border border-white/10 backdrop-blur-sm">
+                        <!-- Dynamic Status Badges (Before: Raw Log -> After: Color Applied) -->
+                        <div class="absolute top-2 left-2 z-20 flex items-center gap-1.5 text-[9px] font-mono bg-black/85 px-2.5 py-0.5 rounded-full border border-white/10 backdrop-blur-sm">
                             <span class="w-1.5 h-1.5 rounded-full bg-slate-400 group-hover:bg-cyan-400 group-hover:animate-ping transition"></span>
                             <span class="group-hover:hidden text-slate-400 font-medium">RAW LOG (NORMAL)</span>
                             <span class="hidden group-hover:inline ${gradeColor} font-bold">✨ ${gradeTitle} (APPLIED)</span>
                         </div>
 
-                        <div class="absolute top-2 right-2 z-20 text-[9px] font-mono bg-black/70 px-2 py-0.5 rounded border border-white/5">
+                        <div class="absolute top-2 right-2 z-20 text-[9px] font-mono bg-black/80 px-2 py-0.5 rounded border border-white/5 backdrop-blur-sm">
                             <span class="group-hover:hidden text-slate-400">UNGRADED</span>
                             <span class="hidden group-hover:inline text-cyan-300 font-bold">GRADED ➔</span>
                         </div>
 
-                        <!-- 4. Bottom Hint -->
-                        <div class="absolute bottom-2 inset-x-2 z-20 flex items-center justify-between text-[9px] font-mono text-slate-400 bg-black/75 px-2.5 py-0.5 rounded-md border border-white/5 backdrop-blur-sm">
+                        <!-- Bottom Info -->
+                        <div class="absolute bottom-1.5 inset-x-2 z-20 flex items-center justify-between text-[8px] font-mono text-slate-400 bg-black/85 px-2.5 py-0.5 rounded-md border border-white/5 backdrop-blur-sm">
                             <span class="truncate max-w-[140px] text-slate-300">${p.name}</span>
-                            <span class="text-slate-500 group-hover:text-cyan-300 transition">
-                                Hover: Normal vs Graded ⚡
-                            </span>
-                        </div>
-                    </div>
-                `;
-            } 
-            // ================= 3. EFFECT PLUGINS: DEDICATED VISUAL EFFECT APPLIED =================
-            else {
-                const nameLower = p.name.toLowerCase();
-                const subLower = (p.subcategory || '').toLowerCase();
-                const pt = p.previewType || '';
-
-                let effectInner = '';
-                let effectTag = 'PLASMA SHADER';
-                let effectColor = 'text-purple-400';
-
-                // Check for Ripple & Wave Effects
-                if (nameLower.includes('ripple') || nameLower.includes('wave') || nameLower.includes('water') || nameLower.includes('fluid') || nameLower.includes('ocean')) {
-                    effectTag = 'FLUID RIPPLE';
-                    effectColor = 'text-cyan-400';
-                    effectInner = `
-                        <!-- Calm Water Surface (Normal) -> Liquid Ripple Waves (Effect Applied) -->
-                        <div class="relative w-24 h-24 flex items-center justify-center">
-                            <!-- Center Droplet / Core -->
-                            <div class="w-5 h-5 rounded-full bg-cyan-400 group-hover:scale-125 transition-all duration-300 shadow-[0_0_15px_#22d3ee] z-10"></div>
-                            <!-- Concentric Ripple Rings (Active on Hover) -->
-                            <div class="absolute w-14 h-14 rounded-full border border-cyan-400/30 group-hover:border-cyan-400/80 ripple-ring-1 pointer-events-none"></div>
-                            <div class="absolute w-20 h-20 rounded-full border border-cyan-400/20 group-hover:border-cyan-400/60 ripple-ring-2 pointer-events-none"></div>
-                        </div>
-                    `;
-                }
-                // Check for Heart & Pulse Effects
-                else if (nameLower.includes('heart') || nameLower.includes('love')) {
-                    effectTag = 'NEON HEARTBEAT';
-                    effectColor = 'text-pink-400';
-                    effectInner = `
-                        <!-- Dim Heart (Normal) -> Pulsing Neon Heartbeat (Effect Applied) -->
-                        <div class="relative flex items-center justify-center">
-                            <div class="text-4xl text-slate-600 transition-all duration-300 heart-shape-anim">
-                                💖
-                            </div>
-                        </div>
-                    `;
-                }
-                // Check for 3D Gyro / Mandala / Concentric Rings
-                else if (nameLower.includes('circle') || nameLower.includes('spiral') || nameLower.includes('ring') || nameLower.includes('orbit') || nameLower.includes('gyro') || nameLower.includes('mandala')) {
-                    effectTag = '3D GYRO RINGS';
-                    effectColor = 'text-amber-400';
-                    effectInner = `
-                        <!-- Static Circle (Normal) -> 3D Rotating Gyro Rings (Effect Applied) -->
-                        <div class="relative w-20 h-20 flex items-center justify-center [perspective:300px]">
-                            <div class="absolute w-16 h-16 rounded-full border-2 border-slate-700 gyro-ring-1 transition-all duration-500"></div>
-                            <div class="absolute w-11 h-11 rounded-full border-2 border-slate-700 gyro-ring-2 transition-all duration-500"></div>
-                            <div class="w-3 h-3 rounded-full bg-amber-400 shadow-[0_0_10px_#f59e0b] z-10"></div>
-                        </div>
-                    `;
-                }
-                // Check for Cyber Skull / Dark / Hologram Effects
-                else if (nameLower.includes('skull') || nameLower.includes('yorick') || nameLower.includes('bone') || nameLower.includes('ghost') || nameLower.includes('dark')) {
-                    effectTag = 'CYBER MATRIX';
-                    effectColor = 'text-emerald-400';
-                    effectInner = `
-                        <!-- Dim Skull Silhouette (Normal) -> Glowing Hologram with Laser Scan (Effect Applied) -->
-                        <div class="relative w-20 h-20 flex flex-col items-center justify-center overflow-hidden rounded-lg bg-slate-950 border border-slate-800">
-                            <!-- Sweeping Laser Beam -->
-                            <div class="absolute inset-x-0 h-1 bg-gradient-to-r from-transparent via-emerald-400 to-transparent opacity-0 group-hover:opacity-100 cyber-laser-beam z-20 pointer-events-none shadow-[0_0_10px_#34d399]"></div>
-                            <div class="text-3xl text-slate-600 transition-all duration-300 cyber-skull-anim z-10">
-                                💀
-                            </div>
-                        </div>
-                    `;
-                }
-                // Check for Live Audio Equalizer Effects
-                else if (pt === 'effect-audio' || subLower.includes('audio') || nameLower.includes('beat') || nameLower.includes('sound') || nameLower.includes('music')) {
-                    effectTag = 'AUDIO EQUALIZER';
-                    effectColor = 'text-cyan-400';
-                    effectInner = `
-                        <!-- Muted Flat Bars (Normal) -> Live Jumping Equalizer (Effect Applied) -->
-                        <div class="flex items-end justify-center gap-1.5 h-11 w-full px-6">
-                            <div class="w-1.5 bg-gradient-to-t from-cyan-500 to-pink-500 h-2 eq-bar eq-delay-1 rounded-full"></div>
-                            <div class="w-1.5 bg-gradient-to-t from-cyan-500 to-pink-500 h-3 eq-bar eq-delay-2 rounded-full"></div>
-                            <div class="w-1.5 bg-gradient-to-t from-cyan-500 to-pink-500 h-4 eq-bar eq-delay-3 rounded-full"></div>
-                            <div class="w-1.5 bg-gradient-to-t from-cyan-500 to-pink-500 h-2 eq-bar eq-delay-4 rounded-full"></div>
-                            <div class="w-1.5 bg-gradient-to-t from-cyan-500 to-pink-500 h-5 eq-bar eq-delay-5 rounded-full"></div>
-                            <div class="w-1.5 bg-gradient-to-t from-cyan-500 to-pink-500 h-3 eq-bar eq-delay-6 rounded-full"></div>
-                            <div class="w-1.5 bg-gradient-to-t from-cyan-500 to-pink-500 h-4 eq-bar eq-delay-7 rounded-full"></div>
-                            <div class="w-1.5 bg-gradient-to-t from-cyan-500 to-pink-500 h-2 eq-bar eq-delay-8 rounded-full"></div>
-                        </div>
-                    `;
-                }
-                // Check for 3D Hyperspace Warp Tunnel
-                else if (pt === 'effect-tunnel' || subLower.includes('tunnel') || nameLower.includes('warp') || nameLower.includes('transit') || nameLower.includes('dive') || nameLower.includes('space')) {
-                    effectTag = '3D WARP TUNNEL';
-                    effectColor = 'text-purple-400';
-                    effectInner = `
-                        <!-- Static Point (Normal) -> Hyper-speed 3D Warp Rings (Effect Applied) -->
-                        <div class="relative w-24 h-24 flex items-center justify-center [perspective:300px]">
-                            <div class="absolute w-20 h-20 rounded-full border border-purple-500/30 tunnel-ring-1 pointer-events-none"></div>
-                            <div class="absolute w-16 h-16 rounded-full border border-pink-500/30 tunnel-ring-2 pointer-events-none"></div>
-                            <div class="absolute w-12 h-12 rounded-full border border-cyan-500/30 tunnel-ring-3 pointer-events-none"></div>
-                            <div class="w-3 h-3 rounded-full bg-white shadow-[0_0_15px_#fff] z-10"></div>
-                        </div>
-                    `;
-                }
-                // Check for Retro CRT Monitor & VHS
-                else if (pt === 'effect-crt' || subLower.includes('crt') || nameLower.includes('vhs') || nameLower.includes('retro') || nameLower.includes('scan')) {
-                    effectTag = 'CRT MONITOR';
-                    effectColor = 'text-emerald-400';
-                    effectInner = `
-                        <!-- Clean Screen (Normal) -> CRT Phosphor Scanline & Noise (Effect Applied) -->
-                        <div class="absolute inset-0 crt-scan-overlay pointer-events-none z-10 opacity-30 group-hover:opacity-100 transition-opacity"></div>
-                        <div class="text-center font-mono text-emerald-400 text-xs font-bold tracking-widest group-hover:scale-105 transition px-2">
-                            &gt; CRT_SIGNAL_OK_
-                            <div class="text-[9px] text-slate-400 mt-1 font-sans truncate">${p.name}</div>
-                        </div>
-                    `;
-                }
-                // Check for Glitch & Distortion
-                else if (pt === 'effect-distortion' || subLower.includes('glitch') || nameLower.includes('distort') || nameLower.includes('bug') || nameLower.includes('crazy') || nameLower.includes('noise')) {
-                    effectTag = 'GLITCH MATRIX';
-                    effectColor = 'text-rose-400';
-                    effectInner = `
-                        <!-- Clean Shape (Normal) -> Chromatic Glitch Slicing (Effect Applied) -->
-                        <div class="relative flex flex-col items-center justify-center">
-                            <div class="w-14 h-14 rounded-xl bg-slate-900 border border-slate-700 flex items-center justify-center text-2xl text-white glitch-matrix-anim shadow-lg">
-                                ⚡
-                            </div>
-                        </div>
-                    `;
-                }
-                // Default: Liquid Chromatic Plasma Morphing Shader
-                else {
-                    effectTag = 'PLASMA SHADER';
-                    effectColor = 'text-purple-400';
-                    effectInner = `
-                        <!-- Raw Static Circle (Normal) -> Liquid Swirling Chromatic Plasma (Effect Applied) -->
-                        <div class="relative flex items-center justify-center">
-                            <div class="w-16 h-16 rounded-full plasma-shape-base plasma-shape-anim border border-white/10 flex items-center justify-center shadow-xl">
-                                <div class="w-6 h-6 rounded-full bg-white/20 blur-sm pointer-events-none"></div>
-                            </div>
-                        </div>
-                    `;
-                }
-
-                return `
-                    <div class="relative w-full h-36 rounded-xl overflow-hidden bg-slate-950 border border-slate-800/90 group-hover:border-purple-500/50 transition select-none flex flex-col items-center justify-center p-3">
-                        <!-- Effect Canvas / Scene -->
-                        ${effectInner}
-
-                        <!-- Dynamic Status Badges (Raw -> Effect Applied) -->
-                        <div class="absolute top-2 left-2 z-20 flex items-center gap-1.5 text-[9px] font-mono bg-black/80 px-2 py-0.5 rounded-full border border-white/10 backdrop-blur-sm">
-                            <span class="w-1.5 h-1.5 rounded-full bg-purple-400 group-hover:animate-ping"></span>
-                            <span class="group-hover:hidden text-slate-400">RAW SHAPE</span>
-                            <span class="hidden group-hover:inline ${effectColor} font-bold">⚡ ${effectTag} (APPLIED)</span>
-                        </div>
-
-                        <div class="absolute top-2 right-2 z-20 text-[9px] font-mono bg-black/70 px-2 py-0.5 rounded border border-white/5">
-                            <span class="group-hover:hidden text-slate-400">NO EFFECT</span>
-                            <span class="hidden group-hover:inline text-purple-300 font-bold">ACTIVE VFX ➔</span>
-                        </div>
-
-                        <!-- Bottom Hint -->
-                        <div class="absolute bottom-2 inset-x-2 z-20 flex items-center justify-between text-[9px] font-mono text-slate-400 bg-black/75 px-2.5 py-0.5 rounded-md border border-white/5 backdrop-blur-sm">
-                            <span class="truncate max-w-[140px] text-slate-300">${p.name}</span>
-                            <span class="text-slate-500 group-hover:text-purple-300 transition">
-                                Hover: Apply Effect ⚡
+                            <span class="text-slate-400 group-hover:text-cyan-300 transition">
+                                Hover: Before vs After ⚡
                             </span>
                         </div>
                     </div>
                 `;
             }
+
+            // =========================================================================
+            // 4. EFFECT PLUGINS: DEDICATED VISUAL EFFECT APPLIED (FUSION & OPENFX)
+            // =========================================================================
+            let effectType = 'openfx-core';
+            let effectBadge = 'OPENFX SHADER';
+            let effectColor = 'text-purple-400';
+            let effectContent = '';
+
+            if (combined.includes('shake') || combined.includes('earthquake') || combined.includes('jitter') || combined.includes('wobble')) {
+                effectType = 'shake';
+                effectBadge = 'CAMERA SHAKE';
+                effectColor = 'text-amber-400';
+                effectContent = `
+                    <div class="relative w-full h-full flex items-center justify-center anim-camera-shake">
+                        <div class="w-20 h-12 rounded-lg bg-gradient-to-r from-amber-500/30 to-red-500/30 border border-amber-400/60 flex items-center justify-center font-bold text-xs text-white shadow-lg">
+                            <span>🎥 SHAKE FX</span>
+                        </div>
+                    </div>
+                `;
+            } else if (combined.includes('vhs') || combined.includes('crt') || combined.includes('retro') || combined.includes('tape') || combined.includes('scanline')) {
+                effectType = 'vhs-crt';
+                effectBadge = 'RETRO CRT & VHS';
+                effectColor = 'text-emerald-400';
+                effectContent = `
+                    <div class="relative w-full h-full flex flex-col items-center justify-center overflow-hidden crt-scan-overlay">
+                        <div class="text-3xl text-emerald-400 glitch-matrix-anim font-mono font-black drop-shadow-[0_0_10px_#10b981]">
+                            REC [▶] 1984
+                        </div>
+                    </div>
+                `;
+            } else if (combined.includes('grain') || combined.includes('dirt') || combined.includes('scratch') || combined.includes('film damage')) {
+                effectType = 'grain';
+                effectBadge = '35MM FILM GRAIN';
+                effectColor = 'text-amber-300';
+                effectContent = `
+                    <div class="relative w-full h-full flex items-center justify-center anim-film-grain">
+                        <div class="text-xs font-mono font-black text-amber-200 bg-black/60 px-3 py-1.5 rounded border border-amber-500/40">
+                            🎞️ ORGANIC FILM GRAIN
+                        </div>
+                    </div>
+                `;
+            } else if (combined.includes('flare') || combined.includes('leak') || combined.includes('anamorphic') || combined.includes('sweep') || combined.includes('neosweep')) {
+                effectType = 'light-leak';
+                effectBadge = 'ANAMORPHIC LIGHT LEAK';
+                effectColor = 'text-yellow-400';
+                effectContent = `
+                    <div class="relative w-full h-full flex items-center justify-center overflow-hidden">
+                        <div class="w-24 h-12 rounded-xl bg-slate-900 border border-amber-400/40 flex items-center justify-center text-xs font-black text-amber-200">
+                            ANAMORPHIC
+                        </div>
+                        <div class="absolute inset-y-0 w-12 bg-gradient-to-r from-transparent via-yellow-300/80 to-transparent anim-light-leak pointer-events-none -skew-x-12"></div>
+                    </div>
+                `;
+            } else if (combined.includes('glow') || combined.includes('halation') || combined.includes('bloom') || combined.includes('neoglow')) {
+                effectType = 'glow';
+                effectBadge = 'HALATION & SOFT GLOW';
+                effectColor = 'text-amber-400';
+                effectContent = `
+                    <div class="relative flex items-center justify-center">
+                        <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-amber-500 to-yellow-300 anim-neo-glow flex items-center justify-center text-2xl shadow-[0_0_25px_#f59e0b]">
+                            ✨
+                        </div>
+                    </div>
+                `;
+            } else if (combined.includes('glitch') || combined.includes('chroma') || combined.includes('prism') || combined.includes('rgb') || combined.includes('neoglitch')) {
+                effectType = 'glitch';
+                effectBadge = 'RGB CHROMATIC PRISM';
+                effectColor = 'text-cyan-400';
+                effectContent = `
+                    <div class="relative w-full h-full flex items-center justify-center">
+                        <div class="text-3xl text-cyan-300 glitch-matrix-anim font-black tracking-widest">
+                            ⚡ PRISM
+                        </div>
+                    </div>
+                `;
+            } else if (combined.includes('lens') || combined.includes('fisheye') || combined.includes('distort') || combined.includes('warp') || combined.includes('neolens')) {
+                effectType = 'lens-warp';
+                effectBadge = 'FISHEYE LENS DISTORTION';
+                effectColor = 'text-pink-400';
+                effectContent = `
+                    <div class="relative flex items-center justify-center">
+                        <div class="w-16 h-16 bg-gradient-to-br from-purple-600 via-pink-500 to-amber-500 anim-neo-lens flex items-center justify-center text-2xl border-2 border-yellow-300 shadow-xl">
+                            👁️
+                        </div>
+                    </div>
+                `;
+            } else if (combined.includes('audio') || combined.includes('spectrum') || combined.includes('wave') || combined.includes('beat') || combined.includes('sound')) {
+                effectType = 'audio-eq';
+                effectBadge = 'LIVE AUDIO EQUALIZER';
+                effectColor = 'text-cyan-400';
+                effectContent = `
+                    <div class="flex items-end justify-center gap-1.5 h-12 w-full px-6">
+                        <div class="w-1.5 bg-gradient-to-t from-cyan-500 to-pink-500 h-2 eq-bar eq-delay-1 rounded-full"></div>
+                        <div class="w-1.5 bg-gradient-to-t from-cyan-500 to-pink-500 h-3 eq-bar eq-delay-2 rounded-full"></div>
+                        <div class="w-1.5 bg-gradient-to-t from-cyan-500 to-pink-500 h-5 eq-bar eq-delay-3 rounded-full"></div>
+                        <div class="w-1.5 bg-gradient-to-t from-cyan-500 to-pink-500 h-2 eq-bar eq-delay-4 rounded-full"></div>
+                        <div class="w-1.5 bg-gradient-to-t from-cyan-500 to-pink-500 h-6 eq-bar eq-delay-5 rounded-full"></div>
+                        <div class="w-1.5 bg-gradient-to-t from-cyan-500 to-pink-500 h-3 eq-bar eq-delay-6 rounded-full"></div>
+                        <div class="w-1.5 bg-gradient-to-t from-cyan-500 to-pink-500 h-4 eq-bar eq-delay-7 rounded-full"></div>
+                        <div class="w-1.5 bg-gradient-to-t from-cyan-500 to-pink-500 h-2 eq-bar eq-delay-8 rounded-full"></div>
+                    </div>
+                `;
+            } else if (combined.includes('tunnel') || combined.includes('space') || combined.includes('wormhole')) {
+                effectType = 'tunnel';
+                effectBadge = '3D HYPERSPACE TUNNEL';
+                effectColor = 'text-purple-400';
+                effectContent = `
+                    <div class="relative w-24 h-24 flex items-center justify-center [perspective:300px]">
+                        <div class="absolute w-20 h-20 rounded-full border border-purple-500/40 tunnel-ring-1"></div>
+                        <div class="absolute w-20 h-20 rounded-full border border-cyan-500/40 tunnel-ring-2"></div>
+                        <div class="absolute w-20 h-20 rounded-full border border-pink-500/40 tunnel-ring-3"></div>
+                        <div class="w-4 h-4 rounded-full bg-white shadow-[0_0_15px_#fff] z-10"></div>
+                    </div>
+                `;
+            } else {
+                // OpenFX & Fusion Raymarching Shaders
+                effectType = 'openfx-core';
+                effectBadge = isPrem ? 'NEOFX CORE FUSION' : 'FUSION GLSL SHADER';
+                effectColor = isPrem ? 'text-amber-300' : 'text-purple-400';
+                effectContent = `
+                    <div class="relative flex items-center justify-center">
+                        <div class="w-16 h-16 rounded-3xl plasma-shape-base plasma-shape-anim flex items-center justify-center text-2xl shadow-xl transition-all duration-500">
+                            ${isPrem ? '👑' : '⚡'}
+                        </div>
+                    </div>
+                `;
+            }
+
+            return `
+                <div class="relative w-full h-36 rounded-xl overflow-hidden bg-gradient-to-b from-[#111728] via-[#090d16] to-[#04060b] border border-slate-800/90 group-hover:border-purple-500/60 transition select-none flex flex-col items-center justify-center p-3 text-center">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(168,85,247,0.1)_0,transparent_75%)] pointer-events-none"></div>
+
+                    <!-- Top Left Badge -->
+                    <div class="absolute top-2 left-2 z-20 flex items-center gap-1.5 text-[9px] font-mono bg-black/85 px-2.5 py-0.5 rounded-full border border-purple-500/30 ${effectColor} backdrop-blur-sm">
+                        <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-ping"></span>
+                        <span>⚡ ${effectBadge}</span>
+                    </div>
+
+                    <!-- Top Right FPS Tag -->
+                    <div class="absolute top-2 right-2 z-20 text-[9px] font-mono text-slate-400 bg-black/70 px-2 py-0.5 rounded border border-white/5 backdrop-blur-sm">
+                        ${p.fps || 'Fusion OpenFX'}
+                    </div>
+
+                    <!-- Central Effect Visual -->
+                    <div class="z-10 flex items-center justify-center w-full h-full pt-3 pb-2">
+                        ${effectContent}
+                    </div>
+
+                    <!-- Bottom Tag -->
+                    <div class="absolute bottom-1.5 inset-x-2 z-20 flex items-center justify-between text-[8px] font-mono text-slate-400 bg-black/85 px-2.5 py-0.5 rounded border border-white/5 backdrop-blur-sm">
+                        <span class="truncate max-w-[140px] text-slate-300">${p.name}</span>
+                        <span class="text-purple-400 group-hover:text-purple-300 transition">Hover: Effect Applied ⚡</span>
+                    </div>
+                </div>
+            `;
         }
+
 
         // ------------------ Grid Rendering ------------------
         function renderGrid() {
