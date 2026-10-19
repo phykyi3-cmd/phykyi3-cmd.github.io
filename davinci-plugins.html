@@ -55,13 +55,13 @@
 
         /* Glassmorphism */
         .glass-card {
-            background: rgba(17, 24, 39, 0.75);
+            background: rgba(15, 21, 37, 0.82);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
         .glass-card:hover {
-            border-color: rgba(245, 158, 11, 0.35);
+            border-color: rgba(245, 158, 11, 0.45);
         }
 
         /* Custom Scrollbar */
@@ -80,51 +80,37 @@
             background: #f59e0b;
         }
 
-        /* Animations for Live Previews */
+        /* Keyframes for Card-Direct Animations */
         @keyframes springBounce {
-            0% { transform: scale(0.3) translateY(40px); opacity: 0; }
-            50% { transform: scale(1.15) translateY(-8px); opacity: 1; }
-            70% { transform: scale(0.95) translateY(4px); }
+            0% { transform: scale(0.7) translateY(18px); opacity: 0.3; }
+            50% { transform: scale(1.18) translateY(-6px); opacity: 1; }
+            70% { transform: scale(0.96) translateY(2px); }
             100% { transform: scale(1) translateY(0); opacity: 1; }
-        }
-        .anim-spring-bounce {
-            animation: springBounce 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) infinite alternate;
         }
 
         @keyframes hormoziPop {
-            0%, 20% { transform: scale(0.85); color: #ffffff; text-shadow: none; }
-            40%, 70% { transform: scale(1.18); color: #facc15; text-shadow: 0 0 25px rgba(250, 204, 21, 0.6), 0 4px 10px rgba(0,0,0,0.9); }
-            90%, 100% { transform: scale(1); color: #4ade80; text-shadow: 0 0 20px rgba(74, 222, 128, 0.5); }
-        }
-        .anim-hormozi-pop {
-            animation: hormoziPop 1.8s ease-in-out infinite;
-            display: inline-block;
+            0%, 20% { transform: scale(0.92); color: #ffffff; text-shadow: none; }
+            40%, 70% { transform: scale(1.15); color: #facc15; text-shadow: 0 0 22px rgba(250, 204, 21, 0.7); }
+            90%, 100% { transform: scale(1); color: #4ade80; text-shadow: 0 0 15px rgba(74, 222, 128, 0.5); }
         }
 
         @keyframes trackingExpand {
-            0% { letter-spacing: -2px; filter: blur(6px); opacity: 0; }
-            50% { letter-spacing: 12px; filter: blur(0); opacity: 1; }
-            100% { letter-spacing: 16px; filter: blur(2px); opacity: 0.8; }
-        }
-        .anim-tracking-expand {
-            animation: trackingExpand 2.8s cubic-bezier(0.25, 1, 0.5, 1) infinite alternate;
+            0% { letter-spacing: -1px; filter: blur(2px); opacity: 0.4; }
+            50% { letter-spacing: 5px; filter: blur(0); opacity: 1; }
+            100% { letter-spacing: 8px; filter: blur(0.5px); opacity: 0.95; }
         }
 
         @keyframes chromaticGlitch {
             0% { transform: translate(0); text-shadow: -2px 0 #ef4444, 2px 0 #06b6d4; }
-            20% { transform: translate(-3px, 2px); text-shadow: 3px -1px #ef4444, -3px 1px #06b6d4; }
-            40% { transform: translate(2px, -2px); text-shadow: -3px 2px #ef4444, 3px -2px #06b6d4; }
-            60% { transform: translate(-1px, 1px); text-shadow: 2px 0 #ef4444, -2px 0 #06b6d4; }
-            80% { transform: translate(3px, -1px); text-shadow: -1px -2px #ef4444, 1px 2px #06b6d4; }
+            25% { transform: translate(-2px, 1px); text-shadow: 2px -1px #ef4444, -2px 1px #06b6d4; }
+            50% { transform: translate(1px, -1px); text-shadow: -2px 1px #ef4444, 2px -1px #06b6d4; }
+            75% { transform: translate(2px, 1px); text-shadow: -1px -1px #ef4444, 1px 1px #06b6d4; }
             100% { transform: translate(0); text-shadow: -2px 0 #ef4444, 2px 0 #06b6d4; }
-        }
-        .anim-chromatic-glitch {
-            animation: chromaticGlitch 0.4s steps(2) infinite;
         }
 
         @keyframes neonFlicker {
-            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-                text-shadow: 0 0 5px #f43f5e, 0 0 15px #f43f5e, 0 0 30px #f43f5e, 0 0 50px #e11d48;
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow: 0 0 4px #f43f5e, 0 0 14px #f43f5e, 0 0 28px #f43f5e;
                 opacity: 1;
             }
             20%, 24%, 55% {
@@ -132,51 +118,125 @@
                 opacity: 0.35;
             }
         }
-        .anim-neon-flicker {
-            animation: neonFlicker 2.2s infinite;
-        }
 
-        @keyframes vhsScanline {
+        @keyframes scanlineScroll {
             0% { background-position: 0 0; }
             100% { background-position: 0 100%; }
         }
-        .vhs-overlay {
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.4) 50%);
-            background-size: 100% 4px;
+
+        @keyframes audioWaveBounce {
+            0%, 100% { height: 6px; }
+            50% { height: 32px; }
+        }
+
+        @keyframes tunnelRotate {
+            0% { transform: perspective(300px) rotateZ(0deg) scale(0.85); }
+            50% { transform: perspective(300px) rotateZ(180deg) scale(1.22); }
+            100% { transform: perspective(300px) rotateZ(360deg) scale(0.85); }
+        }
+
+        /* DIRECT IN-CARD TRIGGER RULES (HOVER on PC, ACTIVE/TAP on Mobile, IS-PREVIEWING on click) */
+        .group:hover .anim-spring-bounce,
+        .group:active .anim-spring-bounce,
+        .group.is-previewing .anim-spring-bounce {
+            animation: springBounce 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) infinite alternate !important;
+        }
+
+        .group:hover .anim-hormozi-pop,
+        .group:active .anim-hormozi-pop,
+        .group.is-previewing .anim-hormozi-pop {
+            animation: hormoziPop 1.6s ease-in-out infinite !important;
+            display: inline-block;
+        }
+
+        .group:hover .anim-tracking-expand,
+        .group:active .anim-tracking-expand,
+        .group.is-previewing .anim-tracking-expand {
+            animation: trackingExpand 2s cubic-bezier(0.25, 1, 0.5, 1) infinite alternate !important;
+        }
+
+        .group:hover .anim-chromatic-glitch,
+        .group:active .anim-chromatic-glitch,
+        .group.is-previewing .anim-chromatic-glitch {
+            animation: chromaticGlitch 0.35s steps(2) infinite !important;
+        }
+
+        .group:hover .anim-neon-flicker,
+        .group:active .anim-neon-flicker,
+        .group.is-previewing .anim-neon-flicker {
+            animation: neonFlicker 1.8s infinite !important;
         }
 
         /* Color Grade Simulation Classes */
-        .grade-original {
+        .grade-base {
             filter: saturate(0.85) contrast(0.95);
+            transition: filter 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .grade-film-scurve {
-            filter: contrast(1.35) saturate(1.2) brightness(0.95) sepia(0.18);
+        .group:hover .grade-film-scurve,
+        .group:active .grade-film-scurve,
+        .group.is-previewing .grade-film-scurve {
+            filter: contrast(1.45) saturate(1.3) brightness(0.95) sepia(0.2) !important;
+            transform: scale(1.05);
         }
-        .grade-cyberpunk-neon {
-            filter: contrast(1.4) saturate(1.5) hue-rotate(-25deg);
+        .group:hover .grade-cyberpunk-neon,
+        .group:active .grade-cyberpunk-neon,
+        .group.is-previewing .grade-cyberpunk-neon {
+            filter: contrast(1.55) saturate(1.75) hue-rotate(-25deg) !important;
+            transform: scale(1.05);
         }
-        .grade-golden-amber {
-            filter: sepia(0.4) saturate(1.4) contrast(1.15) brightness(1.05);
+        .group:hover .grade-golden-amber,
+        .group:active .grade-golden-amber,
+        .group.is-previewing .grade-golden-amber {
+            filter: sepia(0.55) saturate(1.5) contrast(1.25) brightness(1.08) !important;
+            transform: scale(1.05);
         }
-        .grade-kodak-2383 {
-            filter: contrast(1.45) saturate(1.1) brightness(0.9) hue-rotate(10deg);
+        .group:hover .grade-kodak-2383,
+        .group:active .grade-kodak-2383,
+        .group.is-previewing .grade-kodak-2383 {
+            filter: contrast(1.5) saturate(1.2) brightness(0.92) hue-rotate(12deg) !important;
+            transform: scale(1.05);
         }
-        .grade-aces-balance {
-            filter: contrast(1.1) saturate(1.05) brightness(1.02);
+        .group:hover .grade-aces-balance,
+        .group:active .grade-aces-balance,
+        .group.is-previewing .grade-aces-balance {
+            filter: contrast(1.25) saturate(1.2) brightness(1.05) !important;
+            transform: scale(1.05);
         }
-        .grade-noir-bw {
-            filter: grayscale(1) contrast(1.6) brightness(0.9);
+        .group:hover .grade-noir-bw,
+        .group:active .grade-noir-bw,
+        .group.is-previewing .grade-noir-bw {
+            filter: grayscale(1) contrast(1.7) brightness(0.9) !important;
+            transform: scale(1.05);
         }
 
-        /* Shader Canvas Animations */
-        @keyframes tunnelRotate {
-            0% { transform: perspective(400px) rotateZ(0deg) scale(0.8); }
-            50% { transform: perspective(400px) rotateZ(180deg) scale(1.3); }
-            100% { transform: perspective(400px) rotateZ(360deg) scale(0.8); }
+        /* Effect Simulations */
+        .vhs-overlay {
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.5) 50%);
+            background-size: 100% 4px;
         }
-        .anim-tunnel-spin {
-            animation: tunnelRotate 6s ease-in-out infinite;
+        .group:hover .vhs-overlay,
+        .group:active .vhs-overlay,
+        .group.is-previewing .vhs-overlay {
+            animation: scanlineScroll 3s linear infinite;
         }
+
+        .group:hover .anim-tunnel-spin,
+        .group:active .anim-tunnel-spin,
+        .group.is-previewing .anim-tunnel-spin {
+            animation: tunnelRotate 3s ease-in-out infinite;
+        }
+
+        .group:hover .audio-bar-anim,
+        .group:active .audio-bar-anim,
+        .group.is-previewing .audio-bar-anim {
+            animation: audioWaveBounce 0.75s ease-in-out infinite alternate;
+        }
+        .audio-delay-1 { animation-delay: 0.1s !important; }
+        .audio-delay-2 { animation-delay: 0.3s !important; }
+        .audio-delay-3 { animation-delay: 0.5s !important; }
+        .audio-delay-4 { animation-delay: 0.2s !important; }
+        .audio-delay-5 { animation-delay: 0.4s !important; }
+        .audio-delay-6 { animation-delay: 0.6s !important; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col selection:bg-amber-500 selection:text-slate-950 overflow-x-hidden w-full max-w-full bg-[#070a12]">
@@ -252,8 +312,8 @@
 
         <!-- Mobile 3-Suite Switcher (Prominent 3-Card Toggle for Mobile Phones) -->
         <section class="lg:hidden w-full -mt-2 mb-4">
-            <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 p-2.5 rounded-2xl border border-slate-700/80 shadow-xl">
-                <div class="text-[11px] font-bold text-slate-400 px-1 py-1 mb-2 flex items-center justify-between">
+            <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 p-2 rounded-2xl border border-slate-700/80 shadow-xl">
+                <div class="text-[11px] font-bold text-slate-400 px-1 py-1 mb-1.5 flex items-center justify-between">
                     <span class="flex items-center gap-1.5 text-slate-200">
                         <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
                         Creative Studio Suites ရွေးချယ်ပါ
@@ -306,7 +366,7 @@
                     </h1>
 
                     <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-                        Video Editors နှင့် Colorists များအတွက် မရှိမဖြစ် <b>Text Animations (၄၃ မျိုး)</b>၊ <b>Visual Effects (၂၅၉ မျိုး)</b> နှင့် <b>Color Science DCTLs/LUTs (၂၇၆ မျိုး)</b> တို့ကို Live Animation စမ်းသပ်ကြည့်ရှုနိုင်ပြီး အခမဲ့ ဒေါင်းလုဒ် ရယူနိုင်ပါသည်။
+                        Plugin တစ်ခုချင်းစီပေါ်တွင် <b>မောက်စ်ထောက်လိုက်ရုံဖြင့် (သို့မဟုတ် ဖုန်းပေါ်တွင် နှိပ်လိုက်ရုံဖြင့်)</b> Text Animation လှုပ်ရှားမှုများ၊ Color Grading အရောင်ပြောင်းလဲမှုများနှင့် Visual Effects များကို <b>ကတ်တစ်ခုချင်းစီပေါ်တွင် တိုက်ရိုက် Live Animation စမ်းသပ်ကြည့်ရှုနိုင်ပါသည်</b>။
                     </p>
 
                     <!-- CTAs -->
@@ -356,190 +416,6 @@
             </div>
         </section>
 
-        <!-- LIVE INTERACTIVE PREVIEW STUDIO (CORE FEATURE) -->
-        <section id="liveStudioSection" class="rounded-3xl p-6 sm:p-8 glass-card border border-amber-500/30 shadow-2xl space-y-6 relative overflow-hidden">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-5">
-                <div>
-                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold mb-1.5">
-                        <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
-                        <span>INTERACTIVE LIVE PREVIEW LAB</span>
-                    </div>
-                    <h2 class="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
-                        🎬 Plugin Live Animation & Color Preview စမ်းသပ်ခန်း
-                    </h2>
-                    <p class="text-xs sm:text-sm text-slate-400 mt-1">
-                        အောက်ပါ Plugin များကို နှိပ်/ထောက်လိုက်ရုံဖြင့် Text Animation၊ Color Grading နှင့် Effects များကို တိုက်ရိုက် စမ်းသပ်ကြည့်ရှုနိုင်ပါသည်
-                    </p>
-                </div>
-
-                <!-- Preview Mode Switcher Tabs -->
-                <div class="flex items-center p-1 rounded-2xl bg-slate-950 border border-slate-800 shrink-0">
-                    <button onclick="setLabMode('text')" id="tabLabText" class="px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-amber-500 text-slate-950 shadow-md">
-                        <span>✍️ စာလုံးလှုပ်ရှားမှု (Text)</span>
-                    </button>
-                    <button onclick="setLabMode('color')" id="tabLabColor" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition flex items-center gap-1.5">
-                        <span>🎨 ကာလာအရောင် (Color)</span>
-                    </button>
-                    <button onclick="setLabMode('effect')" id="tabLabEffect" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition flex items-center gap-1.5">
-                        <span>⚡ အထူးပြုလုပ်ချက် (Effects)</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- 1. TEXT ANIMATION LAB VIEW -->
-            <div id="labViewText" class="space-y-4">
-                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-                    <div class="flex-1 relative">
-                        <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm">✏️</span>
-                        <input type="text" id="customPreviewText" value="SMART MYANMAR FONTS" placeholder="မိမိကြိုက်နှစ်သက်ရာ စာသား ရိုက်ထည့် စမ်းသပ်ပါ..." oninput="updateLiveText(this.value)" class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-amber-400 transition">
-                    </div>
-                    <div class="flex items-center gap-2 shrink-0 overflow-x-auto pb-1 sm:pb-0">
-                        <button onclick="setTextAnimStyle('hormozi')" class="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-amber-300 border border-slate-700 shrink-0">
-                            🔥 Hormozi Pop
-                        </button>
-                        <button onclick="setTextAnimStyle('bounce')" class="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-white border border-slate-700 shrink-0">
-                            ⚡ Kinetic Bounce
-                        </button>
-                        <button onclick="setTextAnimStyle('typewriter')" class="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-cyan-300 border border-slate-700 shrink-0">
-                            ⌨️ Typewriter
-                        </button>
-                        <button onclick="setTextAnimStyle('glitch')" class="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-rose-400 border border-slate-700 shrink-0">
-                            👾 RGB Glitch
-                        </button>
-                        <button onclick="setTextAnimStyle('neon')" class="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-pink-400 border border-slate-700 shrink-0">
-                            💡 Neon Flicker
-                        </button>
-                        <button onclick="setTextAnimStyle('tracking')" class="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-indigo-300 border border-slate-700 shrink-0">
-                            🎬 Cinematic Expand
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Text Stage Box -->
-                <div class="w-full h-56 sm:h-72 rounded-2xl bg-gradient-to-b from-slate-950 to-slate-900 border border-slate-800 relative flex items-center justify-center p-6 overflow-hidden shadow-inner">
-                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.06)_0,transparent_70%)] pointer-events-none"></div>
-                    <div class="absolute top-3 left-3 text-[10px] font-mono text-slate-500 bg-slate-900/80 px-2 py-0.5 rounded border border-slate-800">
-                        Style: <span id="currentAnimLabel" class="text-amber-400 font-bold">TikTok / Hormozi Word Pop</span>
-                    </div>
-                    <button onclick="replayCurrentAnim()" class="absolute top-3 right-3 text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-3 py-1 rounded-lg border border-slate-700 flex items-center gap-1 transition">
-                        <span>🔄 Replay</span>
-                    </button>
-
-                    <!-- Animated Target Text Element -->
-                    <div id="liveTextDisplayContainer" class="text-center max-w-2xl px-4">
-                        <h3 id="liveTextDisplay" class="text-3xl sm:text-5xl font-black anim-hormozi-pop tracking-tight text-amber-400 drop-shadow-lg">
-                            SMART MYANMAR FONTS
-                        </h3>
-                        <p id="liveTextSub" class="text-xs sm:text-sm text-slate-400 font-medium mt-3 tracking-wide">
-                            DaVinci Resolve Titles (.setting) Animation Preview
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2. COLOR & LUT LAB VIEW -->
-            <div id="labViewColor" class="hidden space-y-4">
-                <div class="flex flex-wrap items-center justify-between gap-3">
-                    <div class="text-xs text-slate-300 flex items-center gap-2">
-                        <span>Active Color DCTL:</span>
-                        <span id="currentColorGradeLabel" class="font-black text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-md border border-amber-500/20">
-                            Kodak 2383 Film Emulation (S-Curve)
-                        </span>
-                    </div>
-
-                    <!-- Preset Grading Buttons -->
-                    <div class="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0">
-                        <button onclick="setColorGradeStyle('original')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-300 border border-slate-700">
-                            Normal (Log)
-                        </button>
-                        <button onclick="setColorGradeStyle('film-scurve')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-amber-400 border border-slate-700">
-                            🎞️ Film S-Curve
-                        </button>
-                        <button onclick="setColorGradeStyle('cyberpunk')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-cyan-400 border border-slate-700">
-                            🌆 Cyberpunk Neon
-                        </button>
-                        <button onclick="setColorGradeStyle('golden-amber')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-yellow-300 border border-slate-700">
-                            🌅 Amber Sun
-                        </button>
-                        <button onclick="setColorGradeStyle('aces-balance')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-emerald-400 border border-slate-700">
-                            ⚖️ ACES Neutral
-                        </button>
-                        <button onclick="setColorGradeStyle('noir-bw')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-200 border border-slate-700">
-                            🖤 Noir B&W
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Color Stage Box with Interactive Split Slider -->
-                <div class="w-full h-64 sm:h-80 rounded-2xl bg-slate-950 border border-slate-800 relative overflow-hidden flex items-center justify-center">
-                    
-                    <!-- Base Cinematic Footage Mockup -->
-                    <div id="colorGradeStage" class="absolute inset-0 transition-all duration-700 grade-film-scurve flex items-center justify-center bg-cover bg-center" style="background-image: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #020617 100%);">
-                        <!-- Cinematic Mockup Shapes -->
-                        <div class="absolute w-72 h-72 rounded-full bg-gradient-to-tr from-amber-500 to-rose-500 opacity-60 blur-2xl"></div>
-                        <div class="absolute w-48 h-48 rounded-full bg-gradient-to-tr from-cyan-400 to-blue-600 opacity-40 blur-xl right-10 top-10"></div>
-                        <div class="relative z-10 text-center p-6 bg-black/40 backdrop-blur-md rounded-2xl border border-white/10 max-w-md mx-4 shadow-2xl">
-                            <div class="text-xs font-mono uppercase tracking-widest text-amber-400 mb-1">DaVinci Resolve DCTL & LUT Engine</div>
-                            <h4 class="text-2xl sm:text-3xl font-black text-white">CINEMATIC COLOR SCIENCE</h4>
-                            <p class="text-xs text-slate-300 mt-2">Real-time Dynamic Tone Mapping & Film Stock Emulation</p>
-                        </div>
-                    </div>
-
-                    <!-- Watermark Info -->
-                    <div class="absolute bottom-3 left-3 z-20 text-[10px] font-mono text-slate-300 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
-                        Toggle presets above or hover any Color DCTL below to preview live!
-                    </div>
-                </div>
-            </div>
-
-            <!-- 3. EFFECT SHADER LAB VIEW -->
-            <div id="labViewEffect" class="hidden space-y-4">
-                <div class="flex flex-wrap items-center justify-between gap-3">
-                    <div class="text-xs text-slate-300">
-                        <span>Active Effect Shader:</span>
-                        <span id="currentEffectLabel" class="font-black text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-md border border-purple-500/20">
-                            Retro CRT Monitor & Scanlines
-                        </span>
-                    </div>
-                    <div class="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0">
-                        <button onclick="setEffectStyle('crt')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-emerald-400 border border-slate-700">
-                            📺 CRT Scanlines
-                        </button>
-                        <button onclick="setEffectStyle('tunnel')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-purple-400 border border-slate-700">
-                            🌀 3D Tunnel Warp
-                        </button>
-                        <button onclick="setEffectStyle('waveform')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-cyan-400 border border-slate-700">
-                            📊 Audio Waveform
-                        </button>
-                        <button onclick="setEffectStyle('glitch')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-rose-400 border border-slate-700">
-                            ⚡ Distortion Shake
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Effect Stage Box -->
-                <div id="effectStage" class="w-full h-64 sm:h-80 rounded-2xl bg-black border border-slate-800 relative overflow-hidden flex items-center justify-center">
-                    
-                    <!-- CRT Monitor Scanlines -->
-                    <div id="effectCrtLayer" class="absolute inset-0 vhs-overlay pointer-events-none z-10"></div>
-
-                    <!-- Inner Visual Simulation -->
-                    <div id="effectContentLayer" class="relative z-0 text-center p-6 space-y-3">
-                        <div id="effectGraphic" class="w-24 h-24 mx-auto rounded-2xl bg-gradient-to-tr from-purple-600 via-pink-600 to-amber-500 flex items-center justify-center shadow-2xl">
-                            <span class="text-4xl">⚡</span>
-                        </div>
-                        <h4 id="effectTitle" class="text-xl sm:text-2xl font-black text-emerald-400 font-mono tracking-widest">
-                            &gt; CRT_DISPLAY_INITIALIZED_
-                        </h4>
-                        <p class="text-xs text-slate-400 max-w-sm mx-auto font-mono">
-                            Fusion .fuse Shader & VFX Simulation. Select or hover any effect plugin below.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-        </section>
-
         <!-- SEARCH & CATEGORY FILTER BAR -->
         <section class="space-y-4">
             <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
@@ -574,8 +450,10 @@
 
             <!-- Active Results Status -->
             <div class="flex items-center justify-between text-xs text-slate-400 px-1">
-                <div>
-                    တွေ့ရှိသော Plugins စုစုပေါင်း: <span id="resultCount" class="font-black text-amber-400">578</span> မျိုး
+                <div class="flex items-center gap-2">
+                    <span>တွေ့ရှိသော Plugins စုစုပေါင်း:</span>
+                    <span id="resultCount" class="font-black text-amber-400">578</span> မျိုး
+                    <span class="hidden sm:inline text-slate-500">• (ကတ်တစ်ခုချင်းစီပေါ်တွင် မောက်စ်ထောက်၍ Live Animation ကြည့်ရှုနိုင်ပါသည်)</span>
                 </div>
                 <div class="flex items-center gap-2">
                     <span>Sort by:</span>
@@ -588,10 +466,10 @@
             </div>
         </section>
 
-        <!-- PLUGINS GRID -->
+        <!-- PLUGINS GRID (EVERY CARD CONTAINS DIRECT LIVE ANIMATION PREVIEW) -->
         <section>
-            <div id="pluginsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-                <!-- 578 Plugin Cards Rendered by JS -->
+            <div id="pluginsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+                <!-- 578 Plugin Cards with DIRECT ANIMATION PREVIEWS Rendered by JS -->
             </div>
 
             <!-- Pagination / Load More -->
@@ -751,7 +629,7 @@
         let displayedCount = 24;
         const pageSize = 24;
 
-        // Current Active Download State
+        // Active Download State
         let activeDownloadItem = null;
         let countdownTimerInterval = null;
 
@@ -759,194 +637,6 @@
             renderSubcategories();
             applyFilters();
         });
-
-        // ------------------ Lab Studio Live Previews ------------------
-        function setLabMode(mode) {
-            document.getElementById('labViewText').classList.add('hidden');
-            document.getElementById('labViewColor').classList.add('hidden');
-            document.getElementById('labViewEffect').classList.add('hidden');
-
-            const btnText = document.getElementById('tabLabText');
-            const btnColor = document.getElementById('tabLabColor');
-            const btnEffect = document.getElementById('tabLabEffect');
-
-            [btnText, btnColor, btnEffect].forEach(btn => {
-                btn.className = 'px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition flex items-center gap-1.5';
-            });
-
-            if (mode === 'text') {
-                document.getElementById('labViewText').classList.remove('hidden');
-                btnText.className = 'px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-amber-500 text-slate-950 shadow-md';
-            } else if (mode === 'color') {
-                document.getElementById('labViewColor').classList.remove('hidden');
-                btnColor.className = 'px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-cyan-500 text-slate-950 shadow-md';
-            } else if (mode === 'effect') {
-                document.getElementById('labViewEffect').classList.remove('hidden');
-                btnEffect.className = 'px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-purple-500 text-white shadow-md';
-            }
-        }
-
-        // Text Animation Logic
-        function updateLiveText(val) {
-            const display = document.getElementById('liveTextDisplay');
-            if (display) {
-                display.innerText = val.trim() ? val : 'SMART MYANMAR FONTS';
-            }
-        }
-
-        function setTextAnimStyle(style, title) {
-            const display = document.getElementById('liveTextDisplay');
-            const label = document.getElementById('currentAnimLabel');
-            if (!display) return;
-
-            display.className = 'text-3xl sm:text-5xl font-black tracking-tight drop-shadow-lg';
-
-            if (style === 'hormozi') {
-                display.classList.add('anim-hormozi-pop', 'text-amber-400');
-                if (label) label.innerText = title || 'TikTok / Hormozi Word Pop';
-            } else if (style === 'bounce') {
-                display.classList.add('anim-spring-bounce', 'text-white');
-                if (label) label.innerText = title || 'Kinetic Spring Bounce';
-            } else if (style === 'typewriter') {
-                display.classList.add('text-cyan-400', 'font-mono');
-                runTypewriterAnim(display.innerText);
-                if (label) label.innerText = title || 'Typewriter Write-On';
-            } else if (style === 'glitch') {
-                display.classList.add('anim-chromatic-glitch', 'text-white');
-                if (label) label.innerText = title || 'RGB Chromatic Glitch';
-            } else if (style === 'neon') {
-                display.classList.add('anim-neon-flicker', 'text-rose-400');
-                if (label) label.innerText = title || 'Neon Electric Flicker';
-            } else if (style === 'tracking') {
-                display.classList.add('anim-tracking-expand', 'text-indigo-200');
-                if (label) label.innerText = title || 'A24 / Cinematic Expand';
-            }
-        }
-
-        function runTypewriterAnim(text) {
-            const display = document.getElementById('liveTextDisplay');
-            if (!display) return;
-            display.innerText = '';
-            let i = 0;
-            const timer = setInterval(() => {
-                if (i < text.length) {
-                    display.innerText += text.charAt(i);
-                    i++;
-                } else {
-                    clearInterval(timer);
-                }
-            }, 60);
-        }
-
-        function replayCurrentAnim() {
-            const display = document.getElementById('liveTextDisplay');
-            if (!display) return;
-            const currentClasses = display.className;
-            display.className = 'text-3xl sm:text-5xl font-black';
-            setTimeout(() => {
-                display.className = currentClasses;
-            }, 50);
-        }
-
-        // Color Grading Logic
-        function setColorGradeStyle(style, title) {
-            const stage = document.getElementById('colorGradeStage');
-            const label = document.getElementById('currentColorGradeLabel');
-            if (!stage) return;
-
-            stage.className = 'absolute inset-0 transition-all duration-700 flex items-center justify-center bg-cover bg-center';
-
-            if (style === 'original') {
-                stage.classList.add('grade-original');
-                if (label) label.innerText = title || 'Normal / Flat Log Baseline';
-            } else if (style === 'film-scurve') {
-                stage.classList.add('grade-film-scurve');
-                if (label) label.innerText = title || 'Kodak 2383 Film S-Curve';
-            } else if (style === 'cyberpunk') {
-                stage.classList.add('grade-cyberpunk-neon');
-                if (label) label.innerText = title || 'Cyberpunk Teal & Magenta';
-            } else if (style === 'golden-amber') {
-                stage.classList.add('grade-golden-amber');
-                if (label) label.innerText = title || 'Warm Golden Sunset Amber';
-            } else if (style === 'aces-balance') {
-                stage.classList.add('grade-aces-balance');
-                if (label) label.innerText = title || 'ACES Color Science Neutral Balance';
-            } else if (style === 'noir-bw') {
-                stage.classList.add('grade-noir-bw');
-                if (label) label.innerText = title || 'Dramatic Noir Black & White';
-            }
-        }
-
-        // Effect Logic
-        function setEffectStyle(style, title) {
-            const graphic = document.getElementById('effectGraphic');
-            const text = document.getElementById('effectTitle');
-            const label = document.getElementById('currentEffectLabel');
-            const crt = document.getElementById('effectCrtLayer');
-
-            if (style === 'crt') {
-                if (crt) crt.className = 'absolute inset-0 vhs-overlay pointer-events-none z-10';
-                if (text) text.innerText = '> CRT_DISPLAY_INITIALIZED_';
-                if (label) label.innerText = title || 'Retro CRT Monitor & Scanlines';
-                if (graphic) graphic.className = 'w-24 h-24 mx-auto rounded-2xl bg-emerald-950 border border-emerald-500/50 flex items-center justify-center text-4xl text-emerald-400 shadow-2xl';
-            } else if (style === 'tunnel') {
-                if (crt) crt.className = 'hidden';
-                if (text) text.innerText = 'HYPNOTIC 3D SPACE TUNNEL';
-                if (label) label.innerText = title || '3D Space Warp & Tunnel';
-                if (graphic) graphic.className = 'w-28 h-28 mx-auto rounded-full bg-gradient-to-tr from-purple-600 via-pink-600 to-amber-500 flex items-center justify-center text-4xl anim-tunnel-spin shadow-2xl';
-            } else if (style === 'waveform') {
-                if (crt) crt.className = 'hidden';
-                if (text) text.innerText = 'AUDIO REACTIVE WAVEFORM';
-                if (label) label.innerText = title || 'Audio Spectrum & Waveform';
-                if (graphic) graphic.className = 'w-28 h-28 mx-auto rounded-2xl bg-slate-900 border border-cyan-500/50 flex items-center justify-center text-4xl text-cyan-400 anim-spring-bounce';
-            } else if (style === 'glitch') {
-                if (crt) crt.className = 'absolute inset-0 vhs-overlay pointer-events-none z-10';
-                if (text) text.innerText = 'ANALOG VHS TAPE DISTORTION';
-                if (label) label.innerText = title || 'Analog Tape Distortion';
-                if (graphic) graphic.className = 'w-24 h-24 mx-auto rounded-2xl bg-rose-950 border border-rose-500/50 flex items-center justify-center text-4xl text-rose-400 anim-chromatic-glitch';
-            }
-        }
-
-        // Preview from Card Click
-        function previewPlugin(id) {
-            const p = allPlugins.find(item => item.id === id);
-            if (!p) return;
-
-            const studio = document.getElementById('liveStudioSection');
-            if (studio) studio.scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-            if (p.category === 'text-animation') {
-                setLabMode('text');
-                updateLiveText(p.name);
-                const input = document.getElementById('customPreviewText');
-                if (input) input.value = p.name;
-                setTextAnimStyle(
-                    p.previewType === 'text-typewriter' ? 'typewriter' :
-                    p.previewType === 'text-glitch' ? 'glitch' :
-                    p.previewType === 'text-neon' ? 'neon' :
-                    p.previewType === 'text-cinematic' ? 'tracking' :
-                    p.previewType === 'text-kinetic' ? 'bounce' : 'hormozi',
-                    p.name
-                );
-            } else if (p.category === 'color') {
-                setLabMode('color');
-                setColorGradeStyle(
-                    p.previewType === 'color-amber' ? 'golden-amber' :
-                    p.previewType === 'color-lut' ? 'cyberpunk' :
-                    p.previewType === 'color-aces' ? 'aces-balance' :
-                    p.previewType === 'color-film' ? 'film-scurve' : 'film-scurve',
-                    p.name
-                );
-            } else if (p.category === 'effect') {
-                setLabMode('effect');
-                setEffectStyle(
-                    p.previewType === 'effect-tunnel' ? 'tunnel' :
-                    p.previewType === 'effect-audio' ? 'waveform' :
-                    p.previewType === 'effect-distortion' ? 'glitch' : 'crt',
-                    p.name
-                );
-            }
-        }
 
         // ------------------ Filter & Search Logic ------------------
         function filterCategory(cat) {
@@ -1044,6 +734,163 @@
             renderGrid();
         }
 
+        // ------------------ DIRECT CARD PREVIEW GENERATOR ------------------
+        function getCardPreviewHtml(p) {
+            if (p.category === 'text-animation') {
+                let animClass = 'anim-hormozi-pop';
+                let textColor = 'text-amber-400';
+                let previewBadge = 'TEXT ANIMATION';
+
+                if (p.previewType === 'text-kinetic') {
+                    animClass = 'anim-spring-bounce';
+                    textColor = 'text-white';
+                    previewBadge = 'KINETIC BOUNCE';
+                } else if (p.previewType === 'text-typewriter') {
+                    animClass = 'anim-tracking-expand font-mono';
+                    textColor = 'text-cyan-400';
+                    previewBadge = 'TYPEWRITER WRITE-ON';
+                } else if (p.previewType === 'text-glitch') {
+                    animClass = 'anim-chromatic-glitch';
+                    textColor = 'text-white';
+                    previewBadge = 'RGB CHROMATIC GLITCH';
+                } else if (p.previewType === 'text-neon') {
+                    animClass = 'anim-neon-flicker';
+                    textColor = 'text-rose-400';
+                    previewBadge = 'ELECTRIC NEON';
+                } else if (p.previewType === 'text-cinematic') {
+                    animClass = 'anim-tracking-expand';
+                    textColor = 'text-indigo-200';
+                    previewBadge = 'CINEMATIC EXPAND';
+                } else if (p.previewType === 'text-lowerthird') {
+                    animClass = 'anim-spring-bounce';
+                    textColor = 'text-emerald-300';
+                    previewBadge = 'LOWER THIRD BAR';
+                }
+
+                return `
+                    <div class="relative w-full h-36 rounded-xl overflow-hidden bg-gradient-to-b from-slate-950 to-slate-900 border border-slate-800/90 flex flex-col items-center justify-center p-3 text-center select-none group-hover:border-amber-500/50 transition">
+                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.08)_0,transparent_75%)] pointer-events-none"></div>
+                        <div class="absolute top-2 left-2 flex items-center gap-1 text-[9px] font-mono text-slate-400 bg-black/60 px-2 py-0.5 rounded-full border border-white/5">
+                            <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+                            <span>${previewBadge}</span>
+                        </div>
+                        <div class="absolute bottom-2 right-2 text-[9px] text-slate-400 group-hover:text-amber-400 transition font-mono bg-black/60 px-2 py-0.5 rounded-full border border-white/10">
+                            Touch / Hover: Motion ⚡
+                        </div>
+                        <!-- Animated Text Element directly on the card -->
+                        <div class="z-10 transition-transform duration-300 transform group-hover:scale-105 px-2">
+                            <div class="text-lg sm:text-xl font-black ${textColor} transition-all duration-300 ${animClass} tracking-tight leading-tight">
+                                ${p.name}
+                            </div>
+                            <div class="text-[10px] text-slate-400 font-medium mt-1">
+                                DaVinci Resolve Titles (.setting)
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (p.category === 'color') {
+                let gradeFilterClass = 'grade-film-scurve';
+                let gradeName = 'Kodak 2383 S-Curve';
+                let tagColor = 'text-cyan-400';
+
+                if (p.previewType === 'color-amber') {
+                    gradeFilterClass = 'grade-golden-amber';
+                    gradeName = 'Golden Hour Amber';
+                    tagColor = 'text-yellow-400';
+                } else if (p.previewType === 'color-lut') {
+                    gradeFilterClass = 'grade-cyberpunk-neon';
+                    gradeName = 'Cyberpunk Neon LUT';
+                    tagColor = 'text-pink-400';
+                } else if (p.previewType === 'color-aces') {
+                    gradeFilterClass = 'grade-aces-balance';
+                    gradeName = 'ACES Color Balance';
+                    tagColor = 'text-emerald-400';
+                } else if (p.previewType === 'color-chart') {
+                    gradeFilterClass = 'grade-aces-balance';
+                    gradeName = 'Color Calibration';
+                    tagColor = 'text-blue-400';
+                }
+
+                return `
+                    <div class="relative w-full h-36 rounded-xl overflow-hidden bg-slate-950 border border-slate-800/90 group-hover:border-cyan-500/50 transition select-none flex items-center justify-center">
+                        <!-- Graded Simulated Image Layer with Transition directly on the card -->
+                        <div class="absolute inset-0 transition-all duration-500 grade-base ${gradeFilterClass} bg-cover bg-center flex items-center justify-center" style="background-image: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #020617 100%);">
+                            <div class="absolute w-32 h-32 rounded-full bg-gradient-to-tr from-amber-500 to-rose-500 opacity-60 blur-xl"></div>
+                            <div class="absolute w-24 h-24 rounded-full bg-gradient-to-tr from-cyan-400 to-blue-600 opacity-40 blur-lg right-4 top-4"></div>
+                            <div class="relative z-10 text-center px-3 py-2 bg-black/65 backdrop-blur-md rounded-xl border border-white/10 shadow-lg max-w-[90%]">
+                                <div class="text-[9px] font-mono tracking-widest ${tagColor} uppercase font-bold">${gradeName}</div>
+                                <div class="text-xs font-black text-white mt-0.5 truncate">${p.name}</div>
+                            </div>
+                        </div>
+
+                        <div class="absolute top-2 left-2 z-20 flex items-center gap-1 text-[9px] font-mono text-slate-300 bg-black/70 px-2 py-0.5 rounded-full border border-white/10">
+                            <span class="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse"></span>
+                            <span>COLOR DCTL</span>
+                        </div>
+                        <div class="absolute bottom-2 right-2 z-20 text-[9px] text-slate-400 group-hover:text-cyan-300 transition font-mono bg-black/60 px-2 py-0.5 rounded-full border border-white/10">
+                            Touch / Hover: Color Grade ✨
+                        </div>
+                    </div>
+                `;
+            } else { // effect
+                let effectInner = '';
+                let effectTag = 'VFX SHADER';
+
+                if (p.previewType === 'effect-crt') {
+                    effectTag = 'CRT MONITOR';
+                    effectInner = `
+                        <div class="absolute inset-0 vhs-overlay pointer-events-none z-10"></div>
+                        <div class="text-center font-mono text-emerald-400 text-xs font-bold tracking-widest group-hover:scale-105 transition px-2">
+                            &gt; CRT_SCANLINE_ON_
+                            <div class="text-[9px] text-slate-400 mt-1 font-sans truncate">${p.name}</div>
+                        </div>
+                    `;
+                } else if (p.previewType === 'effect-tunnel') {
+                    effectTag = '3D TUNNEL';
+                    effectInner = `
+                        <div class="w-14 h-14 rounded-full bg-gradient-to-tr from-purple-600 via-pink-600 to-amber-500 flex items-center justify-center text-xl anim-tunnel-spin shadow-2xl">
+                            🌀
+                        </div>
+                        <div class="text-[10px] text-purple-300 font-bold mt-1 truncate max-w-[85%]">${p.name}</div>
+                    `;
+                } else if (p.previewType === 'effect-audio') {
+                    effectTag = 'AUDIO WAVE';
+                    effectInner = `
+                        <div class="flex items-end justify-center gap-1.5 h-10 w-full px-4">
+                            <div class="w-1.5 bg-cyan-400 h-3 audio-bar-anim audio-delay-1 rounded-full"></div>
+                            <div class="w-1.5 bg-cyan-400 h-6 audio-bar-anim audio-delay-2 rounded-full"></div>
+                            <div class="w-1.5 bg-cyan-400 h-8 audio-bar-anim audio-delay-3 rounded-full"></div>
+                            <div class="w-1.5 bg-cyan-400 h-5 audio-bar-anim audio-delay-4 rounded-full"></div>
+                            <div class="w-1.5 bg-cyan-400 h-7 audio-bar-anim audio-delay-5 rounded-full"></div>
+                            <div class="w-1.5 bg-cyan-400 h-4 audio-bar-anim audio-delay-6 rounded-full"></div>
+                        </div>
+                        <div class="text-[10px] text-cyan-300 font-bold mt-1 truncate max-w-[85%]">${p.name}</div>
+                    `;
+                } else {
+                    effectTag = 'FUSE EFFECT';
+                    effectInner = `
+                        <div class="w-12 h-12 rounded-xl bg-purple-900/80 border border-purple-500/50 flex items-center justify-center text-2xl text-purple-300 group-hover:rotate-12 group-hover:scale-110 transition shadow-xl">
+                            ⚡
+                        </div>
+                        <div class="text-[10px] text-purple-300 font-bold mt-1 text-center px-2 truncate max-w-[85%]">${p.name}</div>
+                    `;
+                }
+
+                return `
+                    <div class="relative w-full h-36 rounded-xl overflow-hidden bg-black border border-slate-800/90 group-hover:border-purple-500/50 transition select-none flex flex-col items-center justify-center p-3">
+                        ${effectInner}
+                        <div class="absolute top-2 left-2 z-20 flex items-center gap-1 text-[9px] font-mono text-slate-300 bg-black/70 px-2 py-0.5 rounded-full border border-white/10">
+                            <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
+                            <span>${effectTag}</span>
+                        </div>
+                        <div class="absolute bottom-2 right-2 z-20 text-[9px] text-slate-400 group-hover:text-purple-300 transition font-mono bg-black/60 px-2 py-0.5 rounded-full border border-white/10">
+                            Touch / Hover: Play FX ⚡
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
         // ------------------ Grid Rendering ------------------
         function renderGrid() {
             const grid = document.getElementById('pluginsGrid');
@@ -1075,10 +922,17 @@
                     p.category === 'text-animation' ? '✍️' :
                     p.category === 'effect' ? '⚡' : '🎨';
 
+                // DIRECT IN-CARD ANIMATION PREVIEW
+                const previewHtml = getCardPreviewHtml(p);
+
                 return `
-                    <div class="group rounded-2xl p-4 glass-card transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col justify-between space-y-3 border border-slate-800 hover:border-amber-500/40">
-                        <div class="space-y-2">
-                            <!-- Category & Extension Badges -->
+                    <div class="group rounded-2xl p-3.5 glass-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl hover:shadow-amber-500/10 flex flex-col justify-between space-y-3 border border-slate-800 hover:border-amber-500/50 cursor-pointer" onclick="this.classList.toggle('is-previewing')">
+                        
+                        <!-- 1. LIVE ANIMATION PREVIEW SCREEN DIRECTLY ON THE CARD -->
+                        ${previewHtml}
+
+                        <!-- 2. CARD METADATA & TITLE -->
+                        <div class="space-y-1.5 px-0.5">
                             <div class="flex items-center justify-between gap-2">
                                 <span class="text-[10px] font-black uppercase px-2 py-0.5 rounded-full border ${badgeColor} flex items-center gap-1">
                                     <span>${icon}</span> ${p.subcategory}
@@ -1088,33 +942,27 @@
                                 </span>
                             </div>
 
-                            <!-- Title -->
                             <h4 class="font-black text-sm text-white group-hover:text-amber-400 transition leading-snug line-clamp-2" title="${p.name}">
                                 ${p.name}
                             </h4>
 
-                            <!-- File Info -->
                             <div class="flex items-center justify-between text-[11px] text-slate-400">
-                                <span class="truncate max-w-[150px] font-mono text-[10px] opacity-75">${p.filename}</span>
+                                <span class="truncate max-w-[140px] font-mono text-[10px] opacity-75">${p.filename}</span>
                                 <span>${p.sizeKb} KB</span>
                             </div>
                         </div>
 
-                        <!-- Card Footer & Action Buttons -->
+                        <!-- 3. DOWNLOAD BUTTON & COUNTER -->
                         <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between gap-2">
                             <div class="text-[10px] font-semibold text-slate-400 flex items-center gap-1">
                                 <span>📥</span> <span id="dl-count-${p.id}">${downloads}</span>
                             </div>
 
-                            <div class="flex items-center gap-1.5">
-                                <button onclick="previewPlugin(${p.id})" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold transition flex items-center gap-1" title="စမ်းသပ်ကြည့်မည်">
-                                    <span>▶️ Live</span>
-                                </button>
-                                <button onclick="openPluginDownloadGateway(${p.id}, '${p.name.replace(/'/g, "\\'")}', '${p.downloadUrl}', '${p.sizeKb} KB')" class="px-3 py-1.5 rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 text-xs font-black shadow-sm transition flex items-center gap-1">
-                                    <span>⬇️ ဒေါင်းလုဒ်</span>
-                                </button>
-                            </div>
+                            <button onclick="event.stopPropagation(); openPluginDownloadGateway(${p.id}, '${p.name.replace(/'/g, "\\'")}', '${p.downloadUrl}', '${p.sizeKb} KB')" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 text-xs font-black shadow-md transition flex items-center gap-1.5 active:scale-95">
+                                <span>⬇️ ဒေါင်းလုဒ်</span>
+                            </button>
                         </div>
+
                     </div>
                 `;
             }).join('');
