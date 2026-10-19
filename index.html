@@ -1685,18 +1685,22 @@
                 </div>
             </a>
 
-            <!-- Mode Switcher Pill (Switch between Myanmar and English Fonts - Desktop) -->
-            <div class="hidden md:flex items-center p-1 rounded-full bg-slate-900 border border-slate-800 shadow-inner shrink-0">
-                <div class="px-2.5 sm:px-4 py-1.5 rounded-full text-xs font-black bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md shadow-emerald-600/30 flex items-center gap-1.5 whitespace-nowrap">
+            <!-- Mode Switcher Pill (Switch between Myanmar, English Fonts & DaVinci Plugins - Desktop) -->
+            <div class="hidden lg:flex items-center p-1 rounded-full bg-slate-900 border border-slate-800 shadow-inner shrink-0">
+                <div class="px-2.5 sm:px-3.5 py-1.5 rounded-full text-xs font-black bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md shadow-emerald-600/30 flex items-center gap-1.5 whitespace-nowrap">
                     <span>🇲🇲</span>
-                    <span class="hidden sm:inline">မြန်မာဖောင့်များ</span>
+                    <span class="hidden sm:inline">မြန်မာဖောင့်</span>
                     <span class="text-[10px] bg-white/20 px-1.5 py-0.2 rounded-full">180+</span>
                 </div>
-                <a href="./premium-fonts.html" class="px-2.5 sm:px-4 py-1.5 rounded-full text-xs font-bold text-slate-300 hover:text-white hover:bg-slate-800/80 transition flex items-center gap-1.5 whitespace-nowrap group" title="English Motion Fonts သို့ ပြောင်းမည်">
+                <a href="./premium-fonts.html" class="px-2.5 sm:px-3.5 py-1.5 rounded-full text-xs font-bold text-slate-300 hover:text-white hover:bg-slate-800/80 transition flex items-center gap-1.5 whitespace-nowrap group" title="English Motion Fonts သို့ ပြောင်းမည်">
                     <span>💎</span>
-                    <span class="hidden xs:inline">English Motion</span>
-                    <span class="xs:hidden">English</span>
+                    <span>English</span>
                     <span class="text-[10px] bg-purple-500/30 text-purple-300 px-1.5 py-0.2 rounded-full border border-purple-500/40">108</span>
+                </a>
+                <a href="./davinci-plugins.html" class="px-2.5 sm:px-3.5 py-1.5 rounded-full text-xs font-bold text-slate-300 hover:text-white hover:bg-slate-800/80 transition flex items-center gap-1.5 whitespace-nowrap group" title="DaVinci Resolve Plugins သို့ သွားမည်">
+                    <span>🎬</span>
+                    <span>DaVinci Plugins</span>
+                    <span class="text-[10px] bg-amber-500/30 text-amber-300 px-1.5 py-0.2 rounded-full border border-amber-500/40">578</span>
                 </a>
             </div>
 
@@ -1717,8 +1721,11 @@
                 <button onclick="toggleFavoritesFilter()" class="px-4 py-1.5 rounded-full hover:text-slate-950 hover:bg-white transition flex items-center gap-1.5 whitespace-nowrap">
                     ❤️ သိမ်းထား (<span id="navFavCount">0</span>)
                 </button>
-                <a href="./premium-fonts.html" class="px-4 py-1.5 rounded-full bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-700 text-white hover:from-purple-500 hover:to-indigo-500 transition shadow-sm flex items-center gap-1.5 whitespace-nowrap font-black">
-                    <span>💎</span> Premium Motion (108+)
+                <a href="./premium-fonts.html" class="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-700 text-white hover:from-purple-500 hover:to-indigo-500 transition shadow-sm flex items-center gap-1.5 whitespace-nowrap font-black">
+                    <span>💎</span> English Motion (108+)
+                </a>
+                <a href="./davinci-plugins.html" class="px-3.5 py-1.5 rounded-full bg-gradient-to-r from-amber-500 to-orange-600 text-slate-950 hover:from-amber-400 hover:to-orange-400 transition shadow-sm flex items-center gap-1.5 whitespace-nowrap font-black">
+                    <span>🎬</span> DaVinci Plugins (578+)
                 </a>
             </nav>
 
@@ -1799,42 +1806,44 @@
     <!-- Main Container -->
     <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8 pb-32 md:pb-16">
 
-        <!-- Mobile Font Suite Switcher (Prominent 2-Card Toggle for Mobile Phones) -->
-        <section class="md:hidden w-full -mt-2 mb-4">
-            <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 p-2.5 rounded-2xl border border-slate-700/80 shadow-xl">
-                <div class="text-[11px] font-bold text-slate-400 px-1 py-1 mb-2 flex items-center justify-between">
+        <!-- Mobile Creative Studio Switcher (3-Suite Toggle for Mobile Phones) -->
+        <section class="lg:hidden w-full -mt-2 mb-4">
+            <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 p-2 rounded-2xl border border-slate-700/80 shadow-xl">
+                <div class="text-[11px] font-bold text-slate-400 px-1 py-1 mb-1.5 flex items-center justify-between">
                     <span class="flex items-center gap-1.5 text-slate-200">
                         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                        ဖောင့်အမျိုးအစား ရွေးချယ်ပါ (Font Suite)
+                        Creative Studio Suites ရွေးချယ်ပါ
                     </span>
                     <span class="text-[10px] text-emerald-400 font-semibold bg-emerald-950/80 px-2 py-0.5 rounded-full border border-emerald-500/30">လက်ရှိ: မြန်မာဖောင့်</span>
                 </div>
-                <div class="grid grid-cols-2 gap-2">
+                <div class="grid grid-cols-3 gap-1.5">
                     <!-- Current: Myanmar Fonts -->
-                    <div class="relative p-3 rounded-xl bg-gradient-to-br from-emerald-600 to-teal-700 text-white shadow-lg shadow-emerald-900/40 border border-emerald-400/50 flex flex-col justify-between">
-                        <div class="flex items-center justify-between">
-                            <span class="text-2xl">🇲🇲</span>
-                            <span class="text-[9px] font-black uppercase tracking-wider bg-white/20 text-white px-1.5 py-0.5 rounded-md">Active</span>
+                    <div class="relative p-2 rounded-xl bg-gradient-to-br from-emerald-600 to-teal-700 text-white shadow-md shadow-emerald-900/40 border border-emerald-400/50 flex flex-col justify-between text-center">
+                        <div class="flex items-center justify-center gap-1">
+                            <span class="text-lg">🇲🇲</span>
+                            <span class="text-[8px] font-black uppercase bg-white/20 text-white px-1 py-0.2 rounded">Active</span>
                         </div>
-                        <div class="mt-2">
-                            <div class="font-black text-sm sm:text-base text-white">
-                                မြန်မာဖောင့်များ
-                            </div>
-                            <div class="text-[10px] text-emerald-100 font-medium">၁၈၀+ Fonts စုစည်းမှု</div>
+                        <div class="mt-1">
+                            <div class="font-black text-xs text-white leading-tight">မြန်မာဖောင့်</div>
+                            <div class="text-[9px] text-emerald-100 font-medium">၁၈၀+ ဖောင့်</div>
                         </div>
                     </div>
 
                     <!-- Switch to English Motion Fonts -->
-                    <a href="./premium-fonts.html" class="relative p-3 rounded-xl bg-slate-800/90 hover:bg-slate-750 text-slate-200 border border-purple-500/40 hover:border-purple-400 transition flex flex-col justify-between group active:scale-[0.98]">
-                        <div class="flex items-center justify-between">
-                            <span class="text-2xl">💎</span>
-                            <span class="text-[9px] font-bold text-purple-300 bg-purple-500/20 px-1.5 py-0.5 rounded-md border border-purple-500/30">ပြောင်းမည် →</span>
+                    <a href="./premium-fonts.html" class="relative p-2 rounded-xl bg-slate-800/80 hover:bg-slate-750 text-slate-200 border border-purple-500/40 hover:border-purple-400 transition flex flex-col justify-between text-center group active:scale-[0.98]">
+                        <div class="text-lg">💎</div>
+                        <div class="mt-1">
+                            <div class="font-black text-xs text-white group-hover:text-purple-300 leading-tight">English</div>
+                            <div class="text-[9px] text-purple-300 font-medium">၁၀၈+ Video</div>
                         </div>
-                        <div class="mt-2">
-                            <div class="font-black text-sm sm:text-base text-white group-hover:text-purple-300 transition">
-                                English Motion
-                            </div>
-                            <div class="text-[10px] text-purple-300 font-medium">၁၀၈+ Video Fonts</div>
+                    </a>
+
+                    <!-- Switch to DaVinci Plugins -->
+                    <a href="./davinci-plugins.html" class="relative p-2 rounded-xl bg-slate-800/80 hover:bg-slate-750 text-slate-200 border border-amber-500/40 hover:border-amber-400 transition flex flex-col justify-between text-center group active:scale-[0.98]">
+                        <div class="text-lg">🎬</div>
+                        <div class="mt-1">
+                            <div class="font-black text-xs text-white group-hover:text-amber-400 leading-tight">DaVinci</div>
+                            <div class="text-[9px] text-amber-300 font-medium">၅၇၈ မျိုး</div>
                         </div>
                     </a>
                 </div>

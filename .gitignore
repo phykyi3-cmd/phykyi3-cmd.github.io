@@ -28,6 +28,16 @@
 !fonts_english.css
 !english_fonts_data.json
 !premium_english_motion_fonts_108.zip
+!davinci-plugins.html
+!davinci_plugins_data.js
+!davinci_plugins_data.json
+!davinci-assets/
+!davinci-assets/**
+!davinci_plugins_suite.zip
+!davinci_text_animation_plugins.zip
+!davinci_effect_plugins.zip
+!davinci_color_plugins.zip
+!install_to_davinci.sh
 !.github/
 !.github/**
 !.gitignore

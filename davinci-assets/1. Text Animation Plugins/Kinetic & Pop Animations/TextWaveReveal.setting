@@ -1,0 +1,148 @@
+{
+    Tools = ordered() {
+        TextWaveReveal = MacroOperator {
+            CustomData = {
+                HelpPage = "https://github.com",
+            },
+            Inputs = ordered() {
+                Input1 = InstanceInput {
+                    SourceOp = "TextPlus1",
+                    Source = "StyledText",
+                    Name = "Text",
+                    Default = "WAVE MOTION",
+                },
+                Input2 = InstanceInput {
+                    SourceOp = "TextPlus1",
+                    Source = "Size",
+                    Name = "Font Size",
+                    Default = 0.12,
+                },
+                Input3 = InstanceInput {
+                    SourceOp = "TextPlus1",
+                    Source = "Font",
+                    Name = "Font",
+                    Default = "Helvetica Neue",
+                },
+                Input4 = InstanceInput {
+                    SourceOp = "TextPlus1",
+                    Source = "Red1",
+                    Name = "Text Color Red",
+                    Default = 0.4,
+                },
+                Input5 = InstanceInput {
+                    SourceOp = "TextPlus1",
+                    Source = "Green1",
+                    Name = "Text Color Green",
+                    Default = 0.8,
+                },
+                Input6 = InstanceInput {
+                    SourceOp = "TextPlus1",
+                    Source = "Blue1",
+                    Name = "Text Color Blue",
+                    Default = 1.0,
+                },
+                Input7 = InstanceInput {
+                    SourceOp = "Background1",
+                    Source = "TopLeftRed",
+                    Name = "BG Color Red",
+                    Default = 0.05,
+                },
+                Input8 = InstanceInput {
+                    SourceOp = "Background1",
+                    Source = "TopLeftGreen",
+                    Name = "BG Color Green",
+                    Default = 0.07,
+                },
+                Input9 = InstanceInput {
+                    SourceOp = "Background1",
+                    Source = "TopLeftBlue",
+                    Name = "BG Color Blue",
+                    Default = 0.09,
+                },
+                MainInput1 = InstanceInput {
+                    SourceOp = "Merge1",
+                    Source = "Background",
+                },
+            },
+            Outputs = {
+                MainOutput1 = InstanceOutput {
+                    SourceOp = "Merge1",
+                    Source = "Output",
+                },
+            },
+            ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+            Tools = ordered() {
+                Background1 = Background {
+                    Inputs = {
+                        GlobalOut = Input { Value = 120 },
+                        Width = Input { Value = 1920 },
+                        Height = Input { Value = 1080 },
+                        ["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" } },
+                        TopLeftRed = Input { Value = 0.05 },
+                        TopLeftGreen = Input { Value = 0.07 },
+                        TopLeftBlue = Input { Value = 0.09 },
+                    },
+                    ViewInfo = OperatorInfo { Pos = { -110, -16.5 } },
+                },
+                TextPlus1 = TextPlus {
+                    Inputs = {
+                        GlobalOut = Input { Value = 120 },
+                        Width = Input { Value = 1920 },
+                        Height = Input { Value = 1080 },
+                        ["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" } },
+                        Center = Input { Value = { 0.5, 0.5 } },
+                        Size = Input { Value = 0.12 },
+                        StyledText = Input { Value = "WAVE MOTION" },
+                        Font = Input { Value = "Helvetica Neue" },
+                        Style = Input { Value = "Bold" },
+                        VerticalJustificationNew = Input { Value = 3 },
+                        HorizontalJustificationNew = Input { Value = 3 },
+                        Red1 = Input { Value = 0.4 },
+                        Green1 = Input { Value = 0.8 },
+                        Blue1 = Input { Value = 1.0 },
+                        -- Write On reveals text character by character
+                        WriteOn = Input {
+                            SourceOp = "WriteOnAnim",
+                            Source = "Value",
+                        },
+                    },
+                    ViewInfo = OperatorInfo { Pos = { -110, 16.5 } },
+                },
+                WriteOnAnim = BezierSpline {
+                    SplineColor = { Red = 0, Green = 200, Blue = 200 },
+                    NameSet = true,
+                    KeyFrames = {
+                        [0] = { 0, RH = { 15, 0.5 }, Flags = { Linear = true } },
+                        [45] = { 1, LH = { 30, 0.5 } },
+                    },
+                },
+                Glow1 = Glow {
+                    Inputs = {
+                        Blend = Input { Value = 0.3 },
+                        Filter = Input { Value = FuID { "Multi-box" } },
+                        XGlowSize = Input { Value = 8 },
+                        Input = Input {
+                            SourceOp = "TextPlus1",
+                            Source = "Output",
+                        },
+                    },
+                    ViewInfo = OperatorInfo { Pos = { 0, 16.5 } },
+                },
+                Merge1 = Merge {
+                    Inputs = {
+                        Background = Input {
+                            SourceOp = "Background1",
+                            Source = "Output",
+                        },
+                        Foreground = Input {
+                            SourceOp = "Glow1",
+                            Source = "Output",
+                        },
+                        PerformDepthMerge = Input { Value = 0 },
+                    },
+                    ViewInfo = OperatorInfo { Pos = { 110, 16.5 } },
+                },
+            },
+        },
+    },
+}

@@ -1,0 +1,466 @@
+{
+	Tools = ordered() {
+		TurbulentDisplace = MacroOperator {
+			CtrlWZoom = false,
+			CustomData = {
+				SxSFilename = "C:\\Users\\pjviz\\AppData\\Roaming\\Blackmagic Design\\DaVinci Resolve\\Support\\Fusion\\Macros\\PJ\\PeeJs AFX PACK\\Distort\\pj_TurbulentDisplace_afx.setting",
+				Path = { Map = { ["Setting:"] = "Macros:\\PJ\\PeeJs AFX PACK\\Distort\\" } },
+				Settings = {
+				}
+			},
+			Inputs = ordered() {
+				CommentsNest = Input { Value = 0, },
+				Center = InstanceInput {
+					SourceOp = "TDFN",
+					Source = "Center",
+					Page = "Noise",
+				},
+				Detail = InstanceInput {
+					SourceOp = "TDFN",
+					Source = "Detail",
+					Default = 2,
+				},
+				Contrast = InstanceInput {
+					SourceOp = "TDFN",
+					Source = "Contrast",
+					Default = 1.5,
+				},
+				Brightness = InstanceInput {
+					SourceOp = "TDFN",
+					Source = "Brightness",
+					Default = 0,
+				},
+				LockXY = InstanceInput {
+					SourceOp = "TDFN",
+					Source = "LockXY",
+					Default = 1,
+				},
+				XScale = InstanceInput {
+					SourceOp = "TDFN",
+					Source = "XScale",
+					Default = 3,
+				},
+				YScale = InstanceInput {
+					SourceOp = "TDFN",
+					Source = "YScale",
+					Default = 2,
+				},
+				Angle = InstanceInput {
+					SourceOp = "TDFN",
+					Source = "Angle",
+					Default = 0,
+				},
+				Seethe = InstanceInput {
+					SourceOp = "TDFN",
+					Source = "Seethe",
+					Default = 18.826,
+				},
+				SeetheRate = InstanceInput {
+					SourceOp = "TDFN",
+					Source = "SeetheRate",
+					Default = 0,
+				},
+				Inverted = InstanceInput {
+					SourceOp = "TDFN",
+					Source = "Inverted",
+					Default = 0,
+				},
+				Type = InstanceInput {
+					SourceOp = "TDDSP",
+					Source = "Type",
+					Page = "Displace",
+					Default = 1,
+				},
+				DisplaceCenter = InstanceInput {
+					SourceOp = "TDDSP",
+					Source = "Center",
+				},
+				DisplaceChannel = InstanceInput {
+					SourceOp = "TDDSP",
+					Source = "Channel",
+					Default = 4,
+				},
+				XChannel = InstanceInput {
+					SourceOp = "TDDSP",
+					Source = "XChannel",
+					Default = 1,
+				},
+				XOffset = InstanceInput {
+					SourceOp = "TDDSP",
+					Source = "XOffset",
+					Default = -0.5,
+				},
+				XRefraction = InstanceInput {
+					SourceOp = "TDDSP",
+					Source = "XRefraction",
+					Default = 0,
+				},
+				YChannel = InstanceInput {
+					SourceOp = "TDDSP",
+					Source = "YChannel",
+					Default = 0,
+				},
+				YOffset = InstanceInput {
+					SourceOp = "TDDSP",
+					Source = "YOffset",
+					Default = -0.5,
+				},
+				YRefraction = InstanceInput {
+					SourceOp = "TDDSP",
+					Source = "YRefraction",
+					Default = 0,
+				},
+				Offset = InstanceInput {
+					SourceOp = "TDDSP",
+					Source = "Offset",
+					Default = 0,
+				},
+				RefractionStrength = InstanceInput {
+					SourceOp = "TDDSP",
+					Source = "RefractionStrength",
+					Default = 0,
+				},
+				Spread = InstanceInput {
+					SourceOp = "TDDSP",
+					Source = "Spread",
+					Default = 3,
+				},
+				SwitchChannels = InstanceInput {
+					SourceOp = "TDDSP",
+					Source = "SwitchChannels",
+					Width = 0.5,
+					Page = "Displace",
+				},
+				LinkRefraction = InstanceInput {
+					SourceOp = "TDDSP",
+					Source = "LinkRefraction",
+					Width = 0.5,
+					Page = "Displace",
+				},
+				TurbPreset = InstanceInput {
+					SourceOp = "TDDSP",
+					Source = "TurbPreset",
+					Width = 0.5,
+					Page = "Displace",
+				},
+				TwistyWarp = InstanceInput {
+					SourceOp = "TDDSP",
+					Source = "TwistyWarp",
+					Width = 0.5,
+					Page = "Controls",
+				},
+				BubbleWarp = InstanceInput {
+					SourceOp = "TDDSP",
+					Source = "BubbleWarp",
+					Width = 0.5,
+					Page = "Controls",
+				},
+				LinkRefraction2 = InstanceInput {
+					SourceOp = "TDDSP",
+					Source = "LinkRefraction",
+					Width = 0.5,
+					Page = "Controls",
+				},
+				TurbPreset2 = InstanceInput {
+					SourceOp = "TDDSP",
+					Source = "TurbPreset",
+					Width = 0.5,
+					Page = "Controls",
+				},
+				ShowMap = InstanceInput {
+					SourceOp = "TDDIS",
+					Source = "Blend",
+					Name = "Show Map",
+					Page = "Controls",
+					Default = 0,
+				},
+				XRefraction2 = InstanceInput {
+					SourceOp = "TDDSP",
+					Source = "XRefraction",
+					Page = "Controls",
+					Default = 0,
+				},
+				YRefraction2 = InstanceInput {
+					SourceOp = "TDDSP",
+					Source = "YRefraction",
+					Page = "Controls",
+					Default = 0,
+				},
+				XScale2 = InstanceInput {
+					SourceOp = "TDFN",
+					Source = "XScale",
+					Page = "Controls",
+					Default = 3,
+				},
+				Contrast2 = InstanceInput {
+					SourceOp = "TDFN",
+					Source = "Contrast",
+					Page = "Controls",
+					Default = 1.5,
+				},
+				Spread2 = InstanceInput {
+					SourceOp = "TDDSP",
+					Source = "Spread",
+					Page = "Controls",
+					Default = 3,
+				},
+				Seethe2 = InstanceInput {
+					SourceOp = "TDFN",
+					Source = "Seethe",
+					Page = "Controls",
+					Default = 18.826,
+				},
+				MirrorControls = InstanceInput {
+					SourceOp = "TDCR",
+					Source = "MirrorControls",
+					Page = "Controls",
+				},
+				Edges = InstanceInput {
+					SourceOp = "TDT",
+					Source = "Edges",
+					Default = 3,
+				},
+				MirrorAmount = InstanceInput {
+					SourceOp = "TDCR",
+					Source = "MirrorAmount",
+					MinAllowed = -1000000,
+					MaxAllowed = 1000000,
+					MaxScale = 2,
+					Page = "Controls",
+					Default = 0,
+				},
+				Blend = InstanceInput {
+					SourceOp = "TDDSP",
+					Source = "Blend",
+					Page = "Common",
+					Default = 1,
+				},
+				FrameRenderScriptNest = InstanceInput {
+					SourceOp = "TDDSP",
+					Source = "FrameRenderScriptNest",
+					Page = "Common",
+					Default = 1,
+				},
+				FrameRenderScript = InstanceInput {
+					SourceOp = "TDDSP",
+					Source = "FrameRenderScript",
+					Page = "Common",
+					Default = 1,
+				},
+				MainInput1 = InstanceInput {
+					SourceOp = "TDT",
+					Source = "Input",
+				},
+				EffectMask = InstanceInput {
+					SourceOp = "TDDSP",
+					Source = "EffectMask",
+				}
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "TDDIS",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 165, 49.5 } },
+			Tools = ordered() {
+				TDFN = FastNoise {
+					CtrlWShown = false,
+					NameSet = true,
+					CustomData = {
+						Settings = {
+						},
+						Path = { Map = { ["Setting:"] = "Macros:\\PJ\\" } },
+					},
+					Inputs = {
+						UseGPU = Input { Value = 2, },
+						GlobalOut = Input { Value = 23, },
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" }, },
+						Contrast = Input { Value = 1.5, },
+						XScale = Input { Value = 3, },
+						Seethe = Input { Value = 18.826, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 0, 8.34658 } },
+				},
+				TDDSP = Displace {
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						UseGPU = Input { Value = 2, },
+						Type = Input { Value = 1, },
+						XChannel = Input { Value = 1, },
+						XOffset = Input { Value = -0.5, },
+						XRefraction = Input { Value = 0.1, },
+						YChannel = Input { Value = 0, },
+						YOffset = Input { Value = -0.5, },
+						YRefraction = Input { Value = 0.1, },
+						RefractionStrength = Input { Value = 0, },
+						Spread = Input { Value = 3, },
+						Input = Input {
+							SourceOp = "TDCR",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "TDiT",
+							Source = "Output",
+						},
+						FrameRenderScript = Input { Value = "YRefraction = XRefraction", }
+					},
+					ViewInfo = OperatorInfo { Pos = { 0, 99.1686 } },
+					UserControls = ordered() { SwitchChannels = { ICD_Width = 0.5, INP_Integer = false, LINKID_DataType = "Number", BTNCS_Execute = "tool = comp.ActiveTool\nif tool.XChannel[comp.CurrentTime] == 0 then\ntool:SetInput(\"XChannel\", 1)\ntool:SetInput(\"YChannel\", 0)\nelseif tool.XChannel[comp.CurrentTime] == 1 then\ntool:SetInput(\"XChannel\", 0)\ntool:SetInput(\"YChannel\", 1)\nend", ICS_ControlPage = "Controls", INPID_InputControl = "ButtonControl", LINKS_Name = "Switch Channels", }, LinkRefraction = { ICD_Width = 0.5, INP_Integer = false, LINKID_DataType = "Number", BTNCS_Execute = "tool = comp.ActiveTool\nif tool.FrameRenderScript[comp.CurrentTime] == \"\" then\ntool:SetInput(\"FrameRenderScript\", \"YRefraction = XRefraction\")\nelseif tool.FrameRenderScript[comp.CurrentTime] == \"YRefraction = XRefraction\" then\ntool:SetInput(\"FrameRenderScript\", \"\")\nend", ICS_ControlPage = "Controls", INPID_InputControl = "ButtonControl", LINKS_Name = "Link Refraction", }, TurbPreset = { INP_MaxAllowed = 1000000, INP_Integer = false, INPID_InputControl = "ButtonControl", BTNCS_Execute = "\ntool = comp.ActiveTool\ntool:SetInput(\"FrameRenderScript\", \"YRefraction = XRefraction\")\n\nkeyframeDataRefraction =  {\n            [GetAttrs().COMPN_RenderStart*1.5] = { -0.3, RH = { 3.4, 0.296 }},\n            [GetAttrs().COMPN_RenderEnd*1.5] = { -0.0013, LH = { -5.7934782608696, 0 }}\n        }\n\ntool.XRefraction2 = BezierSpline({}) \n\nlocal splineOut = tool.XRefraction2:GetConnectedOutput()\nlocal spline = splineOut:GetTool()\nspline:SetKeyFrames(keyframeDataRefraction)\n\nkeyframeDataScale =  {\n            [GetAttrs().COMPN_RenderStart*1.5] = { 3.5, RH = { 3.29782608695652, -1.47956521739131 }},\n            [GetAttrs().COMPN_RenderEnd*1.5] = { 1, LH = { -14.1717391304348, 0 } }\n        }\n\ntool.XScale2 = BezierSpline({}) \n\nlocal splineOut = tool.XScale2:GetConnectedOutput()\nlocal spline = splineOut:GetTool()\nspline:SetKeyFrames(keyframeDataScale)", INP_MaxScale = 1, INP_MinScale = 0, INP_MinAllowed = -1000000, LINKID_DataType = "Number", ICS_ControlPage = "Controls", ICD_Width = 0.5, LINKS_Name = "Turb Preset" }, TwistyWarp = { INP_MaxAllowed = 1000000, INP_Integer = false, INPID_InputControl = "ButtonControl", BTNCS_Execute = "tool:SetInput('XChannel', 1 )\ntool:SetInput('YChannel', 0 )", INP_MaxScale = 1, INP_MinScale = 0, INP_MinAllowed = -1000000, LINKID_DataType = "Number", ICS_ControlPage = "Controls", ICD_Width = 0.5, LINKS_Name = "Twisty Warp" }, BubbleWarp = { INP_MaxAllowed = 1000000, INP_Integer = false, INPID_InputControl = "ButtonControl", BTNCS_Execute = "tool:SetInput('YChannel', 1 )\ntool:SetInput('XChannel', 0 )", INP_MaxScale = 1, INP_MinScale = 0, INP_MinAllowed = -1000000, LINKID_DataType = "Number", ICS_ControlPage = "Controls", ICD_Width = 0.5, LINKS_Name = "Bubble Warp" } }
+				},
+				TDT = Transform {
+					CtrlWShown = false,
+					NameSet = true,
+					CustomData = { Path = { Map = { ["Setting:"] = "Macros:\\PJ\\" } }, },
+					Inputs = {
+						Input = Input {
+							SourceOp = "FastNoise",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { -220, 99.1686 } },
+				},
+				TDiT = Transform {
+					CtrlWShown = false,
+					NameSet = true,
+					CustomData = { Path = { Map = { ["Setting:"] = "Macros:\\PJ\\" } }, },
+					SourceOp = "TDT",
+					Inputs = {
+						EffectMask = Input {
+						},
+						SettingsNest = Input {
+						},
+						TransformNest = Input {
+						},
+						ReferenceSize = Input {
+						},
+						Input = Input {
+							SourceOp = "TDCBM",
+							Source = "Output",
+						},
+						CommentsNest = Input {
+						},
+						FrameRenderScriptNest = Input {
+						},
+						StartRenderScripts = Input {
+						},
+						EndRenderScripts = Input {
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 0, 58.4257 } },
+				},
+				TDCR = Crop {
+					CtrlWShown = false,
+					NameSet = true,
+					CustomData = { Path = { Map = { ["Setting:"] = "Macros:\\PJ\\" } }, },
+					Inputs = {
+						WarpControls = Input {
+							Value = Number {
+								Value = 1
+							},
+						},
+						XSize = Input { Value = 1920, },
+						YSize = Input { Value = 1080, },
+						KeepCentered = Input { Value = 1, },
+						Input = Input {
+							SourceOp = "TDT",
+							Source = "Output",
+						},
+						Code = Input { Value = "local tool = comp.ActiveTool\n\nlocal function FindChildNode(groupNode, childNodeType, childNodeName)\n    local nodeList = groupNode:GetChildrenList()\n\n    for _, childNode in ipairs(nodeList) do\n      if childNode:GetAttrs().TOOLS_RegID == childNodeType then\n\n          if string.find(childNode:GetAttrs().TOOLS_Name, childNodeName) then\n            return childNode\n          end\n      \n      end\n    end\n\nend\n\nlocal cropTool = FindChildNode(tool, \"Crop\", \"CR\")\nlocal icropTool = FindChildNode(tool, \"Crop\", \"invCR\")\n\nlocal MirrorAmount = tool.MirrorAmount[comp.CurrentTime]\n\nlocal function UpdateParms(locTool, wInp, hInp)\n    locTool:SetInput(wInp, cropTool.Input[comp.CurrentTime].Width*(1+(MirrorAmount*.1)) )\n    locTool:SetInput(hInp, cropTool.Input[comp.CurrentTime].Height*(1+(MirrorAmount*.1)) )\nend\n\nUpdateParms(cropTool, \"XSize\", \"YSize\")\nUpdateParms(FindChildNode(tool, \"FastNoise\", \"FN\"), \"Width\", \"Height\")\n\nicropTool:SetInput('XSize', icropTool.Input[comp.CurrentTime].Width/(1+(MirrorAmount*.1)) )\nicropTool:SetInput('YSize', icropTool.Input[comp.CurrentTime].Height/(1+(MirrorAmount*.1)) )\n--", },
+						MirrorControls = Input { Value = 1, }
+					},
+					ViewInfo = OperatorInfo { Pos = { -110, 99.0396 } },
+					UserControls = ordered() {
+						MirrorAmount = {
+							INP_MaxAllowed = 10,
+							INP_Integer = true,
+							INPID_InputControl = "SliderControl",
+							INP_MaxScale = 10,
+							INP_Default = 0,
+							INP_MinScale = 0,
+							INP_MinAllowed = 0,
+							LINKID_DataType = "Number",
+							INPS_ExecuteOnChange = "local tool = comp.ActiveTool\n\nlocal function FindChildNode(groupNode, childNodeType, childNodeName)\n    local nodeList = groupNode:GetChildrenList()\n\n    for _, childNode in ipairs(nodeList) do\n      if childNode:GetAttrs().TOOLS_RegID == childNodeType then\n\n          if string.find(childNode:GetAttrs().TOOLS_Name, childNodeName) then\n            return childNode\n          end\n      \n      end\n    end\n\nend\n\nlocal cropTool = FindChildNode(tool, \"Crop\", \"CR\")\n\nfusion:Execute(cropTool:GetInput('Code'))",
+							ICS_ControlPage = "Controls",
+							INP_SplineType = "Default",
+							LINKS_Name = "Mirror Amount"
+						},
+						Code = {
+							TEC_ReadOnly = false,
+							TEC_Wrap = false,
+							INPID_InputControl = "TextEditControl",
+							IC_NoLabel = true,
+							LINKID_DataType = "Text",
+							TECS_Language = "lua",
+							TEC_Lines = 10,
+							LINKS_Name = "Code",
+						},
+						ToolTip = { INP_MaxAllowed = 1000000, INP_Integer = false, LBLC_DropDownButton = false, INPID_InputControl = "LabelControl", INP_MaxScale = 1, INP_MinScale = 0, INP_MinAllowed = -1000000, LINKID_DataType = "Number", INP_External = false, INP_Passive = true, ICS_ControlPage = "Controls", LINKS_Name = "Type or Use Up Arrow to Change Value" },
+						MirrorControls = { INP_MaxAllowed = 1000000, INP_Integer = false, LBLC_DropDownButton = true, INPID_InputControl = "LabelControl", LBLC_NumInputs = 3, INP_MaxScale = 1, INP_MinScale = 0, INP_MinAllowed = -1000000, LINKID_DataType = "Number", INP_Passive = true, ICS_ControlPage = "Controls", LINKS_Name = "Mirror Controls" }
+					}
+				},
+				TDDIS = Dissolve {
+					Transitions = {
+						[0] = "DFTDissolve"
+					},
+					CtrlWShown = false,
+					NameSet = true,
+					Inputs = {
+						Background = Input {
+							SourceOp = "TDinvCR",
+							Source = "Output",
+						},
+						Foreground = Input {
+							SourceOp = "TDFN",
+							Source = "Output",
+						},
+						Blend = Input { Value = 0, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 220, 99.1686 } },
+					UserControls = ordered() { Mix = { INP_MaxAllowed = 1, INP_Integer = false, INPID_InputControl = "CheckboxControl", INP_MaxScale = 1, INP_Default = 1, INP_MinScale = 0, INP_MinAllowed = 0, LINKID_DataType = "Number", ICS_ControlPage = "Controls", CBC_TriState = false, LINKS_Name = "Show Map" }, Blend = { INP_MaxAllowed = 1000000, INP_Integer = false, INPID_InputControl = "CheckboxControl", INP_MaxScale = 1, INP_Default = 1, INP_MinScale = 0, INP_MinAllowed = -1000000, LINKID_DataType = "Number", ICS_ControlPage = "Controls", CBC_TriState = false, LINKS_Name = "Map" } }
+				},
+				TDCBM = CreateBumpMap {
+					CtrlWShown = false,
+					NameSet = true,
+					CustomData = { Path = { Map = { ["Setting:"] = "Macros:\\PJ\\" } }, },
+					Inputs = {
+						Input = Input {
+							SourceOp = "TDFN",
+							Source = "Output",
+						},
+						HeightScale = Input { Value = 100, }
+					},
+					ViewInfo = OperatorInfo { Pos = { 0, 25.426 } },
+				},
+				TDinvCR = Crop {
+					CtrlWShown = false,
+					NameSet = true,
+					CustomData = { Path = { Map = { ["Setting:"] = "Macros:\\PJ\\" } }, },
+					Inputs = {
+						XSize = Input { Value = 1920, },
+						YSize = Input { Value = 1080, },
+						KeepCentered = Input { Value = 1, },
+						Input = Input {
+							SourceOp = "TDDSP",
+							Source = "Output",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 110, 99.0396 } },
+					UserControls = ordered() {
+						MirrorAmount = {
+							INP_Integer = false,
+							LINKID_DataType = "Number",
+							ICS_ControlPage = "Crop",
+							INPID_InputControl = "SliderControl",
+							LINKS_Name = "Mirror Amount",
+						}
+					}
+				}
+			},
+			Colors = { TileColor = { R = 0.6, G = 0.450980392156863, B = 0.627450980392157 }, }
+		}
+	}
+}

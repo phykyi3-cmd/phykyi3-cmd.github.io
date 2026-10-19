@@ -127,19 +127,23 @@
                 </div>
             </a>
 
-            <!-- Mode Switcher Pill (Switch between Myanmar and English Fonts - Desktop) -->
-            <div class="hidden md:flex items-center p-1 rounded-full bg-slate-900 border border-slate-800 shadow-inner shrink-0">
-                <a href="./index.html" class="px-2.5 sm:px-4 py-1.5 rounded-full text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-800/60 transition flex items-center gap-1.5 whitespace-nowrap" title="မြန်မာဖောင့်များ သို့ ပြောင်းမည်">
+            <!-- 3-Way Suite Switcher Pill (Desktop) -->
+            <div class="hidden lg:flex items-center p-1 rounded-full bg-slate-900 border border-slate-800 shadow-inner shrink-0">
+                <a href="./index.html" class="px-2.5 sm:px-3.5 py-1.5 rounded-full text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-800/60 transition flex items-center gap-1.5 whitespace-nowrap" title="မြန်မာဖောင့်များ သို့ သွားမည်">
                     <span>🇲🇲</span>
-                    <span class="hidden sm:inline">မြန်မာဖောင့်များ</span>
+                    <span>မြန်မာဖောင့်</span>
                     <span class="text-[10px] opacity-60">180+</span>
                 </a>
-                <div class="px-2.5 sm:px-4 py-1.5 rounded-full text-xs font-black bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-md shadow-purple-600/30 flex items-center gap-1.5 whitespace-nowrap">
+                <div class="px-2.5 sm:px-3.5 py-1.5 rounded-full text-xs font-black bg-gradient-to-r from-purple-600 to-indigo-600 text-white shadow-md shadow-purple-600/30 flex items-center gap-1.5 whitespace-nowrap">
                     <span>💎</span>
-                    <span class="hidden xs:inline">English Motion</span>
-                    <span class="xs:hidden">English</span>
+                    <span>English</span>
                     <span class="text-[10px] bg-white/20 px-1.5 py-0.2 rounded-full">108</span>
                 </div>
+                <a href="./davinci-plugins.html" class="px-2.5 sm:px-3.5 py-1.5 rounded-full text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-800/60 transition flex items-center gap-1.5 whitespace-nowrap group" title="DaVinci Resolve Plugins သို့ သွားမည်">
+                    <span>🎬</span>
+                    <span>DaVinci Plugins</span>
+                    <span class="text-[10px] bg-amber-500/30 text-amber-300 px-1.5 py-0.2 rounded-full border border-amber-500/40">578</span>
+                </a>
             </div>
 
             <!-- Right Actions -->
@@ -158,44 +162,46 @@
     <!-- Main Content Container -->
     <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-10 z-10 pb-24 md:pb-12">
 
-        <!-- Mobile Font Suite Switcher (Prominent 2-Card Toggle for Mobile Phones) -->
-        <section class="md:hidden w-full -mt-4 mb-4">
-            <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 p-2.5 rounded-2xl border border-slate-700/80 shadow-xl">
-                <div class="text-[11px] font-bold text-slate-400 px-1 py-1 mb-2 flex items-center justify-between">
+        <!-- Mobile Creative Studio Switcher (3-Suite Toggle for Mobile Phones) -->
+        <section class="lg:hidden w-full -mt-4 mb-4">
+            <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 p-2 rounded-2xl border border-slate-700/80 shadow-xl">
+                <div class="text-[11px] font-bold text-slate-400 px-1 py-1 mb-1.5 flex items-center justify-between">
                     <span class="flex items-center gap-1.5 text-slate-200">
                         <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
-                        ဖောင့်အမျိုးအစား ရွေးချယ်ပါ (Font Suite)
+                        Creative Studio Suites ရွေးချယ်ပါ
                     </span>
                     <span class="text-[10px] text-purple-400 font-semibold bg-purple-950/80 px-2 py-0.5 rounded-full border border-purple-500/30">လက်ရှိ: English Motion</span>
                 </div>
-                <div class="grid grid-cols-2 gap-2">
+                <div class="grid grid-cols-3 gap-1.5">
                     <!-- Switch to Myanmar Fonts -->
-                    <a href="./index.html" class="relative p-3 rounded-xl bg-slate-800/90 hover:bg-slate-750 text-slate-200 border border-emerald-500/40 hover:border-emerald-400 transition flex flex-col justify-between group active:scale-[0.98]">
-                        <div class="flex items-center justify-between">
-                            <span class="text-2xl">🇲🇲</span>
-                            <span class="text-[9px] font-bold text-emerald-300 bg-emerald-500/20 px-1.5 py-0.5 rounded-md border border-emerald-500/30">ပြောင်းမည် →</span>
-                        </div>
-                        <div class="mt-2">
-                            <div class="font-black text-sm sm:text-base text-white group-hover:text-emerald-300 transition">
-                                မြန်မာဖောင့်များ
-                            </div>
-                            <div class="text-[10px] text-emerald-300 font-medium">၁၈၀+ Fonts စုစည်းမှု</div>
+                    <a href="./index.html" class="relative p-2 rounded-xl bg-slate-800/80 hover:bg-slate-750 text-slate-200 border border-emerald-500/40 hover:border-emerald-400 transition flex flex-col justify-between text-center group active:scale-[0.98]">
+                        <div class="text-lg">🇲🇲</div>
+                        <div class="mt-1">
+                            <div class="font-black text-xs text-white group-hover:text-emerald-300 leading-tight">မြန်မာဖောင့်</div>
+                            <div class="text-[9px] text-emerald-300 font-medium">၁၈၀+ ဖောင့်</div>
                         </div>
                     </a>
 
                     <!-- Current: English Motion Fonts -->
-                    <div class="relative p-3 rounded-xl bg-gradient-to-br from-purple-600 via-indigo-600 to-purple-700 text-white shadow-lg shadow-purple-900/40 border border-purple-400/50 flex flex-col justify-between">
-                        <div class="flex items-center justify-between">
-                            <span class="text-2xl">💎</span>
-                            <span class="text-[9px] font-black uppercase tracking-wider bg-white/20 text-white px-1.5 py-0.5 rounded-md">Active</span>
+                    <div class="relative p-2 rounded-xl bg-gradient-to-br from-purple-600 via-indigo-600 to-purple-700 text-white shadow-md shadow-purple-900/40 border border-purple-400/50 flex flex-col justify-between text-center">
+                        <div class="flex items-center justify-center gap-1">
+                            <span class="text-lg">💎</span>
+                            <span class="text-[8px] font-black uppercase bg-white/20 text-white px-1 py-0.2 rounded">Active</span>
                         </div>
-                        <div class="mt-2">
-                            <div class="font-black text-sm sm:text-base text-white">
-                                English Motion
-                            </div>
-                            <div class="text-[10px] text-purple-100 font-medium">၁၀၈+ Video Fonts</div>
+                        <div class="mt-1">
+                            <div class="font-black text-xs text-white leading-tight">English</div>
+                            <div class="text-[9px] text-purple-100 font-medium">၁၀၈+ Video</div>
                         </div>
                     </div>
+
+                    <!-- Switch to DaVinci Plugins -->
+                    <a href="./davinci-plugins.html" class="relative p-2 rounded-xl bg-slate-800/80 hover:bg-slate-750 text-slate-200 border border-amber-500/40 hover:border-amber-400 transition flex flex-col justify-between text-center group active:scale-[0.98]">
+                        <div class="text-lg">🎬</div>
+                        <div class="mt-1">
+                            <div class="font-black text-xs text-white group-hover:text-amber-400 leading-tight">DaVinci</div>
+                            <div class="text-[9px] text-amber-300 font-medium">၅၇၈ မျိုး</div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </section>

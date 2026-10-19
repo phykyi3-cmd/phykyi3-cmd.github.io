@@ -1,0 +1,238 @@
+{
+	Tools = ordered() {
+		MacroTool1 = MacroOperator {
+			Inputs = ordered() {
+				Input1 = InstanceInput {
+					SourceOp = "Template",
+					Source = "StyledText",
+				},
+				Input2 = InstanceInput {
+					SourceOp = "Template",
+					Source = "Font",
+					ControlGroup = 2,
+				},
+				Input3 = InstanceInput {
+					SourceOp = "Template",
+					Source = "Style",
+					ControlGroup = 2,
+				},
+				Input4 = InstanceInput {
+					SourceOp = "Template",
+					Source = "Red1Clone",
+					Name = "Color",
+					ControlGroup = 3,
+					Default = 1,
+				},
+				Input5 = InstanceInput {
+					SourceOp = "Template",
+					Source = "Size",
+					Default = 0.2087,
+				},
+				Input6 = InstanceInput {
+					SourceOp = "Template",
+					Source = "LayoutType",
+					Name = "Type",
+				},
+				Input7 = InstanceInput {
+					SourceOp = "Template",
+					Source = "AngleX",
+					Name = "X",
+					Default = 0,
+				},
+				Input8 = InstanceInput {
+					SourceOp = "Template",
+					Source = "AngleY",
+					Name = "Y",
+					Default = 0,
+				},
+				Input9 = InstanceInput {
+					SourceOp = "Template",
+					Source = "AngleZ",
+					Name = "Z",
+					Default = 0,
+				},
+				Input10 = InstanceInput {
+					SourceOp = "Template",
+					Source = "SelectTransform",
+					Name = "Transform",
+					Default = 0,
+				},
+				Input11 = InstanceInput {
+					SourceOp = "Template",
+					Source = "LineSpacing",
+					Name = "Spacing",
+					Default = 1,
+				},
+				Input12 = InstanceInput {
+					SourceOp = "Template",
+					Source = "LineOffset",
+					Name = "Offset",
+					DefaultX = 0,
+					DefaultY = 0,
+				},
+				Input13 = InstanceInput {
+					SourceOp = "Template",
+					Source = "LineOffsetZ",
+					Name = "Offset Z",
+					Default = 0,
+				},
+				Input14 = InstanceInput {
+					SourceOp = "Template",
+					Source = "WordSpacing",
+					Name = "Spacing",
+					Default = 1,
+				},
+				Input15 = InstanceInput {
+					SourceOp = "Template",
+					Source = "WordOffset",
+					Name = "Offset",
+					DefaultX = 0,
+					DefaultY = 0,
+				},
+				Input16 = InstanceInput {
+					SourceOp = "Template",
+					Source = "WordOffsetZ",
+					Name = "Offset Z",
+					Default = 0,
+				},
+				Input17 = InstanceInput {
+					SourceOp = "Template",
+					Source = "CharacterSpacing",
+					Name = "Spacing",
+					Default = 1,
+				},
+				Input18 = InstanceInput {
+					SourceOp = "Template",
+					Source = "CharacterOffset",
+					Name = "Offset",
+					DefaultX = 0,
+					DefaultY = 0,
+				},
+				Input19 = InstanceInput {
+					SourceOp = "Template",
+					Source = "CharacterOffsetZ",
+					Name = "Offset Z",
+					Default = 0,
+				},
+				Input20 = InstanceInput {
+					SourceOp = "Template",
+					Source = "LineRotationOrder",
+					Name = "Order",
+				},
+				Input21 = InstanceInput {
+					SourceOp = "Template",
+					Source = "LineAngleX",
+					Name = "X",
+					Default = 0,
+				},
+				Input22 = InstanceInput {
+					SourceOp = "Template",
+					Source = "LineAngleY",
+					Name = "Y",
+					Default = 0,
+				},
+				Input23 = InstanceInput {
+					SourceOp = "Template",
+					Source = "LineAngleZ",
+					Name = "Z",
+					Default = 0,
+				},
+				Input24 = InstanceInput {
+					SourceOp = "Template",
+					Source = "WordRotationOrder",
+					Name = "Order",
+				},
+				Input25 = InstanceInput {
+					SourceOp = "Template",
+					Source = "WordAngleX",
+					Name = "X",
+					Default = 0,
+				},
+				Input26 = InstanceInput {
+					SourceOp = "Template",
+					Source = "WordAngleY",
+					Name = "Y",
+					Default = 0,
+				},
+				Input27 = InstanceInput {
+					SourceOp = "Template",
+					Source = "WordAngleZ",
+					Name = "Z",
+					Default = 0,
+				}
+			},
+			Outputs = {
+				MainOutput1 = InstanceOutput {
+					SourceOp = "Template",
+					Source = "Output",
+				}
+			},
+			ViewInfo = GroupInfo { Pos = { 0, 0 } },
+			Tools = ordered() {
+				Template = TextPlus {
+					CtrlWZoom = false,
+					Inputs = {
+						Width = Input { Value = 1920, },
+						Height = Input { Value = 1080, },
+						UseFrameFormatSettings = Input { Value = 1, },
+						StyledText = Input {
+							SourceOp = "Follower1",
+							Source = "StyledText",
+						},
+						Font = Input { Value = "Palatino Linotype", },
+						Style = Input { Value = "Regular", },
+						Size = Input { Value = 0.2087, },
+						VerticalJustificationNew = Input { Value = 3, },
+						HorizontalJustificationNew = Input { Value = 3, },
+						Start = Input {
+							SourceOp = "TemplateWriteOnStart",
+							Source = "Value",
+						},
+						End = Input {
+							SourceOp = "TemplateWriteOnEnd",
+							Source = "Value",
+						}
+					},
+					ViewInfo = OperatorInfo { Pos = { 220, 49.5 } },
+				},
+				Follower1 = StyledTextFollower {
+					CtrlWZoom = false,
+					Inputs = {
+						Order = Input { Value = 7, },
+						Text = Input {
+							Value = StyledText {
+								Value = "Vision..."
+							},
+						},
+						TransformRotation = Input { Value = 1, },
+						Softness1 = Input { Value = 1, },
+						Softness2 = Input { Value = 1, },
+						Softness3 = Input { Value = 1, },
+						Softness4 = Input { Value = 1, },
+						Softness5 = Input { Value = 1, },
+						Softness6 = Input { Value = 1, },
+						Softness7 = Input { Value = 1, },
+						Softness8 = Input { Value = 1, }
+					},
+				},
+				TemplateWriteOnStart = BezierSpline {
+					SplineColor = { Red = 249, Green = 211, Blue = 150 },
+					CtrlWZoom = false,
+					KeyFrames = {
+						[0] = { 0, RH = { 16, 0 }, Flags = { Linear = true } },
+						[48] = { 0, LH = { 32, 0 } }
+					}
+				},
+				TemplateWriteOnEnd = BezierSpline {
+					SplineColor = { Red = 218, Green = 249, Blue = 145 },
+					CtrlWZoom = false,
+					KeyFrames = {
+						[0] = { 0, RH = { 16, 0.333333333333333 }, Flags = { Linear = true } },
+						[48] = { 1, LH = { 28.4, 1.04 } }
+					}
+				}
+			},
+		}
+	},
+	ActiveTool = "MacroTool1"
+}

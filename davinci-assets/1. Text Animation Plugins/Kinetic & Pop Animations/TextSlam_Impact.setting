@@ -1,0 +1,166 @@
+{
+    Tools = ordered() {
+        TextSlam = MacroOperator {
+            CustomData = {
+                HelpPage = "https://github.com",
+            },
+            Inputs = ordered() {
+                Input1 = InstanceInput {
+                    SourceOp = "TextPlus1",
+                    Source = "StyledText",
+                    Name = "Text",
+                    Default = "IMPACT",
+                },
+                Input2 = InstanceInput {
+                    SourceOp = "TextPlus1",
+                    Source = "Size",
+                    Name = "Font Size",
+                    Default = 0.15,
+                },
+                Input3 = InstanceInput {
+                    SourceOp = "TextPlus1",
+                    Source = "Font",
+                    Name = "Font",
+                    Default = "Arial Black",
+                },
+                Input4 = InstanceInput {
+                    SourceOp = "TextPlus1",
+                    Source = "Red1",
+                    Name = "Text Color Red",
+                    Default = 1,
+                },
+                Input5 = InstanceInput {
+                    SourceOp = "TextPlus1",
+                    Source = "Green1",
+                    Name = "Text Color Green",
+                    Default = 1,
+                },
+                Input6 = InstanceInput {
+                    SourceOp = "TextPlus1",
+                    Source = "Blue1",
+                    Name = "Text Color Blue",
+                    Default = 1,
+                },
+                Input7 = InstanceInput {
+                    SourceOp = "Background1",
+                    Source = "TopLeftRed",
+                    Name = "BG Color Red",
+                    Default = 0.04,
+                },
+                Input8 = InstanceInput {
+                    SourceOp = "Background1",
+                    Source = "TopLeftGreen",
+                    Name = "BG Color Green",
+                    Default = 0.04,
+                },
+                Input9 = InstanceInput {
+                    SourceOp = "Background1",
+                    Source = "TopLeftBlue",
+                    Name = "BG Color Blue",
+                    Default = 0.04,
+                },
+                MainInput1 = InstanceInput {
+                    SourceOp = "Merge1",
+                    Source = "Background",
+                },
+            },
+            Outputs = {
+                MainOutput1 = InstanceOutput {
+                    SourceOp = "Merge1",
+                    Source = "Output",
+                },
+            },
+            ViewInfo = OperatorInfo { Pos = { 0, 0 } },
+            Tools = ordered() {
+                Background1 = Background {
+                    Inputs = {
+                        GlobalOut = Input { Value = 90 },
+                        Width = Input { Value = 1920 },
+                        Height = Input { Value = 1080 },
+                        ["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" } },
+                        TopLeftRed = Input { Value = 0.04 },
+                        TopLeftGreen = Input { Value = 0.04 },
+                        TopLeftBlue = Input { Value = 0.04 },
+                    },
+                    ViewInfo = OperatorInfo { Pos = { -110, -16.5 } },
+                },
+                TextPlus1 = TextPlus {
+                    Inputs = {
+                        GlobalOut = Input { Value = 90 },
+                        Width = Input { Value = 1920 },
+                        Height = Input { Value = 1080 },
+                        ["Gamut.SLogVersion"] = Input { Value = FuID { "SLog2" } },
+                        Center = Input {
+                            SourceOp = "TextSlamCenter",
+                            Source = "Value",
+                        },
+                        Size = Input {
+                            SourceOp = "TextSlamSize",
+                            Source = "Value",
+                        },
+                        StyledText = Input { Value = "IMPACT" },
+                        Font = Input { Value = "Arial Black" },
+                        Style = Input { Value = "Regular" },
+                        VerticalJustificationNew = Input { Value = 3 },
+                        HorizontalJustificationNew = Input { Value = 3 },
+                    },
+                    ViewInfo = OperatorInfo { Pos = { -110, 16.5 } },
+                },
+                TextSlamCenter = BezierSpline {
+                    SplineColor = { Red = 232, Green = 166, Blue = 59 },
+                    NameSet = true,
+                    KeyFrames = {
+                        [0] = { 0.5, RH = { 3.33, 0.5 }, Flags = { Linear = true } },
+                    },
+                },
+                TextSlamSize = BezierSpline {
+                    SplineColor = { Red = 225, Green = 0, Blue = 0 },
+                    NameSet = true,
+                    KeyFrames = {
+                        [0] = { 0.5, RH = { 2.67, 0.39 } },
+                        [8] = { 0.15, LH = { 5.33, 0.26 }, RH = { 11, 0.12 } },
+                        [15] = { 0.15, LH = { 12, 0.15 } },
+                    },
+                },
+                Glow1 = Glow {
+                    Inputs = {
+                        Blend = Input {
+                            SourceOp = "GlowBlend",
+                            Source = "Value",
+                        },
+                        Filter = Input { Value = FuID { "Multi-box" } },
+                        XGlowSize = Input { Value = 15 },
+                        Input = Input {
+                            SourceOp = "TextPlus1",
+                            Source = "Output",
+                        },
+                    },
+                    ViewInfo = OperatorInfo { Pos = { 0, 16.5 } },
+                },
+                GlowBlend = BezierSpline {
+                    SplineColor = { Red = 0, Green = 225, Blue = 0 },
+                    NameSet = true,
+                    KeyFrames = {
+                        [0] = { 0, RH = { 2.67, 0.33 }, Flags = { Linear = true } },
+                        [8] = { 1, LH = { 5.33, 0.67 }, RH = { 14, 0.67 } },
+                        [20] = { 0, LH = { 14, 0.33 } },
+                    },
+                },
+                Merge1 = Merge {
+                    Inputs = {
+                        Background = Input {
+                            SourceOp = "Background1",
+                            Source = "Output",
+                        },
+                        Foreground = Input {
+                            SourceOp = "Glow1",
+                            Source = "Output",
+                        },
+                        PerformDepthMerge = Input { Value = 0 },
+                    },
+                    ViewInfo = OperatorInfo { Pos = { 110, 16.5 } },
+                },
+            },
+        },
+    },
+}

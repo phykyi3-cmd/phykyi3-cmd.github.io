@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="my" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>DaVinci Resolve Master Plugins (578+) • Text Animations, VFX & Color DCTLs | Smart Myanmar Fonts</title>
+    <meta name="description" content="DaVinci Resolve အတွက် Free Plugins ၅၇၈ မျိုး စုစည်းမှု - Text Animations, Visual Effects, Color Science DCTLs နှင့် Cinematic LUTs များကို Live Animation စမ်းသပ်၍ အခမဲ့ ဒေါင်းလုဒ်ရယူပါ။">
+    <meta name="keywords" content="DaVinci Resolve Plugins, Free DaVinci Effects, Text Animation, DCTL, LUTs, Fusion Fuses, Title Settings, Video Editing Plugins">
+    <meta name="author" content="Smart Myanmar Fonts & Video Studio">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="./smart_myanmar_fonts_logo.png">
+    <link rel="apple-touch-icon" href="./smart_myanmar_fonts_logo.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Padauk:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'Padauk', 'sans-serif'],
+                        mono: ['"JetBrains Mono"', 'monospace']
+                    },
+                    colors: {
+                        studio: {
+                            950: '#070a12',
+                            900: '#0c101d',
+                            850: '#111728',
+                            800: '#172036',
+                            700: '#222f4d',
+                            amber: '#f59e0b',
+                            orange: '#ea580c',
+                            cyan: '#06b6d4',
+                            purple: '#a855f7'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom CSS & Animation Keyframes -->
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', 'Padauk', sans-serif;
+            background-color: #070a12;
+            color: #f1f5f9;
+        }
+
+        /* Glassmorphism */
+        .glass-card {
+            background: rgba(17, 24, 39, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card:hover {
+            border-color: rgba(245, 158, 11, 0.35);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070a12;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #222f4d;
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f59e0b;
+        }
+
+        /* Animations for Live Previews */
+        @keyframes springBounce {
+            0% { transform: scale(0.3) translateY(40px); opacity: 0; }
+            50% { transform: scale(1.15) translateY(-8px); opacity: 1; }
+            70% { transform: scale(0.95) translateY(4px); }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
+        }
+        .anim-spring-bounce {
+            animation: springBounce 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) infinite alternate;
+        }
+
+        @keyframes hormoziPop {
+            0%, 20% { transform: scale(0.85); color: #ffffff; text-shadow: none; }
+            40%, 70% { transform: scale(1.18); color: #facc15; text-shadow: 0 0 25px rgba(250, 204, 21, 0.6), 0 4px 10px rgba(0,0,0,0.9); }
+            90%, 100% { transform: scale(1); color: #4ade80; text-shadow: 0 0 20px rgba(74, 222, 128, 0.5); }
+        }
+        .anim-hormozi-pop {
+            animation: hormoziPop 1.8s ease-in-out infinite;
+            display: inline-block;
+        }
+
+        @keyframes trackingExpand {
+            0% { letter-spacing: -2px; filter: blur(6px); opacity: 0; }
+            50% { letter-spacing: 12px; filter: blur(0); opacity: 1; }
+            100% { letter-spacing: 16px; filter: blur(2px); opacity: 0.8; }
+        }
+        .anim-tracking-expand {
+            animation: trackingExpand 2.8s cubic-bezier(0.25, 1, 0.5, 1) infinite alternate;
+        }
+
+        @keyframes chromaticGlitch {
+            0% { transform: translate(0); text-shadow: -2px 0 #ef4444, 2px 0 #06b6d4; }
+            20% { transform: translate(-3px, 2px); text-shadow: 3px -1px #ef4444, -3px 1px #06b6d4; }
+            40% { transform: translate(2px, -2px); text-shadow: -3px 2px #ef4444, 3px -2px #06b6d4; }
+            60% { transform: translate(-1px, 1px); text-shadow: 2px 0 #ef4444, -2px 0 #06b6d4; }
+            80% { transform: translate(3px, -1px); text-shadow: -1px -2px #ef4444, 1px 2px #06b6d4; }
+            100% { transform: translate(0); text-shadow: -2px 0 #ef4444, 2px 0 #06b6d4; }
+        }
+        .anim-chromatic-glitch {
+            animation: chromaticGlitch 0.4s steps(2) infinite;
+        }
+
+        @keyframes neonFlicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                text-shadow: 0 0 5px #f43f5e, 0 0 15px #f43f5e, 0 0 30px #f43f5e, 0 0 50px #e11d48;
+                opacity: 1;
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+                opacity: 0.35;
+            }
+        }
+        .anim-neon-flicker {
+            animation: neonFlicker 2.2s infinite;
+        }
+
+        @keyframes vhsScanline {
+            0% { background-position: 0 0; }
+            100% { background-position: 0 100%; }
+        }
+        .vhs-overlay {
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.4) 50%);
+            background-size: 100% 4px;
+        }
+
+        /* Color Grade Simulation Classes */
+        .grade-original {
+            filter: saturate(0.85) contrast(0.95);
+        }
+        .grade-film-scurve {
+            filter: contrast(1.35) saturate(1.2) brightness(0.95) sepia(0.18);
+        }
+        .grade-cyberpunk-neon {
+            filter: contrast(1.4) saturate(1.5) hue-rotate(-25deg);
+        }
+        .grade-golden-amber {
+            filter: sepia(0.4) saturate(1.4) contrast(1.15) brightness(1.05);
+        }
+        .grade-kodak-2383 {
+            filter: contrast(1.45) saturate(1.1) brightness(0.9) hue-rotate(10deg);
+        }
+        .grade-aces-balance {
+            filter: contrast(1.1) saturate(1.05) brightness(1.02);
+        }
+        .grade-noir-bw {
+            filter: grayscale(1) contrast(1.6) brightness(0.9);
+        }
+
+        /* Shader Canvas Animations */
+        @keyframes tunnelRotate {
+            0% { transform: perspective(400px) rotateZ(0deg) scale(0.8); }
+            50% { transform: perspective(400px) rotateZ(180deg) scale(1.3); }
+            100% { transform: perspective(400px) rotateZ(360deg) scale(0.8); }
+        }
+        .anim-tunnel-spin {
+            animation: tunnelRotate 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-amber-500 selection:text-slate-950 overflow-x-hidden w-full max-w-full bg-[#070a12]">
+
+    <!-- Ambient Glowing Background Elements -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div class="absolute -top-40 left-1/4 w-[650px] h-[650px] rounded-full bg-amber-600/10 blur-[140px]"></div>
+        <div class="absolute top-1/3 -right-40 w-[550px] h-[550px] rounded-full bg-purple-600/10 blur-[150px]"></div>
+        <div class="absolute bottom-10 left-10 w-[500px] h-[500px] rounded-full bg-cyan-600/10 blur-[130px]"></div>
+    </div>
+
+    <!-- Top Sticky Header -->
+    <header class="sticky top-0 z-40 bg-[#070a12]/90 backdrop-blur-xl border-b border-slate-800/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-3">
+            
+            <!-- Logo & Brand -->
+            <a href="./index.html" class="flex items-center gap-3 group shrink-0">
+                <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl overflow-hidden shadow-lg shadow-amber-500/10 border border-amber-400/30 group-hover:scale-105 transition-transform flex-shrink-0">
+                    <img src="./smart_myanmar_fonts_logo.png" alt="Smart Myanmar Fonts Logo" class="w-full h-full object-cover">
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-base sm:text-xl font-black tracking-tight text-white group-hover:text-amber-400 transition">
+                            Smart Fonts Studio
+                        </span>
+                        <span class="text-[10px] font-black text-amber-300 px-2 py-0.5 rounded-full bg-amber-500/20 border border-amber-500/30">
+                            DAVINCI
+                        </span>
+                    </div>
+                    <p class="text-[11px] text-slate-400 font-medium hidden sm:block">
+                        578+ Free DaVinci Resolve Plugins, Effects & DCTLs
+                    </p>
+                </div>
+            </a>
+
+            <!-- 3-Way Suite Switcher Pill (Desktop) -->
+            <div class="hidden lg:flex items-center p-1 rounded-full bg-slate-900/90 border border-slate-800 shadow-inner shrink-0">
+                <a href="./index.html" class="px-3.5 py-1.5 rounded-full text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-800/60 transition flex items-center gap-1.5 whitespace-nowrap" title="မြန်မာဖောင့်များ သို့ သွားမည်">
+                    <span>🇲🇲</span>
+                    <span>မြန်မာဖောင့်</span>
+                    <span class="text-[10px] opacity-60">180+</span>
+                </a>
+                <a href="./premium-fonts.html" class="px-3.5 py-1.5 rounded-full text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-800/60 transition flex items-center gap-1.5 whitespace-nowrap" title="English Motion Fonts သို့ သွားမည်">
+                    <span>💎</span>
+                    <span>English Motion</span>
+                    <span class="text-[10px] opacity-60">108</span>
+                </a>
+                <div class="px-3.5 py-1.5 rounded-full text-xs font-black bg-gradient-to-r from-amber-500 to-orange-600 text-slate-950 shadow-md shadow-amber-500/25 flex items-center gap-1.5 whitespace-nowrap">
+                    <span>🎬</span>
+                    <span>DaVinci Plugins</span>
+                    <span class="text-[10px] bg-black/20 text-slate-950 px-1.5 py-0.2 rounded-full font-bold">578</span>
+                </div>
+            </div>
+
+            <!-- Right Actions -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <button onclick="openPluginDownloadGateway('master-zip', 'DaVinci Resolve Master Suite (All 578 Plugins)', './davinci_plugins_suite.zip', '4.4 MB')" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-400 text-slate-950 text-xs font-black shadow-lg shadow-amber-500/20 transition whitespace-nowrap">
+                    <span>📦 Master ZIP (4.4 MB)</span>
+                </button>
+                <button onclick="openInstallModal()" class="px-3.5 sm:px-4 py-2 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold transition flex items-center gap-1.5 whitespace-nowrap border border-slate-700">
+                    <span>⚡ သွင်းနည်းလမ်းညွှန်</span>
+                </button>
+                <a href="./index.html" class="px-3.5 py-2 rounded-full bg-slate-900 hover:bg-slate-800 text-slate-300 text-xs font-bold transition flex items-center gap-1 border border-slate-800">
+                    <span>🏠 မူလစာမျက်နှာ</span>
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8 z-10 pb-24 md:pb-12">
+
+        <!-- Mobile 3-Suite Switcher (Prominent 3-Card Toggle for Mobile Phones) -->
+        <section class="lg:hidden w-full -mt-2 mb-4">
+            <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 p-2.5 rounded-2xl border border-slate-700/80 shadow-xl">
+                <div class="text-[11px] font-bold text-slate-400 px-1 py-1 mb-2 flex items-center justify-between">
+                    <span class="flex items-center gap-1.5 text-slate-200">
+                        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                        Creative Studio Suites ရွေးချယ်ပါ
+                    </span>
+                    <span class="text-[10px] text-amber-400 font-semibold bg-amber-950/80 px-2 py-0.5 rounded-full border border-amber-500/30">လက်ရှိ: DaVinci Suite</span>
+                </div>
+                <div class="grid grid-cols-3 gap-1.5">
+                    <!-- Myanmar Fonts -->
+                    <a href="./index.html" class="relative p-2 rounded-xl bg-slate-800/80 hover:bg-slate-700 text-slate-300 border border-slate-700 transition flex flex-col justify-between text-center group">
+                        <div class="text-lg">🇲🇲</div>
+                        <div class="font-black text-xs text-white group-hover:text-emerald-400 mt-1 leading-tight">မြန်မာဖောင့်</div>
+                        <div class="text-[9px] text-slate-400">၁၈၀+ ဖောင့်</div>
+                    </a>
+
+                    <!-- English Motion Fonts -->
+                    <a href="./premium-fonts.html" class="relative p-2 rounded-xl bg-slate-800/80 hover:bg-slate-750 text-slate-300 border border-slate-700 transition flex flex-col justify-between text-center group">
+                        <div class="text-lg">💎</div>
+                        <div class="font-black text-xs text-white group-hover:text-purple-300 mt-1 leading-tight">English</div>
+                        <div class="text-[9px] text-slate-400">၁၀၈+ Video</div>
+                    </a>
+
+                    <!-- DaVinci Plugins (Active) -->
+                    <div class="relative p-2 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 text-slate-950 shadow-md shadow-amber-500/20 border border-amber-300/40 flex flex-col justify-between text-center">
+                        <div class="flex items-center justify-center gap-1">
+                            <span class="text-lg">🎬</span>
+                            <span class="text-[8px] font-black uppercase bg-black/25 text-white px-1 py-0.2 rounded">Active</span>
+                        </div>
+                        <div class="font-black text-xs text-slate-950 mt-1 leading-tight">DaVinci</div>
+                        <div class="text-[9px] text-amber-950 font-bold">၅၇၈ မျိုး</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Hero Bento Section -->
+        <section class="relative overflow-hidden rounded-3xl p-6 sm:p-10 lg:p-12 glass-card border border-slate-800 shadow-2xl">
+            <div class="absolute -right-10 -bottom-10 w-96 h-96 rounded-full bg-gradient-to-tr from-amber-500/20 via-orange-500/10 to-transparent blur-3xl pointer-events-none"></div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                
+                <!-- Left Details -->
+                <div class="lg:col-span-8 space-y-5">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 text-xs font-bold">
+                        <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+                        <span>OFFICIAL DAVINCI RESOLVE MASTER PLUGIN & DCTL SUITE</span>
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black text-white tracking-tight leading-tight">
+                        DaVinci Resolve <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-orange-400 to-amber-200">Plugins ၅၇၈ မျိုး</span> စုစည်းမှု
+                    </h1>
+
+                    <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
+                        Video Editors နှင့် Colorists များအတွက် မရှိမဖြစ် <b>Text Animations (၄၃ မျိုး)</b>၊ <b>Visual Effects (၂၅၉ မျိုး)</b> နှင့် <b>Color Science DCTLs/LUTs (၂၇၆ မျိုး)</b> တို့ကို Live Animation စမ်းသပ်ကြည့်ရှုနိုင်ပြီး အခမဲ့ ဒေါင်းလုဒ် ရယူနိုင်ပါသည်။
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="flex flex-wrap items-center gap-3 pt-2">
+                        <button onclick="openPluginDownloadGateway('master-zip', 'DaVinci Resolve Master Suite (All 578 Plugins)', './davinci_plugins_suite.zip', '4.4 MB')" class="px-6 py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-black text-sm shadow-xl shadow-amber-500/25 transition flex items-center gap-2">
+                            <span>📦 578 Plugins အားလုံး Zip ဒေါင်းမည် (4.4 MB)</span>
+                        </button>
+
+                        <button onclick="openInstallModal()" class="px-5 py-3.5 rounded-2xl bg-slate-800/90 hover:bg-slate-700 text-white font-bold text-sm transition border border-slate-700 flex items-center gap-2">
+                            <span>⚡ macOS Auto-Installer & လမ်းညွှန်</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Stats Bento -->
+                <div class="lg:col-span-4 grid grid-cols-2 gap-3">
+                    <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+                        <span class="text-2xl">✍️</span>
+                        <div class="mt-3">
+                            <div class="text-2xl font-black text-amber-400">၄၃ မျိုး</div>
+                            <div class="text-xs text-slate-400 font-semibold">Text Animations</div>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+                        <span class="text-2xl">⚡</span>
+                        <div class="mt-3">
+                            <div class="text-2xl font-black text-purple-400">၂၅၉ မျိုး</div>
+                            <div class="text-xs text-slate-400 font-semibold">Effect Plugins</div>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+                        <span class="text-2xl">🎨</span>
+                        <div class="mt-3">
+                            <div class="text-2xl font-black text-cyan-400">၂၇၆ မျိုး</div>
+                            <div class="text-xs text-slate-400 font-semibold">Color DCTLs & LUTs</div>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 flex flex-col justify-between">
+                        <span class="text-2xl">🆓</span>
+                        <div class="mt-3">
+                            <div class="text-2xl font-black text-emerald-400">100% Free</div>
+                            <div class="text-xs text-slate-400 font-semibold">Mac & Windows</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- LIVE INTERACTIVE PREVIEW STUDIO (CORE FEATURE) -->
+        <section id="liveStudioSection" class="rounded-3xl p-6 sm:p-8 glass-card border border-amber-500/30 shadow-2xl space-y-6 relative overflow-hidden">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-800 pb-5">
+                <div>
+                    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold mb-1.5">
+                        <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+                        <span>INTERACTIVE LIVE PREVIEW LAB</span>
+                    </div>
+                    <h2 class="text-xl sm:text-2xl font-black text-white flex items-center gap-2">
+                        🎬 Plugin Live Animation & Color Preview စမ်းသပ်ခန်း
+                    </h2>
+                    <p class="text-xs sm:text-sm text-slate-400 mt-1">
+                        အောက်ပါ Plugin များကို နှိပ်/ထောက်လိုက်ရုံဖြင့် Text Animation၊ Color Grading နှင့် Effects များကို တိုက်ရိုက် စမ်းသပ်ကြည့်ရှုနိုင်ပါသည်
+                    </p>
+                </div>
+
+                <!-- Preview Mode Switcher Tabs -->
+                <div class="flex items-center p-1 rounded-2xl bg-slate-950 border border-slate-800 shrink-0">
+                    <button onclick="setLabMode('text')" id="tabLabText" class="px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-amber-500 text-slate-950 shadow-md">
+                        <span>✍️ စာလုံးလှုပ်ရှားမှု (Text)</span>
+                    </button>
+                    <button onclick="setLabMode('color')" id="tabLabColor" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition flex items-center gap-1.5">
+                        <span>🎨 ကာလာအရောင် (Color)</span>
+                    </button>
+                    <button onclick="setLabMode('effect')" id="tabLabEffect" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition flex items-center gap-1.5">
+                        <span>⚡ အထူးပြုလုပ်ချက် (Effects)</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- 1. TEXT ANIMATION LAB VIEW -->
+            <div id="labViewText" class="space-y-4">
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                    <div class="flex-1 relative">
+                        <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm">✏️</span>
+                        <input type="text" id="customPreviewText" value="SMART MYANMAR FONTS" placeholder="မိမိကြိုက်နှစ်သက်ရာ စာသား ရိုက်ထည့် စမ်းသပ်ပါ..." oninput="updateLiveText(this.value)" class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-amber-400 transition">
+                    </div>
+                    <div class="flex items-center gap-2 shrink-0 overflow-x-auto pb-1 sm:pb-0">
+                        <button onclick="setTextAnimStyle('hormozi')" class="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-amber-300 border border-slate-700 shrink-0">
+                            🔥 Hormozi Pop
+                        </button>
+                        <button onclick="setTextAnimStyle('bounce')" class="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-white border border-slate-700 shrink-0">
+                            ⚡ Kinetic Bounce
+                        </button>
+                        <button onclick="setTextAnimStyle('typewriter')" class="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-cyan-300 border border-slate-700 shrink-0">
+                            ⌨️ Typewriter
+                        </button>
+                        <button onclick="setTextAnimStyle('glitch')" class="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-rose-400 border border-slate-700 shrink-0">
+                            👾 RGB Glitch
+                        </button>
+                        <button onclick="setTextAnimStyle('neon')" class="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-pink-400 border border-slate-700 shrink-0">
+                            💡 Neon Flicker
+                        </button>
+                        <button onclick="setTextAnimStyle('tracking')" class="px-3 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-indigo-300 border border-slate-700 shrink-0">
+                            🎬 Cinematic Expand
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Text Stage Box -->
+                <div class="w-full h-56 sm:h-72 rounded-2xl bg-gradient-to-b from-slate-950 to-slate-900 border border-slate-800 relative flex items-center justify-center p-6 overflow-hidden shadow-inner">
+                    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(245,158,11,0.06)_0,transparent_70%)] pointer-events-none"></div>
+                    <div class="absolute top-3 left-3 text-[10px] font-mono text-slate-500 bg-slate-900/80 px-2 py-0.5 rounded border border-slate-800">
+                        Style: <span id="currentAnimLabel" class="text-amber-400 font-bold">TikTok / Hormozi Word Pop</span>
+                    </div>
+                    <button onclick="replayCurrentAnim()" class="absolute top-3 right-3 text-xs bg-slate-800 hover:bg-slate-700 text-slate-300 px-3 py-1 rounded-lg border border-slate-700 flex items-center gap-1 transition">
+                        <span>🔄 Replay</span>
+                    </button>
+
+                    <!-- Animated Target Text Element -->
+                    <div id="liveTextDisplayContainer" class="text-center max-w-2xl px-4">
+                        <h3 id="liveTextDisplay" class="text-3xl sm:text-5xl font-black anim-hormozi-pop tracking-tight text-amber-400 drop-shadow-lg">
+                            SMART MYANMAR FONTS
+                        </h3>
+                        <p id="liveTextSub" class="text-xs sm:text-sm text-slate-400 font-medium mt-3 tracking-wide">
+                            DaVinci Resolve Titles (.setting) Animation Preview
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. COLOR & LUT LAB VIEW -->
+            <div id="labViewColor" class="hidden space-y-4">
+                <div class="flex flex-wrap items-center justify-between gap-3">
+                    <div class="text-xs text-slate-300 flex items-center gap-2">
+                        <span>Active Color DCTL:</span>
+                        <span id="currentColorGradeLabel" class="font-black text-amber-400 bg-amber-500/10 px-2.5 py-1 rounded-md border border-amber-500/20">
+                            Kodak 2383 Film Emulation (S-Curve)
+                        </span>
+                    </div>
+
+                    <!-- Preset Grading Buttons -->
+                    <div class="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0">
+                        <button onclick="setColorGradeStyle('original')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-300 border border-slate-700">
+                            Normal (Log)
+                        </button>
+                        <button onclick="setColorGradeStyle('film-scurve')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-amber-400 border border-slate-700">
+                            🎞️ Film S-Curve
+                        </button>
+                        <button onclick="setColorGradeStyle('cyberpunk')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-cyan-400 border border-slate-700">
+                            🌆 Cyberpunk Neon
+                        </button>
+                        <button onclick="setColorGradeStyle('golden-amber')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-yellow-300 border border-slate-700">
+                            🌅 Amber Sun
+                        </button>
+                        <button onclick="setColorGradeStyle('aces-balance')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-emerald-400 border border-slate-700">
+                            ⚖️ ACES Neutral
+                        </button>
+                        <button onclick="setColorGradeStyle('noir-bw')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-slate-200 border border-slate-700">
+                            🖤 Noir B&W
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Color Stage Box with Interactive Split Slider -->
+                <div class="w-full h-64 sm:h-80 rounded-2xl bg-slate-950 border border-slate-800 relative overflow-hidden flex items-center justify-center">
+                    
+                    <!-- Base Cinematic Footage Mockup -->
+                    <div id="colorGradeStage" class="absolute inset-0 transition-all duration-700 grade-film-scurve flex items-center justify-center bg-cover bg-center" style="background-image: linear-gradient(135deg, #1e293b 0%, #0f172a 50%, #020617 100%);">
+                        <!-- Cinematic Mockup Shapes -->
+                        <div class="absolute w-72 h-72 rounded-full bg-gradient-to-tr from-amber-500 to-rose-500 opacity-60 blur-2xl"></div>
+                        <div class="absolute w-48 h-48 rounded-full bg-gradient-to-tr from-cyan-400 to-blue-600 opacity-40 blur-xl right-10 top-10"></div>
+                        <div class="relative z-10 text-center p-6 bg-black/40 backdrop-blur-md rounded-2xl border border-white/10 max-w-md mx-4 shadow-2xl">
+                            <div class="text-xs font-mono uppercase tracking-widest text-amber-400 mb-1">DaVinci Resolve DCTL & LUT Engine</div>
+                            <h4 class="text-2xl sm:text-3xl font-black text-white">CINEMATIC COLOR SCIENCE</h4>
+                            <p class="text-xs text-slate-300 mt-2">Real-time Dynamic Tone Mapping & Film Stock Emulation</p>
+                        </div>
+                    </div>
+
+                    <!-- Watermark Info -->
+                    <div class="absolute bottom-3 left-3 z-20 text-[10px] font-mono text-slate-300 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full border border-white/10">
+                        Toggle presets above or hover any Color DCTL below to preview live!
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. EFFECT SHADER LAB VIEW -->
+            <div id="labViewEffect" class="hidden space-y-4">
+                <div class="flex flex-wrap items-center justify-between gap-3">
+                    <div class="text-xs text-slate-300">
+                        <span>Active Effect Shader:</span>
+                        <span id="currentEffectLabel" class="font-black text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-md border border-purple-500/20">
+                            Retro CRT Monitor & Scanlines
+                        </span>
+                    </div>
+                    <div class="flex items-center gap-1.5 overflow-x-auto pb-1 sm:pb-0">
+                        <button onclick="setEffectStyle('crt')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-emerald-400 border border-slate-700">
+                            📺 CRT Scanlines
+                        </button>
+                        <button onclick="setEffectStyle('tunnel')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-purple-400 border border-slate-700">
+                            🌀 3D Tunnel Warp
+                        </button>
+                        <button onclick="setEffectStyle('waveform')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-cyan-400 border border-slate-700">
+                            📊 Audio Waveform
+                        </button>
+                        <button onclick="setEffectStyle('glitch')" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-rose-400 border border-slate-700">
+                            ⚡ Distortion Shake
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Effect Stage Box -->
+                <div id="effectStage" class="w-full h-64 sm:h-80 rounded-2xl bg-black border border-slate-800 relative overflow-hidden flex items-center justify-center">
+                    
+                    <!-- CRT Monitor Scanlines -->
+                    <div id="effectCrtLayer" class="absolute inset-0 vhs-overlay pointer-events-none z-10"></div>
+
+                    <!-- Inner Visual Simulation -->
+                    <div id="effectContentLayer" class="relative z-0 text-center p-6 space-y-3">
+                        <div id="effectGraphic" class="w-24 h-24 mx-auto rounded-2xl bg-gradient-to-tr from-purple-600 via-pink-600 to-amber-500 flex items-center justify-center shadow-2xl">
+                            <span class="text-4xl">⚡</span>
+                        </div>
+                        <h4 id="effectTitle" class="text-xl sm:text-2xl font-black text-emerald-400 font-mono tracking-widest">
+                            &gt; CRT_DISPLAY_INITIALIZED_
+                        </h4>
+                        <p class="text-xs text-slate-400 max-w-sm mx-auto font-mono">
+                            Fusion .fuse Shader & VFX Simulation. Select or hover any effect plugin below.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- SEARCH & CATEGORY FILTER BAR -->
+        <section class="space-y-4">
+            <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+                
+                <!-- Category Tabs -->
+                <div class="flex items-center gap-1.5 p-1 rounded-2xl bg-slate-900 border border-slate-800 overflow-x-auto">
+                    <button onclick="filterCategory('all')" id="catBtn-all" class="px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-amber-500 text-slate-950 shadow-md shrink-0">
+                        <span>🌟 အားလုံး (All 578)</span>
+                    </button>
+                    <button onclick="filterCategory('text-animation')" id="catBtn-text-animation" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition flex items-center gap-1.5 shrink-0">
+                        <span>✍️ Text Animation (43)</span>
+                    </button>
+                    <button onclick="filterCategory('effect')" id="catBtn-effect" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition flex items-center gap-1.5 shrink-0">
+                        <span>⚡ Effect Plugins (259)</span>
+                    </button>
+                    <button onclick="filterCategory('color')" id="catBtn-color" class="px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition flex items-center gap-1.5 shrink-0">
+                        <span>🎨 Color & LUTs (276)</span>
+                    </button>
+                </div>
+
+                <!-- Instant Search Input -->
+                <div class="relative w-full md:w-80 shrink-0">
+                    <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm">🔍</span>
+                    <input type="text" id="pluginSearchInput" oninput="handleSearch(this.value)" placeholder="Plugin အမည် သို့မဟုတ် .setting, .fuse, .dctl ရှာရန်..." class="w-full pl-10 pr-4 py-2 rounded-xl bg-slate-900 border border-slate-700 text-white placeholder-slate-500 text-xs focus:outline-none focus:border-amber-400 transition">
+                </div>
+            </div>
+
+            <!-- Dynamic Subcategory Filter Pills -->
+            <div id="subcategoryPillsContainer" class="flex items-center gap-1.5 overflow-x-auto pb-1">
+                <!-- Injected via JavaScript -->
+            </div>
+
+            <!-- Active Results Status -->
+            <div class="flex items-center justify-between text-xs text-slate-400 px-1">
+                <div>
+                    တွေ့ရှိသော Plugins စုစုပေါင်း: <span id="resultCount" class="font-black text-amber-400">578</span> မျိုး
+                </div>
+                <div class="flex items-center gap-2">
+                    <span>Sort by:</span>
+                    <select id="sortSelect" onchange="handleSort(this.value)" class="bg-slate-900 border border-slate-800 rounded-lg px-2 py-1 text-slate-300 text-xs focus:outline-none">
+                        <option value="popular">လူကြိုက်အများဆုံး (Most Popular)</option>
+                        <option value="name-asc">အမည် (A → Z)</option>
+                        <option value="size-asc">ဖိုင်ဆိုဒ် (Smallest First)</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- PLUGINS GRID -->
+        <section>
+            <div id="pluginsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                <!-- 578 Plugin Cards Rendered by JS -->
+            </div>
+
+            <!-- Pagination / Load More -->
+            <div id="loadMoreContainer" class="mt-10 text-center">
+                <button onclick="loadMorePlugins()" id="loadMoreBtn" class="px-8 py-3.5 rounded-2xl bg-slate-900 hover:bg-slate-800 text-amber-400 font-bold text-sm border border-slate-700 shadow-xl transition inline-flex items-center gap-2">
+                    <span>နောက်ထပ် Plugins များ ဆက်ကြည့်မည် ↓</span>
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="mt-auto border-t border-slate-800 bg-[#05070d] py-10 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+            <div class="flex items-center justify-center gap-3">
+                <img src="./smart_myanmar_fonts_logo.png" alt="Logo" class="w-8 h-8 rounded-xl">
+                <span class="text-lg font-black text-white">Smart Myanmar Fonts & Video Studio</span>
+            </div>
+            <p class="text-xs text-slate-400 max-w-xl mx-auto">
+                မြန်မာဖောင့် ၁၈၀+ စုစည်းမှု • English Motion Fonts ၁၀၈+ • DaVinci Resolve Master Plugins ၅၇၈+ အားလုံးကို အခမဲ့ ရယူအသုံးပြုနိုင်ပါသည်။
+            </p>
+            <div class="text-[11px] text-slate-600">
+                © 2026 Smart Myanmar Fonts. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ADSENSE GATEWAY & COUNTDOWN MODAL -->
+    <div id="pluginDownloadModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-700 rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl relative space-y-5">
+            <button onclick="closePluginDownloadModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2 rounded-full hover:bg-slate-800 transition">
+                ✕
+            </button>
+
+            <!-- Modal Header -->
+            <div class="text-center space-y-1.5">
+                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold">
+                    <span>🎬</span>
+                    <span id="modalPluginCategoryBadge">DAVINCI RESOLVE SUITE</span>
+                </div>
+                <h3 id="modalPluginTitle" class="text-xl sm:text-2xl font-black text-white">
+                    Plugin ဒေါင်းလုဒ် ရယူရန်
+                </h3>
+                <p id="modalPluginMeta" class="text-xs text-slate-400 font-mono">
+                    File: <span id="modalFileName">plugin.setting</span> • Size: <span id="modalFileSize">12 KB</span>
+                </p>
+            </div>
+
+            <!-- Countdown Box -->
+            <div id="countdownBox" class="p-6 rounded-2xl bg-slate-950 border border-slate-800 text-center space-y-2">
+                <div class="text-xs text-slate-400 font-medium">ဒေါင်းလုဒ် Link အဆင်သင့်ဖြစ်ရန် ခေတ္တစောင့်ဆိုင်းပါ...</div>
+                <div id="countdownTimer" class="text-4xl font-black text-amber-400 font-mono animate-pulse">5</div>
+                <div class="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
+                    <div id="countdownProgressBar" class="bg-gradient-to-r from-amber-500 to-orange-500 h-1.5 w-0 transition-all duration-1000"></div>
+                </div>
+            </div>
+
+            <!-- Google AdSense Placeholder Slot (Compliant Gateway) -->
+            <div class="p-4 rounded-xl bg-slate-950/60 border border-dashed border-slate-800 text-center min-h-[90px] flex flex-col items-center justify-center text-xs text-slate-500 space-y-1">
+                <span class="text-[10px] tracking-widest uppercase font-mono text-slate-600">Advertisement</span>
+                <div>Google AdSense Gateway Placement</div>
+                <div class="text-[10px] text-slate-600">ကြော်ငြာများကို အပြည့်အဝ ကြည့်ရှုပြီးနောက် ဒေါင်းလုဒ်ရယူပါ</div>
+            </div>
+
+            <!-- Ready Download Button (Hidden until countdown finishes) -->
+            <div id="readyDownloadBox" class="hidden space-y-2">
+                <a id="directDownloadLink" href="#" download class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-black text-sm shadow-xl shadow-amber-500/25 transition flex items-center justify-center gap-2">
+                    <span>📥 ယခုပင် အခမဲ့ ဒေါင်းလုဒ်ရယူပါ</span>
+                </a>
+                <p class="text-[11px] text-emerald-400 text-center font-medium">
+                    ✓ စစ်ဆေးပြီး - ဗိုင်းရပ်စ်နှင့် မဲလ်ဝဲလ် ကင်းစင်ပါသည်
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- INSTALLATION GUIDE MODAL -->
+    <div id="installGuideModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-slate-700 rounded-3xl p-6 sm:p-8 max-w-2xl w-full shadow-2xl relative space-y-6 max-h-[90vh] overflow-y-auto">
+            <button onclick="closeInstallModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white p-2 rounded-full hover:bg-slate-800 transition">
+                ✕
+            </button>
+
+            <div class="text-center space-y-1.5">
+                <h3 class="text-2xl font-black text-white">DaVinci Resolve Plugins ထည့်သွင်းနည်း</h3>
+                <p class="text-xs text-slate-400">Mac နှင့် Windows အတွက် အသုံးပြုနည်း အဆင့်ဆင့်</p>
+            </div>
+
+            <!-- Method 1: Mac 1-Click Script -->
+            <div class="p-5 rounded-2xl bg-amber-500/10 border border-amber-500/30 space-y-3">
+                <div class="flex items-center gap-2 text-amber-300 font-bold text-sm">
+                    <span>⚡ နည်းလမ်း (၁) - Mac အတွက် ၁ စက္ကန့်အတွင်း အလိုအလျောက် သွင်းခြင်း (Recommended)</span>
+                </div>
+                <p class="text-xs text-slate-300">
+                    Master Suite Folder ကို ဒေါင်းလုဒ်လုပ်ပြီး အထဲရှိ install_to_davinci.sh ဖိုင်ကို Terminal တွင် အောက်ပါ command ဖြင့် Run လိုက်ရုံဖြင့် DaVinci ၏ System Folder များထဲသို့ အလိုအလျောက် သွင်းပေးသွားပါမည် -
+                </p>
+                <div class="flex items-center gap-2 p-3 rounded-xl bg-slate-950 border border-slate-800 font-mono text-xs text-amber-400 overflow-x-auto">
+                    <code>bash install_to_davinci.sh</code>
+                </div>
+                <div class="pt-1">
+                    <a href="./install_to_davinci.sh" download class="inline-flex items-center gap-1.5 text-xs text-slate-950 font-black px-3 py-1.5 rounded-lg bg-amber-400 hover:bg-amber-300 transition">
+                        <span>⬇️ install_to_davinci.sh သီးသန့်ဒေါင်းမည်</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Method 2: Manual Path Info -->
+            <div class="space-y-4 text-xs text-slate-300">
+                <div class="font-bold text-sm text-white">နည်းလမ်း (၂) - Manual ကူးယူ ထည့်သွင်းနည်းလမ်းကြောင်းများ:</div>
+                
+                <!-- Titles -->
+                <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+                    <div class="font-bold text-amber-300">၁။ Text Animations (.setting ဖိုင်များ):</div>
+                    <div class="text-slate-400 font-mono text-[11px]">
+                        <b>Mac:</b> ~/Library/Application Support/Blackmagic Design/DaVinci Resolve/Fusion/Templates/Edit/Titles<br>
+                        <b>Win:</b> %APPDATA%\Blackmagic Design\DaVinci Resolve\Support\Fusion\Templates\Edit\Titles
+                    </div>
+                </div>
+
+                <!-- Fuses -->
+                <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+                    <div class="font-bold text-purple-300">၂။ Visual Effect Plugins (.fuse ဖိုင်များ):</div>
+                    <div class="text-slate-400 font-mono text-[11px]">
+                        <b>Mac:</b> ~/Library/Application Support/Blackmagic Design/DaVinci Resolve/Fusion/Fuses<br>
+                        <b>Win:</b> %APPDATA%\Blackmagic Design\DaVinci Resolve\Support\Fusion\Fuses
+                    </div>
+                </div>
+
+                <!-- Color DCTLs / LUTs -->
+                <div class="p-3.5 rounded-xl bg-slate-950 border border-slate-800 space-y-1">
+                    <div class="font-bold text-cyan-300">၃။ Color DCTLs & LUTs (.dctl / .cube ဖိုင်များ):</div>
+                    <div class="text-slate-400 font-mono text-[11px]">
+                        DaVinci Resolve ဖွင့်ပါ → Project Settings (ဂီယာပုံ) → Color Management → Lookup Tables အောက်ရှိ <b>Open LUT Folder</b> ကိုနှိပ်၍ ကူးထည့်ပြီး <b>Update Lists</b> နှိပ်ပါ
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <button onclick="closeInstallModal()" class="px-6 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs transition">
+                    နားလည်ပါပြီ (ပိတ်မည်)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts: Plugin Data & Interactive Logic -->
+    <script src="./davinci_plugins_data.js"></script>
+    <script>
+        let allPlugins = window.DAVINCI_PLUGINS_DATA || [];
+        let filteredPlugins = [...allPlugins];
+        let currentCategory = 'all';
+        let currentSubcategory = 'all';
+        let searchQuery = '';
+        let currentSort = 'popular';
+        let displayedCount = 24;
+        const pageSize = 24;
+
+        // Current Active Download State
+        let activeDownloadItem = null;
+        let countdownTimerInterval = null;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderSubcategories();
+            applyFilters();
+        });
+
+        // ------------------ Lab Studio Live Previews ------------------
+        function setLabMode(mode) {
+            document.getElementById('labViewText').classList.add('hidden');
+            document.getElementById('labViewColor').classList.add('hidden');
+            document.getElementById('labViewEffect').classList.add('hidden');
+
+            const btnText = document.getElementById('tabLabText');
+            const btnColor = document.getElementById('tabLabColor');
+            const btnEffect = document.getElementById('tabLabEffect');
+
+            [btnText, btnColor, btnEffect].forEach(btn => {
+                btn.className = 'px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition flex items-center gap-1.5';
+            });
+
+            if (mode === 'text') {
+                document.getElementById('labViewText').classList.remove('hidden');
+                btnText.className = 'px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-amber-500 text-slate-950 shadow-md';
+            } else if (mode === 'color') {
+                document.getElementById('labViewColor').classList.remove('hidden');
+                btnColor.className = 'px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-cyan-500 text-slate-950 shadow-md';
+            } else if (mode === 'effect') {
+                document.getElementById('labViewEffect').classList.remove('hidden');
+                btnEffect.className = 'px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-purple-500 text-white shadow-md';
+            }
+        }
+
+        // Text Animation Logic
+        function updateLiveText(val) {
+            const display = document.getElementById('liveTextDisplay');
+            if (display) {
+                display.innerText = val.trim() ? val : 'SMART MYANMAR FONTS';
+            }
+        }
+
+        function setTextAnimStyle(style, title) {
+            const display = document.getElementById('liveTextDisplay');
+            const label = document.getElementById('currentAnimLabel');
+            if (!display) return;
+
+            display.className = 'text-3xl sm:text-5xl font-black tracking-tight drop-shadow-lg';
+
+            if (style === 'hormozi') {
+                display.classList.add('anim-hormozi-pop', 'text-amber-400');
+                if (label) label.innerText = title || 'TikTok / Hormozi Word Pop';
+            } else if (style === 'bounce') {
+                display.classList.add('anim-spring-bounce', 'text-white');
+                if (label) label.innerText = title || 'Kinetic Spring Bounce';
+            } else if (style === 'typewriter') {
+                display.classList.add('text-cyan-400', 'font-mono');
+                runTypewriterAnim(display.innerText);
+                if (label) label.innerText = title || 'Typewriter Write-On';
+            } else if (style === 'glitch') {
+                display.classList.add('anim-chromatic-glitch', 'text-white');
+                if (label) label.innerText = title || 'RGB Chromatic Glitch';
+            } else if (style === 'neon') {
+                display.classList.add('anim-neon-flicker', 'text-rose-400');
+                if (label) label.innerText = title || 'Neon Electric Flicker';
+            } else if (style === 'tracking') {
+                display.classList.add('anim-tracking-expand', 'text-indigo-200');
+                if (label) label.innerText = title || 'A24 / Cinematic Expand';
+            }
+        }
+
+        function runTypewriterAnim(text) {
+            const display = document.getElementById('liveTextDisplay');
+            if (!display) return;
+            display.innerText = '';
+            let i = 0;
+            const timer = setInterval(() => {
+                if (i < text.length) {
+                    display.innerText += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(timer);
+                }
+            }, 60);
+        }
+
+        function replayCurrentAnim() {
+            const display = document.getElementById('liveTextDisplay');
+            if (!display) return;
+            const currentClasses = display.className;
+            display.className = 'text-3xl sm:text-5xl font-black';
+            setTimeout(() => {
+                display.className = currentClasses;
+            }, 50);
+        }
+
+        // Color Grading Logic
+        function setColorGradeStyle(style, title) {
+            const stage = document.getElementById('colorGradeStage');
+            const label = document.getElementById('currentColorGradeLabel');
+            if (!stage) return;
+
+            stage.className = 'absolute inset-0 transition-all duration-700 flex items-center justify-center bg-cover bg-center';
+
+            if (style === 'original') {
+                stage.classList.add('grade-original');
+                if (label) label.innerText = title || 'Normal / Flat Log Baseline';
+            } else if (style === 'film-scurve') {
+                stage.classList.add('grade-film-scurve');
+                if (label) label.innerText = title || 'Kodak 2383 Film S-Curve';
+            } else if (style === 'cyberpunk') {
+                stage.classList.add('grade-cyberpunk-neon');
+                if (label) label.innerText = title || 'Cyberpunk Teal & Magenta';
+            } else if (style === 'golden-amber') {
+                stage.classList.add('grade-golden-amber');
+                if (label) label.innerText = title || 'Warm Golden Sunset Amber';
+            } else if (style === 'aces-balance') {
+                stage.classList.add('grade-aces-balance');
+                if (label) label.innerText = title || 'ACES Color Science Neutral Balance';
+            } else if (style === 'noir-bw') {
+                stage.classList.add('grade-noir-bw');
+                if (label) label.innerText = title || 'Dramatic Noir Black & White';
+            }
+        }
+
+        // Effect Logic
+        function setEffectStyle(style, title) {
+            const graphic = document.getElementById('effectGraphic');
+            const text = document.getElementById('effectTitle');
+            const label = document.getElementById('currentEffectLabel');
+            const crt = document.getElementById('effectCrtLayer');
+
+            if (style === 'crt') {
+                if (crt) crt.className = 'absolute inset-0 vhs-overlay pointer-events-none z-10';
+                if (text) text.innerText = '> CRT_DISPLAY_INITIALIZED_';
+                if (label) label.innerText = title || 'Retro CRT Monitor & Scanlines';
+                if (graphic) graphic.className = 'w-24 h-24 mx-auto rounded-2xl bg-emerald-950 border border-emerald-500/50 flex items-center justify-center text-4xl text-emerald-400 shadow-2xl';
+            } else if (style === 'tunnel') {
+                if (crt) crt.className = 'hidden';
+                if (text) text.innerText = 'HYPNOTIC 3D SPACE TUNNEL';
+                if (label) label.innerText = title || '3D Space Warp & Tunnel';
+                if (graphic) graphic.className = 'w-28 h-28 mx-auto rounded-full bg-gradient-to-tr from-purple-600 via-pink-600 to-amber-500 flex items-center justify-center text-4xl anim-tunnel-spin shadow-2xl';
+            } else if (style === 'waveform') {
+                if (crt) crt.className = 'hidden';
+                if (text) text.innerText = 'AUDIO REACTIVE WAVEFORM';
+                if (label) label.innerText = title || 'Audio Spectrum & Waveform';
+                if (graphic) graphic.className = 'w-28 h-28 mx-auto rounded-2xl bg-slate-900 border border-cyan-500/50 flex items-center justify-center text-4xl text-cyan-400 anim-spring-bounce';
+            } else if (style === 'glitch') {
+                if (crt) crt.className = 'absolute inset-0 vhs-overlay pointer-events-none z-10';
+                if (text) text.innerText = 'ANALOG VHS TAPE DISTORTION';
+                if (label) label.innerText = title || 'Analog Tape Distortion';
+                if (graphic) graphic.className = 'w-24 h-24 mx-auto rounded-2xl bg-rose-950 border border-rose-500/50 flex items-center justify-center text-4xl text-rose-400 anim-chromatic-glitch';
+            }
+        }
+
+        // Preview from Card Click
+        function previewPlugin(id) {
+            const p = allPlugins.find(item => item.id === id);
+            if (!p) return;
+
+            const studio = document.getElementById('liveStudioSection');
+            if (studio) studio.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+            if (p.category === 'text-animation') {
+                setLabMode('text');
+                updateLiveText(p.name);
+                const input = document.getElementById('customPreviewText');
+                if (input) input.value = p.name;
+                setTextAnimStyle(
+                    p.previewType === 'text-typewriter' ? 'typewriter' :
+                    p.previewType === 'text-glitch' ? 'glitch' :
+                    p.previewType === 'text-neon' ? 'neon' :
+                    p.previewType === 'text-cinematic' ? 'tracking' :
+                    p.previewType === 'text-kinetic' ? 'bounce' : 'hormozi',
+                    p.name
+                );
+            } else if (p.category === 'color') {
+                setLabMode('color');
+                setColorGradeStyle(
+                    p.previewType === 'color-amber' ? 'golden-amber' :
+                    p.previewType === 'color-lut' ? 'cyberpunk' :
+                    p.previewType === 'color-aces' ? 'aces-balance' :
+                    p.previewType === 'color-film' ? 'film-scurve' : 'film-scurve',
+                    p.name
+                );
+            } else if (p.category === 'effect') {
+                setLabMode('effect');
+                setEffectStyle(
+                    p.previewType === 'effect-tunnel' ? 'tunnel' :
+                    p.previewType === 'effect-audio' ? 'waveform' :
+                    p.previewType === 'effect-distortion' ? 'glitch' : 'crt',
+                    p.name
+                );
+            }
+        }
+
+        // ------------------ Filter & Search Logic ------------------
+        function filterCategory(cat) {
+            currentCategory = cat;
+            currentSubcategory = 'all';
+            displayedCount = pageSize;
+
+            ['all', 'text-animation', 'effect', 'color'].forEach(c => {
+                const btn = document.getElementById(`catBtn-${c}`);
+                if (btn) {
+                    if (c === cat) {
+                        btn.className = 'px-4 py-2 rounded-xl text-xs font-bold transition flex items-center gap-1.5 bg-amber-500 text-slate-950 shadow-md shrink-0';
+                    } else {
+                        btn.className = 'px-4 py-2 rounded-xl text-xs font-bold text-slate-400 hover:text-white transition flex items-center gap-1.5 shrink-0';
+                    }
+                }
+            });
+
+            renderSubcategories();
+            applyFilters();
+        }
+
+        function filterSubcategory(subcat) {
+            currentSubcategory = subcat;
+            displayedCount = pageSize;
+            renderSubcategories();
+            applyFilters();
+        }
+
+        function renderSubcategories() {
+            const container = document.getElementById('subcategoryPillsContainer');
+            if (!container) return;
+
+            let subs = new Set();
+            allPlugins.forEach(p => {
+                if (currentCategory === 'all' || p.category === currentCategory) {
+                    subs.add(p.subcategory);
+                }
+            });
+
+            let html = `
+                <button onclick="filterSubcategory('all')" class="px-3 py-1.5 rounded-full text-xs font-bold transition whitespace-nowrap ${currentSubcategory === 'all' ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40' : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'}">
+                    အားလုံး (${Array.from(subs).length} subcategories)
+                </button>
+            `;
+
+            Array.from(subs).sort().forEach(sub => {
+                const count = allPlugins.filter(p => (currentCategory === 'all' || p.category === currentCategory) && p.subcategory === sub).length;
+                const isActive = currentSubcategory === sub;
+                html += `
+                    <button onclick="filterSubcategory('${sub}')" class="px-3 py-1.5 rounded-full text-xs font-bold transition whitespace-nowrap ${isActive ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40' : 'bg-slate-900 text-slate-400 hover:text-white border border-slate-800'}">
+                        ${sub} (${count})
+                    </button>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        function handleSearch(query) {
+            searchQuery = query.toLowerCase().trim();
+            displayedCount = pageSize;
+            applyFilters();
+        }
+
+        function handleSort(sortVal) {
+            currentSort = sortVal;
+            applyFilters();
+        }
+
+        function applyFilters() {
+            filteredPlugins = allPlugins.filter(p => {
+                const matchesCat = currentCategory === 'all' || p.category === currentCategory;
+                const matchesSub = currentSubcategory === 'all' || p.subcategory === currentSubcategory;
+                const matchesSearch = !searchQuery || 
+                    p.name.toLowerCase().includes(searchQuery) ||
+                    p.filename.toLowerCase().includes(searchQuery) ||
+                    p.subcategory.toLowerCase().includes(searchQuery) ||
+                    p.ext.toLowerCase().includes(searchQuery);
+
+                return matchesCat && matchesSub && matchesSearch;
+            });
+
+            if (currentSort === 'popular') {
+                filteredPlugins.sort((a, b) => getDownloadCount(b.id) - getDownloadCount(a.id));
+            } else if (currentSort === 'name-asc') {
+                filteredPlugins.sort((a, b) => a.name.localeCompare(b.name));
+            } else if (currentSort === 'size-asc') {
+                filteredPlugins.sort((a, b) => a.sizeKb - b.sizeKb);
+            }
+
+            const countEl = document.getElementById('resultCount');
+            if (countEl) countEl.innerText = filteredPlugins.length;
+
+            renderGrid();
+        }
+
+        // ------------------ Grid Rendering ------------------
+        function renderGrid() {
+            const grid = document.getElementById('pluginsGrid');
+            const loadMore = document.getElementById('loadMoreContainer');
+            if (!grid) return;
+
+            const visible = filteredPlugins.slice(0, displayedCount);
+
+            if (visible.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full py-16 text-center space-y-3">
+                        <div class="text-4xl">🔍</div>
+                        <div class="text-lg font-bold text-white">ရှာဖွေမှုနှင့် ကိုက်ညီသော Plugin မရှိပါ</div>
+                        <div class="text-xs text-slate-400">အခြားသော စာလုံး သို့မဟုတ် အမျိုးအစားကို ရွေးချယ်စစ်ဆေးကြည့်ပါ</div>
+                    </div>
+                `;
+                if (loadMore) loadMore.classList.add('hidden');
+                return;
+            }
+
+            grid.innerHTML = visible.map(p => {
+                const downloads = getDownloadCount(p.id);
+                const badgeColor = 
+                    p.category === 'text-animation' ? 'bg-amber-500/15 text-amber-300 border-amber-500/30' :
+                    p.category === 'effect' ? 'bg-purple-500/15 text-purple-300 border-purple-500/30' :
+                    'bg-cyan-500/15 text-cyan-300 border-cyan-500/30';
+
+                const icon = 
+                    p.category === 'text-animation' ? '✍️' :
+                    p.category === 'effect' ? '⚡' : '🎨';
+
+                return `
+                    <div class="group rounded-2xl p-4 glass-card transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col justify-between space-y-3 border border-slate-800 hover:border-amber-500/40">
+                        <div class="space-y-2">
+                            <!-- Category & Extension Badges -->
+                            <div class="flex items-center justify-between gap-2">
+                                <span class="text-[10px] font-black uppercase px-2 py-0.5 rounded-full border ${badgeColor} flex items-center gap-1">
+                                    <span>${icon}</span> ${p.subcategory}
+                                </span>
+                                <span class="text-[10px] font-mono font-bold text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800">
+                                    ${p.ext}
+                                </span>
+                            </div>
+
+                            <!-- Title -->
+                            <h4 class="font-black text-sm text-white group-hover:text-amber-400 transition leading-snug line-clamp-2" title="${p.name}">
+                                ${p.name}
+                            </h4>
+
+                            <!-- File Info -->
+                            <div class="flex items-center justify-between text-[11px] text-slate-400">
+                                <span class="truncate max-w-[150px] font-mono text-[10px] opacity-75">${p.filename}</span>
+                                <span>${p.sizeKb} KB</span>
+                            </div>
+                        </div>
+
+                        <!-- Card Footer & Action Buttons -->
+                        <div class="pt-2 border-t border-slate-800/80 flex items-center justify-between gap-2">
+                            <div class="text-[10px] font-semibold text-slate-400 flex items-center gap-1">
+                                <span>📥</span> <span id="dl-count-${p.id}">${downloads}</span>
+                            </div>
+
+                            <div class="flex items-center gap-1.5">
+                                <button onclick="previewPlugin(${p.id})" class="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold transition flex items-center gap-1" title="စမ်းသပ်ကြည့်မည်">
+                                    <span>▶️ Live</span>
+                                </button>
+                                <button onclick="openPluginDownloadGateway(${p.id}, '${p.name.replace(/'/g, "\\'")}', '${p.downloadUrl}', '${p.sizeKb} KB')" class="px-3 py-1.5 rounded-lg bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 text-xs font-black shadow-sm transition flex items-center gap-1">
+                                    <span>⬇️ ဒေါင်းလုဒ်</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            if (loadMore) {
+                if (displayedCount >= filteredPlugins.length) {
+                    loadMore.classList.add('hidden');
+                } else {
+                    loadMore.classList.remove('hidden');
+                }
+            }
+        }
+
+        function loadMorePlugins() {
+            displayedCount += pageSize;
+            renderGrid();
+        }
+
+        // ------------------ Download Tracker ------------------
+        function getDownloadCount(id) {
+            const key = `davinci_dl_${id}`;
+            const stored = localStorage.getItem(key);
+            if (stored) return parseInt(stored, 10);
+            const initial = 150 + ((id * 17) % 780);
+            localStorage.setItem(key, initial);
+            return initial;
+        }
+
+        function incrementDownloadCount(id) {
+            const key = `davinci_dl_${id}`;
+            let count = getDownloadCount(id);
+            count += 1;
+            localStorage.setItem(key, count);
+            const el = document.getElementById(`dl-count-${id}`);
+            if (el) el.innerText = count;
+        }
+
+        // ------------------ Gateway Modal & Countdown ------------------
+        function openPluginDownloadGateway(id, title, url, size) {
+            activeDownloadItem = { id, title, url, size };
+
+            const modal = document.getElementById('pluginDownloadModal');
+            const titleEl = document.getElementById('modalPluginTitle');
+            const fileNameEl = document.getElementById('modalFileName');
+            const fileSizeEl = document.getElementById('modalFileSize');
+            const timerEl = document.getElementById('countdownTimer');
+            const progressEl = document.getElementById('countdownProgressBar');
+            const countdownBox = document.getElementById('countdownBox');
+            const readyBox = document.getElementById('readyDownloadBox');
+            const directLink = document.getElementById('directDownloadLink');
+
+            if (titleEl) titleEl.innerText = title;
+            if (fileNameEl) fileNameEl.innerText = url.split('/').pop();
+            if (fileSizeEl) fileSizeEl.innerText = size;
+
+            if (countdownBox) countdownBox.classList.remove('hidden');
+            if (readyBox) readyBox.classList.add('hidden');
+            if (directLink) directLink.href = url;
+
+            modal.classList.remove('hidden');
+
+            let timeLeft = 5;
+            if (timerEl) timerEl.innerText = timeLeft;
+            if (progressEl) progressEl.style.width = '0%';
+
+            if (countdownTimerInterval) clearInterval(countdownTimerInterval);
+
+            countdownTimerInterval = setInterval(() => {
+                timeLeft -= 1;
+                if (timerEl) timerEl.innerText = timeLeft;
+                if (progressEl) progressEl.style.width = `${((5 - timeLeft) / 5) * 100}%`;
+
+                if (timeLeft <= 0) {
+                    clearInterval(countdownTimerInterval);
+                    if (countdownBox) countdownBox.classList.add('hidden');
+                    if (readyBox) readyBox.classList.remove('hidden');
+
+                    if (typeof id === 'number') {
+                        incrementDownloadCount(id);
+                    }
+                }
+            }, 1000);
+        }
+
+        function closePluginDownloadModal() {
+            const modal = document.getElementById('pluginDownloadModal');
+            if (modal) modal.classList.add('hidden');
+            if (countdownTimerInterval) clearInterval(countdownTimerInterval);
+        }
+
+        // Installation Modal
+        function openInstallModal() {
+            const modal = document.getElementById('installGuideModal');
+            if (modal) modal.classList.remove('hidden');
+        }
+        function closeInstallModal() {
+            const modal = document.getElementById('installGuideModal');
+            if (modal) modal.classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
