@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <script>
+        if (location.protocol === 'http:' && location.hostname !== 'localhost' && location.hostname !== '127.0.0.1') {
+            location.replace('https://' + location.host + location.pathname + location.search + location.hash);
+        }
+    </script>
     <title>Adobe After Effects Plugins, Presets & Scripts (367+) | Smart Fonts Studio</title>
     <meta name="description" content="Adobe After Effects (Mac & Windows) အတွက် အခမဲ့ Text Animation Presets, Duik Rigging, Ease and Wizz, Motion Scripts နှင့် Cinematic Lumetri LUTs (၃၆၇ မျိုးကျော်) ကို တိုက်ရိုက်ဒေါင်းလုဒ် ရယူနိုင်ပါသည်။">
     
