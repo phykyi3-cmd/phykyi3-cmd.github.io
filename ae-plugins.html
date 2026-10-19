@@ -628,6 +628,13 @@
                 <span>⏳ စောင့်ဆိုင်းနေပါသည် (၅ စက္ကန့်)...</span>
             </a>
 
+            <!-- Google Drive Mirror Option (Myanmar Fast Download) -->
+            <div id="modalDriveBox" class="hidden pt-1">
+                <a id="modalDriveBtn" href="https://drive.google.com/drive/my-drive" target="_blank" class="w-full py-2.5 rounded-xl bg-emerald-500/15 border border-emerald-500/30 hover:bg-emerald-500/25 text-emerald-400 font-bold text-xs transition flex items-center justify-center gap-2">
+                    <span>🟢 Google Drive မှ ဒေါင်းလုဒ်ရယူရန် (မြန်မာပြည်တွင်း အမြန်)</span>
+                </a>
+            </div>
+
             <div class="text-[10px] text-slate-500 font-mono">
                 100% Free • Verified Safe for After Effects
             </div>
@@ -1151,6 +1158,9 @@
             downloadBtn.innerHTML = `<span>⏳ စောင့်ဆိုင်းနေပါသည် (၅ စက္ကန့်)...</span>`;
             downloadBtn.href = '#';
 
+            const driveBox = document.getElementById('modalDriveBox');
+            if (driveBox) driveBox.classList.add('hidden');
+
             if (countdownTimerInterval) clearInterval(countdownTimerInterval);
 
             countdownTimerInterval = setInterval(() => {
@@ -1164,6 +1174,7 @@
                     downloadBtn.classList.add('bg-gradient-to-r', 'from-indigo-600', 'to-purple-600', 'text-white', 'shadow-indigo-600/30', 'hover:from-indigo-500', 'hover:to-purple-500');
                     downloadBtn.innerHTML = `<span>⬇️ ဖိုင်ဒေါင်းလုဒ်ဆွဲမည် (${size})</span>`;
                     downloadBtn.href = url;
+                    if (driveBox) driveBox.classList.remove('hidden');
                     downloadBtn.onclick = () => {
                         incrementDownloadCount(id);
                         setTimeout(() => closePluginDownloadModal(), 800);
