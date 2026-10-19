@@ -1661,7 +1661,7 @@
         }
     </script>
 </head>
-<body class="mesh-gradient-bg min-h-screen flex flex-col selection:bg-purple-500 selection:text-white">
+<body class="mesh-gradient-bg min-h-screen flex flex-col selection:bg-purple-500 selection:text-white overflow-x-hidden w-full max-w-full">
 
     <!-- Floating Top Navigation Bar (Inspired by the Reference UI) -->
     <header class="sticky top-0 z-40 glass-nav">
@@ -1685,8 +1685,8 @@
                 </div>
             </a>
 
-            <!-- Mode Switcher Pill (Switch between Myanmar and English Fonts) -->
-            <div class="flex items-center p-1 rounded-full bg-slate-900 border border-slate-800 shadow-inner shrink-0">
+            <!-- Mode Switcher Pill (Switch between Myanmar and English Fonts - Desktop) -->
+            <div class="hidden md:flex items-center p-1 rounded-full bg-slate-900 border border-slate-800 shadow-inner shrink-0">
                 <div class="px-2.5 sm:px-4 py-1.5 rounded-full text-xs font-black bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-md shadow-emerald-600/30 flex items-center gap-1.5 whitespace-nowrap">
                     <span>🇲🇲</span>
                     <span class="hidden sm:inline">မြန်မာဖောင့်များ</span>
@@ -1798,6 +1798,48 @@
 
     <!-- Main Container -->
     <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-8 pb-32 md:pb-16">
+
+        <!-- Mobile Font Suite Switcher (Prominent 2-Card Toggle for Mobile Phones) -->
+        <section class="md:hidden w-full -mt-2 mb-4">
+            <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 p-2.5 rounded-2xl border border-slate-700/80 shadow-xl">
+                <div class="text-[11px] font-bold text-slate-400 px-1 py-1 mb-2 flex items-center justify-between">
+                    <span class="flex items-center gap-1.5 text-slate-200">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        ဖောင့်အမျိုးအစား ရွေးချယ်ပါ (Font Suite)
+                    </span>
+                    <span class="text-[10px] text-emerald-400 font-semibold bg-emerald-950/80 px-2 py-0.5 rounded-full border border-emerald-500/30">လက်ရှိ: မြန်မာဖောင့်</span>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <!-- Current: Myanmar Fonts -->
+                    <div class="relative p-3 rounded-xl bg-gradient-to-br from-emerald-600 to-teal-700 text-white shadow-lg shadow-emerald-900/40 border border-emerald-400/50 flex flex-col justify-between">
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl">🇲🇲</span>
+                            <span class="text-[9px] font-black uppercase tracking-wider bg-white/20 text-white px-1.5 py-0.5 rounded-md">Active</span>
+                        </div>
+                        <div class="mt-2">
+                            <div class="font-black text-sm sm:text-base text-white">
+                                မြန်မာဖောင့်များ
+                            </div>
+                            <div class="text-[10px] text-emerald-100 font-medium">၁၈၀+ Fonts စုစည်းမှု</div>
+                        </div>
+                    </div>
+
+                    <!-- Switch to English Motion Fonts -->
+                    <a href="./premium-fonts.html" class="relative p-3 rounded-xl bg-slate-800/90 hover:bg-slate-750 text-slate-200 border border-purple-500/40 hover:border-purple-400 transition flex flex-col justify-between group active:scale-[0.98]">
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl">💎</span>
+                            <span class="text-[9px] font-bold text-purple-300 bg-purple-500/20 px-1.5 py-0.5 rounded-md border border-purple-500/30">ပြောင်းမည် →</span>
+                        </div>
+                        <div class="mt-2">
+                            <div class="font-black text-sm sm:text-base text-white group-hover:text-purple-300 transition">
+                                English Motion
+                            </div>
+                            <div class="text-[10px] text-purple-300 font-medium">၁၀၈+ Video Fonts</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
         
         <!-- Hero Section: Ultra-Modern 3D Glassmorphic Bento (Matching User Reference Image) -->
         <section class="relative overflow-hidden rounded-3xl p-6 sm:p-10 lg:p-12 glass-card border border-white/80">

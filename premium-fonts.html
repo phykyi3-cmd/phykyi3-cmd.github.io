@@ -94,7 +94,7 @@
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col selection:bg-purple-600 selection:text-white">
+<body class="min-h-screen flex flex-col selection:bg-purple-600 selection:text-white overflow-x-hidden w-full max-w-full">
 
     <!-- Ambient Glowing Background Elements -->
     <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
@@ -127,8 +127,8 @@
                 </div>
             </a>
 
-            <!-- Mode Switcher Pill (Switch between Myanmar and English Fonts) -->
-            <div class="flex items-center p-1 rounded-full bg-slate-900 border border-slate-800 shadow-inner shrink-0">
+            <!-- Mode Switcher Pill (Switch between Myanmar and English Fonts - Desktop) -->
+            <div class="hidden md:flex items-center p-1 rounded-full bg-slate-900 border border-slate-800 shadow-inner shrink-0">
                 <a href="./index.html" class="px-2.5 sm:px-4 py-1.5 rounded-full text-xs font-bold text-slate-400 hover:text-white hover:bg-slate-800/60 transition flex items-center gap-1.5 whitespace-nowrap" title="မြန်မာဖောင့်များ သို့ ပြောင်းမည်">
                     <span>🇲🇲</span>
                     <span class="hidden sm:inline">မြန်မာဖောင့်များ</span>
@@ -157,6 +157,48 @@
 
     <!-- Main Content Container -->
     <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-10 z-10 pb-24 md:pb-12">
+
+        <!-- Mobile Font Suite Switcher (Prominent 2-Card Toggle for Mobile Phones) -->
+        <section class="md:hidden w-full -mt-4 mb-4">
+            <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 p-2.5 rounded-2xl border border-slate-700/80 shadow-xl">
+                <div class="text-[11px] font-bold text-slate-400 px-1 py-1 mb-2 flex items-center justify-between">
+                    <span class="flex items-center gap-1.5 text-slate-200">
+                        <span class="w-2 h-2 rounded-full bg-purple-400 animate-pulse"></span>
+                        ဖောင့်အမျိုးအစား ရွေးချယ်ပါ (Font Suite)
+                    </span>
+                    <span class="text-[10px] text-purple-400 font-semibold bg-purple-950/80 px-2 py-0.5 rounded-full border border-purple-500/30">လက်ရှိ: English Motion</span>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                    <!-- Switch to Myanmar Fonts -->
+                    <a href="./index.html" class="relative p-3 rounded-xl bg-slate-800/90 hover:bg-slate-750 text-slate-200 border border-emerald-500/40 hover:border-emerald-400 transition flex flex-col justify-between group active:scale-[0.98]">
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl">🇲🇲</span>
+                            <span class="text-[9px] font-bold text-emerald-300 bg-emerald-500/20 px-1.5 py-0.5 rounded-md border border-emerald-500/30">ပြောင်းမည် →</span>
+                        </div>
+                        <div class="mt-2">
+                            <div class="font-black text-sm sm:text-base text-white group-hover:text-emerald-300 transition">
+                                မြန်မာဖောင့်များ
+                            </div>
+                            <div class="text-[10px] text-emerald-300 font-medium">၁၈၀+ Fonts စုစည်းမှု</div>
+                        </div>
+                    </a>
+
+                    <!-- Current: English Motion Fonts -->
+                    <div class="relative p-3 rounded-xl bg-gradient-to-br from-purple-600 via-indigo-600 to-purple-700 text-white shadow-lg shadow-purple-900/40 border border-purple-400/50 flex flex-col justify-between">
+                        <div class="flex items-center justify-between">
+                            <span class="text-2xl">💎</span>
+                            <span class="text-[9px] font-black uppercase tracking-wider bg-white/20 text-white px-1.5 py-0.5 rounded-md">Active</span>
+                        </div>
+                        <div class="mt-2">
+                            <div class="font-black text-sm sm:text-base text-white">
+                                English Motion
+                            </div>
+                            <div class="text-[10px] text-purple-100 font-medium">၁၀၈+ Video Fonts</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- Hero Section -->
         <section class="relative overflow-hidden rounded-3xl p-6 sm:p-12 glass-card border border-slate-800 shadow-2xl">
