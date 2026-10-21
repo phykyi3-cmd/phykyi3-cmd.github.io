@@ -515,7 +515,7 @@
                 <div class="flex items-center justify-between text-[10px] text-purple-300 font-bold mb-1.5 px-1">
                     <span class="flex items-center gap-1.5">
                         <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
-                        <span>📢 Sponsored Sponsor • Google AdSense</span>
+                        <span>📢 Sponsored Sponsor • Google AdSense & Adsterra</span>
                     </span>
                     <span class="text-[10px] text-cyan-400 font-semibold">Official Partner</span>
                 </div>
@@ -536,7 +536,7 @@
                         <span class="text-amber-400">💎</span>
                         <span>Top 108+ Essential Motion Fonts Suite</span>
                     </div>
-                    <p class="text-[11px] text-slate-400 mt-0.5">ကြော်ငြာများကို အားပေးကြည့်ရှုခြင်းဖြင့် Premium Motion ဖောင့်များကို အခမဲ့ ဆက်လက်ရယူနိုင်စေပါသည်</p>
+                    <p class="text-[11px] text-slate-400 mt-0.5">ကြော်ငြာကို ၅ စက္ကန့် အားပေးကြည့်ရှုပြီးနောက် အခမဲ့ တိုက်ရိုက်ဒေါင်းလုဒ်ဆွဲနိုင်ပါသည်</p>
                 </div>
             </div>
 
@@ -803,10 +803,10 @@
 
             secEl.textContent = '5';
             barEl.style.width = '100%';
-            statusEl.innerHTML = '<span class="w-2 h-2 rounded-full bg-pink-500 animate-ping"></span><span>ဒေါင်းလုဒ်လင့်ခ်ကို ပြင်ဆင်နေပါသည်...</span>';
-            btnEl.className = 'w-full flex-1 py-3 px-5 rounded-2xl bg-gradient-to-r from-purple-600 via-indigo-600 to-purple-700 text-white font-extrabold text-xs sm:text-sm shadow-lg shadow-purple-600/30 transition flex items-center justify-center gap-2 cursor-wait opacity-85';
+            statusEl.innerHTML = '<span class="w-2 h-2 rounded-full bg-pink-500 animate-ping"></span><span>ကြော်ငြာစက္ကန့်ပြည့်သည်အထိ စောင့်ဆိုင်းပေးပါ...</span>';
+            btnEl.className = 'w-full flex-1 py-3 px-5 rounded-2xl bg-slate-800 text-slate-500 font-extrabold text-xs sm:text-sm transition flex items-center justify-center gap-2 cursor-not-allowed opacity-90';
             btnIcon.textContent = '⏳';
-            btnText.textContent = 'ခေတ္တစောင့်ဆိုင်းပေးပါ (၅ စက္ကန့်)...';
+            btnText.textContent = 'ကြော်ငြာကြည့်ရှုနေပါသည် (၅ စက္ကန့်)...';
 
             const modal = document.getElementById('engDownloadGatewayModal');
             if (modal) {
@@ -819,19 +819,17 @@
                 if (engGatewaySecondsRemaining > 0) {
                     secEl.textContent = engGatewaySecondsRemaining;
                     barEl.style.width = (engGatewaySecondsRemaining * 20) + '%';
-                    btnText.textContent = 'ခေတ္တစောင့်ဆိုင်းပေးပါ (' + engGatewaySecondsRemaining + ' စက္ကန့်)...';
+                    btnText.textContent = 'ကြော်ငြာကြည့်ရှုနေပါသည် (' + engGatewaySecondsRemaining + ' စက္ကန့်)...';
                 } else {
                     clearInterval(engGatewayTimer);
                     engGatewayTimer = null;
                     engGatewayReadyToDownload = true;
                     secEl.textContent = '0';
                     barEl.style.width = '0%';
-                    statusEl.innerHTML = '<span class="w-2 h-2 rounded-full bg-cyan-400"></span><span class="text-cyan-300 font-bold">✅ ဖောင့်ဖိုင် အဆင်သင့်ဖြစ်ပါပြီ!</span>';
-                    btnEl.className = 'w-full flex-1 py-3.5 px-5 rounded-2xl bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 hover:from-emerald-500 hover:to-cyan-500 text-white font-black text-xs sm:text-sm shadow-xl shadow-cyan-500/30 transition flex items-center justify-center gap-2 cursor-pointer transform hover:scale-[1.02] active:scale-95';
-                    btnIcon.textContent = '⬇️';
-                    btnText.textContent = '✅ ဒေါင်းလုဒ်စတင်ပါပြီ (ထပ်မံဒေါင်းယူရန် နှိပ်ပါ)';
-                    
-                    executeEngFileDownload();
+                    statusEl.innerHTML = '<span class="w-2 h-2 rounded-full bg-cyan-400"></span><span class="text-cyan-300 font-bold">✅ ကြော်ငြာကြည့်ရှုပြီးပါပြီ - ဖိုင်ဒေါင်းလုဒ်ဆွဲနိုင်ပါပြီ!</span>';
+                    btnEl.className = 'w-full flex-1 py-3.5 px-5 rounded-2xl bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 hover:from-emerald-500 hover:to-cyan-500 text-white font-black text-xs sm:text-sm shadow-xl shadow-cyan-500/30 transition flex items-center justify-center gap-2 cursor-pointer transform hover:scale-[1.02] active:scale-95 animate-pulse';
+                    btnIcon.textContent = '📥';
+                    btnText.textContent = 'ယခု ဖိုင်ဒေါင်းလုဒ်ဆွဲမည် (Download Now)';
                 }
             }, 1000);
         }
@@ -850,9 +848,16 @@
 
         function handleEngGatewayDownloadClick() {
             if (engGatewayReadyToDownload) {
+                const btnText = document.getElementById('engGwBtnText');
+                const btnEl = document.getElementById('engGwMainBtn');
+                if (btnEl) btnEl.classList.remove('animate-pulse');
+                if (btnText) btnText.textContent = 'ဒေါင်းလုဒ် စတင်နေပါပြီ... ⬇️';
                 executeEngFileDownload();
+                setTimeout(() => {
+                    closeEngDownloadGateway();
+                }, 1500);
             } else {
-                showEngToast('ခေတ္တစောင့်ဆိုင်းပေးပါ... ၅ စက္ကန့်ပြည့်ပါက အလိုအလျောက် ဒေါင်းလုဒ်စတင်ပါမည် ⏳');
+                showEngToast('ကြော်ငြာကြည့်ရှုနေပါသည်... စက္ကန့်ပြည့်မှ ဒေါင်းလုဒ်ဆွဲနိုင်ပါမည် ⏳');
             }
         }
 

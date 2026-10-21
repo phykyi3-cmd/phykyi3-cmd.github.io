@@ -637,7 +637,7 @@
                                 <span>📥</span> <span>${s.downloads} downloads</span>
                             </div>
 
-                            <button onclick="directDownloadSound('${s.audioUrl}', '${s.filename}')" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 text-xs font-black shadow-md transition flex items-center gap-1.5 active:scale-95">
+                            <button onclick="directDownloadSound('${s.audioUrl}', '${s.filename}', '${(s.title || s.filename).replace(/'/g, "\\'")}')" class="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 text-xs font-black shadow-md transition flex items-center gap-1.5 active:scale-95 cursor-pointer">
                                 <span>⬇️ ဒေါင်းလုဒ်</span>
                             </button>
                         </div>
@@ -800,50 +800,172 @@
             return `${m}:${s < 10 ? '0' : ''}${s}`;
         }
 
-        // ------------------ Direct Download Execution ------------------
-        async function directDownloadSound(url, filename) {
-            showToast(`"${filename}" ကို တိုက်ရိုက်ဒေါင်းလုဒ်စတင်နေပါပြီ...`);
-            try {
-                const res = await fetch(url);
-                if (!res.ok) throw new Error('Fetch failed');
-                const blob = await res.blob();
-                const blobUrl = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = blobUrl;
-                a.download = filename;
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                setTimeout(() => URL.revokeObjectURL(blobUrl), 10000);
-            } catch (e) {
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = filename;
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
+        // ================= SOUND DOWNLOAD GATEWAY & ADS CONTROLLER =================
+        let sndGatewayTimer = null;
+        let sndGatewayItem = null;
+        let sndGatewaySecondsRemaining = 5;
+        let sndGatewayReadyToDownload = false;
+
+        function openSoundDownloadGateway(item) {
+            sndGatewayItem = item;
+            sndGatewaySecondsRemaining = 5;
+            sndGatewayReadyToDownload = false;
+
+            if (sndGatewayTimer) {
+                clearInterval(sndGatewayTimer);
+                sndGatewayTimer = null;
             }
+
+            const titleEl = document.getElementById('sndGwTitle');
+            const metaEl = document.getElementById('sndGwMeta');
+            const secEl = document.getElementById('sndGwSeconds');
+            const barEl = document.getElementById('sndGwProgressBar');
+            const statusEl = document.getElementById('sndGwStatusText');
+            const btnEl = document.getElementById('sndGwMainBtn');
+            const btnIcon = document.getElementById('sndGwBtnIcon');
+            const btnText = document.getElementById('sndGwBtnText');
+
+            if (titleEl) titleEl.textContent = item.title || item.filename;
+            if (metaEl) {
+                metaEl.textContent = item.isZip 
+                    ? `ZIP Archive Package • ${item.size || 'Direct Bundle'} • 100% Free`
+                    : `Studio Master Audio (.MP3 / .WAV) • ${item.filename} • Free Download`;
+            }
+
+            if (secEl) secEl.textContent = '5';
+            if (barEl) barEl.style.width = '100%';
+            if (statusEl) statusEl.innerHTML = '<span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span><span>ကြော်ငြာစက္ကန့်ပြည့်သည်အထိ စောင့်ဆိုင်းပေးပါ...</span>';
+            if (btnEl) btnEl.className = 'w-full flex-1 py-3 px-5 rounded-2xl bg-slate-800 text-slate-500 font-extrabold text-xs sm:text-sm transition flex items-center justify-center gap-2 cursor-not-allowed opacity-90';
+            if (btnIcon) btnIcon.textContent = '⏳';
+            if (btnText) btnText.textContent = 'ကြော်ငြာကြည့်ရှုနေပါသည် (၅ စက္ကန့်)...';
+
+            const modal = document.getElementById('soundDownloadGatewayModal');
+            if (modal) {
+                modal.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+
+            sndGatewayTimer = setInterval(() => {
+                sndGatewaySecondsRemaining--;
+                if (sndGatewaySecondsRemaining > 0) {
+                    if (secEl) secEl.textContent = sndGatewaySecondsRemaining;
+                    if (barEl) barEl.style.width = (sndGatewaySecondsRemaining * 20) + '%';
+                    if (btnText) btnText.textContent = 'ကြော်ငြာကြည့်ရှုနေပါသည် (' + sndGatewaySecondsRemaining + ' စက္ကန့်)...';
+                } else {
+                    clearInterval(sndGatewayTimer);
+                    sndGatewayTimer = null;
+                    sndGatewayReadyToDownload = true;
+                    if (secEl) secEl.textContent = '0';
+                    if (barEl) barEl.style.width = '0%';
+                    if (statusEl) statusEl.innerHTML = '<span class="w-2 h-2 rounded-full bg-emerald-400"></span><span class="text-emerald-300 font-bold">✅ ကြော်ငြာကြည့်ရှုပြီးပါပြီ - အသံဖိုင်ဒေါင်းလုဒ်ဆွဲနိုင်ပါပြီ!</span>';
+                    if (btnEl) btnEl.className = 'w-full flex-1 py-3.5 px-5 rounded-2xl bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-slate-950 font-black text-xs sm:text-sm shadow-xl shadow-cyan-500/30 transition flex items-center justify-center gap-2 cursor-pointer transform hover:scale-[1.02] active:scale-95 animate-pulse';
+                    if (btnIcon) btnIcon.textContent = '📥';
+                    if (btnText) btnText.textContent = 'ယခု အသံဖိုင်ဒေါင်းလုဒ်ဆွဲမည် (Download Now)';
+                }
+            }, 1000);
+        }
+
+        function closeSoundDownloadGateway() {
+            if (sndGatewayTimer) {
+                clearInterval(sndGatewayTimer);
+                sndGatewayTimer = null;
+            }
+            const modal = document.getElementById('soundDownloadGatewayModal');
+            if (modal) {
+                modal.classList.add('hidden');
+                document.body.style.overflow = '';
+            }
+        }
+
+        function handleSoundGatewayDownloadClick() {
+            if (sndGatewayReadyToDownload) {
+                const btnText = document.getElementById('sndGwBtnText');
+                const btnEl = document.getElementById('sndGwMainBtn');
+                if (btnEl) btnEl.classList.remove('animate-pulse');
+                if (btnText) btnText.textContent = 'ဒေါင်းလုဒ် စတင်နေပါပြီ... ⬇️';
+                executeSoundDownload();
+                setTimeout(() => {
+                    closeSoundDownloadGateway();
+                }, 1500);
+            } else {
+                showToast('ကြော်ငြာကြည့်ရှုနေပါသည်... စက္ကန့်ပြည့်မှ ဒေါင်းလုဒ်ဆွဲနိုင်ပါမည် ⏳');
+            }
+        }
+
+        async function executeSoundDownload() {
+            if (!sndGatewayItem) return;
+
+            const item = sndGatewayItem;
+            if (item.isZip) {
+                showToast(`"${item.title}" (${item.size || 'Bundle'}) ZIP ဒေါင်းလုဒ် စတင်ပါပြီ! 📦`);
+                const a = document.createElement('a');
+                a.href = item.url;
+                a.download = item.filename;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            } else {
+                showToast(`"${item.filename}" အသံဖိုင် စတင်ဒေါင်းလုဒ်ဆွဲနေပါပြီ! ⬇️`);
+                try {
+                    const res = await fetch(item.url);
+                    if (!res.ok) throw new Error('Fetch failed');
+                    const blob = await res.blob();
+                    const blobUrl = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = blobUrl;
+                    a.download = item.filename;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    setTimeout(() => URL.revokeObjectURL(blobUrl), 10000);
+                } catch (e) {
+                    const a = document.createElement('a');
+                    a.href = item.url;
+                    a.download = item.filename;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                }
+            }
+        }
+
+        function directDownloadSound(url, filename, title) {
+            openSoundDownloadGateway({
+                title: title || filename,
+                filename: filename,
+                url: url,
+                isZip: false
+            });
         }
 
         function downloadCurrentTrack() {
             if (!activeTrack) {
                 if (filteredSounds.length > 0) {
-                    directDownloadSound(filteredSounds[0].audioUrl, filteredSounds[0].filename);
+                    openSoundDownloadGateway({
+                        title: filteredSounds[0].title,
+                        filename: filteredSounds[0].filename,
+                        url: filteredSounds[0].audioUrl,
+                        isZip: false
+                    });
                 }
                 return;
             }
-            directDownloadSound(activeTrack.audioUrl, activeTrack.filename);
+            openSoundDownloadGateway({
+                title: activeTrack.title,
+                filename: activeTrack.filename,
+                url: activeTrack.audioUrl,
+                isZip: false
+            });
         }
 
         function downloadZip(zipFilename, packTitle, packSize) {
-            showToast(`"${packTitle}" (${packSize}) ZIP Package ဒေါင်းလုဒ် စတင်နေပါပြီ...`);
-            
-            const a = document.createElement('a');
-            a.href = `./${zipFilename}`;
-            a.download = zipFilename;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
+            openSoundDownloadGateway({
+                title: packTitle,
+                filename: zipFilename,
+                url: `./${zipFilename}`,
+                size: packSize,
+                isZip: true
+            });
         }
 
         function openSoundDesignModal() {
@@ -974,6 +1096,82 @@
 
             <div class="pt-3 border-t border-slate-800 text-center">
                 <button onclick="closeSoundDesignModal()" class="px-6 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold transition">
+                    ပိတ်မည်
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- ================= SOUND DOWNLOAD GATEWAY & ADS MODAL ================= -->
+    <div id="soundDownloadGatewayModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md">
+        <div class="relative w-full max-w-lg rounded-3xl bg-slate-900 border border-cyan-500/30 shadow-2xl shadow-cyan-950/60 p-5 sm:p-7 space-y-4 text-white animate-in fade-in zoom-in-95">
+            <!-- Modal Close Button -->
+            <button onclick="closeSoundDownloadGateway()" class="absolute right-4 top-4 w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center text-sm font-bold transition">
+                ✕
+            </button>
+
+            <!-- Header -->
+            <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-cyan-500 via-teal-500 to-blue-600 text-slate-950 flex items-center justify-center text-2xl shadow-md shrink-0 font-bold">
+                    🎵
+                </div>
+                <div class="min-w-0 flex-1 pr-6">
+                    <span class="text-[10px] font-black uppercase tracking-wider text-cyan-300 bg-cyan-500/20 px-2 py-0.5 rounded-md border border-cyan-500/30">Free Audio Gateway</span>
+                    <h3 id="sndGwTitle" class="font-extrabold text-base sm:text-lg text-white mt-0.5 truncate">Sound Effect Download</h3>
+                    <p id="sndGwMeta" class="text-xs text-slate-400 truncate">Studio Master Audio (48kHz 24-bit) • Commercial & YouTube Safe</p>
+                </div>
+            </div>
+
+            <!-- Ad Placement Box Inside Gateway -->
+            <div class="w-full rounded-2xl bg-gradient-to-r from-slate-950 via-cyan-950/30 to-slate-950 border border-cyan-500/30 p-3 sm:p-4 text-center shadow-inner overflow-hidden">
+                <div class="flex items-center justify-between text-[10px] text-cyan-300 font-bold mb-1.5 px-1">
+                    <span class="flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                        <span>📢 Sponsored Sponsor • Google AdSense & Adsterra</span>
+                    </span>
+                    <span class="text-[10px] text-emerald-400 font-semibold">Official Partner</span>
+                </div>
+                
+                <!-- Google AdSense Live Unit -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-5711208447594808"
+                     data-ad-slot="auto"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+                </script>
+
+                <div class="min-h-[60px] flex flex-col items-center justify-center p-3 rounded-xl border border-dashed border-cyan-500/40 bg-slate-950/80 text-slate-300 text-xs mt-1">
+                    <div class="font-bold flex items-center gap-1.5 text-white">
+                        <span class="text-cyan-400">⚡</span>
+                        <span>Smart Myanmar Sound Effects & BGM Library</span>
+                    </div>
+                    <p class="text-[11px] text-slate-400 mt-0.5">ကြော်ငြာကို ၅ စက္ကန့် အားပေးကြည့်ရှုပြီးနောက် အခမဲ့ တိုက်ရိုက်ဒေါင်းလုဒ်ဆွဲနိုင်ပါသည်</p>
+                </div>
+            </div>
+
+            <!-- Countdown Timer & Progress Bar -->
+            <div class="space-y-2 p-3.5 rounded-2xl bg-slate-950/80 border border-cyan-500/30 text-center">
+                <div class="flex items-center justify-between text-xs font-semibold text-cyan-200">
+                    <span id="sndGwStatusText" class="flex items-center gap-1.5">
+                        <span id="sndGwStatusPing" class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
+                        <span>ကြော်ငြာစက္ကန့်ပြည့်သည်အထိ စောင့်ဆိုင်းပေးပါ...</span>
+                    </span>
+                    <span id="sndGwSecondsDisplay" class="font-black text-cyan-400 text-sm font-mono"><span id="sndGwSeconds">5</span>s</span>
+                </div>
+                <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
+                    <div id="sndGwProgressBar" class="h-full bg-gradient-to-r from-cyan-500 via-teal-400 to-blue-500 transition-all duration-1000 ease-linear" style="width: 100%;"></div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="pt-1 flex flex-col sm:flex-row items-center gap-2.5">
+                <button id="sndGwMainBtn" onclick="handleSoundGatewayDownloadClick()" class="w-full flex-1 py-3 px-5 rounded-2xl bg-slate-800 text-slate-500 font-extrabold text-xs sm:text-sm shadow-lg shadow-cyan-900/20 transition flex items-center justify-center gap-2 cursor-not-allowed opacity-90">
+                    <span id="sndGwBtnIcon">⏳</span>
+                    <span id="sndGwBtnText">ကြော်ငြာကြည့်ရှုနေပါသည် (၅ စက္ကန့်)...</span>
+                </button>
+                <button onclick="closeSoundDownloadGateway()" class="w-full sm:w-auto px-4 py-3 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold transition">
                     ပိတ်မည်
                 </button>
             </div>

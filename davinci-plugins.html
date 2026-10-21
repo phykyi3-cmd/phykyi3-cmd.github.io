@@ -1125,25 +1125,42 @@
             </div>
 
             <!-- Countdown Box -->
-            <div id="countdownBox" class="p-6 rounded-2xl bg-slate-950 border border-slate-800 text-center space-y-2">
-                <div class="text-xs text-slate-400 font-medium">ဒေါင်းလုဒ် Link အဆင်သင့်ဖြစ်ရန် ခေတ္တစောင့်ဆိုင်းပါ...</div>
+            <div id="countdownBox" class="p-5 rounded-2xl bg-slate-950 border border-slate-800 text-center space-y-2">
+                <div class="text-xs text-amber-300/90 font-medium flex items-center justify-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+                    <span>ကြော်ငြာကြည့်ရှုနေပါသည်... စက္ကန့်ပြည့်မှ ဒေါင်းလုဒ်ဆွဲနိုင်ပါမည်</span>
+                </div>
                 <div id="countdownTimer" class="text-4xl font-black text-amber-400 font-mono animate-pulse">5</div>
                 <div class="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
                     <div id="countdownProgressBar" class="bg-gradient-to-r from-amber-500 to-orange-500 h-1.5 w-0 transition-all duration-1000"></div>
                 </div>
             </div>
 
-            <!-- Google AdSense Placeholder Slot (Compliant Gateway) -->
-            <div class="p-4 rounded-xl bg-slate-950/60 border border-dashed border-slate-800 text-center min-h-[90px] flex flex-col items-center justify-center text-xs text-slate-500 space-y-1">
-                <span class="text-[10px] tracking-widest uppercase font-mono text-slate-600">Advertisement</span>
-                <div>Google AdSense Gateway Placement</div>
-                <div class="text-[10px] text-slate-600">ကြော်ငြာများကို အပြည့်အဝ ကြည့်ရှုပြီးနောက် ဒေါင်းလုဒ်ရယူပါ</div>
+            <!-- AdSense / Monetization Slot -->
+            <div class="p-3.5 rounded-2xl bg-slate-950/80 border border-amber-500/30 text-center min-h-[90px] flex flex-col items-center justify-center text-xs space-y-1 overflow-hidden">
+                <div class="flex items-center justify-between w-full text-[10px] text-amber-300 font-bold mb-1 px-1">
+                    <span class="flex items-center gap-1">
+                        <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                        <span>📢 Sponsored Sponsor • Google AdSense & Adsterra</span>
+                    </span>
+                    <span class="text-[10px] text-emerald-400 font-semibold">Official Partner</span>
+                </div>
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-5711208447594808"
+                     data-ad-slot="auto"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+                </script>
+                <div class="text-[11px] text-slate-400 pt-1">ကြော်ငြာကို ၅ စက္ကန့် ကြည့်ရှုပြီးနောက် Plugin ဖိုင်ကို အခမဲ့ ရယူနိုင်ပါသည်</div>
             </div>
 
             <!-- Ready Download Button (Hidden until countdown finishes) -->
             <div id="readyDownloadBox" class="hidden space-y-2">
-                <a id="directDownloadLink" href="#" download class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-black text-sm shadow-xl shadow-amber-500/25 transition flex items-center justify-center gap-2">
-                    <span>📥 ယခုပင် အခမဲ့ ဒေါင်းလုဒ်ရယူပါ</span>
+                <a id="directDownloadLink" href="#" download class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-amber-400 via-orange-500 to-amber-500 hover:from-amber-300 hover:to-orange-400 text-slate-950 font-black text-sm shadow-xl shadow-amber-500/25 transition flex items-center justify-center gap-2 animate-pulse">
+                    <span>📥 ယခု ဖိုင်ဒေါင်းလုဒ်ဆွဲမည် (Download Now)</span>
                 </a>
                 <p class="text-[11px] text-emerald-400 text-center font-medium">
                     ✓ စစ်ဆေးပြီး - ဗိုင်းရပ်စ်နှင့် မဲလ်ဝဲလ် ကင်းစင်ပါသည်

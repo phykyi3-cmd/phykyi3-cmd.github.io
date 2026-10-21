@@ -514,10 +514,10 @@
 
             <!-- Quick Download Action Bar -->
             <div class="flex items-center gap-2 sm:gap-3 shrink-0">
-                <a href="ae_plugins_suite.zip" download class="px-3 sm:px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white text-xs font-bold shadow-lg shadow-indigo-600/20 transition flex items-center gap-1.5 active:scale-95">
+                <button onclick="openPluginDownloadGateway('ae-master-zip', 'After Effects Master Suite (All 367 Plugins & LUTs)', 'ae_plugins_suite.zip', '34.5 MB')" class="px-3 sm:px-4 py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white text-xs font-bold shadow-lg shadow-indigo-600/20 transition flex items-center gap-1.5 active:scale-95 cursor-pointer">
                     <span>📦 Master ZIP</span>
                     <span class="text-[10px] opacity-80 font-mono hidden sm:inline">(34.5 MB)</span>
-                </a>
+                </button>
 
                 <button onclick="openInstallModal()" class="px-3 py-2 rounded-xl bg-slate-800/80 hover:bg-slate-700/80 text-slate-300 hover:text-white text-xs font-bold border border-slate-700 transition flex items-center gap-1">
                     <span>⚡ သွင်းနည်း</span>
@@ -580,7 +580,7 @@
 
             <!-- 3 Category Download Shortcuts -->
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-3 max-w-2xl mx-auto">
-                <a href="ae_text_animation_plugins.zip" download class="p-3.5 rounded-2xl glass-card hover:border-indigo-500/60 transition group text-left flex items-center justify-between">
+                <button onclick="openPluginDownloadGateway('ae-text-zip', 'Text Animation Suite (52 FFX & Kinetic Presets)', 'ae_text_animation_plugins.zip', '1.2 MB')" class="p-3.5 rounded-2xl glass-card hover:border-indigo-500/60 transition group text-left flex items-center justify-between cursor-pointer w-full">
                     <div>
                         <div class="text-xs font-bold text-white group-hover:text-indigo-400 transition flex items-center gap-1.5">
                             <span>✍️ Text Animation Pack</span>
@@ -588,9 +588,9 @@
                         <div class="text-[11px] text-slate-400 mt-0.5">၅၂ မျိုး • FFX & Kinetic</div>
                     </div>
                     <span class="text-xs text-indigo-400 font-bold group-hover:translate-x-1 transition-transform">⬇️</span>
-                </a>
+                </button>
 
-                <a href="ae_effect_plugins.zip" download class="p-3.5 rounded-2xl glass-card hover:border-purple-500/60 transition group text-left flex items-center justify-between">
+                <button onclick="openPluginDownloadGateway('ae-effect-zip', 'Effect & Scripts Suite (262 Duik & Motion Scripts)', 'ae_effect_plugins.zip', '24.1 MB')" class="p-3.5 rounded-2xl glass-card hover:border-purple-500/60 transition group text-left flex items-center justify-between cursor-pointer w-full">
                     <div>
                         <div class="text-xs font-bold text-white group-hover:text-purple-400 transition flex items-center gap-1.5">
                             <span>⚡ Effect & Scripts Pack</span>
@@ -598,9 +598,9 @@
                         <div class="text-[11px] text-slate-400 mt-0.5">၂၆၂ မျိုး • Duik & Scripts</div>
                     </div>
                     <span class="text-xs text-purple-400 font-bold group-hover:translate-x-1 transition-transform">⬇️</span>
-                </a>
+                </button>
 
-                <a href="ae_color_plugins.zip" download class="p-3.5 rounded-2xl glass-card hover:border-pink-500/60 transition group text-left flex items-center justify-between">
+                <button onclick="openPluginDownloadGateway('ae-color-zip', 'Cinematic Lumetri LUTs Pack (53 Film Looks)', 'ae_color_plugins.zip', '9.2 MB')" class="p-3.5 rounded-2xl glass-card hover:border-pink-500/60 transition group text-left flex items-center justify-between cursor-pointer w-full">
                     <div>
                         <div class="text-xs font-bold text-white group-hover:text-pink-400 transition flex items-center gap-1.5">
                             <span>🎨 Lumetri Color LUTs</span>
@@ -608,7 +608,7 @@
                         <div class="text-[11px] text-slate-400 mt-0.5">၅၃ မျိုး • Kodak & Film</div>
                     </div>
                     <span class="text-xs text-pink-400 font-bold group-hover:translate-x-1 transition-transform">⬇️</span>
-                </a>
+                </button>
             </div>
         </div>
 
@@ -800,20 +800,30 @@
             </div>
 
             <!-- Ad Notice & Countdown Box -->
-            <div class="p-4 rounded-2xl bg-slate-950/80 border border-slate-800/80 space-y-3">
-                <div class="text-[11px] font-mono text-slate-400 flex items-center justify-center gap-1.5">
-                    <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
-                    <span>ADVERTISEMENT VERIFICATION</span>
+            <div class="p-4 rounded-2xl bg-slate-950/80 border border-indigo-500/30 space-y-3">
+                <div class="flex items-center justify-between text-[10px] text-indigo-300 font-bold px-1">
+                    <span class="flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-indigo-400 animate-pulse"></span>
+                        <span>📢 Sponsored Sponsor • Google AdSense & Adsterra</span>
+                    </span>
+                    <span class="text-[10px] text-emerald-400 font-semibold">Official Partner</span>
                 </div>
 
-                <!-- Google AdSense Placeholder Slot -->
-                <div class="w-full h-24 bg-slate-900/60 rounded-xl border border-dashed border-slate-800 flex flex-col items-center justify-center text-[11px] text-slate-500 space-y-1">
-                    <span class="text-xs text-slate-400 font-bold">Google AdSense Supported</span>
-                    <span>ဒေါင်းလုဒ်လင့်ခ် ရယူရန် ၅ စက္ကန့် စောင့်ဆိုင်းပေးပါ...</span>
-                </div>
+                <!-- Google AdSense Live Unit -->
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-client="ca-pub-5711208447594808"
+                     data-ad-slot="auto"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
+                </script>
 
-                <div class="flex items-center justify-center gap-2 pt-1">
-                    <span class="text-xs text-slate-300 font-semibold">Download Link အဆင်သင့်ဖြစ်ရန်:</span>
+                <div class="text-[11px] text-slate-400">ကြော်ငြာကို ၅ စက္ကန့် ကြည့်ရှုပြီးနောက် After Effects Plugin ကို အခမဲ့ ဒေါင်းလုဒ်ဆွဲနိုင်ပါသည်</div>
+
+                <div class="flex items-center justify-center gap-2 pt-1 border-t border-slate-800">
+                    <span class="text-xs text-indigo-200 font-semibold">ကြော်ငြာကြည့်ရှုနေပါသည်:</span>
                     <span id="modalCountdown" class="text-xl font-black text-indigo-400 font-mono">5</span>
                     <span class="text-xs text-slate-400">စက္ကန့်</span>
                 </div>
@@ -821,7 +831,7 @@
 
             <!-- Download Button (Initially Disabled) -->
             <a id="modalDownloadBtn" href="#" download class="w-full py-3.5 rounded-2xl bg-slate-800 text-slate-500 font-black text-sm transition flex items-center justify-center gap-2 pointer-events-none shadow-lg">
-                <span>⏳ စောင့်ဆိုင်းနေပါသည် (၅ စက္ကန့်)...</span>
+                <span>⏳ ကြော်ငြာကြည့်ရှုနေပါသည် (၅ စက္ကန့်)...</span>
             </a>
 
             <div class="text-[10px] text-slate-500 font-mono">
@@ -1388,8 +1398,8 @@
             let timeLeft = 5;
             countdownEl.innerText = timeLeft;
             downloadBtn.classList.add('pointer-events-none', 'bg-slate-800', 'text-slate-500');
-            downloadBtn.classList.remove('bg-gradient-to-r', 'from-indigo-600', 'to-purple-600', 'text-white', 'shadow-indigo-600/30', 'hover:from-indigo-500', 'hover:to-purple-500');
-            downloadBtn.innerHTML = `<span>⏳ စောင့်ဆိုင်းနေပါသည် (၅ စက္ကန့်)...</span>`;
+            downloadBtn.classList.remove('bg-gradient-to-r', 'from-indigo-600', 'to-purple-600', 'text-white', 'shadow-indigo-600/30', 'hover:from-indigo-500', 'hover:to-purple-500', 'animate-pulse');
+            downloadBtn.innerHTML = `<span>⏳ ကြော်ငြာကြည့်ရှုနေပါသည် (၅ စက္ကန့်)...</span>`;
             downloadBtn.href = '#';
 
             if (countdownTimerInterval) clearInterval(countdownTimerInterval);
@@ -1397,19 +1407,24 @@
             countdownTimerInterval = setInterval(() => {
                 timeLeft--;
                 countdownEl.innerText = timeLeft;
+                downloadBtn.innerHTML = `<span>⏳ ကြော်ငြာကြည့်ရှုနေပါသည် (${timeLeft} စက္ကန့်)...</span>`;
 
                 if (timeLeft <= 0) {
                     clearInterval(countdownTimerInterval);
                     countdownEl.innerText = '0';
                     downloadBtn.classList.remove('pointer-events-none', 'bg-slate-800', 'text-slate-500');
-                    downloadBtn.classList.add('bg-gradient-to-r', 'from-indigo-600', 'to-purple-600', 'text-white', 'shadow-indigo-600/30', 'hover:from-indigo-500', 'hover:to-purple-500');
-                    downloadBtn.innerHTML = `<span>⬇️ ဖိုင်ဒေါင်းလုဒ်ဆွဲမည် (${size})</span>`;
+                    downloadBtn.classList.add('bg-gradient-to-r', 'from-indigo-600', 'to-purple-600', 'text-white', 'shadow-indigo-600/30', 'hover:from-indigo-500', 'hover:to-purple-500', 'animate-pulse');
+                    downloadBtn.innerHTML = `<span>📥 ယခု ဖိုင်ဒေါင်းလုဒ်ဆွဲမည် (Download Now)</span>`;
                     downloadBtn.href = '#';
                     downloadBtn.onclick = (e) => {
                         e.preventDefault();
+                        downloadBtn.classList.remove('animate-pulse');
+                        downloadBtn.innerHTML = `<span>✅ ဒေါင်းလုဒ် စတင်နေပါပြီ... ⬇️</span>`;
                         triggerPluginFileDownload(id, url);
-                        incrementDownloadCount(id);
-                        setTimeout(() => closePluginDownloadModal(), 800);
+                        if (typeof id === 'number') {
+                            incrementDownloadCount(id);
+                        }
+                        setTimeout(() => closePluginDownloadModal(), 1500);
                     };
                 }
             }, 1000);
