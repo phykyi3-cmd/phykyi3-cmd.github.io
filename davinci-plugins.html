@@ -1134,7 +1134,7 @@
                     <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
                     <span>ကြော်ငြာကြည့်ရှုနေပါသည်... စက္ကန့်ပြည့်မှ ဒေါင်းလုဒ်ဆွဲနိုင်ပါမည်</span>
                 </div>
-                <div id="countdownTimer" class="text-4xl font-black text-amber-400 font-mono animate-pulse">5</div>
+                <div id="countdownTimer" class="text-4xl font-black text-amber-400 font-mono animate-pulse">10</div>
                 <div class="w-full bg-slate-800 rounded-full h-1.5 overflow-hidden">
                     <div id="countdownProgressBar" class="bg-gradient-to-r from-amber-500 to-orange-500 h-1.5 w-0 transition-all duration-1000"></div>
                 </div>
@@ -1148,7 +1148,7 @@
                         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                         <span class="font-mono uppercase tracking-wider text-emerald-300">Verified Creative Sponsor</span>
                     </span>
-                    <span class="text-[10px] text-slate-300 bg-white/10 px-2 py-0.5 rounded-full border border-white/10 font-medium">✨ ၅ စက္ကန့် အားပေးကြည့်ရှုရန်</span>
+                    <span class="text-[10px] text-slate-300 bg-white/10 px-2 py-0.5 rounded-full border border-white/10 font-medium">✨ ၁၀ စက္ကန့် အားပေးကြည့်ရှုရန်</span>
                 </div>
 
                 <!-- Google AdSense Live Clean Unit (Manual Display) -->
@@ -1197,7 +1197,7 @@
 
                 <!-- Footer Note -->
                 <p class="text-[10px] text-slate-400 mt-1">
-                    မြန်မာ Creator များကို အားပေးသည့်အတွက် ကျေးဇူးတင်ပါသည် • ကြော်ငြာ ၅ စက္ကန့်ပြည့်ပါက ဒေါင်းလုဒ်ခလုတ် ပွင့်ပါမည်
+                    မြန်မာ Creator များကို အားပေးသည့်အတွက် ကျေးဇူးတင်ပါသည် • ကြော်ငြာ ၁၀ စက္ကန့်ပြည့်ပါက ဒေါင်းလုဒ်ခလုတ် ပွင့်ပါမည်
                 </p>
             </div>
 
@@ -1965,7 +1965,7 @@
 
             modal.classList.remove('hidden');
 
-            let timeLeft = 5;
+            let timeLeft = 10;
             if (timerEl) timerEl.innerText = timeLeft;
             if (progressEl) progressEl.style.width = '0%';
 
@@ -1974,7 +1974,7 @@
             countdownTimerInterval = setInterval(() => {
                 timeLeft -= 1;
                 if (timerEl) timerEl.innerText = timeLeft;
-                if (progressEl) progressEl.style.width = `${((5 - timeLeft) / 5) * 100}%`;
+                if (progressEl) progressEl.style.width = `${((10 - timeLeft) / 10) * 100}%`;
 
                 if (timeLeft <= 0) {
                     clearInterval(countdownTimerInterval);

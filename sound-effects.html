@@ -807,12 +807,12 @@
         // ================= SOUND DOWNLOAD GATEWAY & ADS CONTROLLER =================
         let sndGatewayTimer = null;
         let sndGatewayItem = null;
-        let sndGatewaySecondsRemaining = 5;
+        let sndGatewaySecondsRemaining = 10;
         let sndGatewayReadyToDownload = false;
 
         function openSoundDownloadGateway(item) {
             sndGatewayItem = item;
-            sndGatewaySecondsRemaining = 5;
+            sndGatewaySecondsRemaining = 10;
             sndGatewayReadyToDownload = false;
 
             if (sndGatewayTimer) {
@@ -836,12 +836,12 @@
                     : `Studio Master Audio (.MP3 / .WAV) • ${item.filename} • Free Download`;
             }
 
-            if (secEl) secEl.textContent = '5';
+            if (secEl) secEl.textContent = '10';
             if (barEl) barEl.style.width = '100%';
             if (statusEl) statusEl.innerHTML = '<span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span><span>ကြော်ငြာစက္ကန့်ပြည့်သည်အထိ စောင့်ဆိုင်းပေးပါ...</span>';
             if (btnEl) btnEl.className = 'w-full flex-1 py-3 px-5 rounded-2xl bg-slate-800 text-slate-500 font-extrabold text-xs sm:text-sm transition flex items-center justify-center gap-2 cursor-not-allowed opacity-90';
             if (btnIcon) btnIcon.textContent = '⏳';
-            if (btnText) btnText.textContent = 'ကြော်ငြာကြည့်ရှုနေပါသည် (၅ စက္ကန့်)...';
+            if (btnText) btnText.textContent = 'ကြော်ငြာကြည့်ရှုနေပါသည် (၁၀ စက္ကန့်)...';
 
             const modal = document.getElementById('soundDownloadGatewayModal');
             if (modal) {
@@ -853,7 +853,7 @@
                 sndGatewaySecondsRemaining--;
                 if (sndGatewaySecondsRemaining > 0) {
                     if (secEl) secEl.textContent = sndGatewaySecondsRemaining;
-                    if (barEl) barEl.style.width = (sndGatewaySecondsRemaining * 20) + '%';
+                    if (barEl) barEl.style.width = (sndGatewaySecondsRemaining * 10) + '%';
                     if (btnText) btnText.textContent = 'ကြော်ငြာကြည့်ရှုနေပါသည် (' + sndGatewaySecondsRemaining + ' စက္ကန့်)...';
                 } else {
                     clearInterval(sndGatewayTimer);
@@ -1133,7 +1133,7 @@
                         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                         <span class="font-mono uppercase tracking-wider text-emerald-300">Verified Creative Sponsor</span>
                     </span>
-                    <span class="text-[10px] text-slate-300 bg-white/10 px-2 py-0.5 rounded-full border border-white/10 font-medium">✨ ၅ စက္ကန့် အားပေးကြည့်ရှုရန်</span>
+                    <span class="text-[10px] text-slate-300 bg-white/10 px-2 py-0.5 rounded-full border border-white/10 font-medium">✨ ၁၀ စက္ကန့် အားပေးကြည့်ရှုရန်</span>
                 </div>
 
                 <!-- Google AdSense Live Clean Unit (Manual Display) -->
@@ -1182,7 +1182,7 @@
 
                 <!-- Footer Note -->
                 <p class="text-[10px] text-slate-400 mt-1">
-                    မြန်မာ Creator များကို အားပေးသည့်အတွက် ကျေးဇူးတင်ပါသည် • ကြော်ငြာ ၅ စက္ကန့်ပြည့်ပါက ဒေါင်းလုဒ်ခလုတ် ပွင့်ပါမည်
+                    မြန်မာ Creator များကို အားပေးသည့်အတွက် ကျေးဇူးတင်ပါသည် • ကြော်ငြာ ၁၀ စက္ကန့်ပြည့်ပါက ဒေါင်းလုဒ်ခလုတ် ပွင့်ပါမည်
                 </p>
             </div>
 
@@ -1193,7 +1193,7 @@
                         <span id="sndGwStatusPing" class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
                         <span>ကြော်ငြာစက္ကန့်ပြည့်သည်အထိ စောင့်ဆိုင်းပေးပါ...</span>
                     </span>
-                    <span id="sndGwSecondsDisplay" class="font-black text-cyan-400 text-sm font-mono"><span id="sndGwSeconds">5</span>s</span>
+                    <span id="sndGwSecondsDisplay" class="font-black text-cyan-400 text-sm font-mono"><span id="sndGwSeconds">10</span>s</span>
                 </div>
                 <div class="w-full h-2 rounded-full bg-slate-800 overflow-hidden">
                     <div id="sndGwProgressBar" class="h-full bg-gradient-to-r from-cyan-500 via-teal-400 to-blue-500 transition-all duration-1000 ease-linear" style="width: 100%;"></div>
@@ -1204,7 +1204,7 @@
             <div class="pt-1 flex flex-col sm:flex-row items-center gap-2.5">
                 <button id="sndGwMainBtn" onclick="handleSoundGatewayDownloadClick()" class="w-full flex-1 py-3 px-5 rounded-2xl bg-slate-800 text-slate-500 font-extrabold text-xs sm:text-sm shadow-lg shadow-cyan-900/20 transition flex items-center justify-center gap-2 cursor-not-allowed opacity-90">
                     <span id="sndGwBtnIcon">⏳</span>
-                    <span id="sndGwBtnText">ကြော်ငြာကြည့်ရှုနေပါသည် (၅ စက္ကန့်)...</span>
+                    <span id="sndGwBtnText">ကြော်ငြာကြည့်ရှုနေပါသည် (၁၀ စက္ကန့်)...</span>
                 </button>
                 <button onclick="closeSoundDownloadGateway()" class="w-full sm:w-auto px-4 py-3 rounded-2xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-bold transition">
                     ပိတ်မည်

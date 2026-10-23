@@ -811,7 +811,7 @@
                         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                         <span class="font-mono uppercase tracking-wider text-emerald-300">Verified Creative Sponsor</span>
                     </span>
-                    <span class="text-[10px] text-slate-300 bg-white/10 px-2 py-0.5 rounded-full border border-white/10 font-medium">✨ ၅ စက္ကန့် အားပေးကြည့်ရှုရန်</span>
+                    <span class="text-[10px] text-slate-300 bg-white/10 px-2 py-0.5 rounded-full border border-white/10 font-medium">✨ ၁၀ စက္ကန့် အားပေးကြည့်ရှုရန်</span>
                 </div>
 
                 <!-- Google AdSense Live Clean Unit (Manual Display) -->
@@ -860,14 +860,14 @@
 
                 <div class="flex items-center justify-center gap-2 pt-1 border-t border-slate-800">
                     <span class="text-xs text-indigo-200 font-semibold">ကြော်ငြာကြည့်ရှုနေပါသည်:</span>
-                    <span id="modalCountdown" class="text-xl font-black text-indigo-400 font-mono">5</span>
+                    <span id="modalCountdown" class="text-xl font-black text-indigo-400 font-mono">10</span>
                     <span class="text-xs text-slate-400">စက္ကန့်</span>
                 </div>
             </div>
 
             <!-- Download Button (Initially Disabled) -->
             <a id="modalDownloadBtn" href="#" download class="w-full py-3.5 rounded-2xl bg-slate-800 text-slate-500 font-black text-sm transition flex items-center justify-center gap-2 pointer-events-none shadow-lg">
-                <span>⏳ ကြော်ငြာကြည့်ရှုနေပါသည် (၅ စက္ကန့်)...</span>
+                <span>⏳ ကြော်ငြာကြည့်ရှုနေပါသည် (၁၀ စက္ကန့်)...</span>
             </a>
 
             <div class="text-[10px] text-slate-500 font-mono">
@@ -1431,11 +1431,11 @@
 
             // Reset modal state
             modal.classList.remove('hidden');
-            let timeLeft = 5;
+            let timeLeft = 10;
             countdownEl.innerText = timeLeft;
             downloadBtn.classList.add('pointer-events-none', 'bg-slate-800', 'text-slate-500');
             downloadBtn.classList.remove('bg-gradient-to-r', 'from-indigo-600', 'to-purple-600', 'text-white', 'shadow-indigo-600/30', 'hover:from-indigo-500', 'hover:to-purple-500', 'animate-pulse');
-            downloadBtn.innerHTML = `<span>⏳ ကြော်ငြာကြည့်ရှုနေပါသည် (၅ စက္ကန့်)...</span>`;
+            downloadBtn.innerHTML = `<span>⏳ ကြော်ငြာကြည့်ရှုနေပါသည် (၁၀ စက္ကန့်)...</span>`;
             downloadBtn.href = '#';
 
             if (countdownTimerInterval) clearInterval(countdownTimerInterval);

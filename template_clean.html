@@ -1133,7 +1133,7 @@
                         <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
                         <span class="font-mono uppercase tracking-wider text-emerald-300">Verified Creative Sponsor</span>
                     </span>
-                    <span class="text-[10px] text-slate-300 bg-white/10 px-2 py-0.5 rounded-full border border-white/10 font-medium">✨ ၅ စက္ကန့် အားပေးကြည့်ရှုရန်</span>
+                    <span class="text-[10px] text-slate-300 bg-white/10 px-2 py-0.5 rounded-full border border-white/10 font-medium">✨ ၁၀ စက္ကန့် အားပေးကြည့်ရှုရန်</span>
                 </div>
 
                 <!-- Google AdSense Live Clean Unit (Manual Display) -->
@@ -1182,7 +1182,7 @@
 
                 <!-- Footer Note -->
                 <p class="text-[10px] text-slate-400 mt-1">
-                    မြန်မာဖောင့်ဖန်တီးသူများကို အားပေးသည့်အတွက် ကျေးဇူးတင်ပါသည် • ကြော်ငြာ ၅ စက္ကန့်ပြည့်ပါက ဒေါင်းလုဒ်ခလုတ် ပွင့်ပါမည်
+                    မြန်မာဖောင့်ဖန်တီးသူများကို အားပေးသည့်အတွက် ကျေးဇူးတင်ပါသည် • ကြော်ငြာ ၁၀ စက္ကန့်ပြည့်ပါက ဒေါင်းလုဒ်ခလုတ် ပွင့်ပါမည်
                 </p>
             </div>
 
@@ -1193,7 +1193,7 @@
                         <span id="gwStatusPing" class="w-2 h-2 rounded-full bg-pink-500 animate-ping"></span>
                         <span>ဖောင့်ဖိုင်ကို ပြင်ဆင်နေပါသည်...</span>
                     </span>
-                    <span id="gwSecondsDisplay" class="font-black text-pink-600 text-sm font-mono"><span id="gwSeconds">5</span>s</span>
+                    <span id="gwSecondsDisplay" class="font-black text-pink-600 text-sm font-mono"><span id="gwSeconds">10</span>s</span>
                 </div>
                 <div class="w-full h-2 rounded-full bg-purple-200/80 overflow-hidden">
                     <div id="gwProgressBar" class="h-full bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 transition-all duration-1000 ease-linear" style="width: 100%;"></div>
@@ -1204,7 +1204,7 @@
             <div class="pt-1 flex flex-col sm:flex-row items-center gap-2.5">
                 <button id="gwMainBtn" onclick="handleGatewayDownloadClick()" class="w-full flex-1 py-3 px-5 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 text-white font-extrabold text-xs sm:text-sm shadow-lg shadow-purple-500/25 transition flex items-center justify-center gap-2 cursor-wait opacity-85">
                     <span id="gwBtnIcon">⏳</span>
-                    <span id="gwBtnText">ခေတ္တစောင့်ဆိုင်းပေးပါ (၅ စက္ကန့်)...</span>
+                    <span id="gwBtnText">ခေတ္တစောင့်ဆိုင်းပေးပါ (၁၀ စက္ကန့်)...</span>
                 </button>
                 <button onclick="closeDownloadGateway()" class="w-full sm:w-auto px-4 py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 text-slate-600 text-xs font-bold transition">
                     ပိတ်မည်
@@ -1609,13 +1609,13 @@
         let gatewayTimer = null;
         let gatewayCurrentId = null;
         let gatewayIsZipFile = false;
-        let gatewaySecondsRemaining = 5;
+        let gatewaySecondsRemaining = 10;
         let gatewayReadyToDownload = false;
 
         function openDownloadGateway(fontId, isZip = false) {
             gatewayCurrentId = fontId;
             gatewayIsZipFile = isZip;
-            gatewaySecondsRemaining = 5;
+            gatewaySecondsRemaining = 10;
             gatewayReadyToDownload = false;
 
             if (gatewayTimer) {
@@ -1643,12 +1643,12 @@
                 }
             }
 
-            secEl.textContent = '5';
+            secEl.textContent = '10';
             barEl.style.width = '100%';
             statusEl.innerHTML = '<span class="w-2 h-2 rounded-full bg-pink-500 animate-ping"></span><span>ဒေါင်းလုဒ်လင့်ခ်ကို ပြင်ဆင်နေပါသည်...</span>';
             btnEl.className = 'w-full flex-1 py-3 px-5 rounded-2xl bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 text-white font-extrabold text-xs sm:text-sm shadow-lg shadow-purple-500/25 transition flex items-center justify-center gap-2 cursor-wait opacity-85';
             btnIcon.textContent = '⏳';
-            btnText.textContent = 'ခေတ္တစောင့်ဆိုင်းပေးပါ (၅ စက္ကန့်)...';
+            btnText.textContent = 'ခေတ္တစောင့်ဆိုင်းပေးပါ (၁၀ စက္ကန့်)...';
 
             const modal = document.getElementById('downloadGatewayModal');
             if (modal) {
@@ -1660,7 +1660,7 @@
                 gatewaySecondsRemaining--;
                 if (gatewaySecondsRemaining > 0) {
                     secEl.textContent = gatewaySecondsRemaining;
-                    barEl.style.width = (gatewaySecondsRemaining * 20) + '%';
+                    barEl.style.width = (gatewaySecondsRemaining * 10) + '%';
                     btnText.textContent = 'ခေတ္တစောင့်ဆိုင်းပေးပါ (' + gatewaySecondsRemaining + ' စက္ကန့်)...';
                 } else {
                     clearInterval(gatewayTimer);
