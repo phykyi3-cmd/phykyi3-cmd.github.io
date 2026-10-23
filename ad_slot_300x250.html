@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sponsor Advertisement</title>
-    <!-- Google AdSense Library -->
+    <!-- Google AdSense Official Script -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5711208447594808" crossorigin="anonymous"></script>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -42,6 +42,7 @@
             color: #fff;
             transition: opacity 0.4s ease;
             cursor: pointer;
+            z-index: 1;
         }
 
         /* Style 1: Vegas Gold / Gaming Club */
@@ -135,30 +136,23 @@
             display: inline-block;
         }
 
-        /* AdSense Container (Only shows if ads actually populate) */
-        #adsenseContainer {
-            display: none;
+        /* Adsterra Live Slot Container */
+        #adsterraSlot {
             position: absolute;
             inset: 0;
+            width: 300px;
+            height: 250px;
             z-index: 10;
-            align-items: center;
+            display: flex;
             justify-content: center;
-            background: #0f172a;
+            align-items: center;
         }
     </style>
 </head>
 <body>
     <div id="adWrapper">
-        <!-- Optional Google AdSense Clean Display (Auto-fallback to creative sponsors if empty) -->
-        <div id="adsenseContainer">
-            <ins class="adsbygoogle"
-                 style="display:inline-block;width:300px;height:250px"
-                 data-ad-client="ca-pub-5711208447594808"
-                 data-ad-slot="auto"></ins>
-        </div>
-
-        <!-- Clean Creative Sponsor Ad 1: Gaming / Lucky Slots (Clean, No Adult/Erotica) -->
-        <div id="slideGaming" class="ad-slide theme-gaming" onclick="handleAdClick('gaming')">
+        <!-- Background Aesthetic Fallback 1: Gaming / Lucky Slots -->
+        <div id="slideGaming" class="ad-slide theme-gaming">
             <div style="display: flex; justify-content: space-between; align-items: center;">
                 <span class="badge badge-gold">⭐ SPONSOR • GAMING VIP</span>
                 <span style="font-size: 10px; color: #fbbf24; font-weight: 800;">777 CLUB</span>
@@ -185,8 +179,8 @@
             </div>
         </div>
 
-        <!-- Clean Creative Sponsor Ad 2: Creator Studio (100% Clean) -->
-        <div id="slideCreator" class="ad-slide theme-creator" style="display: none;" onclick="handleAdClick('creator')">
+        <!-- Background Aesthetic Fallback 2: Creator Studio -->
+        <div id="slideCreator" class="ad-slide theme-creator" style="display: none;">
             <div style="display: flex; justify-content: space-between; align-items: center;">
                 <span class="badge badge-purple">💎 CREATIVE SUITE</span>
                 <span style="font-size: 10px; color: #f472b6; font-weight: 800;">PRO TOOLS</span>
@@ -213,8 +207,8 @@
             </div>
         </div>
 
-        <!-- Clean Creative Sponsor Ad 3: Mega Jackpot / Sports & Games (100% Clean) -->
-        <div id="slideJackpot" class="ad-slide theme-jackpot" style="display: none;" onclick="handleAdClick('jackpot')">
+        <!-- Background Aesthetic Fallback 3: Mega Jackpot -->
+        <div id="slideJackpot" class="ad-slide theme-jackpot" style="display: none;">
             <div style="display: flex; justify-content: space-between; align-items: center;">
                 <span class="badge badge-emerald">🔥 TOP ENTERTAINMENT</span>
                 <span style="font-size: 10px; color: #34d399; font-weight: 800;">MEGA WIN</span>
@@ -240,43 +234,30 @@
                 <span>🎯 အခုပဲ ပါဝင်လိုက်ပါ • JOIN NOW</span>
             </div>
         </div>
+
+        <!-- Adsterra Live Monetized 300x250 Banner Slot (Runs user's actual Adsterra ad tag) -->
+        <div id="adsterraSlot">
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : '22496813124d3f6423ff4f7b68128d7b',
+                    'format' : 'iframe',
+                    'height' : 250,
+                    'width' : 300,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="https://www.highperformanceformat.com/22496813124d3f6423ff4f7b68128d7b/invoke.js"></script>
+        </div>
     </div>
 
     <script>
-        // Randomly rotate clean creative slides immediately
+        // Rotate background fallback slides
         var slides = ['slideGaming', 'slideCreator', 'slideJackpot'];
         var chosen = slides[Math.floor(Math.random() * slides.length)];
         slides.forEach(function(s) {
             var el = document.getElementById(s);
             if (el) el.style.display = (s === chosen) ? 'flex' : 'none';
         });
-
-        // Try push AdSense; if it fills an iframe with actual ad, then reveal it
-        try {
-            (adsbygoogle = window.adsbygoogle || []).push({});
-            var checkCount = 0;
-            var checkAdTimer = setInterval(function() {
-                checkCount++;
-                var ins = document.querySelector('#adsenseContainer ins');
-                if (ins && ins.getAttribute('data-ad-status') === 'filled') {
-                    document.getElementById('adsenseContainer').style.display = 'flex';
-                    clearInterval(checkAdTimer);
-                }
-                if (checkCount > 15) {
-                    clearInterval(checkAdTimer);
-                }
-            }, 300);
-        } catch(e) {}
-
-        function handleAdClick(type) {
-            // Safe clean click action
-            if (type === 'creator') {
-                window.open('https://smartmyanmarfonts.com/#premium', '_blank');
-            } else {
-                // Informative alert or safe link
-                window.open('https://smartmyanmarfonts.com/', '_blank');
-            }
-        }
     </script>
 </body>
 </html>
