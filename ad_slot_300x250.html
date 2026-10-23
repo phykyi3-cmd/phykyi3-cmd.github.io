@@ -4,77 +4,279 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sponsor Advertisement</title>
+    <!-- Google AdSense Library -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5711208447594808" crossorigin="anonymous"></script>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html, body {
             width: 100%;
             height: 100%;
             min-height: 250px;
-            background: #0f172a;
+            background: #090d16;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
             font-family: -apple-system, BlinkMacSystemFont, "Padauk", "Segoe UI", Roboto, sans-serif;
             color: #fff;
+            user-select: none;
         }
         #adWrapper {
             width: 300px;
             height: 250px;
             position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #0b1021;
-            border-radius: 12px;
+            background: #0f172a;
+            border-radius: 14px;
             overflow: hidden;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .fallback-card {
+        .ad-slide {
             position: absolute;
             inset: 0;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            justify-content: space-between;
             padding: 16px;
-            background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
-            border: 1px solid rgba(168, 85, 247, 0.3);
-            border-radius: 12px;
-            text-align: center;
-            z-index: 1;
+            text-decoration: none;
+            color: #fff;
+            transition: opacity 0.4s ease;
+            cursor: pointer;
         }
-        .ad-content {
-            position: relative;
-            z-index: 2;
-            width: 300px;
-            height: 250px;
+
+        /* Style 1: Vegas Gold / Gaming Club */
+        .theme-gaming {
+            background: radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.25) 0%, transparent 60%),
+                        linear-gradient(145deg, #181102 0%, #0c0a09 100%);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        /* Style 2: Cyber Purple / Creator Studio */
+        .theme-creator {
+            background: radial-gradient(circle at 20% 20%, rgba(168, 85, 247, 0.25) 0%, transparent 60%),
+                        linear-gradient(145deg, #130c24 0%, #0b0718 100%);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        /* Style 3: Emerald Jackpot / Sports & Games */
+        .theme-jackpot {
+            background: radial-gradient(circle at 70% 80%, rgba(16, 185, 129, 0.25) 0%, transparent 60%),
+                        linear-gradient(145deg, #021a12 0%, #06110d 100%);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 9px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 3px 8px;
+            border-radius: 9999px;
+            width: fit-content;
+        }
+        .badge-gold {
+            background: rgba(245, 158, 11, 0.2);
+            color: #fbbf24;
+            border: 1px solid rgba(245, 158, 11, 0.4);
+        }
+        .badge-purple {
+            background: rgba(168, 85, 247, 0.2);
+            color: #c084fc;
+            border: 1px solid rgba(168, 85, 247, 0.4);
+        }
+        .badge-emerald {
+            background: rgba(16, 185, 129, 0.2);
+            color: #34d399;
+            border: 1px solid rgba(16, 185, 129, 0.4);
+        }
+
+        .cta-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 9px 14px;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.4);
+            transition: transform 0.15s ease, filter 0.15s ease;
+        }
+        .cta-btn:hover {
+            transform: scale(1.02);
+            filter: brightness(1.1);
+        }
+        .btn-gold {
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            color: #000;
+            font-weight: 900;
+        }
+        .btn-purple {
+            background: linear-gradient(135deg, #a855f7 0%, #ec4899 100%);
+            color: #fff;
+        }
+        .btn-emerald {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: #fff;
+        }
+
+        /* Pulse glow animation */
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 0.8; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.06); }
+        }
+        .glow-icon {
+            animation: pulseGlow 2.5s infinite ease-in-out;
+            display: inline-block;
+        }
+
+        /* AdSense Container (Only shows if ads actually populate) */
+        #adsenseContainer {
+            display: none;
+            position: absolute;
+            inset: 0;
+            z-index: 10;
+            align-items: center;
+            justify-content: center;
+            background: #0f172a;
         }
     </style>
 </head>
 <body>
     <div id="adWrapper">
-        <!-- Fallback if ad is still loading or blocked by AdBlock -->
-        <div class="fallback-card">
-            <div style="font-size: 28px; margin-bottom: 8px;">💎</div>
-            <div style="font-size: 13px; font-weight: 800; color: #f472b6; margin-bottom: 4px;">Smart Creator Studio</div>
-            <div style="font-size: 12px; font-weight: 700; color: #fff; line-height: 1.4; margin-bottom: 6px;">ပရော်ဖက်ရှင်နယ် မြန်မာဖောင့် & Motion Graphic ဒီဇိုင်းများ</div>
-            <div style="font-size: 10px; color: #94a3b8; line-height: 1.3;">Video Editor များအတွက် အထူးသင့်လျော်သော Typography Suite</div>
-            <div style="margin-top: 10px; font-size: 9px; font-weight: 700; color: #34d399; background: rgba(52, 211, 153, 0.15); padding: 3px 8px; border-radius: 9999px; border: 1px solid rgba(52, 211, 153, 0.3);">✓ 100% VERIFIED SPONSOR</div>
+        <!-- Optional Google AdSense Clean Display (Auto-fallback to creative sponsors if empty) -->
+        <div id="adsenseContainer">
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:250px"
+                 data-ad-client="ca-pub-5711208447594808"
+                 data-ad-slot="auto"></ins>
         </div>
 
-        <!-- Adsterra 300x250 Live Ad Slot -->
-        <div class="ad-content">
-            <script type="text/javascript">
-                atOptions = {
-                    'key' : '22496813124d3f6423ff4f7b68128d7b',
-                    'format' : 'iframe',
-                    'height' : 250,
-                    'width' : 300,
-                    'params' : {}
-                };
-            </script>
-            <script type="text/javascript" src="https://www.highperformanceformat.com/22496813124d3f6423ff4f7b68128d7b/invoke.js"></script>
+        <!-- Clean Creative Sponsor Ad 1: Gaming / Lucky Slots (Clean, No Adult/Erotica) -->
+        <div id="slideGaming" class="ad-slide theme-gaming" onclick="handleAdClick('gaming')">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="badge badge-gold">⭐ SPONSOR • GAMING VIP</span>
+                <span style="font-size: 10px; color: #fbbf24; font-weight: 800;">777 CLUB</span>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 12px; margin: 4px 0;">
+                <div class="glow-icon" style="font-size: 38px; line-height: 1;">🎰</div>
+                <div style="flex: 1;">
+                    <div style="font-size: 14px; font-weight: 900; color: #fef08a; letter-spacing: -0.01em;">
+                        LUCKY VEGAS 777
+                    </div>
+                    <div style="font-size: 11px; font-weight: 700; color: #fff; line-height: 1.3; margin-top: 2px;">
+                        အွန်လိုင်းဂိမ်းနှင့် နေ့စဉ်ဆုလက်ဆောင်များ
+                    </div>
+                </div>
+            </div>
+
+            <div style="font-size: 10px; color: #d6d3d1; line-height: 1.35; background: rgba(0,0,0,0.3); padding: 6px 10px; border-radius: 8px;">
+                ✓ ၂၄ နာရီ စိတ်ချရသော ဝန်ဆောင်မှု • စတင်ကစားသူများအတွက် အထူးဘောနပ်စ်
+            </div>
+
+            <div class="cta-btn btn-gold">
+                <span>🎁 အခမဲ့ စတင်ရယူမည် • PLAY NOW</span>
+            </div>
+        </div>
+
+        <!-- Clean Creative Sponsor Ad 2: Creator Studio (100% Clean) -->
+        <div id="slideCreator" class="ad-slide theme-creator" style="display: none;" onclick="handleAdClick('creator')">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="badge badge-purple">💎 CREATIVE SUITE</span>
+                <span style="font-size: 10px; color: #f472b6; font-weight: 800;">PRO TOOLS</span>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 12px; margin: 4px 0;">
+                <div class="glow-icon" style="font-size: 38px; line-height: 1;">🎨</div>
+                <div style="flex: 1;">
+                    <div style="font-size: 14px; font-weight: 900; color: #f472b6; letter-spacing: -0.01em;">
+                        SMART CREATOR STUDIO
+                    </div>
+                    <div style="font-size: 11px; font-weight: 700; color: #fff; line-height: 1.3; margin-top: 2px;">
+                        ပရော်ဖက်ရှင်နယ် Typography & Visual Assets
+                    </div>
+                </div>
+            </div>
+
+            <div style="font-size: 10px; color: #cbd5e1; line-height: 1.35; background: rgba(0,0,0,0.3); padding: 6px 10px; border-radius: 8px;">
+                ✓ Video Editor များနှင့် Content Creator များအတွက် အဆင့်မြင့် ဒီဇိုင်းကိရိယာများ
+            </div>
+
+            <div class="cta-btn btn-purple">
+                <span>✨ အသေးစိတ် ကြည့်ရှုမည် • EXPLORE</span>
+            </div>
+        </div>
+
+        <!-- Clean Creative Sponsor Ad 3: Mega Jackpot / Sports & Games (100% Clean) -->
+        <div id="slideJackpot" class="ad-slide theme-jackpot" style="display: none;" onclick="handleAdClick('jackpot')">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="badge badge-emerald">🔥 TOP ENTERTAINMENT</span>
+                <span style="font-size: 10px; color: #34d399; font-weight: 800;">MEGA WIN</span>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 12px; margin: 4px 0;">
+                <div class="glow-icon" style="font-size: 38px; line-height: 1;">🏆</div>
+                <div style="flex: 1;">
+                    <div style="font-size: 14px; font-weight: 900; color: #6ee7b7; letter-spacing: -0.01em;">
+                        MEGA JACKPOT CLUB
+                    </div>
+                    <div style="font-size: 11px; font-weight: 700; color: #fff; line-height: 1.3; margin-top: 2px;">
+                        အမြန်ဆုံး ငွေသွင်း/ငွေထုတ် စနစ်နှင့် ဆုကြေးများ
+                    </div>
+                </div>
+            </div>
+
+            <div style="font-size: 10px; color: #cbd5e1; line-height: 1.35; background: rgba(0,0,0,0.3); padding: 6px 10px; border-radius: 8px;">
+                ✓ ယုံကြည်စိတ်ချရသော ဂိမ်းပလက်ဖောင်း • 100% Clean & Safe Experience
+            </div>
+
+            <div class="cta-btn btn-emerald">
+                <span>🎯 အခုပဲ ပါဝင်လိုက်ပါ • JOIN NOW</span>
+            </div>
         </div>
     </div>
+
+    <script>
+        // Randomly rotate clean creative slides immediately
+        var slides = ['slideGaming', 'slideCreator', 'slideJackpot'];
+        var chosen = slides[Math.floor(Math.random() * slides.length)];
+        slides.forEach(function(s) {
+            var el = document.getElementById(s);
+            if (el) el.style.display = (s === chosen) ? 'flex' : 'none';
+        });
+
+        // Try push AdSense; if it fills an iframe with actual ad, then reveal it
+        try {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            var checkCount = 0;
+            var checkAdTimer = setInterval(function() {
+                checkCount++;
+                var ins = document.querySelector('#adsenseContainer ins');
+                if (ins && ins.getAttribute('data-ad-status') === 'filled') {
+                    document.getElementById('adsenseContainer').style.display = 'flex';
+                    clearInterval(checkAdTimer);
+                }
+                if (checkCount > 15) {
+                    clearInterval(checkAdTimer);
+                }
+            }, 300);
+        } catch(e) {}
+
+        function handleAdClick(type) {
+            // Safe clean click action
+            if (type === 'creator') {
+                window.open('https://smartmyanmarfonts.com/#premium', '_blank');
+            } else {
+                // Informative alert or safe link
+                window.open('https://smartmyanmarfonts.com/', '_blank');
+            }
+        }
+    </script>
 </body>
 </html>
