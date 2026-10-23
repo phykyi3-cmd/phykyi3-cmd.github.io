@@ -1147,18 +1147,9 @@
                      try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e) {}
                 </script>
 
-                <!-- Adsterra Official Monetized 300x250 Banner Placement -->
-                <div class="w-full flex justify-center items-center my-2 overflow-hidden min-h-[250px] bg-slate-950/60 rounded-xl border border-white/10 p-1">
-                    <script type="text/javascript">
-                        atOptions = {
-                            'key' : '22496813124d3f6423ff4f7b68128d7b',
-                            'format' : 'iframe',
-                            'height' : 250,
-                            'width' : 300,
-                            'params' : {}
-                        };
-                    </script>
-                    <script type="text/javascript" src="https://bellnewyork.org/22/22496813124d3f6423ff4f7b68128d7b"></script>
+                <!-- Monetized 300x250 Verified Sponsor Ad Placement -->
+                <div class="w-full flex justify-center items-center my-2 overflow-hidden min-h-[250px]">
+                    <iframe id="gwAdIframe" src="./ad_slot_300x250.html" width="300" height="250" frameborder="0" scrolling="no" style="border:0; width:300px; height:250px; overflow:hidden; border-radius:14px; background:#0b1021; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);" loading="eager"></iframe>
                 </div>
 
                 <!-- Footer Note -->
@@ -1635,6 +1626,11 @@
             if (modal) {
                 modal.classList.remove('hidden');
                 document.body.style.overflow = 'hidden';
+            }
+
+            const adFrame = document.getElementById('gwAdIframe');
+            if (adFrame) {
+                adFrame.src = './ad_slot_300x250.html?v=' + Date.now();
             }
 
             gatewayTimer = setInterval(() => {
