@@ -266,35 +266,22 @@
                     <span>📥 W01–W70 ZIP</span>
                 </button>
 
-                <!-- Auth State Pill (Logged out vs Logged in) -->
+                <!-- User Studio Tools & Profile Pill (No Login Required) -->
                 <div id="authNavContainer">
-                    <!-- Logged Out Button: Opens Auth Modal -->
-                    <button id="navSignInBtn" onclick="openAuthModal('signin')" class="px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-slate-950 hover:bg-slate-800 text-white text-xs sm:text-sm font-bold shadow-md shadow-purple-500/10 hover:shadow-lg transition flex items-center gap-1.5 whitespace-nowrap">
-                        <span>🔑 အကောင့်ဝင်ရန်</span>
-                        <span class="text-xs">→</span>
-                    </button>
-
-                    <!-- Logged In User Pill (Shown when user logs in) -->
-                    <div id="navUserPill" class="hidden relative">
-                        <button onclick="toggleUserDropdown()" class="flex items-center gap-2 p-1.5 sm:pr-3 rounded-full bg-white border border-slate-200/90 shadow-sm hover:border-purple-300 transition">
-                            <div id="userAvatar" class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-tr from-purple-600 to-indigo-500 text-white font-bold text-xs sm:text-sm flex items-center justify-center shadow-inner">
-                                S
-                            </div>
-                            <div class="hidden sm:block text-left text-xs leading-tight">
-                                <div id="userName" class="font-bold text-slate-800 truncate max-w-[100px]">User</div>
-                                <div class="text-[10px] text-purple-600 font-semibold flex items-center gap-1">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> PRO Member
-                                </div>
-                            </div>
+                    <div id="navUserPill" class="relative">
+                        <button onclick="toggleUserDropdown()" class="flex items-center gap-2 px-3 py-2 rounded-full bg-white border border-slate-200/90 shadow-sm hover:border-purple-300 transition text-slate-800 text-xs font-bold">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                            <span>Studio Menu</span>
                             <span class="text-slate-400 text-xs ml-0.5">▾</span>
                         </button>
 
                         <!-- User Profile Dropdown Menu -->
                         <div id="userDropdown" class="hidden absolute right-0 mt-2 w-64 rounded-2xl bg-white border border-slate-200 shadow-2xl p-3 z-50 animate-in fade-in slide-in-from-top-2">
-                            <div class="p-2.5 rounded-xl bg-slate-50 border border-slate-100 mb-2">
-                                <p class="text-[11px] text-slate-400 font-medium">Logged in as</p>
-                                <p id="dropdownUserEmail" class="text-xs font-bold text-slate-800 truncate">user@zeemotion.com</p>
-                                <p id="dropdownUserRole" class="text-[10px] text-purple-600 font-semibold mt-0.5">Creative Designer</p>
+                            <div class="p-2.5 rounded-xl bg-purple-50/80 border border-purple-100 mb-2">
+                                <p class="text-xs font-bold text-purple-900 flex items-center gap-1.5">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Smart Myanmar Fonts
+                                </p>
+                                <p class="text-[10px] text-purple-700 font-medium mt-0.5">100% အခမဲ့ အသုံးပြုနိုင်ပါသည် (No Login)</p>
                             </div>
                             
                             <div class="space-y-1 text-xs text-slate-600 font-medium">
@@ -314,8 +301,8 @@
                             </div>
 
                             <div class="mt-2 pt-2 border-t border-slate-100">
-                                <button onclick="handleSignOut()" class="w-full px-3 py-2 rounded-xl text-rose-600 hover:bg-rose-50 font-semibold text-xs transition flex items-center gap-2">
-                                    <span>🚪 အကောင့်ထွက်မည် (Sign Out)</span>
+                                <button onclick="openModal('guideModal'); toggleUserDropdown();" class="w-full px-3 py-2 rounded-xl bg-slate-900 text-white font-semibold text-xs hover:bg-slate-800 transition flex items-center justify-center gap-1.5">
+                                    <span>📖 အသုံးပြုနည်း လမ်းညွှန်</span>
                                 </button>
                             </div>
                         </div>
@@ -502,80 +489,9 @@
 
         </section>
 
-        <!-- ================= AUTH GATE / LOGIN REQUIRED SECTION ================= -->
-        <!-- Shown ONLY when user is NOT logged in -->
-        <section id="authGateSection" class="relative overflow-hidden rounded-3xl p-6 sm:p-10 glass-card border border-white text-center space-y-6">
-            
-            <div class="max-w-xl mx-auto space-y-4">
-                
-                <!-- Glowing 3D Lock Badge -->
-                <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-3xl mx-auto bg-gradient-to-tr from-purple-600 to-indigo-500 shadow-xl shadow-purple-500/20 flex items-center justify-center text-white text-2xl sm:text-3xl animate-bounce">
-                    🔒
-                </div>
-
-                <div class="space-y-2">
-                    <span class="px-3 py-1 rounded-full bg-purple-100 text-purple-700 font-bold text-xs">
-                        MEMBER ACCESS REQUIRED
-                    </span>
-                    <h3 class="text-2xl sm:text-3xl font-black text-slate-900">
-                        Smart Myanmar Fonts Studio ကို အသုံးပြုရန် အကောင့်ဝင်ပါ
-                    </h3>
-                    <p class="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                        မြန်မာဖောင့် ၁၈၀+ ကို တိုက်ရိုက်စာရိုက်စမ်းသပ်ခြင်း၊ TrueType (.ttf) ဖိုင်များ ရယူခြင်းနှင့် Art House W01 မှ W70 Mega Pack ZIP ကို ဒေါင်းလုဒ်ဆွဲနိုင်ရန် အကောင့်ဝင်ရောက်ပေးရန် လိုအပ်ပါသည်။
-                    </p>
-                </div>
-
-                <!-- Quick Action Buttons -->
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-                    <button onclick="openAuthModal('signin')" class="w-full sm:w-auto px-7 py-3 rounded-full bg-slate-950 hover:bg-slate-800 text-white font-bold text-sm shadow-lg shadow-purple-500/10 transition flex items-center justify-center gap-2">
-                        <span>🔑 အကောင့်ဝင်ရောက်မည် (Sign In)</span>
-                    </button>
-                    <button onclick="quickDemoLogin()" class="w-full sm:w-auto px-6 py-3 rounded-full bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-400 hover:to-orange-400 text-slate-950 font-bold text-sm shadow-md transition flex items-center justify-center gap-2">
-                        <span>⚡ 1-Click Demo Login (ချက်ချင်းစမ်းသပ်ရန်)</span>
-                    </button>
-                </div>
-
-                <div class="text-xs text-slate-500 pt-1">
-                    အကောင့်မရှိသေးပါက <button onclick="openAuthModal('signup')" class="text-purple-600 font-bold hover:underline">ဤနေရာတွင် အခမဲ့အကောင့်သစ်ဖွင့်ပါ</button>
-                </div>
-
-            </div>
-
-            <!-- Frosted Teaser Preview Grid (Shows blurred font cards behind lock) -->
-            <div class="pt-6 border-t border-slate-200/80">
-                <div class="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-4">
-                    Studio Teaser Preview (170+ Fonts Awaiting)
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 opacity-40 blur-[1.5px] pointer-events-none select-none">
-                    <div class="p-4 rounded-2xl bg-white border border-slate-200 space-y-2 text-left">
-                        <div class="flex justify-between items-center">
-                            <span class="font-bold text-slate-800">W60 Art House</span>
-                            <span class="text-[10px] px-2 py-0.5 rounded bg-amber-100 text-amber-700">Art House</span>
-                        </div>
-                        <div class="font-preview-arthouse-w60 text-lg text-slate-800">r*Fvmyg jrefrmjynf</div>
-                    </div>
-                    <div class="p-4 rounded-2xl bg-white border border-slate-200 space-y-2 text-left">
-                        <div class="flex justify-between items-center">
-                            <span class="font-bold text-slate-800">Masterpiece Uni Round</span>
-                            <span class="text-[10px] px-2 py-0.5 rounded bg-indigo-100 text-indigo-700">Masterpiece</span>
-                        </div>
-                        <div class="font-preview-masterpiece-uniround text-lg text-slate-800">မင်္ဂလာပါ မြန်မာပြည်</div>
-                    </div>
-                    <div class="p-4 rounded-2xl bg-white border border-slate-200 space-y-2 text-left">
-                        <div class="flex justify-between items-center">
-                            <span class="font-bold text-slate-800">Aka02 Regular</span>
-                            <span class="text-[10px] px-2 py-0.5 rounded bg-rose-100 text-rose-700">Handwriting</span>
-                        </div>
-                        <div class="font-preview-aka-02 text-lg text-slate-800">သီဟိုဠ်မှ ဉာဏ်ကြီးရှင်သည်</div>
-                    </div>
-                </div>
-            </div>
-
-        </section>
-
         <!-- ================= FULL INTERACTIVE FONT STUDIO SECTION ================= -->
-        <!-- Unlocked & displayed when user is logged in -->
-        <section id="studioSection" class="hidden space-y-6">
+        <!-- 100% Free & Open Access (No Login Required) -->
+        <section id="studioSection" class="space-y-6">
 
             <!-- Search, Filter & Global Studio Controls Panel -->
             <div class="glass-card rounded-3xl p-5 sm:p-6 space-y-4">
@@ -1477,14 +1393,18 @@
                 <span class="text-base">📱</span>
                 <span class="text-[10px]">သွင်းနည်း</span>
             </button>
+            <a href="./premium-fonts.html" class="flex flex-col items-center py-1 px-2.5 rounded-xl text-purple-600 hover:text-purple-700 font-bold">
+                <span class="text-base">💎</span>
+                <span class="text-[10px]">English</span>
+            </a>
             <button onclick="toggleFavoritesFilter()" class="flex flex-col items-center py-1 px-2.5 rounded-xl hover:text-slate-900 relative">
                 <span class="text-base">❤️</span>
                 <span class="text-[10px]">သိမ်းထား</span>
                 <span id="mobileFavCountBadge" class="hidden absolute top-0 right-1 w-4 h-4 rounded-full bg-rose-500 text-white text-[9px] font-bold flex items-center justify-center">0</span>
             </button>
-            <button onclick="handleMobileAuthClick()" class="flex flex-col items-center py-1 px-2.5 rounded-xl hover:text-slate-900">
-                <span id="mobileAuthIcon" class="text-base">👤</span>
-                <span id="mobileAuthText" class="text-[10px]">အကောင့်</span>
+            <button onclick="openModal('webSettingsModal')" class="flex flex-col items-center py-1 px-2.5 rounded-xl hover:text-slate-900">
+                <span class="text-base">⚙️</span>
+                <span class="text-[10px]">ဆက်တင်</span>
             </button>
         </nav>
     </div>
@@ -1721,50 +1641,26 @@
         }
 
         function updateAuthUI() {
-            const isAuthed = currentUser !== null;
-            const gateSection = document.getElementById('authGateSection');
             const studioSection = document.getElementById('studioSection');
-            const navSignInBtn = document.getElementById('navSignInBtn');
-            const navUserPill = document.getElementById('navUserPill');
-            const mobileAuthText = document.getElementById('mobileAuthText');
-
-            // The Studio is always visible so anyone can search, explore and test fonts immediately
             if (studioSection) studioSection.classList.remove('hidden');
 
-            if (isAuthed) {
-                if (gateSection) gateSection.classList.add('hidden');
-                if (navSignInBtn) navSignInBtn.classList.add('hidden');
-                if (navUserPill) navUserPill.classList.remove('hidden');
+            const gateSection = document.getElementById('authGateSection');
+            if (gateSection) gateSection.remove();
 
-                const nameInit = currentUser.name ? currentUser.name.charAt(0).toUpperCase() : 'U';
-                document.getElementById('userAvatar').textContent = nameInit;
-                document.getElementById('userName').textContent = currentUser.name.split(' ')[0];
-                document.getElementById('dropdownUserEmail').textContent = currentUser.email;
-                document.getElementById('dropdownUserRole').textContent = currentUser.role || 'Member';
-                if (mobileAuthText) mobileAuthText.textContent = 'ပရိုဖိုင်';
-            } else {
-                if (gateSection) gateSection.classList.remove('hidden');
-                if (navSignInBtn) navSignInBtn.classList.remove('hidden');
-                if (navUserPill) navUserPill.classList.add('hidden');
-                if (mobileAuthText) mobileAuthText.textContent = 'အကောင့်ဝင်';
-            }
+            const navSignInBtn = document.getElementById('navSignInBtn');
+            if (navSignInBtn) navSignInBtn.remove();
+
+            const navUserPill = document.getElementById('navUserPill');
+            if (navUserPill) navUserPill.classList.remove('hidden');
         }
 
         function scrollToStudioOrLogin() {
-            if (!currentUser) {
-                openAuthModal('signin');
-            } else {
-                const el = document.getElementById('studioSection');
-                if (el) el.scrollIntoView({ behavior: 'smooth' });
-            }
+            const el = document.getElementById('studioSection');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
         }
 
         function handleMobileAuthClick() {
-            if (!currentUser) {
-                openAuthModal('signin');
-            } else {
-                toggleUserDropdown();
-            }
+            openModal('guideModal');
         }
 
         function toggleUserDropdown() {
@@ -1781,8 +1677,7 @@
         });
 
         function openAuthModal(tab = 'signin') {
-            switchAuthTab(tab);
-            openModal('authModal');
+            // Login disabled - 100% Free Open Access
         }
 
         function switchAuthTab(tab) {
@@ -2183,10 +2078,6 @@
         }
 
         function toggleFavorite(fontId) {
-            if (!currentUser) {
-                openAuthModal('signin');
-                return;
-            }
             const idx = savedFavorites.indexOf(fontId);
             if (idx > -1) {
                 savedFavorites.splice(idx, 1);
@@ -2217,10 +2108,6 @@
         }
 
         function toggleFavoritesFilter() {
-            if (!currentUser) {
-                openAuthModal('signin');
-                return;
-            }
             favoritesOnly = !favoritesOnly;
             const btn = document.getElementById('favFilterBtn');
             if (btn) {
