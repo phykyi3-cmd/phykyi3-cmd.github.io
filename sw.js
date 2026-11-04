@@ -1,7 +1,13 @@
-const CACHE_NAME = 'smartmyanmarfonts-cache-v2';
+const CACHE_NAME = 'smartmyanmarfonts-cache-v3';
 const STATIC_ASSETS = [
     './',
     './index.html',
+    './davinci-plugins.html',
+    './ae-plugins.html',
+    './sound-effects.html',
+    './premium-fonts.html',
+    './w-art-house-capcut-converter.html',
+    './ad_slot_300x250.html',
     './manifest.json',
     './favicon.ico',
     './icons/icon-192.png',
@@ -29,13 +35,21 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
-    // Only handle GET requests
     if (event.request.method !== 'GET') return;
 
-    // Network-first with cache fallback for HTML, cache-first for images/icons
     const url = new URL(event.request.url);
 
-    if (url.pathname.endsWith('.html') || url.pathname.endsWith('/') || url.origin === location.origin) {
+    // Bypass caching for ad scripts, adsterra, googlesyndication, and analytics
+    if (url.hostname.includes('adsterra') ||
+        url.hostname.includes('highperformanceformat') ||
+        url.hostname.includes('bellnewyork') ||
+        url.hostname.includes('googlesyndication') ||
+        url.hostname.includes('google-analytics') ||
+        url.hostname.includes('doubleclick')) {
+        return;
+    }
+
+    if (url.pathname.endsWith('.html') || url.pathname.endsWith('/')) {
         event.respondWith(
             fetch(event.request).then((response) => {
                 if (response && response.status === 200) {
@@ -44,7 +58,13 @@ self.addEventListener('fetch', (event) => {
                 }
                 return response;
             }).catch(() => {
-                return caches.match(event.request).then((cached) => cached || caches.match('./index.html'));
+                return caches.match(event.request).then((cached) => {
+                    if (cached) return cached;
+                    if (url.pathname.includes('davinci')) return caches.match('./davinci-plugins.html');
+                    if (url.pathname.includes('ae-plugin')) return caches.match('./ae-plugins.html');
+                    if (url.pathname.includes('sound')) return caches.match('./sound-effects.html');
+                    return caches.match('./index.html');
+                });
             })
         );
     } else {
