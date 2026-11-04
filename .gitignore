@@ -63,6 +63,11 @@
 !sound_design_subbooms_2.zip
 !sound_design_risers.zip
 !sound_design_tones.zip
+!capcut/
+!capcut/**
+!w-art-house/
+!w-art-house/**
+!w-art-house-capcut-converter.html
 !.github/
 !.github/**
 !.gitignore
